@@ -1,0 +1,733 @@
+{
+    "modelID": "diag_parameter", 
+    "fields": [
+        {
+            "field": "id", 
+            "name": "ID", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "name", 
+            "name": "名称", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },  
+        {
+            "field": "domain_id", 
+            "name": "Domain", 
+            "dataType": "varchar",
+            "fieldType":"MANY_TO_ONE",
+            "relatedModelID":"diag_domain"
+        },
+        {
+            "field": "ecu_id", 
+            "name": "ECU", 
+            "dataType": "varchar",
+            "fieldType":"MANY_TO_ONE",
+            "relatedModelID":"diag_ecu"
+        },
+        {
+            "field": "time_offset", 
+            "name": "回传时长", 
+            "dataType": "varchar"
+        },
+        {
+            "field": "logistics_did", 
+            "name": "物流DID", 
+            "fieldType":"MANY_TO_MANY",
+            "relatedModelID":"diag_logistics",
+            "associationModelID":"diag_parameter_logistics_did"
+        },
+        {
+            "field": "internal_did",
+            "name": "内部DID",
+            "fieldType":"MANY_TO_MANY",
+            "relatedModelID":"diag_logistics",
+            "associationModelID":"diag_parameter_internal_did"
+        },
+        {
+            "field": "triggers",
+            "name": "触发条件",
+            "fieldType":"ONE_TO_MANY",
+            "relatedModelID":"diag_parameter_trigger",
+            "relatedField":"parameter_id"
+        },
+        {
+            "field": "create_time", 
+            "name": "创建时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "create_user", 
+            "name": "创建人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "update_time", 
+            "name": "更新时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "update_user", 
+            "name": "更新人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "remark", 
+            "name": "备注", 
+            "dataType": "varchar",
+            "quickSearch":true
+        }, 
+        {
+            "field": "version", 
+            "name": "数据版本", 
+            "dataType": "int"
+        }
+    ], 
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"OP_TYPE_OPEN",
+            "params":{
+                    "url":"/crv_form_view/#/diag_parameter/form1/FORM_TYPE_CREATE",
+                    "location":"LOCATION_TYPE_MODAL",
+                    "title":"新建诊断参数",
+                    "key":"/model/diag_parameter/form1/create",
+                    "width":800,
+                    "height":550
+            },
+            "input":{},
+            "description":"打开新建诊断参数对话框" 
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"OP_TYPE_OPEN",
+            "params":{
+                    "url":"/crv_form_view/#/diag_parameter/form1/FORM_TYPE_EDIT",
+                    "location":"LOCATION_TYPE_MODAL",
+                    "title":"编辑诊断参数",
+                    "key":"/model/diag_parameter/form1/edit",
+                    "width":800,
+                    "height":550
+            },
+            "input":{},
+            "description":"打开诊断参数编辑对话框"
+        }, 
+        {
+            "id": "distribute", 
+            "name": "参数下发",
+            "type":"OP_TYPE_OPEN",
+            "params":{
+                    "url":"/crv_form_view/#/diag_parameter/formDistribute/FORM_TYPE_DETAIL",
+                    "location":"LOCATION_TYPE_MODAL",
+                    "title":"诊断参数详情",
+                    "key":"/model/diag_parameter/formDistribute/detail",
+                    "width":800,
+                    "height":550
+            },
+            "input":{},
+            "description":"打开诊断参数参数下发对话框"
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"OP_TYPE_REQUEST",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"OP_TYPE_MESSAGE",
+                "params":{
+                    "type":"success",
+                    "content":"删除信息成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "params":{
+                        "location":"LOCATION_TYPE_TAB",
+                        "key":"/model/diag_parameter"
+                    },
+                    "description":"刷新页面数据"
+                }
+            }
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"OP_TYPE_REQUEST",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"OP_TYPE_CLOSE",
+                "params":{
+                    "location":"LOCATION_TYPE_MODAL"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "params":{
+                        "location":"LOCATION_TYPE_TAB",
+                        "key":"/model/diag_parameter"
+                    },
+                    "description":"刷新页面数据"
+                }
+            }
+        },
+        {
+            "id":"distributeConfirm",
+            "name":"确认下发",
+            "type":"OP_TYPE_REQUEST",
+            "params":{
+                "url":"/redirect",
+                "method":"post"
+            },
+            "input":{
+                "to":"diagnosisParameterDistribute"
+            },
+            "description":"确认下发",
+            "successOperation":{
+                "type":"OP_TYPE_CLOSE",
+                "params":{
+                    "location":"LOCATION_TYPE_MODAL"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"OP_TYPE_MESSAGE",
+                    "params":{
+                        "type":"success",
+                        "content":"参数下发成功!",
+                        "duration":"2"
+                    }
+                }
+            }
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "view1", 
+            "name": "诊断参数维护", 
+            "description": "诊断参数维护", 
+            "fields": [
+                {
+                    "field": "id", 
+                    "width": 100
+                }, 
+                {
+                    "field": "name", 
+                    "width": 100
+                }, 
+                {
+                    "field": "domain_id", 
+                    "width": 100
+                },
+                {
+                    "field": "ecu_id", 
+                    "width": 100
+                },
+                {
+                    "field": "remark", 
+                    "width": 200
+                }, 
+                {
+                    "field": "create_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "create_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "version", 
+                    "width": 100
+                }
+            ], 
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"新建诊断参数"
+                        }, 
+                        {
+                            "operationID": "delete",
+                            "name":"删除选中记录",
+                            "prompt":"确定要删除当前选择的记录吗？"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 2,
+                    "width":140, 
+                    "buttons": [
+                        {
+                            "operationID": "edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除这个诊断参数吗？"
+                        },
+                        {
+                            "operationID": "distribute",
+                            "name":"参数下发"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建诊断参数"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"OP_TYPE_CLOSE",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"LOCATION_TYPE_MODAL"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "label": "ID",
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                }, 
+                {
+                    "field": "name",
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 2, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "domain_id",
+                    "controlType": "SingleSelect",
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"name"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 3, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field":"ecu_id",
+                    "controlType":"SingleSelect",
+                    "cascade":{
+                        "parentField":"domain_id",
+                        "type":"MANY_TO_ONE",
+                        "relatedField":"domain_id"
+                    },
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"name"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 4, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"logistics_did",
+                    "controlType":"Transfer",
+                    "optionLabel":"did",
+                    "cascade":{
+                        "parentField":"ecu_id",
+                        "type":"MANY_TO_ONE",
+                        "relatedField":"ecu_id"
+                    },
+                    "relatedFilter":{
+                        "type":"static"
+                    },
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"did"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1, 
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"internal_did",
+                    "controlType":"Transfer",
+                    "optionLabel":"did",
+                    "cascade1":{
+                        "parentField":"ecu_id",
+                        "type":"MANY_TO_ONE",
+                        "relatedField":"ecu_id"
+                    },
+                    "relatedFilter":{
+                        "type":"dynamic"
+                    },
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"did"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 3, 
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"triggers",
+                    "controlType":"EditTable",
+                    "cascade":{
+                        "parentField":"domain_id"
+                    },
+                    "fields":[
+                        {
+                            "field":"id",
+                            "label":"ID"
+                        },
+                        {
+                            "field":"diag_signal_id",
+                            "visible":true,
+                            "label":"信号",
+                            "controlType":"SingleSelect",
+                            "fieldType":"MANY_TO_ONE",
+                            "relatedModelID":"diag_signal",
+                            "optionLabel":"name",
+                            "parentCascade":{
+                                "type":"MANY_TO_ONE",
+                                "relatedField":"domain_id"
+                            },
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":200
+                        },
+                        {
+                            "field":"logic",
+                            "visible":true,
+                            "label":"操作符",
+                            "controlType":"SingleSelect",
+                            "options":[
+                                {"value":"=","label":"="},
+                                {"value":">","label":">"},
+                                {"value":"<","label":"<"}
+                            ],
+                            "width":140
+                        },
+                        {
+                            "field":"value",
+                            "visible":true,
+                            "label":"值",
+                            "controlType":"Text",
+                            "width":200
+                        },
+                        {
+                            "field":"version"
+                        },
+                        {
+                            "field":"parameter_id"
+                        }
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 3,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"time_offset",
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "controlType": "TextArea",
+                    "row": 4,
+                    "col": 1,
+                    "field": "remark", 
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
+            ]
+        },
+        {
+            "formID": "formDistribute",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"诊断参数下发"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"distributeConfirm",
+                        "name":"确认下发"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"OP_TYPE_CLOSE",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"LOCATION_TYPE_MODAL"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "label": "ID",
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                }, 
+                {
+                    "field": "name",
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 2, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "domain_id",
+                    "controlType": "SingleSelect",
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"name"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 3, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field":"ecu_id",
+                    "controlType":"SingleSelect",
+                    "cascade":{
+                        "parentField":"domain_id",
+                        "type":"MANY_TO_ONE",
+                        "relatedField":"domain_id"
+                    },
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"name"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 4, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"logistics_did",
+                    "controlType":"Transfer",
+                    "optionLabel":"did",
+                    "cascade":{
+                        "parentField":"ecu_id",
+                        "type":"MANY_TO_ONE",
+                        "relatedField":"ecu_id"
+                    },
+                    "relatedFilter":{
+                        "type":"static"
+                    },
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"did"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1, 
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"internal_did",
+                    "controlType":"Transfer",
+                    "optionLabel":"did",
+                    "cascade1":{
+                        "parentField":"ecu_id",
+                        "type":"MANY_TO_ONE",
+                        "relatedField":"ecu_id"
+                    },
+                    "relatedFilter":{
+                        "type":"dynamic"
+                    },
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"did"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 3, 
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"triggers",
+                    "controlType":"EditTable",
+                    "cascade":{
+                        "parentField":"domain_id"
+                    },
+                    "fields":[
+                        {
+                            "field":"id",
+                            "label":"ID"
+                        },
+                        {
+                            "field":"diag_signal_id",
+                            "visible":true,
+                            "label":"信号",
+                            "controlType":"SingleSelect",
+                            "fieldType":"MANY_TO_ONE",
+                            "relatedModelID":"diag_signal",
+                            "optionLabel":"name",
+                            "parentCascade":{
+                                "type":"MANY_TO_ONE",
+                                "relatedField":"domain_id"
+                            },
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":200
+                        },
+                        {
+                            "field":"logic",
+                            "visible":true,
+                            "label":"操作符",
+                            "controlType":"SingleSelect",
+                            "options":[
+                                {"value":"=","label":"="},
+                                {"value":">","label":">"},
+                                {"value":"<","label":"<"}
+                            ],
+                            "width":140
+                        },
+                        {
+                            "field":"value",
+                            "visible":true,
+                            "label":"值",
+                            "controlType":"Text",
+                            "width":200
+                        },
+                        {
+                            "field":"version"
+                        },
+                        {
+                            "field":"parameter_id"
+                        }
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 3,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"time_offset",
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "controlType": "TextArea",
+                    "row": 4,
+                    "col": 1,
+                    "field": "remark", 
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
+            ]
+        }
+    ]
+}
