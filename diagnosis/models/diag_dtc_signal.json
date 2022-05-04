@@ -73,7 +73,8 @@
                     "height":450
             },
             "input":{},
-            "description":"打开新建DTC Signal对话框" 
+            "description":"打开新建DTC Signal对话框" ,
+            "roles":"admin"
         }, 
         {
             "id": "edit", 
@@ -88,7 +89,8 @@
                     "height":450
             },
             "input":{},
-            "description":"打开故DTC Signal辑对话框"
+            "description":"打开故DTC Signal辑对话框",
+            "roles":"admin"
         }, 
         {
             "id": "detail", 
@@ -103,7 +105,8 @@
                     "height":450
             },
             "input":{},
-            "description":"打开DTC Signal信息编辑对话框"
+            "description":"打开DTC Signal信息编辑对话框",
+            "roles":"admin"
         }, 
         {
             "id": "delete", 
@@ -130,7 +133,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         },
         {
             "id":"save",
@@ -156,7 +160,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         }
     ],
     "views": [
@@ -267,7 +272,8 @@
                         }
                     ]
                 }
-            }
+            },
+            "roles":"admin"
         }
     ],
     "forms":[

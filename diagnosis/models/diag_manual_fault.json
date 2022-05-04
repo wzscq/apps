@@ -97,7 +97,8 @@
                     "height":550
             },
             "input":{},
-            "description":"打开新建故障对话框" 
+            "description":"打开新建故障对话框",
+            "roles":["admin","operator"]
         }, 
         {
             "id": "edit", 
@@ -112,7 +113,8 @@
                     "height":550
             },
             "input":{},
-            "description":"打开故障编辑对话框"
+            "description":"打开故障编辑对话框",
+            "roles":["admin","operator"]
         }, 
         {
             "id": "detail", 
@@ -127,7 +129,8 @@
                     "height":550
             },
             "input":{},
-            "description":"打开故障信息编辑对话框"
+            "description":"打开故障信息编辑对话框",
+            "roles":["admin","operator"]
         }, 
         {
             "id": "delete", 
@@ -154,7 +157,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":["admin","operator"]
         },
         {
             "id":"save",
@@ -180,7 +184,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":["admin","operator"]
         }
     ],
     "views": [
@@ -307,7 +312,8 @@
                         }
                     ]
                 }
-            }
+            },
+            "roles":["admin","operator"]
         }
     ],
     "forms":[

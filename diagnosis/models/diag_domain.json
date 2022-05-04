@@ -58,7 +58,8 @@
                     "height":350
             },
             "input":{},
-            "description":"打开新建Domain对话框" 
+            "description":"打开新建Domain对话框" ,
+            "roles":"admin"
         }, 
         {
             "id": "edit", 
@@ -73,7 +74,8 @@
                     "height":350
             },
             "input":{},
-            "description":"打开Domain信息编辑对话框"
+            "description":"打开Domain信息编辑对话框",
+            "roles":"admin"
         }, 
         {
             "id": "detail", 
@@ -88,7 +90,8 @@
                     "height":350
             },
             "input":{},
-            "description":"打开Domain信息编辑对话框"
+            "description":"打开Domain信息编辑对话框",
+            "roles":"admin"
         }, 
         {
             "id": "delete", 
@@ -115,7 +118,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         },
         {
             "id":"save",
@@ -141,7 +145,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         }
     ], 
     "views": [
@@ -218,7 +223,8 @@
                         }
                     ]
                 }
-            }
+            },
+            "roles":"admin"
         }
     ],
     "forms":[

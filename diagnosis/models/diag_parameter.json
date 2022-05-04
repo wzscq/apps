@@ -98,7 +98,8 @@
                     "height":550
             },
             "input":{},
-            "description":"打开新建诊断参数对话框" 
+            "description":"打开新建诊断参数对话框" ,
+            "roles":["admin","operator"]
         }, 
         {
             "id": "edit", 
@@ -113,7 +114,8 @@
                     "height":550
             },
             "input":{},
-            "description":"打开诊断参数编辑对话框"
+            "description":"打开诊断参数编辑对话框",
+            "roles":["admin","operator"]
         }, 
         {
             "id": "distribute", 
@@ -128,7 +130,8 @@
                     "height":550
             },
             "input":{},
-            "description":"打开诊断参数参数下发对话框"
+            "description":"打开诊断参数参数下发对话框",
+            "roles":["admin","operator"]
         }, 
         {
             "id": "delete", 
@@ -155,7 +158,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":["admin","operator"]
         },
         {
             "id":"save",
@@ -181,7 +185,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":["admin","operator"]
         },
         {
             "id":"distributeConfirm",
@@ -210,7 +215,8 @@
                         "duration":"2"
                     }
                 }
-            }
+            },
+            "roles":["admin","operator"]
         }
     ], 
     "views": [
@@ -295,7 +301,8 @@
                         }
                     ]
                 }
-            }
+            },
+            "roles":["admin","operator"]
         }
     ],
     "forms":[

@@ -19,7 +19,8 @@
                     },
                     "input":{},
                     "description":"打开智能诊断仪表盘"
-                }
+                },
+                "roles":"*"
             },
             {
                 "id":"2",
@@ -36,7 +37,8 @@
                     },
                     "input":{},
                     "description":"打开智能诊断记录查询页"
-                }
+                },
+                "roles":["admin","operator"]
             }
         ]
     },
@@ -60,7 +62,8 @@
                     },
                     "input":{},
                     "description":"打开诊断参数记录页面"
-                }
+                },
+                "roles":["admin","operator"]
             },
             {
                 "id":"2",
@@ -77,7 +80,8 @@
                     },
                     "input":{},
                     "description":"打开物流信息管理页面"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"3",
@@ -94,7 +98,8 @@
                     },
                     "input":{},
                     "description":"打开DTC Signal信息维护页面"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"4",
@@ -111,7 +116,8 @@
                     },
                     "input":{},
                     "description":"打开诊断执行参数配置页面"
-                }
+                },
+                "roles":["admin","operator"]
             }
         ]
     },
@@ -135,7 +141,8 @@
                     },
                     "input":{},
                     "description":"打开手动添加故障记录页面"
-                }
+                },
+                "roles":["admin","operator"]
             },
             {
                 "id":"2",
@@ -152,7 +159,8 @@
                     },
                     "input":{},
                     "description":"打开维护ECU字典页面"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"3",
@@ -169,7 +177,8 @@
                     },
                     "input":{},
                     "description":"打开维护信号字典页面"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"4",
@@ -186,7 +195,8 @@
                     },
                     "input":{},
                     "description":"打开维护DTC页面"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"5",
@@ -203,7 +213,8 @@
                     },
                     "input":{},
                     "description":"打开维护Domain页面"
-                }
+                },
+                "roles":"admin"
             }
         ]
     },
@@ -227,7 +238,8 @@
                     },
                     "input":{},
                     "description":"打开用户管理功能"
-                }
+                },
+                "roles":["admin","operator"]
             },
             {
                 "id":"2",
@@ -244,7 +256,8 @@
                     },
                     "input":{},
                     "description":"打开角色管理功能"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"3",
@@ -261,7 +274,8 @@
                     },
                     "input":{},
                     "description":"打开操作日志窗口"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"4",
@@ -278,7 +292,8 @@
                     },
                     "input":{},
                     "description":"打开文件管理窗口"
-                }
+                },
+                "roles":"admin"
             }
         ]
     }

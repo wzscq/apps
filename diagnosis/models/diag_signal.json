@@ -95,7 +95,8 @@
                     "height":450
             },
             "input":{},
-            "description":"打开新建信号对话框" 
+            "description":"打开新建信号对话框" ,
+            "roles":"admin"
         }, 
         {
             "id": "edit", 
@@ -110,7 +111,8 @@
                     "height":450
             },
             "input":{},
-            "description":"打开信号编辑对话框"
+            "description":"打开信号编辑对话框",
+            "roles":"admin"
         }, 
         {
             "id": "detail", 
@@ -125,7 +127,8 @@
                     "height":450
             },
             "input":{},
-            "description":"打开信号信息编辑对话框"
+            "description":"打开信号信息编辑对话框",
+            "roles":"admin"
         }, 
         {
             "id": "delete", 
@@ -152,7 +155,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         },
         {
             "id":"save",
@@ -178,34 +182,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
-        },
-        {
-            "id":"savebak",
-            "name":"保存",
-            "type":"OP_TYPE_REQUEST",
-            "params":{
-                "url":"/data/save",
-                "method":"post"
             },
-            "description":"保存数据",
-            "successOperation":{
-                "type":"OP_TYPE_CLOSE",
-                "params":{
-                    "location":"LOCATION_TYPE_MODAL"
-                },
-                "input":{},
-                "description":"关闭对话框",
-                "successOperation":{
-                    "type":"OP_TYPE_MESSAGE",
-                    "params":{
-                        "type":"success",
-                        "content":"保存用户信息成功!",
-                        "duration":"2"
-                    },
-                    "description":"提示保存数据成功"
-                }
-            }
+            "roles":"admin"
         }
     ], 
     "views": [
@@ -310,7 +288,8 @@
                         }
                     ]
                 }
-            }
+            },
+            "roles":"admin"
         }
     ],
     "forms":[

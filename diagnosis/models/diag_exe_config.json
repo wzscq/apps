@@ -81,7 +81,8 @@
                     "height":450
             },
             "input":{},
-            "description":"打开新建诊断配置对话框" 
+            "description":"打开新建诊断配置对话框" ,
+            "roles":"admin"
         }, 
         {
             "id": "edit", 
@@ -96,7 +97,8 @@
                     "height":450
             },
             "input":{},
-            "description":"打开诊断配置编辑对话框"
+            "description":"打开诊断配置编辑对话框",
+            "roles":["admin","operator"]
         }, 
         {
             "id": "detail", 
@@ -111,7 +113,8 @@
                     "height":450
             },
             "input":{},
-            "description":"打开诊断配置信息详情对话框"
+            "description":"打开诊断配置信息详情对话框",
+            "roles":["admin","operator"]
         }, 
         {
             "id": "delete", 
@@ -138,7 +141,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         },
         {
             "id":"save",
@@ -164,7 +168,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         }
     ], 
     "views": [
@@ -277,7 +282,8 @@
                         }
                     ]
                 }
-            }
+            },
+            "roles":["admin","operator"]
         }
     ],
     "forms":[
