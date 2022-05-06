@@ -69,6 +69,14 @@
             "dataType": "int"
         }
     ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
     "operations": [
         {
             "id": "create", 
@@ -83,7 +91,8 @@
                     "height":400
             },
             "input":{},
-            "description":"打开创建班级学期对话框" 
+            "description":"打开创建班级学期对话框",
+            "roles":"admin"
         }, 
         {
             "id": "edit", 
@@ -98,7 +107,8 @@
                     "height":400
             },
             "input":{},
-            "description":"打开班级学期编辑对话框"
+            "description":"打开班级学期编辑对话框",
+            "roles":"admin"
         },  
         {
             "id": "delete", 
@@ -125,7 +135,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         },
         {
             "id":"save",
@@ -151,7 +162,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         }
     ], 
     "views": [
@@ -230,7 +242,8 @@
                         }
                     ]
                 }
-            }
+            },
+            "roles":"admin"
         }
     ],
     "forms":[

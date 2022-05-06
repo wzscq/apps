@@ -66,6 +66,14 @@
             "dataType": "int"
         }
     ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
     "operations": [
         {
             "id": "create", 

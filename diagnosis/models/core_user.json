@@ -61,6 +61,21 @@
             "relatedModelID":"core_role"
         }
     ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"admin",
+            "mutationRoles":"admin"
+        },
+        {
+            "id":"operator",
+            "filter":{"Op.or":[{"id":"op"},{"id":"admin1"}]},
+            "fields":"id,user_name_en,user_name_zh,update_user,remark",
+            "queryRoles":"operator",
+            "mutationRoles":""
+        }
+    ],
     "operations": [
         {
             "id": "create", 

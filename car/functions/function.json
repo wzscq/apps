@@ -19,7 +19,8 @@
                     },
                     "input":{},
                     "description":"打开数据标注功能"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"2",
@@ -36,7 +37,8 @@
                     },
                     "input":{},
                     "description":"打开KPI分析功能"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"3",
@@ -53,7 +55,8 @@
                     },
                     "input":{},
                     "description":"打开车辆动态模型分析功能"
-                }
+                },
+                "roles":"admin"
             }
         ]
     },
@@ -77,7 +80,8 @@
                     },
                     "input":{},
                     "description":"打开地图功能"
-                }
+                },
+                "roles":"admin"
             }
         ]
     },
@@ -101,7 +105,8 @@
                     },
                     "input":{},
                     "description":"打开用户管理功能"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"2",
@@ -118,7 +123,8 @@
                     },
                     "input":{},
                     "description":"打开角色管理功能"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"3",
@@ -135,7 +141,8 @@
                     },
                     "input":{},
                     "description":"打开操作日志窗口"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"4",
@@ -152,7 +159,8 @@
                     },
                     "input":{},
                     "description":"打开文件管理窗口"
-                }
+                },
+                "roles":"admin"
             }
         ]
     }

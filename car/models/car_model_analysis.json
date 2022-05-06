@@ -86,7 +86,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         },
         {
             "id": "create", 
@@ -101,7 +102,8 @@
                     "height":440
             },
             "input":{},
-            "description":"打开创建动态模型分析对话框" 
+            "description":"打开创建动态模型分析对话框" ,
+            "roles":"admin"
         }, 
         {
             "id": "edit", 
@@ -116,7 +118,8 @@
                     "height":450
             },
             "input":{},
-            "description":"打开动态模型分析对话框"
+            "description":"打开动态模型分析对话框",
+            "roles":"admin"
         }, 
         {
             "id": "detail", 
@@ -131,7 +134,8 @@
                     "height":400
             },
             "input":{},
-            "description":"打开动态模型分析详情对话框"
+            "description":"打开动态模型分析详情对话框",
+            "roles":"admin"
         },
         {
             "id":"save",
@@ -157,7 +161,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         },
         {
             "id":"analyse",
@@ -167,7 +172,8 @@
                 "url":"/carservice/analyse",
                 "method":"post"
             },
-            "description":"执行模型分析"
+            "description":"执行模型分析",
+            "roles":"admin"
         },
         {
             "id": "result", 
@@ -182,7 +188,8 @@
                     "height":600
             },
             "input":{},
-            "description":"打开模型分析结果"
+            "description":"打开模型分析结果",
+            "roles":"admin"
         }
     ], 
     "views": [
@@ -267,7 +274,8 @@
                         }
                     ]
                 }
-            }
+            },
+            "roles":"admin"
         }
     ],
     "forms":[
