@@ -65,6 +65,14 @@
             "dataType": "int"
         }
     ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
     "operations": [   
         {
             "id": "delete", 
@@ -91,7 +99,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         }
     ], 
     "views": [
@@ -168,7 +177,8 @@
                         }
                     ]
                 }
-            }
+            },
+            "roles":"admin"
         }
     ],
     "forms":[]

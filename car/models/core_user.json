@@ -67,7 +67,7 @@
             "name": "创建",
             "type":"OP_TYPE_OPEN",
             "params":{
-                    "url":"http://localhost:3003/index.html/#/core_user/form1/FORM_TYPE_CREATE",
+                    "url":"/crv_form_view/#/core_user/form1/FORM_TYPE_CREATE",
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"创建用户",
                     "key":"/model/core_user/form1/create",
@@ -75,14 +75,15 @@
                     "height":440
             },
             "input":{},
-            "description":"打开创建用户对话框" 
+            "description":"打开创建用户对话框" ,
+            "roles":"admin"
         }, 
         {
             "id": "edit", 
             "name": "编辑",
             "type":"OP_TYPE_OPEN",
             "params":{
-                    "url":"http://localhost:3003/index.html/#/core_user/form1/FORM_TYPE_EDIT",
+                    "url":"/crv_form_view/#/core_user/form1/FORM_TYPE_EDIT",
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"编辑用户信息",
                     "key":"/model/core_user/form1/edit",
@@ -90,14 +91,15 @@
                     "height":450
             },
             "input":{},
-            "description":"打开用户信息编辑对话框"
+            "description":"打开用户信息编辑对话框",
+            "roles":"admin"
         }, 
         {
             "id": "detail", 
             "name": "查看详情",
             "type":"OP_TYPE_OPEN",
             "params":{
-                    "url":"http://localhost:3003/index.html/#/core_user/form1/FORM_TYPE_DETAIL",
+                    "url":"/crv_form_view/#/core_user/form1/FORM_TYPE_DETAIL",
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"用户信息详情",
                     "key":"/model/core_user/form1/edit",
@@ -105,7 +107,8 @@
                     "height":450
             },
             "input":{},
-            "description":"打开用户信息编辑对话框"
+            "description":"打开用户信息编辑对话框",
+            "roles":"admin"
         }, 
         {
             "id": "delete", 
@@ -132,7 +135,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         },
         {
             "id":"save",
@@ -158,34 +162,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
-        },
-        {
-            "id":"savebak",
-            "name":"保存",
-            "type":"OP_TYPE_REQUEST",
-            "params":{
-                "url":"/data/save",
-                "method":"post"
             },
-            "description":"保存数据",
-            "successOperation":{
-                "type":"OP_TYPE_CLOSE",
-                "params":{
-                    "location":"LOCATION_TYPE_MODAL"
-                },
-                "input":{},
-                "description":"关闭对话框",
-                "successOperation":{
-                    "type":"OP_TYPE_MESSAGE",
-                    "params":{
-                        "type":"success",
-                        "content":"保存用户信息成功!",
-                        "duration":"2"
-                    },
-                    "description":"提示保存数据成功"
-                }
-            }
+            "roles":"admin"
         }
     ], 
     "views": [
@@ -246,7 +224,8 @@
                         }
                     ]
                 }
-            }
+            },
+            "roles":["admin"]
         },
         {
             "viewID": "view2", 
@@ -293,7 +272,8 @@
                     "field": "version", 
                     "width": 200
                 }
-            ]
+            ],
+            "roles":["admin","operator"]
         }
     ],
     "forms":[

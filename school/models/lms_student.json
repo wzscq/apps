@@ -59,6 +59,21 @@
             "dataType": "int"
         }
     ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":""
+        },
+        {
+            "id":"mutation",
+            "fields":"remark",
+            "filter":{"id":"20220002"},
+            "queryRoles":"*",
+            "mutationRoles":"admin"
+        }
+    ],
     "operations": [
         {
             "id": "create", 
@@ -73,7 +88,8 @@
                     "height":400
             },
             "input":{},
-            "description":"打开增加学生对话框" 
+            "description":"打开增加学生对话框",
+            "roles":"admin"
         }, 
         {
             "id": "edit", 
@@ -88,7 +104,8 @@
                     "height":400
             },
             "input":{},
-            "description":"打开学生信息编辑对话框"
+            "description":"打开学生信息编辑对话框",
+            "roles":"admin"
         },  
         {
             "id": "delete", 
@@ -115,7 +132,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         },
         {
             "id":"save",
@@ -141,7 +159,8 @@
                     },
                     "description":"刷新页面数据"
                 }
-            }
+            },
+            "roles":"admin"
         }
     ], 
     "views": [
@@ -216,7 +235,8 @@
                         }
                     ]
                 }
-            }
+            },
+            "roles":"admin"
         }
     ],
     "forms":[
