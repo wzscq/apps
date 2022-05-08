@@ -43,8 +43,22 @@
             "field": "version", 
             "name": "数据版本", 
             "dataType": "int"
+        },
+	{
+            "field": "value", 
+            "name": "数值", 
+            "dataType": "varchar"
         }
+
     ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
     "operations": [
         {
             "id": "create", 
@@ -59,7 +73,8 @@
                     "height":400
             },
             "input":{},
-            "description":"创建功能" 
+            "description":"创建功能",
+            "roles":"admin" 
         }, 
         {
             "id": "edit", 
@@ -74,34 +89,8 @@
                     "height":400
             },
             "input":{},
-            "description":"编辑功能"
-        },  
-        {
-            "id": "delete", 
-            "name": "删除",
-            "type":"OP_TYPE_REQUEST",
-            "params":{
-                "url":"/data/delete",
-                "method":"post"
-            },
-            "description":"删除选中数据",
-            "successOperation":{
-                "type":"OP_TYPE_MESSAGE",
-                "params":{
-                    "type":"success",
-                    "content":"删除成功!",
-                    "duration":"2"
-                },
-                "description":"提示删除数据成功",
-                "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
-                    "params":{
-                        "location":"LOCATION_TYPE_TAB",
-                        "key":"/model/nnn_basic_function"
-                    },
-                    "description":"刷新页面数据"
-                }
-            }
+            "description":"编辑功能",
+            "roles":"admin"
         },
         {
             "id":"save",
@@ -113,21 +102,33 @@
             },
             "description":"保存数据",
             "successOperation":{
-                "type":"OP_TYPE_CLOSE",
-                "params":{
-                    "location":"LOCATION_TYPE_MODAL"
-                },
-                "input":{},
-                "description":"关闭对话框",
-                "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
-                    "params":{
-                        "location":"LOCATION_TYPE_TAB",
-                        "key":"/model/nnn_basic_function"
-                    },
-                    "description":"刷新页面数据"
-                }
-            }
+			"type":"OP_TYPE_REQUEST",
+			"params":{
+                		"url":"/redirect",
+                		"method":"post"
+            		},
+			"input":{
+                           "to":"basicupdateparams"
+                        },
+		        "description":"同步数据",
+			"successOperation":{
+                	"type":"OP_TYPE_CLOSE",
+                	"params":{
+                    	"location":"LOCATION_TYPE_MODAL"
+                	},
+                	"input":{},
+                	"description":"关闭对话框",
+                	"successOperation":{
+                    	"type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    	"params":{
+                        	"location":"LOCATION_TYPE_TAB",
+                        	"key":"/model/nnn_basic_function"
+                   	    },
+                    	"description":"刷新页面数据"
+                	}
+            	}
+	        },
+            "roles":"admin"
         }
     ], 
     "views": [
@@ -135,42 +136,22 @@
             "viewID": "view1", 
             "name": "功能维护", 
             "description": "功能维护", 
-            "fields": [
-                {
-                    "field": "id", 
-                    "width": 100
-                }, 
+            "fields": [ 
                 {
                     "field": "name", 
                     "width": 200
                 },
                 {
-                    "field": "remark", 
-                    "width": 300
-                }, 
-                {
-                    "field": "create_time", 
-                    "width": 200
-                }, 
-                {
-                    "field": "create_user", 
-                    "width": 200
-                }, 
-                {
-                    "field": "update_time", 
-                    "width": 200
-                }, 
-                {
-                    "field": "update_user", 
-                    "width": 200
-                }, 
-                {
-                    "field": "version", 
+                    "field": "value", 
                     "width": 200
                 },
 		{
-                    "field": "value", 
-                    "width": 200
+                    "field": "remark", 
+                    "width": 300
+                },
+                {
+                   "field": "id", 
+                    "width": 10
                 }
             ], 
             "filter": { }, 
@@ -191,14 +172,11 @@
                         {
                             "operationID": "edit",
                             "name":"编辑"
-                        },
-                        {
-                            "operationID": "delete",
-                            "name":"删除"
                         }
                     ]
                 }
-            }
+            },
+            "roles":"admin"
         }
     ],
     "forms":[
@@ -247,11 +225,16 @@
                     "colSpan": 2,
                     "rowSpan": 1
                 },
-		        {
-                    "controlType": "Text",
+		{
+                    "field": "value", 
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {"value":"开","label":"开"},
+                        {"value":"关","label":"关"}
+                    ],
+                    "placeholder":"请选择功能开关",
                     "row": 3,
                     "col": 1,
-                    "field": "value", 
                     "colSpan": 3,
                     "rowSpan": 1
                 },

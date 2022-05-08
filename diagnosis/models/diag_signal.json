@@ -202,11 +202,11 @@
             "fields": [
                 {
                     "field": "id", 
-                    "width": 100
+                    "width": 70
                 }, 
                 {
                     "field": "name", 
-                    "width": 100
+                    "width": 200
                 }, 
                 {
                     "field": "domain_id", 
@@ -218,7 +218,12 @@
                 },
                 {
                     "field": "byte_order", 
-                    "width": 100
+                    "width": 120,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {"value":"1","label":"Intel"},
+                        {"value":"0","label":"Motorola"}
+                    ]
                 },
                 {
                     "field": "start_addr", 
@@ -373,7 +378,11 @@
                 },
                 {
                     "field": "byte_order",
-                    "controlType": "Text", 
+                    "controlType": "SingleSelect", 
+                    "options":[
+                        {"value":"1","label":"Intel"},
+                        {"value":"0","label":"Motorola"}
+                    ],
                     "row": 3,
                     "col": 2, 
                     "colSpan": 1,

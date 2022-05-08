@@ -1,56 +1,63 @@
 [
     {
         "id":"1",
-        "name":"智能诊断",
-        "description":"车辆故障诊断分析",
+        "name":"故障实时诊断",
+        "description":"故障实时诊断",
         "children":[
             {
                 "id":"1",
-                "name":"仪表盘",
-                "description":"智能诊断汇总统计",
+                "name":"故障仪表盘",
+                "description":"故障实时汇总统计",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
                         "url":"http://121.36.222.9/carweb/#/",
                         "location":"LOCATION_TYPE_TAB",
-                        "title":"智能诊断仪表盘",
+                        "title":"故障仪表盘",
                         "key":"/diag_dashboard"
                     },
                     "input":{},
-                    "description":"打开智能诊断仪表盘"
+                    "description":"打开故障仪表盘"
                 },
                 "roles":"*"
-            },
+            }
+        ]
+    },
+    {
+        "id":"2",
+        "name":"故障智能分析",
+        "description":"故障智能分析",
+        "children":[
             {
-                "id":"2",
-                "name":"诊断记录查询",
-                "description":"查询诊断分析记录",
+                "id":"1",
+                "name":"诊断智能分析",
+                "description":"数据下载与报告查询",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
                         "url":"http://121.36.222.9/carweb/#/faultList",
                         "location":"LOCATION_TYPE_TAB",
-                        "title":"故障诊断记录",
+                        "title":"诊断智能分析",
                         "key":"/diag_faultlist"
                     },
                     "input":{},
-                    "description":"打开智能诊断记录查询页"
+                    "description":"打开诊断智能分析"
                 },
                 "roles":["admin","operator"]
             }
         ]
     },
     {
-        "id":"2",
-        "name":"诊断参数",
+        "id":"3",
+        "name":"车端算法配置",
         "description":"诊断车辆设备管理",
         "children":[
             {
                 "id":"1",
-                "name":"下发参数",
-                "description":"下发诊断参数到车端设备",
+                "name":"参数配置",
+                "description":"车端算法配置",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
@@ -67,24 +74,6 @@
             },
             {
                 "id":"2",
-                "name":"物流信息",
-                "description":"物流信息管理",
-                "icon":"FileMarkdownTwoTone",
-                "operation":{
-                    "type":"OP_TYPE_OPEN",
-                    "params":{
-                        "url":"/crv_list_view/#/diag_logistics",
-                        "location":"LOCATION_TYPE_TAB",
-                        "title":"物流信息管理",
-                        "key":"/model/diag_logistics"
-                    },
-                    "input":{},
-                    "description":"打开物流信息管理页面"
-                },
-                "roles":"admin"
-            },
-            {
-                "id":"3",
                 "name":"DTC Signal",
                 "description":"DTC Signal关系维护",
                 "icon":"FileMarkdownTwoTone",
@@ -99,10 +88,10 @@
                     "input":{},
                     "description":"打开DTC Signal信息维护页面"
                 },
-                "roles":"admin"
+                "roles":""
             },
             {
-                "id":"4",
+                "id":"3",
                 "name":"诊断执行配置",
                 "description":"诊断执行参数配置",
                 "icon":"FileMarkdownTwoTone",
@@ -122,104 +111,122 @@
         ]
     },
     {
-        "id":"3",
-        "name":"故障维护",
+        "id":"4",
+        "name":"数据库维护",
         "description":"车辆故障记录",
         "children":[
             {
                 "id":"1",
-                "name":"故障维护",
-                "description":"手动添加故障记录",
-                "icon":"FileMarkdownTwoTone",
-                "operation":{
-                    "type":"OP_TYPE_OPEN",
-                    "params":{
-                        "url":"/crv_list_view/#/diag_manual_fault",
-                        "location":"LOCATION_TYPE_TAB",
-                        "title":"手动添加故障记录",
-                        "key":"/model/diag_manual_fault"
-                    },
-                    "input":{},
-                    "description":"打开手动添加故障记录页面"
-                },
-                "roles":["admin","operator"]
-            },
-            {
-                "id":"2",
-                "name":"ECU",
-                "description":"维护ECU字典",
-                "icon":"FileMarkdownTwoTone",
-                "operation":{
-                    "type":"OP_TYPE_OPEN",
-                    "params":{
-                        "url":"/crv_list_view/#/diag_ecu",
-                        "location":"LOCATION_TYPE_TAB",
-                        "title":"维护ECU字典",
-                        "key":"/model/diag_ecu"
-                    },
-                    "input":{},
-                    "description":"打开维护ECU字典页面"
-                },
-                "roles":"admin"
-            },
-            {
-                "id":"3",
-                "name":"Signal",
-                "description":"维护信号信息",
-                "icon":"FileMarkdownTwoTone",
-                "operation":{
-                    "type":"OP_TYPE_OPEN",
-                    "params":{
-                        "url":"/crv_list_view/#/diag_signal",
-                        "location":"LOCATION_TYPE_TAB",
-                        "title":"维护信号字典",
-                        "key":"/model/diag_signal"
-                    },
-                    "input":{},
-                    "description":"打开维护信号字典页面"
-                },
-                "roles":"admin"
-            },
-            {
-                "id":"4",
-                "name":"DTC",
-                "description":"DTC代码维护",
-                "icon":"FileMarkdownTwoTone",
-                "operation":{
-                    "type":"OP_TYPE_OPEN",
-                    "params":{
-                        "url":"/crv_list_view/#/diag_dtc",
-                        "location":"LOCATION_TYPE_TAB",
-                        "title":"DTC维护",
-                        "key":"/model/diag_dtc"
-                    },
-                    "input":{},
-                    "description":"打开维护DTC页面"
-                },
-                "roles":"admin"
-            },
-            {
-                "id":"5",
-                "name":"Domain",
-                "description":"维护Domain字典",
+                "name":"域数据库",
+                "description":"总线信息",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
                         "url":"/crv_list_view/#/diag_domain",
                         "location":"LOCATION_TYPE_TAB",
-                        "title":"维护Domain字典",
+                        "title":"域数据库",
                         "key":"/model/diag_domain"
                     },
                     "input":{},
-                    "description":"打开维护Domain页面"
+                    "description":"打开域数据库页面"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"2",
+                "name":"控制器数据库",
+                "description":"控制器信息",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"OP_TYPE_OPEN",
+                    "params":{
+                        "url":"/crv_list_view/#/diag_ecu",
+                        "location":"LOCATION_TYPE_TAB",
+                        "title":"控制器数据库",
+                        "key":"/model/diag_ecu"
+                    },
+                    "input":{},
+                    "description":"打开控制器数据库页面"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"3",
+                "name":"信号数据库",
+                "description":"信号矩阵",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"OP_TYPE_OPEN",
+                    "params":{
+                        "url":"/crv_list_view/#/diag_signal",
+                        "location":"LOCATION_TYPE_TAB",
+                        "title":"信号数据库",
+                        "key":"/model/diag_signal"
+                    },
+                    "input":{},
+                    "description":"打开信号数据库页面"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"4",
+                "name":"故障码数据库",
+                "description":"故障码",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"OP_TYPE_OPEN",
+                    "params":{
+                        "url":"/crv_list_view/#/diag_dtc",
+                        "location":"LOCATION_TYPE_TAB",
+                        "title":"故障码数据库",
+                        "key":"/model/diag_dtc"
+                    },
+                    "input":{},
+                    "description":"打开故障码数据库页面"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"5",
+                "name":"信号关联数据库",
+                "description":"故障码与总线信号匹配",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"OP_TYPE_OPEN",
+                    "params":{
+                        "url":"/crv_list_view/#/diag_manual_fault",
+                        "location":"LOCATION_TYPE_TAB",
+                        "title":"信号关联数据库",
+                        "key":"/model/diag_manual_fault"
+                    },
+                    "input":{},
+                    "description":"打开信号关联数据库页面"
+                },
+                "roles":["admin","operator"]
+            },
+            {
+                "id":"6",
+                "name":"诊断服务数据库",
+                "description":"诊断服务内容",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"OP_TYPE_OPEN",
+                    "params":{
+                        "url":"/crv_list_view/#/diag_logistics",
+                        "location":"LOCATION_TYPE_TAB",
+                        "title":"诊断服务数据库",
+                        "key":"/model/diag_logistics"
+                    },
+                    "input":{},
+                    "description":"打开诊断服务数据库页面"
                 },
                 "roles":"admin"
             }
         ]
     },
     {
-        "id":"4",
+        "id":"5",
         "name":"系统管理",
         "description":"系统管理相关功能",
         "children":[

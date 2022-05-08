@@ -1,0 +1,15 @@
+{
+    "basicupdateparams":{
+        "url":"http://127.0.0.1:8000/update_params"
+    },
+    "restartservice":{
+        "url1":"http://127.0.0.1:8000/rebootservice",
+        "url":"http://114.116.21.122:6101/rebootservice"
+    },
+    "rebootsystem":{
+        "url":"http://127.0.0.1:8000/seeuagain"
+    },
+    "shutdownsystem":{
+        "url":"http://127.0.0.1:8000/seeulater"
+    }
+}

@@ -15,284 +15,247 @@
                         "url":"/crv_list_view/#/nnn_basic_function",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"功能开关",
-                        "key":"/model/lms_student"
+                        "key":"/model/nnn_basic_function"
                     },
                     "input":{},
                     "description":"打开学生信息维护功能"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"2",
-                "name":"学生班级维护",
-                "description":"创建和修改学生班级信息",
+                "name":"工作模式",
+                "description":"设置智能网关的模式",
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"/crv_list_view/#/lms_student_class",
+                        "url":"/crv_list_view/#/nnn_workmode",
                         "location":"LOCATION_TYPE_TAB",
-                        "title":"学生班级信息维护",
-                        "key":"/model/lms_student_class"
+                        "title":"设定相关的工作模式",
+                        "key":"/model/nnn_workmode"
                     },
                     "input":{},
-                    "description":"打开学生班级信息维护功能"
-                }
-            },
-            {
-                "id":"3",
-                "name":"学生联系人",
-                "description":"创建和修改学生联系人",
-                "icon":"UserOutlined",
-                "operation":{
-                    "type":"OP_TYPE_OPEN",
-                    "params":{
-                        "url":"/crv_list_view/#/lms_student_contact",
-                        "location":"LOCATION_TYPE_TAB",
-                        "title":"学生联系人维护",
-                        "key":"/model/lms_student_contact"
-                    },
-                    "input":{},
-                    "description":"打开学生联系人维护功能"
-                }
+                    "description":"确定后台中心的工作模式"
+                },
+                "roles":"admin"
             }
         ]
     },
     {
         "id":"2",
-        "name":"教师管理职能",
-        "description":"教师管理相关功能",
+        "name":"门禁防损",
+        "description":"用于设置门禁模式相关参数",
         "children":[
             {
                 "id":"1",
-                "name":"教师信息维护",
-                "description":"创建和修改教师信息",
+                "name":"基本参数",
+                "description":"设置门禁模式的基本参数",
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"/crv_list_view/#/lms_teacher",
+                        "url":"/crv_list_view/#/nnn_provention_basic",
                         "location":"LOCATION_TYPE_TAB",
-                        "title":"教师信息维护",
-                        "key":"/model/lms_teacher"
+                        "title":"门禁模式基本参数",
+                        "key":"/model/nnn_provention_basic"
                     },
                     "input":{},
-                    "description":"打开教师信息维护功能"
-                }
+                    "description":"维护门禁模式最基本的参数设置"
+                },
+                "roles":"admin"
             },
             {
                 "id":"2",
-                "name":"教师课程安排",
-                "description":"维护教师任课信息",
+                "name":"高级参数",
+                "description":"设置特殊门禁参数",
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"/crv_list_view/#/lms_teacher_subject",
+                        "url":"/crv_list_view/#/nnn_provention_advance",
                         "location":"LOCATION_TYPE_TAB",
-                        "title":"教师课程安排",
-                        "key":"/model/lms_teacher_subject"
+                        "title":"设置门禁模式高级参数",
+                        "key":"/model/nnn_provention_advance"
                     },
                     "input":{},
-                    "description":"打开教师课程维护功能"
-                }
+                    "description":"设置门禁模式高级参数"
+                },
+                "roles":"admin"
             }
         ]
     },
     {
         "id":"3",
-        "name":"考试管理职能",
-        "description":"考试管理相关功能",
+        "name":"试衣间",
+        "description":"用于试衣间模式相关参数",
         "children":[
             {
                 "id":"1",
-                "name":"考试信息维护",
-                "description":"创建和修改考试信息",
+                "name":"基本参数",
+                "description":"试衣间模式基本参数",
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"/crv_list_view/#/lms_examination",
+                        "url":"/crv_list_view/#/nnn_fittingroom_basic",
                         "location":"LOCATION_TYPE_TAB",
-                        "title":"考试信息维护",
-                        "key":"/model/lms_examination"
+                        "title":"基本参数",
+                        "key":"/model/nnn_fittingroom_basic"
                     },
                     "input":{},
-                    "description":"打开考试信息维护功能"
-                }
+                    "description":"设置试衣间模式基本参数"
+                },
+                "roles":"admin"
+            },
+	    {
+                "id":"2",
+                "name":"高级参数",
+                "description":"试衣间模式高级参数",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"OP_TYPE_OPEN",
+                    "params":{
+                        "url":"/crv_list_view/#/nnn_fittingroom_advance",
+                        "location":"LOCATION_TYPE_TAB",
+                        "title":"高级参数",
+                        "key":"/model/nnn_fittingroom_basic_advance"
+                    },
+                    "input":{},
+                    "description":"设置试衣间模式高级参数"
+                },
+                "roles":"admin"
             }
+
         ]
     },
     {
         "id":"4",
-        "name":"学校职能",
-        "description":"系统管理相关功能",
+        "name":"智能货架",
+        "description":"用于智能货架相关参数",
         "children":[
             {
                 "id":"1",
-                "name":"学校信息维护",
-                "description":"创建和修改学校信息",
+                "name":"基本参数",
+                "description":"智能货架基本参数",
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"/crv_list_view/#/lms_school",
+                        "url":"/crv_list_view/#/nnn_smartracket_basic",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"学校信息维护",
-                        "key":"/model/lms_school"
+                        "key":"/model/nnn_smartracket_basic"
                     },
                     "input":{},
-                    "description":"打开学校信息维护功能"
-                }
+                    "description":"智能货架基本参数"
+                },
+                "roles":"admin"
+            },
+	    {
+                "id":"2",
+                "name":"高级参数",
+                "description":"智能货架高级参数",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"OP_TYPE_OPEN",
+                    "params":{
+                        "url":"/crv_list_view/#/nnn_smartracket_advance",
+                        "location":"LOCATION_TYPE_TAB",
+                        "title":"学校信息维护",
+                        "key":"/model/nnn_smartracket_advance"
+                    },
+                    "input":{},
+                    "description":"智能货架高级参数"
+                },
+                "roles":"admin"
             }
+
         ]
     },
     {
         "id":"5",
-        "name":"学校班级管理职能",
-        "description":"班级管理相关功能",
+        "name":"声音定位",
+        "description":"声音定位管理",
         "children":[
             {
                 "id":"1",
-                "name":"班级管理",
-                "description":"创建和修改班级信息",
+                "name":"参数设置",
+                "description":"声音定位参数配置",
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"/crv_list_view/#/lms_class",
+                        "url":"/crv_list_view/#/nnn_sound_locate",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"班级管理",
-                        "key":"/model/lms_class"
+                        "key":"/model/nnn_sound_locate"
                     },
                     "input":{},
-                    "description":"打开班级管理功能"
-                }
+                    "description":"声音定位参数配置"
+                },
+                "roles":"admin"
             },
             {
                 "id":"2",
-                "name":"班级年级维护",
-                "description":"创建和修改班级对应年级信息",
+                "name":"定位",
+                "description":"针对设备的定位查询",
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
                         "url":"/crv_list_view/#/lms_class_grade",
                         "location":"LOCATION_TYPE_TAB",
-                        "title":"班级年级维护",
+                        "title":"定位查询",
                         "key":"/model/lms_class_grade"
                     },
                     "input":{},
-                    "description":"打开学班级年级维护功能"
-                }
-            },
-            {
-                "id":"3",
-                "name":"班级学期维护",
-                "description":"创建和修改班级对应学期信息",
-                "icon":"UserOutlined",
-                "operation":{
-                    "type":"OP_TYPE_OPEN",
-                    "params":{
-                        "url":"/crv_list_view/#/lms_class_term",
-                        "location":"LOCATION_TYPE_TAB",
-                        "title":"班级学期维护",
-                        "key":"/model/lms_class_term"
-                    },
-                    "input":{},
-                    "description":"打开学班级学期维护功能"
-                }
-            },
-            {
-                "id":"4",
-                "name":"学期管理",
-                "description":"创建和修改学期信息",
-                "icon":"UserOutlined",
-                "operation":{
-                    "type":"OP_TYPE_OPEN",
-                    "params":{
-                        "url":"/crv_list_view/#/lms_term",
-                        "location":"LOCATION_TYPE_TAB",
-                        "title":"学期管理",
-                        "key":"/model/lms_term"
-                    },
-                    "input":{},
-                    "description":"打开学期管理功能"
-                }
-            },
-            {
-                "id":"5",
-                "name":"年级管理",
-                "description":"创建和修改年级信息",
-                "icon":"UserOutlined",
-                "operation":{
-                    "type":"OP_TYPE_OPEN",
-                    "params":{
-                        "url":"/crv_list_view/#/lms_grade",
-                        "location":"LOCATION_TYPE_TAB",
-                        "title":"年级管理",
-                        "key":"/model/lms_grade"
-                    },
-                    "input":{},
-                    "description":"打开年级管理功能"
-                }
+                    "description":"定位管理查询"
+                },
+                "roles":"admin"
             }
         ]
     },
     {
         "id":"6",
-        "name":"学科管理职能",
-        "description":"学科管理相关功能",
+        "name":"基站定位系统",
+        "description":"基站定位相关功能",
         "children":[
             {
                 "id":"1",
-                "name":"班级学科管理",
-                "description":"维护班级学科关系",
+                "name":"参数设置",
+                "description":"维护参数设置",
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
                         "url":"/crv_list_view/#/lms_class_subject",
                         "location":"LOCATION_TYPE_TAB",
-                        "title":"班级学科管理",
+                        "title":"基站定位参数设置",
                         "key":"/model/lms_class_subject"
                     },
                     "input":{},
-                    "description":"打开班级学科管理功能"
-                }
+                    "description":"基站定位参数管理"
+                },
+                "roles":"admin"
             },
             {
                 "id":"2",
-                "name":"班级学期学科",
-                "description":"维护班级学期学科关系",
+                "name":"基站定位查询",
+                "description":"基站定位相关查询",
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
                         "url":"/crv_list_view/#/lms_class_term_subject",
                         "location":"LOCATION_TYPE_TAB",
-                        "title":"班级学科管理",
+                        "title":"基站定位相关查询",
                         "key":"/model/lms_class_term_subject"
                     },
                     "input":{},
-                    "description":"打开班级学期学科管理功能"
-                }
-            },
-            {
-                "id":"3",
-                "name":"学科管理",
-                "description":"创建和修改学科",
-                "icon":"UserOutlined",
-                "operation":{
-                    "type":"OP_TYPE_OPEN",
-                    "params":{
-                        "url":"/crv_list_view/#/lms_subject",
-                        "location":"LOCATION_TYPE_TAB",
-                        "title":"学科管理",
-                        "key":"/model/lms_subject"
-                    },
-                    "input":{},
-                    "description":"打开学科管理功能"
-                }
+                    "description":"基站定位管理功能"
+                },
+                "roles":"admin"
             }
         ]
     },
@@ -316,7 +279,8 @@
                     },
                     "input":{},
                     "description":"打开用户管理功能"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"1",
@@ -333,7 +297,8 @@
                     },
                     "input":{},
                     "description":"打开用户管理功能"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"3",
@@ -350,7 +315,8 @@
                     },
                     "input":{},
                     "description":"打开操作日志窗口"
-                }
+                },
+                "roles":"admin"
             },
             {
                 "id":"4",
@@ -367,8 +333,36 @@
                     },
                     "input":{},
                     "description":"打开文件管理窗口"
-                }
-            }
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"5",
+                "name":"重启后台",
+                "description":"重启后台服务",
+                "icon":"FileTextOutlined",
+                "operation":{
+                    "type":"OP_TYPE_REQUEST",
+                    "params":{
+                            "url":"/redirect",
+                            "method":"post"
+                    },
+                    "input":{
+                        "to":"restartservice"
+                    },
+                    "description":"重启服务",
+                    "successOperation":{
+                        "type":"OP_TYPE_MESSAGE",
+                        "params":{
+                            "type":"success",
+                            "content":"重启指令下发成功!",
+                            "duration":"2"
+                        }
+                    }
+                },
+                "roles":"admin"
+            } 
+
         ]
     }
 ]

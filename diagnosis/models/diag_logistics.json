@@ -203,7 +203,12 @@
                 }, 
                 {
                     "field": "analysis_mode", 
-                    "width": 100
+                    "width": 100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {"value":"ASCII","label":"ASCII"},
+                        {"value":"HEX","label":"HEX"}
+                    ]
                 }, 
                 {
                     "field": "type", 
@@ -334,7 +339,11 @@
                 },
                 {
                     "field": "analysis_mode", 
-                    "controlType": "Text",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {"value":"ASCII","label":"ASCII"},
+                        {"value":"HEX","label":"HEX"}
+                    ],
                     "row": 3,
                     "col": 1,
                     "colSpan": 2,

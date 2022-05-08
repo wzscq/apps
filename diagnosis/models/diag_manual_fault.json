@@ -101,7 +101,7 @@
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"新建故障",
                     "key":"/model/diag_manual_fault/form1/create",
-                    "width":900,
+                    "width":1000,
                     "height":550
             },
             "input":{},
@@ -117,7 +117,7 @@
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"编辑故障信息",
                     "key":"/model/diag_manual_fault/form1/edit",
-                    "width":900,
+                    "width":1000,
                     "height":550
             },
             "input":{},
@@ -133,7 +133,7 @@
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"故障信息详情",
                     "key":"/model/diag_manual_fault/form1/edit",
-                    "width":900,
+                    "width":1000,
                     "height":550
             },
             "input":{},
@@ -373,8 +373,8 @@
                             "field": "name"
                         }
                     ],
-                    "row": 2,
-                    "col": 1, 
+                    "row": 1,
+                    "col": 2, 
                     "colSpan": 1,
                     "rowSpan": 1
                 },  
@@ -394,14 +394,15 @@
                         "type":"MANY_TO_ONE",
                         "relatedField":"domain_id"
                     },
-                    "row": 2,
-                    "col": 2, 
+                    "row": 1,
+                    "col": 3, 
                     "colSpan": 1,
                     "rowSpan": 1
                 },
                 {
                     "field": "dtc_id",
                     "controlType": "SingleSelect",
+                    "optionLabel":"name",
                     "fields":[
                         {
                             "field": "id"
@@ -415,41 +416,42 @@
                         "type":"MANY_TO_ONE",
                         "relatedField":"ecu_id"
                     },
-                    "row": 2,
-                    "col": 3, 
+                    "row": 1,
+                    "col": 4, 
                     "colSpan": 1,
                     "rowSpan": 1
                 },
                 {
                     "field": "fault_type", 
                     "controlType": "Text",
-                    "row": 3,
+                    "row": 2,
                     "col": 1,
-                    "colSpan": 3,
+                    "colSpan": 2,
                     "rowSpan": 1
                 }, 
                 {
                     "field": "content",
                     "controlType": "TextArea",
-                    "row": 4,
+                    "row": 3,
                     "col": 1, 
-                    "colSpan": 3,
+                    "colSpan": 2,
                     "rowSpan": 1
                 },
                 {
                     "field": "reason",
                     "controlType": "TextArea",
-                    "row": 5,
+                    "row": 4,
                     "col": 1, 
-                    "colSpan": 3,
+                    "colSpan": 2,
                     "rowSpan": 1
                 },
                 {
                     "field": "advice",
                     "controlType": "TextArea",
-                    "row": 6,
+                    "textRowCount":4,
+                    "row": 5,
                     "col": 1, 
-                    "colSpan": 3,
+                    "colSpan": 2,
                     "rowSpan": 1
                 },
                 {
@@ -469,10 +471,11 @@
                         "type":"MANY_TO_ONE",
                         "relatedField":"domain_id"
                     },
+                    "maxHeight":360,
                     "row": 2,
-                    "col": 4,
-                    "colSpan": 1,
-                    "rowSpan": 5
+                    "col": 3,
+                    "colSpan": 2,
+                    "rowSpan": 4
                 }
             ]
         }
