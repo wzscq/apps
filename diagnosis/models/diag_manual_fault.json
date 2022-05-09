@@ -40,12 +40,6 @@
             "quickSearch":true
         }, 
         {
-            "field": "reason", 
-            "name": "故障原因", 
-            "dataType": "varchar",
-            "quickSearch":true
-        }, 
-        {
             "field": "fault_type", 
             "name": "故障类型", 
             "dataType": "varchar",
@@ -253,10 +247,6 @@
                     "width": 200
                 }, 
                 {
-                    "field": "reason",
-                    "width": 200
-                }, 
-                {
                     "field": "fault_type", 
                     "width": 100
                 },
@@ -409,6 +399,9 @@
                         },
                         {
                             "field": "name"
+                        },
+                        {
+                            "field":"remark"
                         }
                     ],
                     "cascade":{
@@ -438,8 +431,10 @@
                     "rowSpan": 1
                 },
                 {
-                    "field": "reason",
-                    "controlType": "TextArea",
+                    "controlType": "FunctionTextArea",
+                    "label":"故障原因",
+                    "fields":["dtc_id"],
+                    "function":"return (data['dtc_id'].list&&data['dtc_id'].list[0]?data['dtc_id'].list[0].remark:'');",
                     "row": 4,
                     "col": 1, 
                     "colSpan": 2,
