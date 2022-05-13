@@ -257,12 +257,13 @@
                     "rowSpan": 1
                 },
                 {
-                    "controlType": "Text",
+                    "controlType": "TextArea",
+                    "textRowCount":4,
                     "row": 3,
                     "col": 1,
                     "field": "remark", 
                     "colSpan": 4,
-                    "rowSpan": 2
+                    "rowSpan": 1
                 }
             ]
         }

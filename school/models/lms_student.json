@@ -64,14 +64,7 @@
             "id":"DEFAULT",
             "fields":"*",
             "queryRoles":"*",
-            "mutationRoles":""
-        },
-        {
-            "id":"mutation",
-            "fields":"remark",
-            "filter":{"id":"20220002"},
-            "queryRoles":"*",
-            "mutationRoles":"admin"
+            "mutationRoles":"*"
         }
     ],
     "operations": [

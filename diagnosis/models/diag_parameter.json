@@ -454,10 +454,10 @@
                 {
                     "field":"triggers",
                     "controlType":"EditTable",
-                    "cascade":{
-                        "parentField":"domain_id"
-                    },
-                    "fields":[
+                    "fieldType":"ONE_TO_MANY",
+                    "relatedModelID":"diag_parameter_trigger",
+                    "relatedField":"parameter_id",
+                    "controls":[
                         {
                             "field":"id",
                             "label":"ID"
@@ -470,7 +470,9 @@
                             "fieldType":"MANY_TO_ONE",
                             "relatedModelID":"diag_signal",
                             "optionLabel":"name",
-                            "parentCascade":{
+                            "cascade":{
+                                "parentPath":"..",
+                                "parentField":"domain_id",
                                 "type":"MANY_TO_ONE",
                                 "relatedField":"domain_id"
                             },
@@ -478,7 +480,7 @@
                                 {"field":"id"},
                                 {"field":"name"}
                             ],
-                            "width":200
+                            "width":180
                         },
                         {
                             "field":"logic",
@@ -497,7 +499,7 @@
                             "visible":true,
                             "label":"值",
                             "controlType":"Text",
-                            "width":200
+                            "width":180
                         },
                         {
                             "field":"version"
@@ -644,7 +646,7 @@
                     "field":"internal_did",
                     "controlType":"Transfer",
                     "optionLabel":"did",
-                    "cascade1":{
+                    "cascade":{
                         "parentField":"ecu_id",
                         "type":"MANY_TO_ONE",
                         "relatedField":"ecu_id"
@@ -669,10 +671,7 @@
                 {
                     "field":"triggers",
                     "controlType":"EditTable",
-                    "cascade":{
-                        "parentField":"domain_id"
-                    },
-                    "fields":[
+                    "controls":[
                         {
                             "field":"id",
                             "label":"ID"
@@ -685,7 +684,9 @@
                             "fieldType":"MANY_TO_ONE",
                             "relatedModelID":"diag_signal",
                             "optionLabel":"name",
-                            "parentCascade":{
+                            "cascade":{
+                                "parentPath":"..",
+                                "parentField":"domain_id",
                                 "type":"MANY_TO_ONE",
                                 "relatedField":"domain_id"
                             },
@@ -693,7 +694,7 @@
                                 {"field":"id"},
                                 {"field":"name"}
                             ],
-                            "width":200
+                            "width":180
                         },
                         {
                             "field":"logic",
@@ -712,7 +713,7 @@
                             "visible":true,
                             "label":"值",
                             "controlType":"Text",
-                            "width":200
+                            "width":180
                         },
                         {
                             "field":"version"
