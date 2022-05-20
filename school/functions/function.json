@@ -12,7 +12,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_student",
+                        "url":"/crv_list_view/#/lms_student",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"学生信息维护",
                         "key":"/model/lms_student"
@@ -30,7 +30,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_student_class",
+                        "url":"/crv_list_view/#/lms_student_class",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"学生班级信息维护",
                         "key":"/model/lms_student_class"
@@ -48,7 +48,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_student_contact",
+                        "url":"/crv_list_view/#/lms_student_contact",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"学生联系人维护",
                         "key":"/model/lms_student_contact"
@@ -73,7 +73,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_teacher",
+                        "url":"/crv_list_view/#/lms_teacher",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"教师信息维护",
                         "key":"/model/lms_teacher"
@@ -91,7 +91,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_teacher_subject",
+                        "url":"/crv_list_view/#/lms_teacher_subject",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"教师课程安排",
                         "key":"/model/lms_teacher_subject"
@@ -116,7 +116,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_examination",
+                        "url":"/crv_list_view/#/lms_examination",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"考试信息维护",
                         "key":"/model/lms_examination"
@@ -141,7 +141,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_school",
+                        "url":"/crv_list_view/#/lms_school",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"学校信息维护",
                         "key":"/model/lms_school"
@@ -166,7 +166,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_class",
+                        "url":"/crv_list_view/#/lms_class",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"班级管理",
                         "key":"/model/lms_class"
@@ -184,7 +184,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_class_grade",
+                        "url":"/crv_list_view/#/lms_class_grade",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"班级年级维护",
                         "key":"/model/lms_class_grade"
@@ -202,7 +202,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_class_term",
+                        "url":"/crv_list_view/#/lms_class_term",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"班级学期维护",
                         "key":"/model/lms_class_term"
@@ -220,7 +220,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_term",
+                        "url":"/crv_list_view/#/lms_term",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"学期管理",
                         "key":"/model/lms_term"
@@ -238,7 +238,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_grade",
+                        "url":"/crv_list_view/#/lms_grade",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"年级管理",
                         "key":"/model/lms_grade"
@@ -263,7 +263,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_class_subject",
+                        "url":"/crv_list_view/#/lms_class_subject",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"班级学科管理",
                         "key":"/model/lms_class_subject"
@@ -281,7 +281,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_class_term_subject",
+                        "url":"/crv_list_view/#/lms_class_term_subject",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"班级学科管理",
                         "key":"/model/lms_class_term_subject"
@@ -299,7 +299,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/lms_subject",
+                        "url":"/crv_list_view/#/lms_subject",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"学科管理",
                         "key":"/model/lms_subject"
@@ -324,7 +324,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/core_user",
+                        "url":"/crv_list_view/#/core_user",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"用户管理",
                         "key":"/model/core_user"
@@ -342,7 +342,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/core_role",
+                        "url":"/crv_list_view/#/core_role",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"角色管理",
                         "key":"/model/core_role"
@@ -378,7 +378,7 @@
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
-                        "url":"http://localhost:3002/index.html/#/core_file",
+                        "url":"/crv_list_view/#/core_file",
                         "location":"LOCATION_TYPE_TAB",
                         "title":"文件管理",
                         "key":"/model/core_file"

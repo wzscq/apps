@@ -82,7 +82,7 @@
             "name": "创建",
             "type":"OP_TYPE_OPEN",
             "params":{
-                    "url":"http://localhost:3003/index.html/#/lms_student_contact/form1/FORM_TYPE_CREATE",
+                    "url":"/crv_form_view/#/lms_student_contact/form1/FORM_TYPE_CREATE",
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"增加学生联系人",
                     "key":"/model/lms_student_contact/form1/create",
@@ -98,7 +98,7 @@
             "name": "编辑",
             "type":"OP_TYPE_OPEN",
             "params":{
-                    "url":"http://localhost:3003/index.html/#/lms_student_contact/form1/FORM_TYPE_EDIT",
+                    "url":"/crv_form_view/#/lms_student_contact/form1/FORM_TYPE_EDIT",
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"编辑学生联系人信息",
                     "key":"/model/lms_student_contact/form1/edit",
