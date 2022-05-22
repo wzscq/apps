@@ -160,8 +160,8 @@
     "views": [
         {
             "viewID": "view1", 
-            "name": "Domain维护", 
-            "description": "添加修改Domain信息", 
+            "name": "域数据库", 
+            "description": "添加修改域数据库", 
             "fields": [
                 {
                     "field": "id", 

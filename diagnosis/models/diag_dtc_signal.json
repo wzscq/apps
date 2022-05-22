@@ -175,7 +175,7 @@
     "views": [
         {
             "viewID": "view1", 
-            "name": "DTC Signal维护", 
+            "name": "DTC Signal信息维护", 
             "description": "添加修改DTC Signal信息", 
             "fields": [
                 {

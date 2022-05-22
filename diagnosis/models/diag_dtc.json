@@ -167,7 +167,7 @@
     "views": [
         {
             "viewID": "view1", 
-            "name": "DTC维护", 
+            "name": "故障码数据库", 
             "description": "添加修改DTC信息", 
             "fields": [
                 {

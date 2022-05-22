@@ -193,8 +193,8 @@
     "views": [
         {
             "viewID": "view1", 
-            "name": "故障维护", 
-            "description": "添加修改故障信息", 
+            "name": "信号关联数据库", 
+            "description": "信号关联数据库", 
             "fields": [
                 {
                     "field": "id", 

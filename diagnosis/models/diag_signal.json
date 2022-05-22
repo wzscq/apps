@@ -197,8 +197,8 @@
     "views": [
         {
             "viewID": "view1", 
-            "name": "ECU维护", 
-            "description": "添加修改ECU信息", 
+            "name": "信号数据库", 
+            "description": "信号数据库", 
             "fields": [
                 {
                     "field": "id", 

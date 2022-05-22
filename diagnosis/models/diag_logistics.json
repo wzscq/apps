@@ -182,8 +182,8 @@
     "views": [
         {
             "viewID": "view1", 
-            "name": "物流信息维护", 
-            "description": "物流信息维护", 
+            "name": "诊断服务数据库", 
+            "description": "诊断服务数据库维护", 
             "fields": [
                 {
                     "field": "id", 

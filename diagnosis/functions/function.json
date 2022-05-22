@@ -100,7 +100,7 @@
                     "params":{
                         "url":"/crv_list_view/#/diag_exe_config",
                         "location":"LOCATION_TYPE_TAB",
-                        "title":"诊断执行参数",
+                        "title":"诊断执行配置",
                         "key":"/model/diag_exe_config"
                     },
                     "input":{},

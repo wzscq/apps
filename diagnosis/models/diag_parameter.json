@@ -230,8 +230,8 @@
     "views": [
         {
             "viewID": "view1", 
-            "name": "诊断参数维护", 
-            "description": "诊断参数维护", 
+            "name": "车端算法配置", 
+            "description": "车端算法配置", 
             "fields": [
                 {
                     "field": "id", 

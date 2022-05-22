@@ -57,6 +57,11 @@
             "field": "version", 
             "name": "数据版本", 
             "dataType": "int"
+        }, 
+        {
+            "field": "avatar", 
+            "name": "头像", 
+            "fieldType":"FILE"
         }
     ], 
     "datasets":[
@@ -77,8 +82,8 @@
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"增加学生",
                     "key":"/model/lms_student/form1/create",
-                    "width":600,
-                    "height":400
+                    "width":800,
+                    "height":600
             },
             "input":{},
             "description":"打开增加学生对话框",
@@ -93,8 +98,8 @@
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"编辑学生信息",
                     "key":"/model/lms_student/form1/edit",
-                    "width":600,
-                    "height":400
+                    "width":800,
+                    "height":600
             },
             "input":{},
             "description":"打开学生信息编辑对话框",
@@ -311,11 +316,23 @@
                     "rowSpan": 1
                 },
                 {
-                    "controlType": "TextArea",
+                    "controlType": "ImageList",
+                    "maxCount":1,
+                    "maxPreviewWidth":200,
+                    "maxPreviewHeight":200,
+                    "accept":".jpg,.png",
                     "row": 3,
                     "col": 1,
+                    "field": "avatar", 
+                    "colSpan": 2,
+                    "rowSpan": 2
+                },
+                {
+                    "controlType": "TextArea",
+                    "row": 3,
+                    "col": 3,
                     "field": "remark", 
-                    "colSpan": 4,
+                    "colSpan": 2,
                     "rowSpan": 2
                 }
             ]

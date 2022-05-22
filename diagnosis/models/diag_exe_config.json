@@ -183,7 +183,7 @@
     "views": [
         {
             "viewID": "view1", 
-            "name": "诊断配置参数维护", 
+            "name": "诊断执行配置", 
             "description": "修改诊断配置信息", 
             "fields": [
                 {
