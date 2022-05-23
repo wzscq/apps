@@ -102,7 +102,7 @@
             "name": "创建",
             "type":"OP_TYPE_OPEN",
             "params":{
-                    "url":"http://localhost:3003/index.html/#/car_model_analysis/form1/FORM_TYPE_CREATE",
+                    "url":"/crv_form_view/#/car_model_analysis/form1/FORM_TYPE_CREATE",
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"创建动态模型",
                     "key":"/model/car_model_analysis/form1/create",
@@ -118,7 +118,7 @@
             "name": "编辑",
             "type":"OP_TYPE_OPEN",
             "params":{
-                    "url":"http://localhost:3003/index.html/#/car_model_analysis/form1/FORM_TYPE_EDIT",
+                    "url":"/crv_form_view/#/car_model_analysis/form1/FORM_TYPE_EDIT",
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"动态模型分析",
                     "key":"/model/car_model_analysis/form1/edit",
@@ -134,7 +134,7 @@
             "name": "查看详情",
             "type":"OP_TYPE_OPEN",
             "params":{
-                    "url":"http://localhost:3003/index.html/#/car_model_analysis/form1/FORM_TYPE_DETAIL",
+                    "url":"/crv_form_view/#/car_model_analysis/form1/FORM_TYPE_DETAIL",
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"动态模型分析",
                     "key":"/model/car_model_analysis/form1/detail",
@@ -188,7 +188,7 @@
             "name": "查看分析结果",
             "type":"OP_TYPE_OPEN",
             "params":{
-                    "url":"http://localhost:4001/index.html",
+                    "url":"/car_lane_simulation/",
                     "location":"LOCATION_TYPE_MODAL",
                     "title":"模型分析结果",
                     "key":"/model/car_model_analysis/form1/edit",
