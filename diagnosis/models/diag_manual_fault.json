@@ -34,8 +34,8 @@
             "relatedModelID":"diag_signal"
         },
         {
-            "field": "content", 
-            "name": "故障内容", 
+            "field": "reason", 
+            "name": "故障原因", 
             "dataType": "varchar",
             "quickSearch":true
         }, 
@@ -243,7 +243,7 @@
                     ]
                 }, 
                 {
-                    "field": "content", 
+                    "field": "reason", 
                     "width": 200
                 }, 
                 {
@@ -421,20 +421,20 @@
                     "col": 1,
                     "colSpan": 2,
                     "rowSpan": 1
-                }, 
+                },
                 {
-                    "field": "content",
-                    "controlType": "TextArea",
+                    "controlType": "FunctionTextArea",
+                    "label":"故障内容",
+                    "fields":["dtc_id"],
+                    "function":"return (data['dtc_id'].list&&data['dtc_id'].list[0]?data['dtc_id'].list[0].remark:'');",
                     "row": 3,
                     "col": 1, 
                     "colSpan": 2,
                     "rowSpan": 1
-                },
+                }, 
                 {
-                    "controlType": "FunctionTextArea",
-                    "label":"故障原因",
-                    "fields":["dtc_id"],
-                    "function":"return (data['dtc_id'].list&&data['dtc_id'].list[0]?data['dtc_id'].list[0].remark:'');",
+                    "field": "reason",
+                    "controlType": "TextArea",
                     "row": 4,
                     "col": 1, 
                     "colSpan": 2,

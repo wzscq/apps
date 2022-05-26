@@ -41,7 +41,7 @@
         }, 
         {
             "field": "remark", 
-            "name": "备注", 
+            "name": "故障内容", 
             "dataType": "varchar",
             "quickSearch":true
         }, 
