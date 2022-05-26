@@ -21,11 +21,6 @@
             "relatedModelID":"diag_signal"
         }, 
         {
-            "field": "trigger_can_id",
-            "name": "TriggerCanId", 
-            "dataType": "varchar"
-        }, 
-        {
             "field": "state_value", 
             "name": "StateValue", 
             "dataType": "varchar"
@@ -219,10 +214,6 @@
                     ]
                 },
                 {
-                    "field": "trigger_can_id", 
-                    "width": 100
-                }, 
-                {
                     "field": "state_value", 
                     "width": 100
                 }, 
@@ -379,14 +370,6 @@
                     "row": 3,
                     "col": 3,
                     "field": "wait_time", 
-                    "colSpan": 2,
-                    "rowSpan": 1
-                },
-                {                    
-                    "controlType": "Text",
-                    "row": 4,
-                    "col": 1,
-                    "field": "trigger_can_id", 
                     "colSpan": 2,
                     "rowSpan": 1
                 },

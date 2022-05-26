@@ -31,6 +31,11 @@
             "quickSearch":true
         },
         {
+            "field": "trigger_can_id",
+            "name": "TriggerCanId", 
+            "dataType": "varchar"
+        }, 
+        {
             "field": "domain_id",
             "name": "Domain", 
             "dataType": "varchar",
@@ -209,6 +214,10 @@
                     "width": 100
                 },
                 {
+                    "field": "trigger_can_id", 
+                    "width": 100
+                }, 
+                {
                     "field": "domain_id", 
                     "width": 100
                 },
@@ -363,9 +372,17 @@
                     "colSpan": 2,
                     "rowSpan": 1
                 },
+                {                    
+                    "controlType": "Text",
+                    "row": 4,
+                    "col": 1,
+                    "field": "trigger_can_id", 
+                    "colSpan": 2,
+                    "rowSpan": 1
+                },
                 {
                     "controlType": "TextArea",
-                    "row": 4,
+                    "row": 5,
                     "col": 1,
                     "field": "remark", 
                     "colSpan": 4,

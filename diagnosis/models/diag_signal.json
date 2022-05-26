@@ -50,6 +50,11 @@
             "dataType": "varchar"
         },
         {
+            "field": "pdu_id", 
+            "name": "PduID", 
+            "dataType": "varchar"
+        },
+        {
             "field": "create_time", 
             "name": "创建时间", 
             "dataType": "datetime"
@@ -242,6 +247,10 @@
                     "width": 100
                 }, 
                 {
+                    "field": "pdu_id", 
+                    "width": 100
+                }, 
+                {
                     "field": "remark", 
                     "width": 200
                 }, 
@@ -417,6 +426,14 @@
                     "controlType": "Text",
                     "row": 4,
                     "col": 2, 
+                    "colSpan": 1,
+                    "rowSpan": 1
+                }, 
+                {
+                    "field": "pdu_id", 
+                    "controlType": "Text",
+                    "row": 4,
+                    "col": 3, 
                     "colSpan": 1,
                     "rowSpan": 1
                 }, 
