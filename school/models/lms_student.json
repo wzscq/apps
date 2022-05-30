@@ -159,6 +159,80 @@
                 }
             },
             "roles":"admin"
+        },
+        {
+            "id":"updateGender",
+            "name":"设为女生",
+            "type":"OP_TYPE_REQUEST",
+            "params":{
+                "url":"/data/update",
+                "method":"post"
+            },
+            "input":{
+                "list":[{"gender":"女"}]
+            },
+            "description":"将性别设置为女生",
+            "successOperation":{
+                "type":"OP_TYPE_MESSAGE",
+                "params":{
+                    "type":"success",
+                    "content":"更新学生信息成功!",
+                    "duration":"2"
+                },
+                "description":"提示更新学生信息成功",
+                "successOperation":{
+                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "params":{
+                        "location":"LOCATION_TYPE_TAB",
+                        "key":"/model/lms_student"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        },
+        {
+            "id":"batchUpdate",
+            "name":"批量更新",
+            "type":"OP_TYPE_REQUEST",
+            "params":{
+                "url":"/data/update",
+                "method":"post"
+            },
+            "description":"批量修改学生信息学",
+            "successOperation":{
+                "type":"OP_TYPE_CLOSE",
+                "params":{
+                    "location":"LOCATION_TYPE_MODAL"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "params":{
+                        "location":"LOCATION_TYPE_TAB",
+                        "key":"/model/lms_student"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        },
+        {
+            "id": "openbatchUpdateForm", 
+            "name": "批量更新",
+            "type":"OP_TYPE_OPEN",
+            "params":{
+                    "url":"/crv_form_view/#/lms_student/batchUpdateForm/FORM_TYPE_UPDATE",
+                    "location":"LOCATION_TYPE_MODAL",
+                    "title":"编辑学生信息",
+                    "key":"/model/lms_student/batchUpdateForm/update",
+                    "width":800,
+                    "height":600
+            },
+            "input":{},
+            "description":"打开学生信息批量更新窗口",
+            "roles":"admin"
         }
     ], 
     "views": [
@@ -216,6 +290,14 @@
                         {
                             "operationID": "create",
                             "name":"增加学生"
+                        },
+                        {
+                            "operationID": "updateGender",
+                            "name":"设为女生"
+                        },
+                        {
+                            "operationID": "openbatchUpdateForm",
+                            "name":"批量更新"
                         }
                     ]
                 }, 
@@ -334,6 +416,65 @@
                     "field": "remark", 
                     "colSpan": 2,
                     "rowSpan": 2
+                }
+            ]
+        },
+        {
+            "formID": "batchUpdateForm",
+            "colCount": 2,
+            "rowCount": 2,
+            "rowHeight": 30,
+            "header":{
+                "label":"批量更新学生信息"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"batchUpdate",
+                        "name":"确定"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"OP_TYPE_CLOSE",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"LOCATION_TYPE_MODAL"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "gender", 
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {"value":"男","label":"男"},
+                        {"value":"女","label":"女"}
+                    ],
+                    "placeholder":"请选择性别",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 2,
+                    "rowSpan": 1
+                }, 
+                {
+                    "field": "class_id", 
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 2,
+                    "rowSpan": 1
                 }
             ]
         }
