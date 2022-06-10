@@ -9,7 +9,11 @@
         },
         {
             "field": "name", 
-            "name": "姓名", 
+            "name": {
+                "default":"姓名",
+                "zh_CN":"姓名",
+                "en_US":"Name"
+            }, 
             "dataType": "varchar",
             "quickSearch":true
         },
@@ -75,7 +79,11 @@
     "operations": [
         {
             "id": "create", 
-            "name": "创建",
+            "name": {
+                "default":"创建",
+                "zh_CN":"创建",
+                "en_US":"Create"
+            }, 
             "type":"OP_TYPE_OPEN",
             "params":{
                     "url":"/crv_form_view/#/lms_student/form1/FORM_TYPE_CREATE",
@@ -91,12 +99,20 @@
         }, 
         {
             "id": "edit", 
-            "name": "编辑",
+            "name": {
+                "default":"编辑",
+                "zh_CN":"编辑",
+                "en_US":"Edit"
+            },
             "type":"OP_TYPE_OPEN",
             "params":{
                     "url":"/crv_form_view/#/lms_student/form1/FORM_TYPE_EDIT",
                     "location":"LOCATION_TYPE_MODAL",
-                    "title":"编辑学生信息",
+                    "title":{
+                        "default":"编辑学生信息",
+                        "zh_CN":"编辑学生信息",
+                        "en_US":"Edit Student Info"
+                    },
                     "key":"/model/lms_student/form1/edit",
                     "width":800,
                     "height":600
@@ -238,7 +254,11 @@
     "views": [
         {
             "viewID": "view1", 
-            "name": "学生信息维护", 
+            "name": {
+                "default":"学生信息维护",
+                "zh_CN":"学生信息维护",
+                "en_US":"Students"
+            }, 
             "description": "学生信息维护", 
             "fields": [
                 {
@@ -289,7 +309,11 @@
                     "buttons": [
                         {
                             "operationID": "create",
-                            "name":"增加学生"
+                            "name":{
+                                "default":"增加学生",
+                                "zh_CN":"增加学生",
+                                "en_US":"Add Student"
+                            }
                         },
                         {
                             "operationID": "updateGender",
@@ -306,12 +330,10 @@
                     "width":80, 
                     "buttons": [
                         {
-                            "operationID": "edit",
-                            "name":"编辑"
+                            "operationID": "edit"
                         },
                         {
-                            "operationID": "delete",
-                            "name":"删除"
+                            "operationID": "delete"
                         }
                     ]
                 }
@@ -332,10 +354,18 @@
                 "operations":[
                     {
                         "operationID":"save",
-                        "name":"保存"
+                        "name":{
+                            "default":"保存",
+                            "zh_CN":"保存",
+                            "en_US":"Save"
+                        }
                     },
                     {
-                        "name":"关闭",
+                        "name":{
+                            "default":"关闭",
+                            "zh_CN":"关闭",
+                            "en_US":"Close"
+                        },
                         "type":"OP_TYPE_CLOSE",
                         "validateFormData":false,
                         "params":{
@@ -352,7 +382,11 @@
                     "row": 1,
                     "col": 1,
                     "field": "id", 
-                    "label": "学号",
+                    "label": {
+                        "default":"学号",
+                        "zh_CN":"学号",
+                        "en_US":"No."
+                    },
                     "colSpan": 2,
                     "rowSpan": 1,
                     "required":true
@@ -403,6 +437,11 @@
                     "maxPreviewWidth":200,
                     "maxPreviewHeight":200,
                     "accept":".jpg,.png",
+                    "selectButtonLabel":{
+                        "default":"选择图片",
+                        "zh_CN":"选择图片",
+                        "en_US":"Select image"
+                    },
                     "row": 3,
                     "col": 1,
                     "field": "avatar", 

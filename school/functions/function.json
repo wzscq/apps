@@ -1,20 +1,45 @@
 [
     {
         "id":"1",
-        "name":"学生管理职能",
-        "description":"学生管理相关功能",
+        "name":{
+            "default":"学生管理",
+            "zh_CN":"学生管理",
+            "en_US":"Students Management"
+        },
+        "description":{
+            "default":"学生管理相关功能",
+            "zh_CN":"学生管理相关功能",
+            "en_US":"Functions of Students Management"
+        },
         "children":[
             {
                 "id":"1",
-                "name":"学生信息维护",
-                "description":"创建和修改学生信息",
+                "name":{
+                    "default":"学生信息维护",
+                    "zh_CN":"学生信息维护",
+                    "en_US":"Students"
+                },
+                "openLabel":{
+                    "default":"执行",
+                    "zh_CN":"执行",
+                    "en_US":"Execute"
+                },
+                "description":{
+                    "default":"创建和修改学生信息",
+                    "zh_CN":"创建和修改学生信息",
+                    "en_US":"Edit Student Info"
+                },
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"OP_TYPE_OPEN",
                     "params":{
                         "url":"/crv_list_view/#/lms_student",
                         "location":"LOCATION_TYPE_TAB",
-                        "title":"学生信息维护",
+                        "title":{
+                            "default":"学生信息维护",
+                            "zh_CN":"学生信息维护",
+                            "en_US":"Students"
+                        },
                         "key":"/model/lms_student"
                     },
                     "input":{},
