@@ -1,0 +1,68 @@
+{
+    "label":"Add Student",
+    "description":"This flow is a guid to adding students.",
+    "forms":[],
+    "nodes":[
+        {
+            "id":"1",
+            "type":"start",
+            "data":{ 
+                "label": "Node 1" 
+            },
+            "position":{
+                "x": 250, 
+                "y": 5 
+            }
+        },
+        {
+            "id":"2",
+            "type":"form",
+            "data":{ 
+                "label": "Node 1" 
+            },
+            "position":{
+                "x": 250, 
+                "y": 5 
+            }
+        },
+        {
+            "id":"3",
+            "type":"save",
+            "data":{ 
+                "label": "Node 1" 
+            },
+            "position":{
+                "x": 250, 
+                "y": 5 
+            }
+        },
+        {
+            "id":"4",
+            "type":"end",
+            "data":{ 
+                "label": "Node 1" 
+            },
+            "position":{
+                "x": 250, 
+                "y": 5 
+            }
+        }
+    ],
+    "edges":[
+        {
+            "id":"1",
+            "source":"1",
+            "target":"2"
+        },
+        {
+            "id":"2",
+            "source":"2",
+            "target":"3"
+        },
+        {
+            "id":"3",
+            "source":"3",
+            "target":"4"
+        }
+    ]
+}
