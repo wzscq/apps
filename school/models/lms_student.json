@@ -123,7 +123,11 @@
         },  
         {
             "id": "delete", 
-            "name": "删除",
+            "name": {
+                "default":"删除",
+                "zh_CN":"删除",
+                "en_US":"delete"
+            },
             "type":"OP_TYPE_REQUEST",
             "params":{
                 "url":"/data/delete",
@@ -134,8 +138,12 @@
                 "type":"OP_TYPE_MESSAGE",
                 "params":{
                     "type":"success",
-                    "content":"删除学生信息成功!",
-                    "duration":"2"
+                    "content":{
+                        "default":"删除学生信息成功!",
+                        "zh_CN":"删除学生信息成功!",
+                        "en_US":"delete student succeed."
+                    },
+                    "duration":"5"
                 },
                 "description":"提示删除数据成功",
                 "successOperation":{
@@ -405,10 +413,28 @@
                     "field": "gender", 
                     "controlType": "SingleSelect",
                     "options":[
-                        {"value":"男","label":"男"},
-                        {"value":"女","label":"女"}
+                        {
+                            "value":"男",
+                            "label":{
+                                "default":"男",
+                                "zh_CN":"男",
+                                "en_US":"male"
+                            }
+                        },
+                        {
+                            "value":"女",
+                            "label":{
+                                "default":"女",
+                                "zh_CN":"女",
+                                "en_US":"female"
+                            }
+                        }
                     ],
-                    "placeholder":"请选择性别",
+                    "placeholder":{
+                        "default":"请选择性别",
+                        "zh_CN":"请选择性别",
+                        "en_US":"please select gender"
+                        },
                     "row": 2,
                     "col": 1,
                     "colSpan": 2,
