@@ -279,7 +279,26 @@
                 }, 
                 {
                     "field": "gender", 
-                    "width": 100
+                    "width": 100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"男",
+                            "label":{
+                                "default":"男",
+                                "zh_CN":"男",
+                                "en_US":"male"
+                            }
+                        },
+                        {
+                            "value":"女",
+                            "label":{
+                                "default":"女",
+                                "zh_CN":"女",
+                                "en_US":"female"
+                            }
+                        }
+                    ]
                 }, 
                 {
                     "field": "class_id", 
