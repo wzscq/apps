@@ -275,7 +275,8 @@
                 }, 
                 {
                     "field": "name", 
-                    "width": 100
+                    "width": 100,
+                    "cellStyle":"console.log('cellStyle func:',rowIndex,record); if(record.name==='小红'){ return {backgroundColor:'#F00'} }"
                 }, 
                 {
                     "field": "gender", 
@@ -365,6 +366,7 @@
                     ]
                 }
             },
+            "rowStyle":"console.log('rowStyle func:',rowIndex,record); if(rowIndex%2===0){ return {backgroundColor:'#EEE'} }",
             "roles":"admin"
         }
     ],
