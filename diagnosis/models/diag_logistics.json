@@ -16,7 +16,7 @@
             "field": "ecu_id", 
             "name": "ECU", 
             "dataType": "varchar",
-            "fieldType":"MANY_TO_ONE",
+            "fieldType":"many2one",
             "relatedModelID":"diag_ecu"
         },
         {
@@ -78,10 +78,10 @@
         {
             "id": "create", 
             "name": "创建",
-            "type":"OP_TYPE_OPEN",
+            "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_logistics/form1/FORM_TYPE_CREATE",
-                    "location":"LOCATION_TYPE_MODAL",
+                    "url":"/crv_form_view/#/diag_logistics/form1/create",
+                    "location":"modal",
                     "title":"新建物流信息",
                     "key":"/model/diag_logistics/form1/create",
                     "width":600,
@@ -94,10 +94,10 @@
         {
             "id": "edit", 
             "name": "编辑",
-            "type":"OP_TYPE_OPEN",
+            "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_logistics/form1/FORM_TYPE_EDIT",
-                    "location":"LOCATION_TYPE_MODAL",
+                    "url":"/crv_form_view/#/diag_logistics/form1/edit",
+                    "location":"modal",
                     "title":"编辑物流信息",
                     "key":"/model/diag_logistics/form1/edit",
                     "width":600,
@@ -110,10 +110,10 @@
         {
             "id": "detail", 
             "name": "查看详情",
-            "type":"OP_TYPE_OPEN",
+            "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_logistics/form1/FORM_TYPE_DETAIL",
-                    "location":"LOCATION_TYPE_MODAL",
+                    "url":"/crv_form_view/#/diag_logistics/form1/detail",
+                    "location":"modal",
                     "title":"物流信息详情",
                     "key":"/model/diag_logistics/form1/edit",
                     "width":600,
@@ -126,14 +126,14 @@
         {
             "id": "delete", 
             "name": "删除",
-            "type":"OP_TYPE_REQUEST",
+            "type":"request",
             "params":{
                 "url":"/data/delete",
                 "method":"post"
             },
             "description":"删除选中数据",
             "successOperation":{
-                "type":"OP_TYPE_MESSAGE",
+                "type":"message",
                 "params":{
                     "type":"success",
                     "content":"删除信息成功!",
@@ -141,9 +141,9 @@
                 },
                 "description":"提示删除数据成功",
                 "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "type":"reloadFrameData",
                     "params":{
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "key":"/model/diag_logistics"
                     },
                     "description":"刷新页面数据"
@@ -154,23 +154,23 @@
         {
             "id":"save",
             "name":"保存",
-            "type":"OP_TYPE_REQUEST",
+            "type":"request",
             "params":{
                 "url":"/data/save",
                 "method":"post"
             },
             "description":"保存数据",
             "successOperation":{
-                "type":"OP_TYPE_CLOSE",
+                "type":"close",
                 "params":{
-                    "location":"LOCATION_TYPE_MODAL"
+                    "location":"modal"
                 },
                 "input":{},
                 "description":"关闭对话框",
                 "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "type":"reloadFrameData",
                     "params":{
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "key":"/model/diag_logistics"
                     },
                     "description":"刷新页面数据"
@@ -291,10 +291,10 @@
                     },
                     {
                         "name":"关闭",
-                        "type":"OP_TYPE_CLOSE",
+                        "type":"close",
                         "validateFormData":false,
                         "params":{
-                            "location":"LOCATION_TYPE_MODAL"
+                            "location":"modal"
                         },
                         "input":{},
                         "description":"关闭对话框"                            

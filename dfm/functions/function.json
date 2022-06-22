@@ -10,10 +10,10 @@
                 "description":"诊断文件管理",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/dfm_file",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"诊断文件",
                         "key":"/model/dfm_file"
                     },
@@ -35,10 +35,10 @@
                 "description":"维护系统登录账号",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/core_user",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"用户管理",
                         "key":"/model/core_user"
                     },
@@ -53,10 +53,10 @@
                 "description":"维护系统角色信息",
                 "icon":"UsergroupAddOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/core_role",
-                        "location":"LOCATION_TYPE_TAB",                         
+                        "location":"tab",                         
                         "title":"角色管理",
                         "key":"/model/core_role"
                     },
@@ -71,10 +71,10 @@
                 "description":"显示操作日志",
                 "icon":"UnorderedListOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"操作日志",
                         "key":"/log"
                     },
@@ -89,10 +89,10 @@
                 "description":"系统文件管理",
                 "icon":"FileTextOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/core_file",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"文件管理",
                         "key":"/model/core_file"
                     },

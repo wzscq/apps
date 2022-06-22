@@ -16,14 +16,14 @@
             "field": "domain_id", 
             "name": "Domain", 
             "dataType": "varchar",
-            "fieldType":"MANY_TO_ONE",
+            "fieldType":"many2one",
             "relatedModelID":"diag_domain"
         },
         {
             "field": "ecu_id", 
             "name": "ECU", 
             "dataType": "varchar",
-            "fieldType":"MANY_TO_ONE",
+            "fieldType":"many2one",
             "relatedModelID":"diag_ecu"
         },
         {
@@ -34,21 +34,21 @@
         {
             "field": "logistics_did", 
             "name": "物流DID", 
-            "fieldType":"MANY_TO_MANY",
+            "fieldType":"many2many",
             "relatedModelID":"diag_logistics",
             "associationModelID":"diag_parameter_logistics_did"
         },
         {
             "field": "internal_did",
             "name": "内部DID",
-            "fieldType":"MANY_TO_MANY",
+            "fieldType":"many2many",
             "relatedModelID":"diag_logistics",
             "associationModelID":"diag_parameter_internal_did"
         },
         {
             "field": "triggers",
             "name": "触发条件",
-            "fieldType":"ONE_TO_MANY",
+            "fieldType":"one2many",
             "relatedModelID":"diag_parameter_trigger",
             "relatedField":"parameter_id"
         },
@@ -96,10 +96,10 @@
         {
             "id": "create", 
             "name": "创建",
-            "type":"OP_TYPE_OPEN",
+            "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_parameter/form1/FORM_TYPE_CREATE",
-                    "location":"LOCATION_TYPE_MODAL",
+                    "url":"/crv_form_view/#/diag_parameter/form1/create",
+                    "location":"modal",
                     "title":"新建诊断参数",
                     "key":"/model/diag_parameter/form1/create",
                     "width":800,
@@ -112,10 +112,10 @@
         {
             "id": "edit", 
             "name": "编辑",
-            "type":"OP_TYPE_OPEN",
+            "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_parameter/form1/FORM_TYPE_EDIT",
-                    "location":"LOCATION_TYPE_MODAL",
+                    "url":"/crv_form_view/#/diag_parameter/form1/edit",
+                    "location":"modal",
                     "title":"编辑诊断参数",
                     "key":"/model/diag_parameter/form1/edit",
                     "width":800,
@@ -128,10 +128,10 @@
         {
             "id": "distribute", 
             "name": "参数下发",
-            "type":"OP_TYPE_OPEN",
+            "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_parameter/formDistribute/FORM_TYPE_DETAIL",
-                    "location":"LOCATION_TYPE_MODAL",
+                    "url":"/crv_form_view/#/diag_parameter/formDistribute/detail",
+                    "location":"modal",
                     "title":"诊断参数详情",
                     "key":"/model/diag_parameter/formDistribute/detail",
                     "width":800,
@@ -144,14 +144,14 @@
         {
             "id": "delete", 
             "name": "删除",
-            "type":"OP_TYPE_REQUEST",
+            "type":"request",
             "params":{
                 "url":"/data/delete",
                 "method":"post"
             },
             "description":"删除选中数据",
             "successOperation":{
-                "type":"OP_TYPE_MESSAGE",
+                "type":"message",
                 "params":{
                     "type":"success",
                     "content":"删除信息成功!",
@@ -159,9 +159,9 @@
                 },
                 "description":"提示删除数据成功",
                 "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "type":"reloadFrameData",
                     "params":{
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "key":"/model/diag_parameter"
                     },
                     "description":"刷新页面数据"
@@ -172,23 +172,23 @@
         {
             "id":"save",
             "name":"保存",
-            "type":"OP_TYPE_REQUEST",
+            "type":"request",
             "params":{
                 "url":"/data/save",
                 "method":"post"
             },
             "description":"保存数据",
             "successOperation":{
-                "type":"OP_TYPE_CLOSE",
+                "type":"close",
                 "params":{
-                    "location":"LOCATION_TYPE_MODAL"
+                    "location":"modal"
                 },
                 "input":{},
                 "description":"关闭对话框",
                 "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "type":"reloadFrameData",
                     "params":{
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "key":"/model/diag_parameter"
                     },
                     "description":"刷新页面数据"
@@ -199,7 +199,7 @@
         {
             "id":"distributeConfirm",
             "name":"确认下发",
-            "type":"OP_TYPE_REQUEST",
+            "type":"request",
             "params":{
                 "url":"/redirect",
                 "method":"post"
@@ -209,14 +209,14 @@
             },
             "description":"确认下发",
             "successOperation":{
-                "type":"OP_TYPE_CLOSE",
+                "type":"close",
                 "params":{
-                    "location":"LOCATION_TYPE_MODAL"
+                    "location":"modal"
                 },
                 "input":{},
                 "description":"关闭对话框",
                 "successOperation":{
-                    "type":"OP_TYPE_MESSAGE",
+                    "type":"message",
                     "params":{
                         "type":"success",
                         "content":"参数下发成功!",
@@ -330,10 +330,10 @@
                     },
                     {
                         "name":"关闭",
-                        "type":"OP_TYPE_CLOSE",
+                        "type":"close",
                         "validateFormData":false,
                         "params":{
-                            "location":"LOCATION_TYPE_MODAL"
+                            "location":"modal"
                         },
                         "input":{},
                         "description":"关闭对话框"                            
@@ -382,7 +382,7 @@
                     "controlType":"SingleSelect",
                     "cascade":{
                         "parentField":"domain_id",
-                        "type":"MANY_TO_ONE",
+                        "type":"many2one",
                         "relatedField":"domain_id"
                     },
                     "fields":[
@@ -405,7 +405,7 @@
                     "optionLabel":"did",
                     "cascade":{
                         "parentField":"ecu_id",
-                        "type":"MANY_TO_ONE",
+                        "type":"many2one",
                         "relatedField":"ecu_id"
                     },
                     "relatedFilter":{
@@ -431,7 +431,7 @@
                     "optionLabel":"did",
                     "cascade":{
                         "parentField":"ecu_id",
-                        "type":"MANY_TO_ONE",
+                        "type":"many2one",
                         "relatedField":"ecu_id"
                     },
                     "relatedFilter":{
@@ -454,7 +454,7 @@
                 {
                     "field":"triggers",
                     "controlType":"EditTable",
-                    "fieldType":"ONE_TO_MANY",
+                    "fieldType":"one2many",
                     "relatedModelID":"diag_parameter_trigger",
                     "relatedField":"parameter_id",
                     "controls":[
@@ -467,13 +467,13 @@
                             "visible":true,
                             "label":"信号",
                             "controlType":"SingleSelect",
-                            "fieldType":"MANY_TO_ONE",
+                            "fieldType":"many2one",
                             "relatedModelID":"diag_signal",
                             "optionLabel":"name",
                             "cascade":{
                                 "parentPath":"..",
                                 "parentField":"domain_id",
-                                "type":"MANY_TO_ONE",
+                                "type":"many2one",
                                 "relatedField":"domain_id"
                             },
                             "fields":[
@@ -547,10 +547,10 @@
                     },
                     {
                         "name":"关闭",
-                        "type":"OP_TYPE_CLOSE",
+                        "type":"close",
                         "validateFormData":false,
                         "params":{
-                            "location":"LOCATION_TYPE_MODAL"
+                            "location":"modal"
                         },
                         "input":{},
                         "description":"关闭对话框"                            
@@ -599,7 +599,7 @@
                     "controlType":"SingleSelect",
                     "cascade":{
                         "parentField":"domain_id",
-                        "type":"MANY_TO_ONE",
+                        "type":"many2one",
                         "relatedField":"domain_id"
                     },
                     "fields":[
@@ -622,7 +622,7 @@
                     "optionLabel":"did",
                     "cascade":{
                         "parentField":"ecu_id",
-                        "type":"MANY_TO_ONE",
+                        "type":"many2one",
                         "relatedField":"ecu_id"
                     },
                     "relatedFilter":{
@@ -648,7 +648,7 @@
                     "optionLabel":"did",
                     "cascade":{
                         "parentField":"ecu_id",
-                        "type":"MANY_TO_ONE",
+                        "type":"many2one",
                         "relatedField":"ecu_id"
                     },
                     "relatedFilter":{
@@ -681,13 +681,13 @@
                             "visible":true,
                             "label":"信号",
                             "controlType":"SingleSelect",
-                            "fieldType":"MANY_TO_ONE",
+                            "fieldType":"many2one",
                             "relatedModelID":"diag_signal",
                             "optionLabel":"name",
                             "cascade":{
                                 "parentPath":"..",
                                 "parentField":"domain_id",
-                                "type":"MANY_TO_ONE",
+                                "type":"many2one",
                                 "relatedField":"domain_id"
                             },
                             "fields":[

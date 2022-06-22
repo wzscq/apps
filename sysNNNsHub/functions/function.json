@@ -10,10 +10,10 @@
                 "description":"相关软硬件的功能开关",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/nnn_basic_function",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"功能开关",
                         "key":"/model/nnn_basic_function"
                     },
@@ -28,10 +28,10 @@
                 "description":"设置智能网关的模式",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/nnn_workmode",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"设定相关的工作模式",
                         "key":"/model/nnn_workmode"
                     },
@@ -53,10 +53,10 @@
                 "description":"设置门禁模式的基本参数",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/nnn_provention_basic",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"门禁模式基本参数",
                         "key":"/model/nnn_provention_basic"
                     },
@@ -71,10 +71,10 @@
                 "description":"设置特殊门禁参数",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/nnn_provention_advance",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"设置门禁模式高级参数",
                         "key":"/model/nnn_provention_advance"
                     },
@@ -96,10 +96,10 @@
                 "description":"试衣间模式基本参数",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/nnn_fittingroom_basic",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"基本参数",
                         "key":"/model/nnn_fittingroom_basic"
                     },
@@ -114,10 +114,10 @@
                 "description":"试衣间模式高级参数",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/nnn_fittingroom_advance",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"高级参数",
                         "key":"/model/nnn_fittingroom_basic_advance"
                     },
@@ -140,10 +140,10 @@
                 "description":"智能货架基本参数",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/nnn_smartracket_basic",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"学校信息维护",
                         "key":"/model/nnn_smartracket_basic"
                     },
@@ -158,10 +158,10 @@
                 "description":"智能货架高级参数",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/nnn_smartracket_advance",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"学校信息维护",
                         "key":"/model/nnn_smartracket_advance"
                     },
@@ -184,10 +184,10 @@
                 "description":"声音定位参数配置",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/nnn_sound_locate",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"班级管理",
                         "key":"/model/nnn_sound_locate"
                     },
@@ -202,10 +202,10 @@
                 "description":"针对设备的定位查询",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/lms_class_grade",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"定位查询",
                         "key":"/model/lms_class_grade"
                     },
@@ -227,10 +227,10 @@
                 "description":"维护参数设置",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/lms_class_subject",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"基站定位参数设置",
                         "key":"/model/lms_class_subject"
                     },
@@ -245,10 +245,10 @@
                 "description":"基站定位相关查询",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/lms_class_term_subject",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"基站定位相关查询",
                         "key":"/model/lms_class_term_subject"
                     },
@@ -270,10 +270,10 @@
                 "description":"维护系统登录账号",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/core_user",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"用户管理",
                         "key":"/model/core_user"
                     },
@@ -288,10 +288,10 @@
                 "description":"维护系统角色信息",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/core_role",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"角色管理",
                         "key":"/model/core_role"
                     },
@@ -306,10 +306,10 @@
                 "description":"显示操作日志",
                 "icon":"UnorderedListOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"操作日志",
                         "key":"/log"
                     },
@@ -324,10 +324,10 @@
                 "description":"系统文件管理",
                 "icon":"FileTextOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/core_file",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"文件管理",
                         "key":"/model/core_file"
                     },
@@ -342,7 +342,7 @@
                 "description":"重启后台服务",
                 "icon":"FileTextOutlined",
                 "operation":{
-                    "type":"OP_TYPE_REQUEST",
+                    "type":"request",
                     "params":{
                             "url":"/redirect",
                             "method":"post"
@@ -352,7 +352,7 @@
                     },
                     "description":"重启服务",
                     "successOperation":{
-                        "type":"OP_TYPE_MESSAGE",
+                        "type":"message",
                         "params":{
                             "type":"success",
                             "content":"重启指令下发成功!",

@@ -77,14 +77,14 @@
         {
             "id": "delete", 
             "name": "删除",
-            "type":"OP_TYPE_REQUEST",
+            "type":"request",
             "params":{
                 "url":"/data/delete",
                 "method":"post"
             },
             "description":"删除选中数据",
             "successOperation":{
-                "type":"OP_TYPE_MESSAGE",
+                "type":"message",
                 "params":{
                     "type":"success",
                     "content":"删除文件记录成功!",
@@ -92,9 +92,9 @@
                 },
                 "description":"提示删除数据成功",
                 "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "type":"reloadFrameData",
                     "params":{
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "key":"/model/core_file"
                     },
                     "description":"刷新页面数据"

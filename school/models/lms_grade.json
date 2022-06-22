@@ -63,10 +63,10 @@
         {
             "id": "create", 
             "name": "创建",
-            "type":"OP_TYPE_OPEN",
+            "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/lms_grade/form1/FORM_TYPE_CREATE",
-                    "location":"LOCATION_TYPE_MODAL",
+                    "url":"/crv_form_view/#/lms_grade/form1/create",
+                    "location":"modal",
                     "title":"创建年级",
                     "key":"/model/lms_grade/form1/create",
                     "width":600,
@@ -79,10 +79,10 @@
         {
             "id": "edit", 
             "name": "编辑",
-            "type":"OP_TYPE_OPEN",
+            "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/lms_grade/form1/FORM_TYPE_EDIT",
-                    "location":"LOCATION_TYPE_MODAL",
+                    "url":"/crv_form_view/#/lms_grade/form1/edit",
+                    "location":"modal",
                     "title":"编辑年级信息",
                     "key":"/model/lms_grade/form1/edit",
                     "width":600,
@@ -95,14 +95,14 @@
         {
             "id": "delete", 
             "name": "删除",
-            "type":"OP_TYPE_REQUEST",
+            "type":"request",
             "params":{
                 "url":"/data/delete",
                 "method":"post"
             },
             "description":"删除选中数据",
             "successOperation":{
-                "type":"OP_TYPE_MESSAGE",
+                "type":"message",
                 "params":{
                     "type":"success",
                     "content":"删除成功!",
@@ -110,9 +110,9 @@
                 },
                 "description":"提示删除数据成功",
                 "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "type":"reloadFrameData",
                     "params":{
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "key":"/model/lms_grade"
                     },
                     "description":"刷新页面数据"
@@ -123,23 +123,23 @@
         {
             "id":"save",
             "name":"保存",
-            "type":"OP_TYPE_REQUEST",
+            "type":"request",
             "params":{
                 "url":"/data/save",
                 "method":"post"
             },
             "description":"保存数据",
             "successOperation":{
-                "type":"OP_TYPE_CLOSE",
+                "type":"close",
                 "params":{
-                    "location":"LOCATION_TYPE_MODAL"
+                    "location":"modal"
                 },
                 "input":{},
                 "description":"关闭对话框",
                 "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "type":"reloadFrameData",
                     "params":{
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "key":"/model/lms_grade"
                     },
                     "description":"刷新页面数据"
@@ -237,10 +237,10 @@
                     },
                     {
                         "name":"关闭",
-                        "type":"OP_TYPE_CLOSE",
+                        "type":"close",
                         "validateFormData":false,
                         "params":{
-                            "location":"LOCATION_TYPE_MODAL"
+                            "location":"modal"
                         },
                         "input":{},
                         "description":"关闭对话框"                            

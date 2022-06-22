@@ -10,10 +10,10 @@
                 "description":"数据标注",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"http://121.36.222.9/carkpi/#/markdata",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"数据标注",
                         "key":"/markdata"
                     },
@@ -28,10 +28,10 @@
                 "description":"车辆行驶指标分析",
                 "icon":"FundTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"http://121.36.222.9/carkpi/#/Analysis",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"KPI分析",
                         "key":"/Analysis"
                     },
@@ -46,10 +46,10 @@
                 "description":"车辆动态模型分析",
                 "icon":"ColumnWidthOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/car_model_analysis",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"动态模型",
                         "key":"/model/car_model_analysis"
                     },
@@ -71,10 +71,10 @@
                 "description":"车辆行驶轨迹分析",
                 "icon":"GlobalOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"http://121.36.222.9/carkpi/#/Amap",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"地图DEMO",
                         "key":"/Amap"
                     },
@@ -96,10 +96,10 @@
                 "description":"维护系统登录账号",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/core_user",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"用户管理",
                         "key":"/model/core_user"
                     },
@@ -114,10 +114,10 @@
                 "description":"维护系统角色信息",
                 "icon":"UsergroupAddOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/core_role",
-                        "location":"LOCATION_TYPE_TAB",                         
+                        "location":"tab",                         
                         "title":"角色管理",
                         "key":"/model/core_role"
                     },
@@ -132,10 +132,10 @@
                 "description":"显示操作日志",
                 "icon":"UnorderedListOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"操作日志",
                         "key":"/log"
                     },
@@ -150,10 +150,10 @@
                 "description":"系统文件管理",
                 "icon":"FileTextOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/core_file",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"文件管理",
                         "key":"/model/core_file"
                     },

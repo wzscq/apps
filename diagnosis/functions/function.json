@@ -10,10 +10,10 @@
                 "description":"故障实时汇总统计",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"http://121.36.222.9/carweb/#/",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"故障仪表盘",
                         "key":"/diag_dashboard"
                     },
@@ -35,10 +35,10 @@
                 "description":"数据下载与报告查询",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"http://121.36.222.9/carweb/#/faultList",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"诊断智能分析",
                         "key":"/diag_faultlist"
                     },
@@ -60,10 +60,10 @@
                 "description":"车端算法配置",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/diag_parameter",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"诊断参数下发",
                         "key":"/model/diag_parameter"
                     },
@@ -78,10 +78,10 @@
                 "description":"DTC Signal关系维护",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/diag_dtc_signal",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"DTC Signal信息维护",
                         "key":"/model/diag_dtc_signal"
                     },
@@ -96,10 +96,10 @@
                 "description":"诊断执行参数配置",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/diag_exe_config",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"诊断执行配置",
                         "key":"/model/diag_exe_config"
                     },
@@ -121,10 +121,10 @@
                 "description":"总线信息",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/diag_domain",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"域数据库",
                         "key":"/model/diag_domain"
                     },
@@ -139,10 +139,10 @@
                 "description":"控制器信息",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/diag_ecu",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"控制器数据库",
                         "key":"/model/diag_ecu"
                     },
@@ -157,10 +157,10 @@
                 "description":"信号矩阵",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/diag_signal",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"信号数据库",
                         "key":"/model/diag_signal"
                     },
@@ -175,10 +175,10 @@
                 "description":"故障码",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/diag_dtc",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"故障码数据库",
                         "key":"/model/diag_dtc"
                     },
@@ -193,10 +193,10 @@
                 "description":"故障码与总线信号匹配",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/diag_manual_fault",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"信号关联数据库",
                         "key":"/model/diag_manual_fault"
                     },
@@ -211,10 +211,10 @@
                 "description":"诊断服务内容",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/diag_logistics",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"诊断服务数据库",
                         "key":"/model/diag_logistics"
                     },
@@ -236,10 +236,10 @@
                 "description":"维护系统登录账号",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/core_user",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"用户管理",
                         "key":"/model/core_user"
                     },
@@ -254,10 +254,10 @@
                 "description":"维护系统角色信息",
                 "icon":"UsergroupAddOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/core_role",
-                        "location":"LOCATION_TYPE_TAB",                         
+                        "location":"tab",                         
                         "title":"角色管理",
                         "key":"/model/core_role"
                     },
@@ -272,10 +272,10 @@
                 "description":"显示操作日志",
                 "icon":"UnorderedListOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"操作日志",
                         "key":"/log"
                     },
@@ -290,10 +290,10 @@
                 "description":"系统文件管理",
                 "icon":"FileTextOutlined",
                 "operation":{
-                    "type":"OP_TYPE_OPEN",
+                    "type":"open",
                     "params":{
                         "url":"/crv_list_view/#/core_file",
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "title":"文件管理",
                         "key":"/model/core_file"
                     },

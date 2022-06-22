@@ -27,7 +27,7 @@
             "field": "class_id", 
             "name": "班级", 
             "dataType": "varchar",
-            "fieldType":"MANY_TO_ONE",
+            "fieldType":"many2one",
             "relatedModelID":"lms_class",
             "quickSearch":true
         },
@@ -65,12 +65,12 @@
         {
             "field": "avatar", 
             "name": "头像", 
-            "fieldType":"FILE"
+            "fieldType":"file"
         }
     ], 
     "datasets":[
         {
-            "id":"DEFAULT",
+            "id":"default",
             "fields":"*",
             "queryRoles":"*",
             "mutationRoles":"*"
@@ -84,10 +84,10 @@
                 "zh_CN":"创建",
                 "en_US":"Create"
             }, 
-            "type":"OP_TYPE_OPEN",
+            "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/lms_student/form1/FORM_TYPE_CREATE",
-                    "location":"LOCATION_TYPE_MODAL",
+                    "url":"/crv_form_view/#/lms_student/form1/create",
+                    "location":"modal",
                     "title":"增加学生",
                     "key":"/model/lms_student/form1/create",
                     "width":800,
@@ -104,10 +104,10 @@
                 "zh_CN":"编辑",
                 "en_US":"Edit"
             },
-            "type":"OP_TYPE_OPEN",
+            "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/lms_student/form1/FORM_TYPE_EDIT",
-                    "location":"LOCATION_TYPE_MODAL",
+                    "url":"/crv_form_view/#/lms_student/form1/edit",
+                    "location":"modal",
                     "title":{
                         "default":"编辑学生信息",
                         "zh_CN":"编辑学生信息",
@@ -128,14 +128,14 @@
                 "zh_CN":"删除",
                 "en_US":"delete"
             },
-            "type":"OP_TYPE_REQUEST",
+            "type":"request",
             "params":{
                 "url":"/data/delete",
                 "method":"post"
             },
             "description":"删除选中数据",
             "successOperation":{
-                "type":"OP_TYPE_MESSAGE",
+                "type":"message",
                 "params":{
                     "type":"success",
                     "content":{
@@ -147,9 +147,9 @@
                 },
                 "description":"提示删除数据成功",
                 "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "type":"reloadFrameData",
                     "params":{
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "key":"/model/lms_student"
                     },
                     "description":"刷新页面数据"
@@ -160,23 +160,23 @@
         {
             "id":"save",
             "name":"保存",
-            "type":"OP_TYPE_REQUEST",
+            "type":"request",
             "params":{
                 "url":"/data/save",
                 "method":"post"
             },
             "description":"保存数据",
             "successOperation":{
-                "type":"OP_TYPE_CLOSE",
+                "type":"close",
                 "params":{
-                    "location":"LOCATION_TYPE_MODAL"
+                    "location":"modal"
                 },
                 "input":{},
                 "description":"关闭对话框",
                 "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "type":"reloadFrameData",
                     "params":{
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "key":"/model/lms_student"
                     },
                     "description":"刷新页面数据"
@@ -187,7 +187,7 @@
         {
             "id":"updateGender",
             "name":"设为女生",
-            "type":"OP_TYPE_REQUEST",
+            "type":"request",
             "params":{
                 "url":"/data/update",
                 "method":"post"
@@ -197,7 +197,7 @@
             },
             "description":"将性别设置为女生",
             "successOperation":{
-                "type":"OP_TYPE_MESSAGE",
+                "type":"message",
                 "params":{
                     "type":"success",
                     "content":"更新学生信息成功!",
@@ -205,9 +205,9 @@
                 },
                 "description":"提示更新学生信息成功",
                 "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "type":"reloadFrameData",
                     "params":{
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "key":"/model/lms_student"
                     },
                     "description":"刷新页面数据"
@@ -218,23 +218,23 @@
         {
             "id":"batchUpdate",
             "name":"批量更新",
-            "type":"OP_TYPE_REQUEST",
+            "type":"request",
             "params":{
                 "url":"/data/update",
                 "method":"post"
             },
             "description":"批量修改学生信息学",
             "successOperation":{
-                "type":"OP_TYPE_CLOSE",
+                "type":"close",
                 "params":{
-                    "location":"LOCATION_TYPE_MODAL"
+                    "location":"modal"
                 },
                 "input":{},
                 "description":"关闭对话框",
                 "successOperation":{
-                    "type":"OP_TYPE_RELOAD_FRAME_DATA",
+                    "type":"reloadFrameData",
                     "params":{
-                        "location":"LOCATION_TYPE_TAB",
+                        "location":"tab",
                         "key":"/model/lms_student"
                     },
                     "description":"刷新页面数据"
@@ -245,10 +245,10 @@
         {
             "id": "openbatchUpdateForm", 
             "name": "批量更新",
-            "type":"OP_TYPE_OPEN",
+            "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/lms_student/batchUpdateForm/FORM_TYPE_UPDATE",
-                    "location":"LOCATION_TYPE_MODAL",
+                    "url":"/crv_form_view/#/lms_student/batchUpdateForm/update",
+                    "location":"modal",
                     "title":"编辑学生信息",
                     "key":"/model/lms_student/batchUpdateForm/update",
                     "width":800,
@@ -395,10 +395,10 @@
                             "zh_CN":"关闭",
                             "en_US":"Close"
                         },
-                        "type":"OP_TYPE_CLOSE",
+                        "type":"close",
                         "validateFormData":false,
                         "params":{
-                            "location":"LOCATION_TYPE_MODAL"
+                            "location":"modal"
                         },
                         "input":{},
                         "description":"关闭对话框"                            
@@ -521,10 +521,10 @@
                     },
                     {
                         "name":"关闭",
-                        "type":"OP_TYPE_CLOSE",
+                        "type":"close",
                         "validateFormData":false,
                         "params":{
-                            "location":"LOCATION_TYPE_MODAL"
+                            "location":"modal"
                         },
                         "input":{},
                         "description":"关闭对话框"                            
