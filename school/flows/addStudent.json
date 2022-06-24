@@ -1,7 +1,6 @@
 {
     "label":"Add Student",
     "description":"This flow is a guid to adding students.",
-    "forms":[],
     "nodes":[
         {
             "id":"1",

@@ -82,6 +82,24 @@
                     "description":"打开学生联系人维护功能"
                 },
                 "roles":"admin"
+            },
+            {
+                "id":"4",
+                "name":"新增学生向导",
+                "description":"创建学生信息向导",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"OP_TYPE_REQUEST",
+                    "params":{
+                        "url":"/flow/start",
+                        "method":"post"
+                    },
+                    "input":{
+                        "flowID":"addStudent"
+                    },
+                    "description":"打开创建学生向导"
+                },
+                "roles":"admin"
             }
         ]
     },
