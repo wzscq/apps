@@ -222,6 +222,24 @@
                     "description":"打开诊断服务数据库页面"
                 },
                 "roles":"admin"
+            },
+            {
+                "id":"7",
+                "name":"项目平台数据库",
+                "description":"项目平台信息",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/crv_list_view/#/diag_platform",
+                        "location":"tab",
+                        "title":"项目平台数据库",
+                        "key":"/model/diag_platform"
+                    },
+                    "input":{},
+                    "description":"打开项目平台数据库页面"
+                },
+                "roles":"*"
             }
         ]
     },

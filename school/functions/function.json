@@ -89,7 +89,7 @@
                 "description":"创建学生信息向导",
                 "icon":"UserOutlined",
                 "operation":{
-                    "type":"OP_TYPE_REQUEST",
+                    "type":"request",
                     "params":{
                         "url":"/flow/start",
                         "method":"post"

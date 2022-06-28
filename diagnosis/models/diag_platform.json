@@ -1,5 +1,5 @@
 {
-    "modelID": "diag_signal", 
+    "modelID": "diag_platform", 
     "fields": [
         {
             "field": "id", 
@@ -12,55 +12,6 @@
             "dataType": "varchar",
             "quickSearch":true
         },  
-        {
-            "field": "domain_id",
-            "name": "Domain", 
-            "dataType": "varchar",
-            "fieldType":"many2one",
-            "relatedModelID":"diag_domain"
-        },
-        {
-            "field": "platform_id",
-            "name": "Platform", 
-            "dataType": "varchar",
-            "fieldType":"many2one",
-            "relatedModelID":"diag_platform"
-        },
-        {
-            "field": "can_id", 
-            "name": "CanID", 
-            "dataType": "varchar"
-        },
-        {
-            "field": "byte_order", 
-            "name": "ByteOrder", 
-            "dataType": "varchar"
-        },
-        {
-            "field": "start_addr", 
-            "name": "StartAddr", 
-            "dataType": "varchar"
-        },
-        {
-            "field": "len", 
-            "name": "Len", 
-            "dataType": "varchar"
-        },
-        {
-            "field": "factor", 
-            "name": "Factor", 
-            "dataType": "varchar"
-        },
-        {
-            "field": "offset", 
-            "name": "Offset", 
-            "dataType": "varchar"
-        },
-        {
-            "field": "pdu_id", 
-            "name": "PduID", 
-            "dataType": "varchar"
-        },
         {
             "field": "create_time", 
             "name": "创建时间", 
@@ -92,7 +43,7 @@
             "name": "数据版本", 
             "dataType": "int"
         }
-    ],
+    ], 
     "datasets":[
         {
             "id":"DEFAULT",
@@ -107,15 +58,15 @@
             "name": "创建",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_signal/form1/create",
+                    "url":"/crv_form_view/#/diag_platform/form1/create",
                     "location":"modal",
-                    "title":"新建信号",
-                    "key":"/model/diag_signal/form1/create",
-                    "width":800,
-                    "height":450
+                    "title":"新建Platform",
+                    "key":"/model/diag_platform/form1/create",
+                    "width":600,
+                    "height":350
             },
             "input":{},
-            "description":"打开新建信号对话框" ,
+            "description":"打开新建Platform对话框" ,
             "roles":"admin"
         }, 
         {
@@ -123,15 +74,15 @@
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_signal/form1/edit",
+                    "url":"/crv_form_view/#/diag_platform/form1/edit",
                     "location":"modal",
-                    "title":"编辑信号",
-                    "key":"/model/diag_signal/form1/edit",
-                    "width":800,
-                    "height":450
+                    "title":"编辑Platform",
+                    "key":"/model/diag_platform/form1/edit",
+                    "width":600,
+                    "height":350
             },
             "input":{},
-            "description":"打开信号编辑对话框",
+            "description":"打开Platform信息编辑对话框",
             "roles":"admin"
         }, 
         {
@@ -139,15 +90,15 @@
             "name": "查看详情",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_signal/form1/detail",
+                    "url":"/crv_form_view/#/diag_platform/form1/detail",
                     "location":"modal",
-                    "title":"信号信息详情",
-                    "key":"/model/diag_signal/form1/edit",
-                    "width":800,
-                    "height":450
+                    "title":"Platform信息详情",
+                    "key":"/model/diag_platform/form1/edit",
+                    "width":600,
+                    "height":350
             },
             "input":{},
-            "description":"打开信号信息编辑对话框",
+            "description":"打开Platform信息编辑对话框",
             "roles":"admin"
         }, 
         {
@@ -171,7 +122,7 @@
                     "type":"reloadFrameData",
                     "params":{
                         "location":"tab",
-                        "key":"/model/diag_signal"
+                        "key":"/model/diag_platform"
                     },
                     "description":"刷新页面数据"
                 }
@@ -198,7 +149,7 @@
                     "type":"reloadFrameData",
                     "params":{
                         "location":"tab",
-                        "key":"/model/diag_signal"
+                        "key":"/model/diag_platform"
                     },
                     "description":"刷新页面数据"
                 }
@@ -209,56 +160,15 @@
     "views": [
         {
             "viewID": "view1", 
-            "name": "信号数据库", 
-            "description": "信号数据库", 
+            "name": "项目平台", 
+            "description": "项目平台数据库", 
             "fields": [
                 {
                     "field": "id", 
-                    "width": 70
+                    "width": 100
                 }, 
                 {
                     "field": "name", 
-                    "width": 200
-                }, 
-                {
-                    "field": "domain_id", 
-                    "width": 100
-                },
-                {
-                    "field": "platform_id", 
-                    "width": 100
-                },
-                {
-                    "field": "can_id", 
-                    "width": 100
-                },
-                {
-                    "field": "byte_order", 
-                    "width": 120,
-                    "filterControlType": "SingleSelect",
-                    "options":[
-                        {"value":"1","label":"Intel"},
-                        {"value":"0","label":"Motorola"}
-                    ]
-                },
-                {
-                    "field": "start_addr", 
-                    "width": 100
-                },
-                {
-                    "field": "len", 
-                    "width": 100
-                },
-                {
-                    "field": "factor", 
-                    "width": 100
-                },
-                {
-                    "field": "offset", 
-                    "width": 100
-                }, 
-                {
-                    "field": "pdu_id", 
                     "width": 100
                 }, 
                 {
@@ -293,12 +203,12 @@
                     "buttons": [
                         {
                             "operationID": "create",
-                            "name":"新建信号"
+                            "name":"新建Platform"
                         }, 
                         {
                             "operationID": "delete",
-                            "name":"删除选中信号",
-                            "prompt":"确定要删除当前选择的信号记录吗？"
+                            "name":"删除选中Platform",
+                            "prompt":"确定要删除当前选择的Platform记录吗？"
                         }
                     ]
                 }, 
@@ -317,7 +227,7 @@
                         {
                             "operationID": "delete",
                             "name":"删除",
-                            "prompt":"确定要删除这个信号信息吗？"
+                            "prompt":"确定要删除这个Platform信息吗？"
                         }
                     ]
                 }
@@ -332,7 +242,7 @@
             "rowCount": 26,
             "rowHeight": 30,
             "header":{
-                "label":"创建信号"
+                "label":"创建Domain"
             },
             "footer":{
                 "operations":[
@@ -361,7 +271,7 @@
                     "label": "ID",
                     "colSpan": 2,
                     "rowSpan": 1,
-                    "disabled":true
+                    "required":true
                 }, 
                 {
                     "field": "name",
@@ -373,100 +283,8 @@
                     "required":true
                 }, 
                 {
-                    "field": "domain_id",
-                    "controlType": "SingleSelect",
-                    "fields":[
-                        {
-                            "field": "id"
-                        },
-                        {
-                            "field": "name"
-                        }
-                    ],
-                    "row": 2,
-                    "col": 3, 
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "platform_id",
-                    "controlType": "SingleSelect",
-                    "fields":[
-                        {
-                            "field": "id"
-                        },
-                        {
-                            "field": "name"
-                        }
-                    ],
-                    "row": 2,
-                    "col": 4, 
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "can_id", 
-                    "controlType": "Text",
-                    "row": 3,
-                    "col": 1, 
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "byte_order",
-                    "controlType": "SingleSelect", 
-                    "options":[
-                        {"value":"1","label":"Intel"},
-                        {"value":"0","label":"Motorola"}
-                    ],
-                    "row": 3,
-                    "col": 2, 
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "start_addr",
-                    "controlType": "Text", 
-                    "row": 3,
-                    "col": 3, 
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "len", 
-                    "controlType": "Text",
-                    "row": 3,
-                    "col": 4, 
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "factor", 
-                    "controlType": "Text",
-                    "row": 4,
-                    "col": 1, 
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "offset", 
-                    "controlType": "Text",
-                    "row": 4,
-                    "col": 2, 
-                    "colSpan": 1,
-                    "rowSpan": 1
-                }, 
-                {
-                    "field": "pdu_id", 
-                    "controlType": "Text",
-                    "row": 4,
-                    "col": 3, 
-                    "colSpan": 1,
-                    "rowSpan": 1
-                }, 
-                {
                     "controlType": "TextArea",
-                    "row": 5,
+                    "row": 3,
                     "col": 1,
                     "field": "remark", 
                     "colSpan": 4,

@@ -20,6 +20,13 @@
             "relatedModelID":"diag_domain"
         },
         {
+            "field": "platform_id",
+            "name": "Platform", 
+            "dataType": "varchar",
+            "fieldType":"many2one",
+            "relatedModelID":"diag_platform"
+        },
+        {
             "field": "ecu_id", 
             "name": "ECU", 
             "dataType": "varchar",
@@ -118,8 +125,8 @@
                     "location":"modal",
                     "title":"编辑诊断参数",
                     "key":"/model/diag_parameter/form1/edit",
-                    "width":800,
-                    "height":550
+                    "width":900,
+                    "height":600
             },
             "input":{},
             "description":"打开诊断参数编辑对话框",
@@ -134,8 +141,8 @@
                     "location":"modal",
                     "title":"诊断参数详情",
                     "key":"/model/diag_parameter/formDistribute/detail",
-                    "width":800,
-                    "height":550
+                    "width":900,
+                    "height":600
             },
             "input":{},
             "description":"打开诊断参数参数下发对话框",
@@ -246,6 +253,10 @@
                     "width": 100
                 },
                 {
+                    "field": "platform_id", 
+                    "width": 100
+                },
+                {
                     "field": "ecu_id", 
                     "width": 100
                 },
@@ -291,7 +302,7 @@
                     ]
                 }, 
                 "rowToolbar": {
-                    "showCount": 2,
+                    "showCount": 3,
                     "width":140, 
                     "buttons": [
                         {
@@ -470,12 +481,20 @@
                             "fieldType":"many2one",
                             "relatedModelID":"diag_signal",
                             "optionLabel":"name",
-                            "cascade":{
-                                "parentPath":"..",
-                                "parentField":"domain_id",
-                                "type":"many2one",
-                                "relatedField":"domain_id"
-                            },
+                            "cascade":[
+                                {
+                                    "parentPath":"..",
+                                    "parentField":"domain_id",
+                                    "type":"many2one",
+                                    "relatedField":"domain_id"
+                                },
+                                {
+                                    "parentPath":"..",
+                                    "parentField":"platform_id",
+                                    "type":"many2one",
+                                    "relatedField":"platform_id"
+                                }
+                            ],
                             "fields":[
                                 {"field":"id"},
                                 {"field":"name"}
@@ -509,21 +528,38 @@
                         }
                     ],
                     "row": 3,
-                    "col": 1,
+                    "col": 2,
                     "colSpan": 3,
-                    "rowSpan": 1
+                    "rowSpan": 3
                 },
                 {
                     "field":"time_offset",
                     "controlType": "Text",
                     "row": 3,
-                    "col": 4,
+                    "col": 1,
                     "colSpan": 1,
                     "rowSpan": 1
                 },
                 {
-                    "controlType": "TextArea",
+                    "field": "platform_id",
+                    "controlType": "SingleSelect",
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"name"
+                        }
+                    ],
                     "row": 4,
+                    "col": 1, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "controlType": "TextArea",
+                    "row": 6,
                     "col": 1,
                     "field": "remark", 
                     "colSpan": 4,
@@ -684,12 +720,20 @@
                             "fieldType":"many2one",
                             "relatedModelID":"diag_signal",
                             "optionLabel":"name",
-                            "cascade":{
-                                "parentPath":"..",
-                                "parentField":"domain_id",
-                                "type":"many2one",
-                                "relatedField":"domain_id"
-                            },
+                            "cascade":[
+                                {
+                                    "parentPath":"..",
+                                    "parentField":"domain_id",
+                                    "type":"many2one",
+                                    "relatedField":"domain_id"
+                                },
+                                {
+                                    "parentPath":"..",
+                                    "parentField":"platform_id",
+                                    "type":"many2one",
+                                    "relatedField":"platform_id"
+                                }
+                            ],
                             "fields":[
                                 {"field":"id"},
                                 {"field":"name"}
@@ -723,21 +767,38 @@
                         }
                     ],
                     "row": 3,
-                    "col": 1,
+                    "col": 2,
                     "colSpan": 3,
-                    "rowSpan": 1
+                    "rowSpan": 3
                 },
                 {
                     "field":"time_offset",
                     "controlType": "Text",
                     "row": 3,
-                    "col": 4,
+                    "col": 1,
                     "colSpan": 1,
                     "rowSpan": 1
                 },
                 {
-                    "controlType": "TextArea",
+                    "field": "platform_id",
+                    "controlType": "SingleSelect",
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"name"
+                        }
+                    ],
                     "row": 4,
+                    "col": 1, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "controlType": "TextArea",
+                    "row": 6,
                     "col": 1,
                     "field": "remark", 
                     "colSpan": 4,

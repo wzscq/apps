@@ -14,6 +14,13 @@
             "relatedModelID":"diag_domain"
         },
         {
+            "field": "platform_id", 
+            "name": "Platform", 
+            "dataType": "varchar",
+            "fieldType":"many2one",
+            "relatedModelID":"diag_platform"
+        },
+        {
             "field": "ecu_id", 
             "name": "ECU", 
             "dataType": "varchar",
@@ -201,6 +208,20 @@
                     "width": 100
                 },
                 {
+                    "field": "platform_id", 
+                    "width": 100,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },  
+                {
                     "field": "domain_id", 
                     "width": 100,
                     "filterControlType": "SingleSelect",
@@ -353,6 +374,22 @@
                     "disabled":true
                 },
                 {
+                    "field": "platform_id",
+                    "controlType": "SingleSelect",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1, 
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },  
+                {
                     "field": "domain_id",
                     "controlType": "SingleSelect",
                     "fields":[
@@ -363,7 +400,7 @@
                             "field": "name"
                         }
                     ],
-                    "row": 1,
+                    "row": 2,
                     "col": 2, 
                     "colSpan": 1,
                     "rowSpan": 1
@@ -384,7 +421,7 @@
                         "type":"many2one",
                         "relatedField":"domain_id"
                     },
-                    "row": 1,
+                    "row": 2,
                     "col": 3, 
                     "colSpan": 1,
                     "rowSpan": 1
@@ -409,7 +446,7 @@
                         "type":"many2one",
                         "relatedField":"ecu_id"
                     },
-                    "row": 1,
+                    "row": 2,
                     "col": 4, 
                     "colSpan": 1,
                     "rowSpan": 1
@@ -417,7 +454,7 @@
                 {
                     "field": "fault_type", 
                     "controlType": "Text",
-                    "row": 2,
+                    "row": 3,
                     "col": 1,
                     "colSpan": 2,
                     "rowSpan": 1
@@ -427,7 +464,7 @@
                     "label":"故障内容",
                     "fields":["dtc_id"],
                     "function":"return (data['dtc_id'].list&&data['dtc_id'].list[0]?data['dtc_id'].list[0].remark:'');",
-                    "row": 3,
+                    "row": 4,
                     "col": 1, 
                     "colSpan": 2,
                     "rowSpan": 1
@@ -435,7 +472,7 @@
                 {
                     "field": "reason",
                     "controlType": "TextArea",
-                    "row": 4,
+                    "row": 5,
                     "col": 1, 
                     "colSpan": 2,
                     "rowSpan": 1
@@ -444,7 +481,7 @@
                     "field": "advice",
                     "controlType": "TextArea",
                     "textRowCount":4,
-                    "row": 5,
+                    "row": 6,
                     "col": 1, 
                     "colSpan": 2,
                     "rowSpan": 1
@@ -461,13 +498,20 @@
                             "field": "name"
                         }
                     ],
-                    "cascade":{
-                        "parentField":"domain_id",
-                        "type":"many2one",
-                        "relatedField":"domain_id"
-                    },
+                    "cascade":[
+                        {
+                            "parentField":"domain_id",
+                            "type":"many2one",
+                            "relatedField":"domain_id"
+                        },
+                        {
+                            "parentField":"platform_id",
+                            "type":"many2one",
+                            "relatedField":"platform_id"
+                        }
+                    ],
                     "maxHeight":360,
-                    "row": 2,
+                    "row": 3,
                     "col": 3,
                     "colSpan": 2,
                     "rowSpan": 4
