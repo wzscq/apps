@@ -185,6 +185,25 @@
             "roles":"admin"
         },
         {
+            "id":"pushFlow",
+            "name":"提交数据",
+            "type":"close",
+            "params":{
+                "location":"modal"
+            },
+            "input":{},
+            "description":"关闭对话框",
+            "successOperation":{
+                "type":"request",
+                "params":{
+                    "url":"/flow/push",
+                    "method":"post"
+                },
+                "description":"提交数据"
+            },
+            "roles":"admin"
+        },
+        {
             "id":"updateGender",
             "name":"设为女生",
             "type":"request",
@@ -561,6 +580,140 @@
                     "col": 1,
                     "colSpan": 2,
                     "rowSpan": 1
+                }
+            ]
+        },
+        {
+            "formID": "addStudentFlowForm",
+            "colCount": 4,
+            "rowCount": 2,
+            "rowHeight": 30,
+            "header":{
+                "label":"增加学生"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"pushFlow",
+                        "name":{
+                            "default":"确定",
+                            "zh_CN":"确定",
+                            "en_US":"Submit"
+                        }
+                    },
+                    {
+                        "name":{
+                            "default":"关闭",
+                            "zh_CN":"关闭",
+                            "en_US":"Close"
+                        },
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "field": "id", 
+                    "label": {
+                        "default":"学号",
+                        "zh_CN":"学号",
+                        "en_US":"No."
+                    },
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 3,
+                    "field": "name", 
+                    "label": "姓名",
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "gender", 
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"男",
+                            "label":{
+                                "default":"男",
+                                "zh_CN":"男",
+                                "en_US":"male"
+                            }
+                        },
+                        {
+                            "value":"女",
+                            "label":{
+                                "default":"女",
+                                "zh_CN":"女",
+                                "en_US":"female"
+                            }
+                        }
+                    ],
+                    "placeholder":{
+                        "default":"请选择性别",
+                        "zh_CN":"请选择性别",
+                        "en_US":"please select gender"
+                        },
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 2,
+                    "rowSpan": 1
+                }, 
+                {
+                    "field": "class_id", 
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 2,
+                    "rowSpan": 1
+                },
+                {
+                    "controlType": "ImageList",
+                    "maxCount":1,
+                    "maxPreviewWidth":200,
+                    "maxPreviewHeight":200,
+                    "accept":".jpg,.png",
+                    "selectButtonLabel":{
+                        "default":"选择图片",
+                        "zh_CN":"选择图片",
+                        "en_US":"Select image"
+                    },
+                    "row": 3,
+                    "col": 1,
+                    "field": "avatar", 
+                    "colSpan": 2,
+                    "rowSpan": 2
+                },
+                {
+                    "controlType": "TextArea",
+                    "row": 3,
+                    "col": 3,
+                    "field": "remark", 
+                    "colSpan": 2,
+                    "rowSpan": 2
                 }
             ]
         }

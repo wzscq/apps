@@ -21,6 +21,24 @@
                     "description":"打开故障仪表盘"
                 },
                 "roles":"*"
+            },
+            {
+                "id":"1",
+                "name":"故障仪表盘new",
+                "description":"故障实时汇总统计",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"http://localhost:4002/",
+                        "location":"tab",
+                        "title":"故障仪表盘",
+                        "key":"/diag_dashboard"
+                    },
+                    "input":{},
+                    "description":"打开故障仪表盘"
+                },
+                "roles":"*"
             }
         ]
     },
@@ -41,6 +59,24 @@
                         "location":"tab",
                         "title":"诊断智能分析",
                         "key":"/diag_faultlist"
+                    },
+                    "input":{},
+                    "description":"打开诊断智能分析"
+                },
+                "roles":["admin","operator"]
+            },
+            {
+                "id":"2",
+                "name":"诊断智能分析new",
+                "description":"数据下载与报告查询",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/crv_list_view/#/diag_result",
+                        "location":"tab",
+                        "title":"诊断智能分析new",
+                        "key":"/model/diag_result"
                     },
                     "input":{},
                     "description":"打开诊断智能分析"

@@ -1,0 +1,495 @@
+{
+    "modelID": "diag_result", 
+    "fields": [
+        {
+            "field": "id", 
+            "name": "ID", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "vehicle_management_code", 
+            "name": "车辆管理码", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },  
+        {
+            "field": "vin",
+            "name": "车辆识别码", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "project_num",
+            "name": "项目号", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "specifications",
+            "name": "试验规范", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "device_number",
+            "name": "设备号", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "time",
+            "name": "采集时间", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "type",
+            "name": "故障类型", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "eps",
+            "name": "EPS", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "ibs",
+            "name": "IBS", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "esc",
+            "name": "ESC", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "raw_data",
+            "name": "原始数据路径", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "diag_report",
+            "name": "报告ID", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "status",
+            "name": "状态", 
+            "dataType": "varchar",
+            "quickSearch":true
+        }, 
+        {
+            "field": "remark", 
+            "name": "故障内容", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "create_time", 
+            "name": "创建时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "create_user", 
+            "name": "创建人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "update_time", 
+            "name": "更新时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "update_user", 
+            "name": "更新人", 
+            "dataType": "varchar"
+        },  
+        {
+            "field": "version", 
+            "name": "数据版本", 
+            "dataType": "int"
+        }
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/crv_form_view/#/diag_result/form1/create",
+                    "location":"modal",
+                    "title":"新建诊断结果",
+                    "key":"/model/diag_dtc/form1/create",
+                    "width":600,
+                    "height":350
+            },
+            "input":{},
+            "description":"打开新建诊断结果对话框" ,
+            "roles":"admin"
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/crv_form_view/#/diag_result/form1/edit",
+                    "location":"modal",
+                    "title":"编辑诊断结果",
+                    "key":"/model/diag_result/form1/edit",
+                    "width":600,
+                    "height":350
+            },
+            "input":{},
+            "description":"打开诊断结果信息编辑对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "detail", 
+            "name": "查看详情",
+            "type":"open",
+            "params":{
+                    "url":"http://localhost:4001/",
+                    "location":"modal",
+                    "title":"诊断结果详情",
+                    "key":"/model/diag_result/diag_report",
+                    "width":1000,
+                    "height":600
+            },
+            "input":{},
+            "description":"打开诊断结果编辑对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除信息成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/diag_result"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/diag_result"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "view1", 
+            "name": "诊断结果数据库", 
+            "description": "查看诊断结果信息", 
+            "fields": [
+                {
+                    "field": "id", 
+                    "width": 100
+                }, 
+                {
+                    "field": "vehicle_management_code", 
+                    "width": 200
+                },  
+                {
+                    "field": "vin",
+                    "width": 200
+                },
+                {
+                    "field": "project_num",
+                    "width": 200
+                },
+                {
+                    "field": "specifications",
+                    "width": 200
+                },
+                {
+                    "field": "device_number",
+                    "width": 200
+                },
+                {
+                    "field": "time",
+                    "width": 100
+                },
+                {
+                    "field": "type",
+                    "width": 100
+                },
+                {
+                    "field": "eps",
+                    "width": 100
+                },
+                {
+                    "field": "ibs",
+                    "width": 100
+                },
+                {
+                    "field": "esc",
+                    "width": 100
+                },
+                {
+                    "field": "raw_data",
+                    "width": 300
+                },
+                {
+                    "field": "diag_report",
+                    "width": 100
+                },
+                {
+                    "field": "status",
+                    "width": 100
+                },      
+                {
+                    "field": "remark", 
+                    "width": 200
+                }, 
+                {
+                    "field": "create_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "create_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "version", 
+                    "width": 100
+                }
+            ], 
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": []
+                }, 
+                "rowToolbar": {
+                    "showCount": 2,
+                    "width":120, 
+                    "buttons": [
+                        {
+                            "operationID": "edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":"admin"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"诊断结果"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "label": "ID",
+                    "colSpan": 1,
+                    "rowSpan": 1
+                }, 
+                {
+                    "field": "vehicle_management_code", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },  
+                {
+                    "field": "vin",
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "project_num",
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "specifications",
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "device_number",
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "time",
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "type",
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "eps",
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "ibs",
+                    "controlType": "Text",
+                    "row": 4,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "esc",
+                    "controlType": "Text",
+                    "row": 4,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "raw_data",
+                    "controlType": "Text",
+                    "row": 4,
+                    "col": 3,
+                    "colSpan": 2,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "diag_report",
+                    "controlType": "Text",
+                    "row": 5,
+                    "col": 1,
+                    "colSpan": 2,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "status",
+                    "controlType": "Text",
+                    "row": 5,
+                    "col": 3,
+                    "colSpan": 2,
+                    "rowSpan": 1
+                },      
+                {
+                    "controlType": "TextArea",
+                    "row": 6,
+                    "col": 1,
+                    "field": "remark", 
+                    "colSpan": 4,
+                    "rowSpan": 2
+                }
+            ]
+        }
+    ]
+}
