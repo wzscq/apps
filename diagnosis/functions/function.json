@@ -30,7 +30,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"http://localhost:4002/",
+                        "url":"/diag_dashboard",
                         "location":"tab",
                         "title":"故障仪表盘",
                         "key":"/diag_dashboard"

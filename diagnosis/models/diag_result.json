@@ -49,12 +49,6 @@
             "quickSearch":true
         },
         {
-            "field": "eps",
-            "name": "EPS", 
-            "dataType": "varchar",
-            "quickSearch":true
-        },
-        {
             "field": "ibs",
             "name": "IBS", 
             "dataType": "varchar",
@@ -162,7 +156,7 @@
             "name": "查看详情",
             "type":"open",
             "params":{
-                    "url":"http://localhost:4001/",
+                    "url":"/diag_report",
                     "location":"modal",
                     "title":"诊断结果详情",
                     "key":"/model/diag_result/diag_report",
@@ -265,18 +259,6 @@
                 },
                 {
                     "field": "type",
-                    "width": 100
-                },
-                {
-                    "field": "eps",
-                    "width": 100
-                },
-                {
-                    "field": "ibs",
-                    "width": 100
-                },
-                {
-                    "field": "esc",
                     "width": 100
                 },
                 {
