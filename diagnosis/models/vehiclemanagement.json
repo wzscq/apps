@@ -1,0 +1,313 @@
+{
+    "modelID": "vehiclemanagement", 
+    "fields": [
+        {
+            "field": "id", 
+            "name": "VIN", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "ProjectNum", 
+            "name": "项目名称", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },  
+        {
+            "field": "TestSpecification",
+            "name": "TestSpecification", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "DeviceNumber",
+            "name": "DeviceNumber", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "create_time", 
+            "name": "创建时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "create_user", 
+            "name": "创建人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "update_time", 
+            "name": "更新时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "update_user", 
+            "name": "更新人", 
+            "dataType": "varchar"
+        },  
+        {
+            "field": "version", 
+            "name": "数据版本", 
+            "dataType": "int"
+        }
+    ],
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/vehiclemanagement/form1/create",
+                    "location":"modal",
+                    "title":"新建信号",
+                    "key":"/model/vehiclemanagement/form1/create",
+                    "width":500,
+                    "height":400
+            },
+            "input":{},
+            "description":"打开新建车辆对话框" ,
+            "roles":"*"
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/vehiclemanagement/form1/edit",
+                    "location":"modal",
+                    "title":"编辑车辆信息",
+                    "key":"/model/vehiclemanagement/form1/edit",
+                    "width":500,
+                    "height":400
+            },
+            "input":{},
+            "description":"打开车辆信息编辑对话框",
+            "roles":"*"
+        }, 
+        {
+            "id": "detail", 
+            "name": "查看详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/vehiclemanagement/form1/detail",
+                    "location":"modal",
+                    "title":"车辆信息详情",
+                    "key":"/model/vehiclemanagement/form1/edit",
+                    "width":500,
+                    "height":400
+            },
+            "input":{},
+            "description":"打开车辆信息编辑对话框",
+            "roles":"*"
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除信息成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/vehiclemanagement"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/vehiclemanagement"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "view1", 
+            "name": "车辆信息", 
+            "description": "车辆信息", 
+            "fields": [
+                {
+                    "field": "id", 
+                    "width": 250
+                }, 
+                {
+                    "field": "ProjectNum", 
+                    "width": 200
+                }, 
+                {
+                    "field": "DeviceNumber", 
+                    "width": 200
+                },
+                {
+                    "field": "TestSpecification", 
+                    "width": 200
+                }, 
+                {
+                    "field": "create_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "create_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "version", 
+                    "width": 100
+                }
+            ], 
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"新增"
+                        }, 
+                        {
+                            "operationID": "delete",
+                            "name":"删除选中车辆",
+                            "prompt":"确定要删除当前选择的车辆记录吗？"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":120, 
+                    "buttons": [
+                        {
+                            "operationID": "edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        }, 
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除这个车辆信息吗？"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 2,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建车辆"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "label": "VIN",
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "ProjectNum",
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 1, 
+                    "colSpan": 2,
+                    "rowSpan": 1
+                }, 
+                {
+                    "field": "DeviceNumber",
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 1, 
+                    "colSpan": 2,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "TestSpecification",
+                    "controlType": "Text",
+                    "row": 4,
+                    "col": 1, 
+                    "colSpan": 2,
+                    "rowSpan": 1
+                }
+            ]
+        }
+    ]
+}

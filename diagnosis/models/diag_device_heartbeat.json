@@ -1,0 +1,280 @@
+{
+    "modelID": "diag_device_heartbeat", 
+    "fields": [
+        {
+            "field": "id", 
+            "name": "ID", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "device_number", 
+            "name": "DeviceNumber", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },  
+        {
+            "field": "vin",
+            "name": "VIN", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "create_time", 
+            "name": "创建时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "create_user", 
+            "name": "创建人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "update_time", 
+            "name": "更新时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "update_user", 
+            "name": "更新人", 
+            "dataType": "varchar"
+        },  
+        {
+            "field": "version", 
+            "name": "数据版本", 
+            "dataType": "int"
+        }
+    ],
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/diag_device_heartbeat/form1/create",
+                    "location":"modal",
+                    "title":"新建信号",
+                    "key":"/model/diag_device_heartbeat/form1/create",
+                    "width":500,
+                    "height":400
+            },
+            "input":{},
+            "description":"打开新建车辆对话框" ,
+            "roles":"*"
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/diag_device_heartbeat/form1/edit",
+                    "location":"modal",
+                    "title":"编辑车辆信息",
+                    "key":"/model/diag_device_heartbeat/form1/edit",
+                    "width":500,
+                    "height":400
+            },
+            "input":{},
+            "description":"打开车辆信息编辑对话框",
+            "roles":"*"
+        }, 
+        {
+            "id": "detail", 
+            "name": "查看详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/diag_device_heartbeat/form1/detail",
+                    "location":"modal",
+                    "title":"车辆信息详情",
+                    "key":"/model/diag_device_heartbeat/form1/edit",
+                    "width":500,
+                    "height":400
+            },
+            "input":{},
+            "description":"打开车辆信息编辑对话框",
+            "roles":"*"
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除信息成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/diag_device_heartbeat"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/diag_device_heartbeat"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "view1", 
+            "name": "设备上报记录", 
+            "description": "设备上报记录", 
+            "fields": [
+                {
+                    "field": "id", 
+                    "width": 250
+                }, 
+                {
+                    "field": "device_number", 
+                    "width": 200
+                },
+                {
+                    "field": "vin", 
+                    "width": 200
+                }, 
+                {
+                    "field": "create_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "create_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "version", 
+                    "width": 100
+                }
+            ], 
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":60, 
+                    "buttons": [
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 2,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建车辆"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "label": "ID",
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "disabled":true
+                },  
+                {
+                    "field": "device_number",
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 1, 
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "vin",
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 1, 
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                }
+            ]
+        }
+    ]
+}

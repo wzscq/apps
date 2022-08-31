@@ -33,7 +33,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_student",
+                        "url":"/listview/#/lms_student",
                         "location":"tab",
                         "title":{
                             "default":"学生信息维护",
@@ -55,7 +55,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_student_class",
+                        "url":"/listview/#/lms_student_class",
                         "location":"tab",
                         "title":"学生班级信息维护",
                         "key":"/model/lms_student_class"
@@ -73,7 +73,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_student_contact",
+                        "url":"/listview/#/lms_student_contact",
                         "location":"tab",
                         "title":"学生联系人维护",
                         "key":"/model/lms_student_contact"
@@ -116,7 +116,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_teacher",
+                        "url":"/listview/#/lms_teacher",
                         "location":"tab",
                         "title":"教师信息维护",
                         "key":"/model/lms_teacher"
@@ -134,7 +134,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_teacher_subject",
+                        "url":"/listview/#/lms_teacher_subject",
                         "location":"tab",
                         "title":"教师课程安排",
                         "key":"/model/lms_teacher_subject"
@@ -159,7 +159,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_examination",
+                        "url":"/listview/#/lms_examination",
                         "location":"tab",
                         "title":"考试信息维护",
                         "key":"/model/lms_examination"
@@ -184,7 +184,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_school",
+                        "url":"/listview/#/lms_school",
                         "location":"tab",
                         "title":"学校信息维护",
                         "key":"/model/lms_school"
@@ -209,7 +209,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_class",
+                        "url":"/listview/#/lms_class",
                         "location":"tab",
                         "title":"班级管理",
                         "key":"/model/lms_class"
@@ -227,7 +227,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_class_grade",
+                        "url":"/listview/#/lms_class_grade",
                         "location":"tab",
                         "title":"班级年级维护",
                         "key":"/model/lms_class_grade"
@@ -245,7 +245,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_class_term",
+                        "url":"/listview/#/lms_class_term",
                         "location":"tab",
                         "title":"班级学期维护",
                         "key":"/model/lms_class_term"
@@ -263,7 +263,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_term",
+                        "url":"/listview/#/lms_term",
                         "location":"tab",
                         "title":"学期管理",
                         "key":"/model/lms_term"
@@ -281,7 +281,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_grade",
+                        "url":"/listview/#/lms_grade",
                         "location":"tab",
                         "title":"年级管理",
                         "key":"/model/lms_grade"
@@ -306,7 +306,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_class_subject",
+                        "url":"/listview/#/lms_class_subject",
                         "location":"tab",
                         "title":"班级学科管理",
                         "key":"/model/lms_class_subject"
@@ -324,7 +324,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_class_term_subject",
+                        "url":"/listview/#/lms_class_term_subject",
                         "location":"tab",
                         "title":"班级学科管理",
                         "key":"/model/lms_class_term_subject"
@@ -342,7 +342,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_subject",
+                        "url":"/listview/#/lms_subject",
                         "location":"tab",
                         "title":"学科管理",
                         "key":"/model/lms_subject"
@@ -367,7 +367,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_user",
+                        "url":"/listview/#/core_user",
                         "location":"tab",
                         "title":"用户管理",
                         "key":"/model/core_user"
@@ -385,7 +385,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_role",
+                        "url":"/listview/#/core_role",
                         "location":"tab",
                         "title":"角色管理",
                         "key":"/model/core_role"
@@ -421,7 +421,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_file",
+                        "url":"/listview/#/core_file",
                         "location":"tab",
                         "title":"文件管理",
                         "key":"/model/core_file"

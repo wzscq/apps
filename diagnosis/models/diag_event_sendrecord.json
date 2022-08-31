@@ -1,0 +1,282 @@
+{
+    "modelID": "diag_event_sendrecord", 
+    "fields": [
+        {
+            "field": "id", 
+            "name": "ID", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "device_number", 
+            "name": "DeviceNumber", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },  
+        {
+            "field": "vin",
+            "name": "VIN", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "status",
+            "name": "下发状态", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "paramter",
+            "name": "参数", 
+            "dataType": "varchar"
+        },
+        {
+            "field": "send_user",
+            "name": "发送人", 
+            "dataType": "varchar"
+        },
+        {
+            "field": "create_time", 
+            "name": "创建时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "create_user", 
+            "name": "创建人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "update_time", 
+            "name": "更新时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "update_user", 
+            "name": "更新人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "version", 
+            "name": "数据版本", 
+            "dataType": "int"
+        }
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "detail", 
+            "name": "查看详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/diag_event_sendrecord/form1/detail",
+                    "location":"modal",
+                    "title":"下发参数详情",
+                    "key":"/model/diag_event_sendrecord/form1/detail",
+                    "width":800,
+                    "height":450
+            },
+            "input":{},
+            "description":"打开下发参数详情对话框",
+            "roles":"*"
+        },
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/diag_event_sendrecord"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "view1", 
+            "name": "诊断参数下发记录", 
+            "description": "诊断参数下发记录", 
+            "fields": [
+                {
+                    "field": "id", 
+                    "width": 100
+                }, 
+                {
+                    "field": "device_number", 
+                    "width": 200
+                },  
+                {
+                    "field": "vin",
+                    "width": 200
+                },
+                {
+                    "field": "status",
+                    "width": 100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {"value":"2","label":"下发失败"},
+                        {"value":"1","label":"下发成功"},
+                        {"value":"0","label":"发送中..."}
+                    ]
+                },
+                {
+                    "field": "send_user",
+                    "width": 100
+                },
+                {
+                    "field": "create_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "create_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "version", 
+                    "width": 100
+                }
+            ], 
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":80, 
+                    "buttons": [
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        },
+                        {
+                            "operationID":"delete",
+                            "name":"删除"
+                        }
+                    ]
+                }
+            },
+            "roles":["admin","operator"]
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"下发参数"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "label": "ID",
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                }, 
+                {
+                    "field": "device_number",
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 2, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "vin",
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 3, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "status",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {"value":"2","label":"下发失败"},
+                        {"value":"1","label":"下发成功"},
+                        {"value":"0","label":"发送中..."}
+                    ],
+                    "row": 1,
+                    "col": 4, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "send_user", 
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 1,
+                    "label": "发送人",
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                }, 
+                {
+                    "controlType": "TextArea",
+                    "row": 3,
+                    "col": 1,
+                    "field": "paramter", 
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
+            ]
+        }
+    ]
+}

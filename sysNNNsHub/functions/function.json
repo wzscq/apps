@@ -12,7 +12,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/nnn_basic_function",
+                        "url":"/listview/#/nnn_basic_function",
                         "location":"tab",
                         "title":"功能开关",
                         "key":"/model/nnn_basic_function"
@@ -30,7 +30,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/nnn_workmode",
+                        "url":"/listview/#/nnn_workmode",
                         "location":"tab",
                         "title":"设定相关的工作模式",
                         "key":"/model/nnn_workmode"
@@ -55,7 +55,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/nnn_provention_basic",
+                        "url":"/listview/#/nnn_provention_basic",
                         "location":"tab",
                         "title":"门禁模式基本参数",
                         "key":"/model/nnn_provention_basic"
@@ -73,7 +73,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/nnn_provention_advance",
+                        "url":"/listview/#/nnn_provention_advance",
                         "location":"tab",
                         "title":"设置门禁模式高级参数",
                         "key":"/model/nnn_provention_advance"
@@ -98,7 +98,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/nnn_fittingroom_basic",
+                        "url":"/listview/#/nnn_fittingroom_basic",
                         "location":"tab",
                         "title":"基本参数",
                         "key":"/model/nnn_fittingroom_basic"
@@ -116,7 +116,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/nnn_fittingroom_advance",
+                        "url":"/listview/#/nnn_fittingroom_advance",
                         "location":"tab",
                         "title":"高级参数",
                         "key":"/model/nnn_fittingroom_basic_advance"
@@ -142,7 +142,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/nnn_smartracket_basic",
+                        "url":"/listview/#/nnn_smartracket_basic",
                         "location":"tab",
                         "title":"学校信息维护",
                         "key":"/model/nnn_smartracket_basic"
@@ -160,7 +160,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/nnn_smartracket_advance",
+                        "url":"/listview/#/nnn_smartracket_advance",
                         "location":"tab",
                         "title":"学校信息维护",
                         "key":"/model/nnn_smartracket_advance"
@@ -186,7 +186,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/nnn_sound_locate",
+                        "url":"/listview/#/nnn_sound_locate",
                         "location":"tab",
                         "title":"班级管理",
                         "key":"/model/nnn_sound_locate"
@@ -204,7 +204,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_class_grade",
+                        "url":"/listview/#/lms_class_grade",
                         "location":"tab",
                         "title":"定位查询",
                         "key":"/model/lms_class_grade"
@@ -229,7 +229,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_class_subject",
+                        "url":"/listview/#/lms_class_subject",
                         "location":"tab",
                         "title":"基站定位参数设置",
                         "key":"/model/lms_class_subject"
@@ -247,7 +247,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/lms_class_term_subject",
+                        "url":"/listview/#/lms_class_term_subject",
                         "location":"tab",
                         "title":"基站定位相关查询",
                         "key":"/model/lms_class_term_subject"
@@ -272,7 +272,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_user",
+                        "url":"/listview/#/core_user",
                         "location":"tab",
                         "title":"用户管理",
                         "key":"/model/core_user"
@@ -290,7 +290,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_role",
+                        "url":"/listview/#/core_role",
                         "location":"tab",
                         "title":"角色管理",
                         "key":"/model/core_role"
@@ -326,7 +326,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_file",
+                        "url":"/listview/#/core_file",
                         "location":"tab",
                         "title":"文件管理",
                         "key":"/model/core_file"

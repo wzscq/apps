@@ -1,0 +1,493 @@
+{
+    "modelID": "diag_event_parameter", 
+    "fields": [
+        {
+            "field": "id", 
+            "name": "ID", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "name", 
+            "name": "名称", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },  
+        {
+            "field": "platform_id",
+            "name": "Platform", 
+            "dataType": "varchar",
+            "fieldType":"many2one",
+            "relatedModelID":"diag_platform"
+        },
+        {
+            "field": "domain_id", 
+            "name": "Domain", 
+            "dataType": "varchar",
+            "fieldType":"many2one",
+            "relatedModelID":"diag_domain"
+        },
+        {
+            "field": "last_time",
+            "name": "触发前", 
+            "dataType": "varchar"
+        },
+        {
+            "field": "next_time",
+            "name": "触发后", 
+            "dataType": "varchar"
+        },
+        {
+            "field": "triggers",
+            "name": "触发条件",
+            "fieldType":"one2many",
+            "relatedModelID":"diag_event_parameter_trigger",
+            "relatedField":"event_parameter_id"
+        },
+        {
+            "field": "correlation_signals", 
+            "name": "回传信号", 
+            "fieldType":"many2many",
+            "relatedModelID":"diag_signal"
+        },
+        {
+            "field": "create_time", 
+            "name": "创建时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "create_user", 
+            "name": "创建人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "update_time", 
+            "name": "更新时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "update_user", 
+            "name": "更新人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "remark", 
+            "name": "备注", 
+            "dataType": "varchar",
+            "quickSearch":true
+        }, 
+        {
+            "field": "version", 
+            "name": "数据版本", 
+            "dataType": "int"
+        }
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/diag_event_parameter/form1/create",
+                    "location":"modal",
+                    "title":"新建分析场景",
+                    "key":"/model/diag_event_parameter/form1/create",
+                    "width":630,
+                    "height":610
+            },
+            "input":{},
+            "description":"打开新建分析场景对话框" ,
+            "roles":["admin","operator"]
+        },
+        {
+            "id": "send", 
+            "name": "参数下发",
+            "type":"request",
+            "params":{
+                "url":"/flow/start",
+                "method":"post"
+            },
+            "input":{
+                "flowID":"send_event_parameter"
+            },
+            "description":"执行场景参数下发流程" ,
+            "roles":["admin","operator"]
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/diag_event_parameter/form1/edit",
+                    "location":"modal",
+                    "title":"编辑场景参数",
+                    "key":"/model/diag_event_parameter/form1/edit",
+                    "width":630,
+                    "height":610
+            },
+            "input":{},
+            "description":"打开场景参数编辑对话框",
+            "roles":["admin","operator"]
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除信息成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/diag_event_parameter"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":["admin","operator"]
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/diag_event_parameter"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":["admin","operator"]
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "view1", 
+            "name": "场景信号配置", 
+            "description": "场景信号配置", 
+            "fields": [
+                {
+                    "field": "id", 
+                    "width": 100
+                }, 
+                {
+                    "field": "name", 
+                    "width": 100
+                }, 
+                {
+                    "field": "platform_id", 
+                    "width": 100
+                },
+                {
+                    "field": "domain_id", 
+                    "width": 100
+                },
+                {
+                    "field": "remark", 
+                    "width": 200
+                }, 
+                {
+                    "field": "create_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "create_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "version", 
+                    "width": 100
+                }
+            ], 
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"新建场景识别参数"
+                        }, 
+                        {
+                            "operationID": "delete",
+                            "name":"删除选中记录",
+                            "prompt":"确定要删除当前选择的记录吗？"
+                        },
+                        {
+                            "operationID": "send",
+                            "name":"下发参数"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":100, 
+                    "buttons": [
+                        {
+                            "operationID": "edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除这个诊断参数吗？"
+                        }
+                    ]
+                }
+            },
+            "roles":["admin","operator"]
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 3,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"编辑场景信号"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "label": "ID",
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                }, 
+                {
+                    "field": "name",
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 2, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "platform_id",
+                    "controlType": "SingleSelect",
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"name"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 3, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "domain_id",
+                    "controlType": "SingleSelect",
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "last_time",
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 2, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "next_time",
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 3, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field":"triggers",
+                    "controlType":"EditTable",
+                    "fieldType":"one2many",
+                    "relatedModelID":"diag_event_parameter_trigger",
+                    "relatedField":"event_parameter_id",
+                    "controls":[
+                        {
+                            "field":"id",
+                            "label":"ID"
+                        },
+                        {
+                            "field":"diag_signal_id",
+                            "visible":true,
+                            "label":"信号",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"diag_signal",
+                            "optionLabel":"name",
+                            "cascade":[
+                                {
+                                    "parentPath":"..",
+                                    "parentField":"domain_id",
+                                    "type":"many2one",
+                                    "relatedField":"domain_id"
+                                },
+                                {
+                                    "parentPath":"..",
+                                    "parentField":"platform_id",
+                                    "type":"many2one",
+                                    "relatedField":"platform_id"
+                                }
+                            ],
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":230
+                        },
+                        {
+                            "field":"logic",
+                            "visible":true,
+                            "label":"操作符",
+                            "controlType":"SingleSelect",
+                            "options":[
+                                {"value":"=","label":"="},
+                                {"value":">","label":">"},
+                                {"value":"<","label":"<"}
+                            ],
+                            "width":140
+                        },
+                        {
+                            "field":"value",
+                            "visible":true,
+                            "label":"值",
+                            "controlType":"Text",
+                            "width":180
+                        },
+                        {
+                            "field":"version"
+                        },
+                        {
+                            "field":"event_parameter_id"
+                        }
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 3,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "correlation_signals",
+                    "controlType": "Transfer",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "cascade":[
+                        {
+                            "parentField":"domain_id",
+                            "type":"many2one",
+                            "relatedField":"domain_id"
+                        },
+                        {
+                            "parentField":"platform_id",
+                            "type":"many2one",
+                            "relatedField":"platform_id"
+                        }
+                    ],
+                    "maxHeight":200,
+                    "row": 4,
+                    "col": 1,
+                    "colSpan": 3,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "controlType": "TextArea",
+                    "row": 5,
+                    "col": 1,
+                    "field": "remark", 
+                    "colSpan": 3,
+                    "rowSpan": 1
+                }
+            ]
+        }
+    ]
+}

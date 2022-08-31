@@ -1,0 +1,177 @@
+{
+    "modelID": "diag_event", 
+    "fields": [
+        {
+            "field": "id", 
+            "name": "ID", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "event_id", 
+            "name": "场景ID", 
+            "dataType": "varchar"
+        },  
+        {
+            "field": "event_name",
+            "name": "场景名称", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "vin",
+            "name": "车辆识别码", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "platform_id",
+            "name": "Platform", 
+            "dataType": "varchar",
+            "fieldType":"many2one",
+            "relatedModelID":"diag_platform"
+        },
+        {
+            "field": "device_number",
+            "name": "设备号", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "time",
+            "name": "采集时间", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "event_report",
+            "name": "报告ID", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "create_time", 
+            "name": "创建时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "create_user", 
+            "name": "创建人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "update_time", 
+            "name": "更新时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "update_user", 
+            "name": "更新人", 
+            "dataType": "varchar"
+        },  
+        {
+            "field": "version", 
+            "name": "数据版本", 
+            "dataType": "int"
+        }
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "detail", 
+            "name": "查看详情",
+            "type":"open",
+            "params":{
+                    "url1":"/diag_event_report",
+                    "url":"http://localhost:4003/",
+                    "location":"modal",
+                    "title":"诊断结果详情",
+                    "key":"/model/diag_event/diag_event_report",
+                    "width":1000,
+                    "height":490
+            },
+            "input":{},
+            "description":"打开诊断结果编辑对话框",
+            "roles":"*"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "viewNormal", 
+            "name": "场景信号分析记录", 
+            "description": "查看场景信号分析", 
+            "fields": [
+                {
+                    "field": "id", 
+                    "width": 100
+                }, 
+                {
+                    "field": "event_id", 
+                    "width": 100
+                },
+                {
+                    "field": "event_name", 
+                    "width": 200
+                },
+                {
+                    "field": "vin",
+                    "width": 200
+                },
+                {
+                    "field": "platform_id", 
+                    "width": 100
+                },
+                {
+                    "field": "device_number",
+                    "width": 200
+                },
+                {
+                    "field": "time",
+                    "width": 100
+                },
+                {
+                    "field": "event_report",
+                    "width": 100
+                }, 
+                {
+                    "field": "update_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "version", 
+                    "width": 100
+                }
+            ], 
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": []
+                }, 
+                "rowToolbar": {
+                    "showCount": 2,
+                    "width":80, 
+                    "buttons": [
+                        {
+                            "operationID": "detail",
+                            "name":"查看报告"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        }
+    ],
+    "forms":[
+    ]
+}

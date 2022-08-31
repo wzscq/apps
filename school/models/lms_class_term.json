@@ -83,7 +83,7 @@
             "name": "创建",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/lms_class_term/form1/create",
+                    "url":"/formview/#/lms_class_term/form1/create",
                     "location":"modal",
                     "title":"创建班级学期",
                     "key":"/model/lms_class_term/form1/create",
@@ -99,7 +99,7 @@
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/lms_class_term/form1/edit",
+                    "url":"/formview/#/lms_class_term/form1/edit",
                     "location":"modal",
                     "title":"编辑班级学期信息",
                     "key":"/model/lms_class_term/form1/edit",

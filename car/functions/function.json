@@ -48,7 +48,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/car_model_analysis",
+                        "url":"/listview/#/car_model_analysis",
                         "location":"tab",
                         "title":"动态模型",
                         "key":"/model/car_model_analysis"
@@ -98,7 +98,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_user",
+                        "url":"/listview/#/core_user",
                         "location":"tab",
                         "title":"用户管理",
                         "key":"/model/core_user"
@@ -116,7 +116,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_role",
+                        "url":"/listview/#/core_role",
                         "location":"tab",                         
                         "title":"角色管理",
                         "key":"/model/core_role"
@@ -152,7 +152,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_file",
+                        "url":"/listview/#/core_file",
                         "location":"tab",
                         "title":"文件管理",
                         "key":"/model/core_file"

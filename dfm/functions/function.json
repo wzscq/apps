@@ -12,7 +12,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/dfm_file",
+                        "url":"/listview/#/dfm_file",
                         "location":"tab",
                         "title":"诊断文件",
                         "key":"/model/dfm_file"
@@ -37,7 +37,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_user",
+                        "url":"/listview/#/core_user",
                         "location":"tab",
                         "title":"用户管理",
                         "key":"/model/core_user"
@@ -55,7 +55,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_role",
+                        "url":"/listview/#/core_role",
                         "location":"tab",                         
                         "title":"角色管理",
                         "key":"/model/core_role"
@@ -91,7 +91,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_file",
+                        "url":"/listview/#/core_file",
                         "location":"tab",
                         "title":"文件管理",
                         "key":"/model/core_file"

@@ -1,0 +1,110 @@
+{
+    "modelID": "diag_select_cars", 
+    "fields": [
+        {
+            "field": "id", 
+            "name": "ID", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "cars", 
+            "name": "请选择下发车辆", 
+            "fieldType":"many2many",
+            "relatedModelID":"vehiclemanagement",
+            "associationModelID":""
+        }
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/diag_select_cars/form1/create",
+                    "location":"modal",
+                    "title":"选择车辆",
+                    "key":"/model/diag_select_cars/form1/create",
+                    "width":800,
+                    "height":550
+            },
+            "input":{},
+            "description":"打开车辆选择对话框" ,
+            "roles":["admin","operator"]
+        },
+        {
+            "id":"pushFlow",
+            "name":"提交数据",
+            "type":"close",
+            "params":{
+                "location":"modal"
+            },
+            "input":{},
+            "description":"关闭对话框",
+            "successOperation":{
+                "type":"request",
+                "params":{
+                    "url":"/flow/push",
+                    "method":"post"
+                },
+                "description":"提交数据"
+            },
+            "roles":"admin"
+        }
+    ], 
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"选择下发车辆"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"pushFlow",
+                        "name":"下发"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "cars", 
+                    "controlType":"Transfer",
+                    "optionLabel":"id",
+                    "fields":[
+                        {
+                            "field":"id"
+                        }
+                    ],
+                    "maxHeight":"400px",
+                    "row": 1,
+                    "col": 1,
+                    "label": "ID",
+                    "colSpan": 4,
+                    "rowSpan": 1,
+                    "required":true
+                }
+            ]
+        }
+    ]
+}

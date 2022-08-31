@@ -62,6 +62,11 @@
             "dataType": "varchar"
         },
         {
+            "field":"dbc_file",
+            "name": "DBC File", 
+            "dataType": "file"
+        },
+        {
             "field": "create_time", 
             "name": "创建时间", 
             "dataType": "datetime"
@@ -107,23 +112,39 @@
             "name": "创建",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_signal/form1/create",
+                    "url":"/formview/#/diag_signal/formCreate/create",
                     "location":"modal",
                     "title":"新建信号",
-                    "key":"/model/diag_signal/form1/create",
+                    "key":"/model/diag_signal/formCreate/create",
                     "width":800,
                     "height":450
             },
             "input":{},
             "description":"打开新建信号对话框" ,
             "roles":"admin"
-        }, 
+        },
+        {
+            "id": "openUploadDBCForm", 
+            "name": "导入DBC",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/diag_signal/formUploadDBCFile/create",
+                    "location":"modal",
+                    "title":"上传DBC文件",
+                    "key":"/model/diag_signal/formUploadDBCFile/create",
+                    "width":600,
+                    "height":350
+            },
+            "input":{},
+            "description":"打开DBC上传对话框" ,
+            "roles":"admin"
+        },
         {
             "id": "edit", 
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_signal/form1/edit",
+                    "url":"/formview/#/diag_signal/form1/edit",
                     "location":"modal",
                     "title":"编辑信号",
                     "key":"/model/diag_signal/form1/edit",
@@ -133,13 +154,13 @@
             "input":{},
             "description":"打开信号编辑对话框",
             "roles":"admin"
-        }, 
+        },
         {
             "id": "detail", 
             "name": "查看详情",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_signal/form1/detail",
+                    "url":"/formview/#/diag_signal/form1/detail",
                     "location":"modal",
                     "title":"信号信息详情",
                     "key":"/model/diag_signal/form1/edit",
@@ -205,7 +226,7 @@
             },
             "roles":"admin"
         }
-    ], 
+    ],
     "views": [
         {
             "viewID": "view1", 
@@ -291,6 +312,10 @@
                 "listToolbar": {
                     "showCount": 3, 
                     "buttons": [
+                        {
+                            "operationID": "openUploadDBCForm",
+                            "name":"导入DBC文件"
+                        },
                         {
                             "operationID": "create",
                             "name":"新建信号"
@@ -386,7 +411,8 @@
                     "row": 2,
                     "col": 3, 
                     "colSpan": 1,
-                    "rowSpan": 1
+                    "rowSpan": 1,
+                    "required":true
                 },
                 {
                     "field": "platform_id",
@@ -402,7 +428,8 @@
                     "row": 2,
                     "col": 4, 
                     "colSpan": 1,
-                    "rowSpan": 1
+                    "rowSpan": 1,
+                    "required":true
                 },
                 {
                     "field": "can_id", 
@@ -410,7 +437,8 @@
                     "row": 3,
                     "col": 1, 
                     "colSpan": 1,
-                    "rowSpan": 1
+                    "rowSpan": 1,
+                    "required":true
                 },
                 {
                     "field": "byte_order",
@@ -422,7 +450,8 @@
                     "row": 3,
                     "col": 2, 
                     "colSpan": 1,
-                    "rowSpan": 1
+                    "rowSpan": 1,
+                    "required":true
                 },
                 {
                     "field": "start_addr",
@@ -430,7 +459,8 @@
                     "row": 3,
                     "col": 3, 
                     "colSpan": 1,
-                    "rowSpan": 1
+                    "rowSpan": 1,
+                    "required":true
                 },
                 {
                     "field": "len", 
@@ -438,7 +468,8 @@
                     "row": 3,
                     "col": 4, 
                     "colSpan": 1,
-                    "rowSpan": 1
+                    "rowSpan": 1,
+                    "required":true
                 },
                 {
                     "field": "factor", 
@@ -446,7 +477,8 @@
                     "row": 4,
                     "col": 1, 
                     "colSpan": 1,
-                    "rowSpan": 1
+                    "rowSpan": 1,
+                    "required":true
                 },
                 {
                     "field": "offset", 
@@ -454,15 +486,18 @@
                     "row": 4,
                     "col": 2, 
                     "colSpan": 1,
-                    "rowSpan": 1
+                    "rowSpan": 1,
+                    "required":true
                 }, 
                 {
                     "field": "pdu_id", 
                     "controlType": "Text",
+                    "label":"PduID(如无请填0)",
                     "row": 4,
                     "col": 3, 
                     "colSpan": 1,
-                    "rowSpan": 1
+                    "rowSpan": 1,
+                    "required":true
                 }, 
                 {
                     "controlType": "TextArea",
@@ -471,6 +506,262 @@
                     "field": "remark", 
                     "colSpan": 4,
                     "rowSpan": 2
+                }
+            ]
+        },
+        {
+            "formID": "formCreate",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建信号"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "label": "ID",
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "name",
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 1, 
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "domain_id",
+                    "controlType": "SingleSelect",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 3, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "platform_id",
+                    "controlType": "SingleSelect",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 4, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "can_id", 
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 1, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "byte_order",
+                    "controlType": "SingleSelect", 
+                    "options":[
+                        {"value":"1","label":"Intel"},
+                        {"value":"0","label":"Motorola"}
+                    ],
+                    "row": 3,
+                    "col": 2, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "start_addr",
+                    "controlType": "Text", 
+                    "row": 3,
+                    "col": 3, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "len", 
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 4, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "factor", 
+                    "controlType": "Text",
+                    "row": 4,
+                    "col": 1, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "offset", 
+                    "controlType": "Text",
+                    "row": 4,
+                    "col": 2, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "pdu_id", 
+                    "controlType": "Text",
+                    "label":"PduID(如无请填0)",
+                    "row": 4,
+                    "col": 3, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "controlType": "TextArea",
+                    "row": 5,
+                    "col": 1,
+                    "field": "remark", 
+                    "colSpan": 4,
+                    "rowSpan": 2
+                }
+            ]
+        },
+        {
+            "formID": "formUploadDBCFile",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"导入DBC文件"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "name":"确定",
+                        "type":"request",
+                        "params":{
+                            "url":"/redirect",
+                            "method":"post"
+                        },
+                        "input":{
+                            "to":"diagnosisUploadDBC"
+                        },
+                        "description":"上传DBC文件",
+                        "successOperation":{
+                            "type":"close",
+                            "params":{
+                                "location":"modal"
+                            },
+                            "input":{},
+                            "description":"关闭对话框",
+                            "successOperation":{
+                                "type":"message",
+                                "params":{
+                                    "type":"success",
+                                    "content":"上传成功!",
+                                    "duration":"2"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [ 
+                {
+                    "field": "domain_id",
+                    "controlType": "SingleSelect",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 1, 
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "platform_id",
+                    "controlType": "SingleSelect",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 3, 
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "dbc_file",
+                    "controlType": "File",
+                    "maxCount":1,
+                    "accept":".*,.*",
+                    "row": 2,
+                    "col": 1, 
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
                 }
             ]
         }

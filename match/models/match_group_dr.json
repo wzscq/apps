@@ -1,0 +1,248 @@
+{
+    "modelID": "match_group_dr", 
+    "fields": [
+        {
+            "field": "id", 
+            "name": "ID", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field":"material",
+            "name": "物料", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field":"price",
+            "name": "单价", 
+            "dataType": "decimal",
+            "quickSearch":false
+        }, 
+        {
+            "field":"purchaser",
+            "name": "购方", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field":"po",
+            "name": "采购单号", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field":"receipt_no",
+            "name": "入库单号", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field":"receipt_quantity",
+            "name": "入库数量", 
+            "dataType": "decimal",
+            "quickSearch":false
+        },
+        {
+            "field":"receipt_amount",
+            "name": "入库金额", 
+            "dataType": "decimal",
+            "quickSearch":false
+        },
+        {
+            "field":"seller",
+            "name": "销方", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field":"so",
+            "name": "销售单号", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field":"delivery_no",
+            "name": "出库单号", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field":"delivery_quantity",
+            "name": "数量", 
+            "dataType": "decimal",
+            "quickSearch":false
+        },
+        {
+            "field":"delivery_amount",
+            "name": "金额", 
+            "dataType": "decimal",
+            "quickSearch":false
+        },
+        {
+            "field":"match_status",
+            "name": "比对状态", 
+            "dataType": "int",
+            "quickSearch":false
+        },
+        {
+            "field":"quantity_difference",
+            "name": "数量差异", 
+            "dataType": "decimal",
+            "quickSearch":false
+        },
+        {
+            "field":"amount_difference",
+            "name": "金额差异", 
+            "dataType": "decimal",
+            "quickSearch":false
+        },
+        {
+            "field": "create_time", 
+            "name": "创建时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "create_user", 
+            "name": "创建人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "update_time", 
+            "name": "更新时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "update_user", 
+            "name": "更新人", 
+            "dataType": "varchar"
+        },  
+        {
+            "field": "version", 
+            "name": "数据版本", 
+            "dataType": "int"
+        }
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+       
+    ], 
+    "views": [
+        {
+            "viewID": "view_all", 
+            "name": "出入库单比对结果", 
+            "description": "出入库单比对结果", 
+            "fields": [
+                {
+                    "field": "id", 
+                    "width":200
+                },
+                {
+                    "field":"material",
+                    "width":200
+                },
+                {
+                    "field":"price",
+                    "width":200
+                }, 
+                {
+                    "field":"purchaser",
+                    "width":200
+                },
+                {
+                    "field":"po",
+                    "width":200
+                },
+                {
+                    "field":"receipt_no",
+                    "width":200
+                },
+                {
+                    "field":"receipt_quantity",
+                    "width":200
+                },
+                {
+                    "field":"receipt_amount",
+                    "width":200
+                },
+                {
+                    "field":"seller",
+                    "width":200
+                },
+                {
+                    "field":"so",
+                    "width":200
+                },
+                {
+                    "field":"delivery_no",
+                    "width":200
+                },
+                {
+                    "field":"delivery_quantity",
+                    "width":200
+                },
+                {
+                    "field":"delivery_amount",
+                    "width":200
+                },
+                {
+                    "field":"match_status",
+                    "width":200
+                },
+                {
+                    "field":"quantity_difference",
+                    "width":200
+                },
+                {
+                    "field":"amount_difference",
+                    "width":200
+                },
+                {
+                    "field": "create_time", 
+                    "width":200
+                }, 
+                {
+                    "field": "create_user", 
+                    "width":200
+                }, 
+                {
+                    "field": "update_time", 
+                    "width":200
+                }, 
+                {
+                    "field": "update_user", 
+                    "width":200
+                },  
+                {
+                    "field": "version", 
+                    "width":200
+                }
+            ], 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 2,
+                    "width":80, 
+                    "buttons": [
+                        
+                    ]
+                }
+            },
+            "roles":"admin"
+        }
+    ],
+    "forms":[
+    ]
+}

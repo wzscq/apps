@@ -27,6 +27,11 @@
             "relatedModelID":"diag_platform"
         },
         {
+            "field": "use_triggercanid",
+            "name": "UseTriggerCanID", 
+            "dataType": "varchar"
+        },
+        {
             "field": "ecu_id", 
             "name": "ECU", 
             "dataType": "varchar",
@@ -36,6 +41,11 @@
         {
             "field": "time_offset", 
             "name": "回传时长", 
+            "dataType": "varchar"
+        },
+        {
+            "field": "channel", 
+            "name": "Chanel", 
             "dataType": "varchar"
         },
         {
@@ -105,7 +115,7 @@
             "name": "创建",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_parameter/form1/create",
+                    "url":"/formview/#/diag_parameter/form1/create",
                     "location":"modal",
                     "title":"新建诊断参数",
                     "key":"/model/diag_parameter/form1/create",
@@ -115,13 +125,27 @@
             "input":{},
             "description":"打开新建诊断参数对话框" ,
             "roles":["admin","operator"]
+        },
+        {
+            "id": "send", 
+            "name": "参数下发",
+            "type":"request",
+            "params":{
+                "url":"/flow/start",
+                "method":"post"
+            },
+            "input":{
+                "flowID":"sendparameter"
+            },
+            "description":"执行参数下发流程" ,
+            "roles":["admin","operator"]
         }, 
         {
             "id": "edit", 
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_parameter/form1/edit",
+                    "url":"/formview/#/diag_parameter/form1/edit",
                     "location":"modal",
                     "title":"编辑诊断参数",
                     "key":"/model/diag_parameter/form1/edit",
@@ -137,7 +161,7 @@
             "name": "参数下发",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_parameter/formDistribute/detail",
+                    "url":"/formview/#/diag_parameter/formDistribute/detail",
                     "location":"modal",
                     "title":"诊断参数详情",
                     "key":"/model/diag_parameter/formDistribute/detail",
@@ -261,6 +285,21 @@
                     "width": 100
                 },
                 {
+                    "field": "use_triggercanid",
+                    "width": 100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
                     "field": "remark", 
                     "width": 200
                 }, 
@@ -298,12 +337,16 @@
                             "operationID": "delete",
                             "name":"删除选中记录",
                             "prompt":"确定要删除当前选择的记录吗？"
+                        },
+                        {
+                            "operationID": "send",
+                            "name":"下发参数"
                         }
                     ]
                 }, 
                 "rowToolbar": {
                     "showCount": 3,
-                    "width":140, 
+                    "width":100, 
                     "buttons": [
                         {
                             "operationID": "edit",
@@ -313,10 +356,6 @@
                             "operationID": "delete",
                             "name":"删除",
                             "prompt":"确定要删除这个诊断参数吗？"
-                        },
-                        {
-                            "operationID": "distribute",
-                            "name":"参数下发"
                         }
                     ]
                 }
@@ -530,7 +569,7 @@
                     "row": 3,
                     "col": 2,
                     "colSpan": 3,
-                    "rowSpan": 3
+                    "rowSpan": 4
                 },
                 {
                     "field":"time_offset",
@@ -558,8 +597,30 @@
                     "required":true
                 }, 
                 {
-                    "controlType": "TextArea",
+                    "field": "use_triggercanid",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {"value":"1","label":"是"},
+                        {"value":"0","label":"否"}
+                    ],
+                    "row": 5,
+                    "col": 1, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "channel", 
+                    "controlType": "Text",
                     "row": 6,
+                    "col": 1, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "controlType": "TextArea",
+                    "row": 7,
                     "col": 1,
                     "field": "remark", 
                     "colSpan": 4,
@@ -608,7 +669,7 @@
                     "field": "name",
                     "controlType": "Text",
                     "row": 1,
-                    "col": 2, 
+                    "col": 2,
                     "colSpan": 1,
                     "rowSpan": 1,
                     "required":true
@@ -656,6 +717,7 @@
                     "field":"logistics_did",
                     "controlType":"Transfer",
                     "optionLabel":"did",
+                    "pageSize":500,
                     "cascade":{
                         "parentField":"ecu_id",
                         "type":"many2one",
@@ -769,7 +831,7 @@
                     "row": 3,
                     "col": 2,
                     "colSpan": 3,
-                    "rowSpan": 3
+                    "rowSpan": 4
                 },
                 {
                     "field":"time_offset",
@@ -797,8 +859,30 @@
                     "required":true
                 },
                 {
-                    "controlType": "TextArea",
+                    "field": "use_triggercanid",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {"value":"1","label":"是"},
+                        {"value":"0","label":"否"}
+                    ],
+                    "row": 5,
+                    "col": 1, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "channel", 
+                    "controlType": "Text",
                     "row": 6,
+                    "col": 1, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "controlType": "TextArea",
+                    "row": 7,
                     "col": 1,
                     "field": "remark", 
                     "colSpan": 4,

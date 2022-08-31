@@ -43,20 +43,14 @@
             "quickSearch":true
         },
         {
+            "field": "dtc",
+            "name": "DTC", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
             "field": "type",
             "name": "故障类型", 
-            "dataType": "varchar",
-            "quickSearch":true
-        },
-        {
-            "field": "ibs",
-            "name": "IBS", 
-            "dataType": "varchar",
-            "quickSearch":true
-        },
-        {
-            "field": "esc",
-            "name": "ESC", 
             "dataType": "varchar",
             "quickSearch":true
         },
@@ -80,7 +74,7 @@
         }, 
         {
             "field": "remark", 
-            "name": "故障内容", 
+            "name": "备注", 
             "dataType": "varchar",
             "quickSearch":true
         },
@@ -124,23 +118,23 @@
             "name": "创建",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_result/form1/create",
+                    "url":"/formview/#/diag_result/form1/create",
                     "location":"modal",
                     "title":"新建诊断结果",
-                    "key":"/model/diag_dtc/form1/create",
+                    "key":"/model/diag_result/form1/create",
                     "width":600,
                     "height":350
             },
             "input":{},
             "description":"打开新建诊断结果对话框" ,
-            "roles":"admin"
+            "roles":"*"
         }, 
         {
             "id": "edit", 
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/diag_result/form1/edit",
+                    "url":"/formview/#/diag_result/form1/edit",
                     "location":"modal",
                     "title":"编辑诊断结果",
                     "key":"/model/diag_result/form1/edit",
@@ -149,23 +143,24 @@
             },
             "input":{},
             "description":"打开诊断结果信息编辑对话框",
-            "roles":"admin"
+            "roles":"*"
         }, 
         {
             "id": "detail", 
             "name": "查看详情",
             "type":"open",
             "params":{
-                    "url":"/diag_report",
+                    "url1":"/diag_report",
+                    "url":"http://localhost:3004/",
                     "location":"modal",
                     "title":"诊断结果详情",
                     "key":"/model/diag_result/diag_report",
-                    "width":1000,
+                    "width":1200,
                     "height":600
             },
             "input":{},
             "description":"打开诊断结果编辑对话框",
-            "roles":"admin"
+            "roles":"*"
         }, 
         {
             "id": "delete", 
@@ -193,7 +188,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":"*"
         },
         {
             "id":"save",
@@ -220,7 +215,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":"*"
         }
     ], 
     "views": [
@@ -258,12 +253,12 @@
                     "width": 100
                 },
                 {
-                    "field": "type",
+                    "field": "dtc",
                     "width": 100
                 },
                 {
-                    "field": "raw_data",
-                    "width": 300
+                    "field": "type",
+                    "width": 100
                 },
                 {
                     "field": "diag_report",
@@ -271,19 +266,22 @@
                 },
                 {
                     "field": "status",
-                    "width": 100
+                    "width": 100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"Open"
+                        },
+                        {
+                            "value":"1",
+                            "label":"Closed"
+                        }
+                    ]
                 },      
                 {
                     "field": "remark", 
                     "width": 200
-                }, 
-                {
-                    "field": "create_time", 
-                    "width": 150
-                }, 
-                {
-                    "field": "create_user", 
-                    "width": 150
                 }, 
                 {
                     "field": "update_time", 
@@ -309,17 +307,17 @@
                     "width":120, 
                     "buttons": [
                         {
-                            "operationID": "edit",
-                            "name":"编辑"
+                            "operationID": "detail",
+                            "name":"查看报告"
                         },
                         {
-                            "operationID": "detail",
-                            "name":"详情"
+                            "operationID": "edit",
+                            "name":"关闭"
                         }
                     ]
                 }
             },
-            "roles":"admin"
+            "roles":"*"
         }
     ],
     "forms":[
@@ -329,7 +327,7 @@
             "rowCount": 26,
             "rowHeight": 30,
             "header":{
-                "label":"诊断结果"
+                "label":"关闭问题"
             },
             "footer":{
                 "operations":[
@@ -358,118 +356,32 @@
                     "label": "ID",
                     "colSpan": 1,
                     "rowSpan": 1
-                }, 
-                {
-                    "field": "vehicle_management_code", 
-                    "controlType": "Text",
-                    "row": 1,
-                    "col": 2,
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },  
-                {
-                    "field": "vin",
-                    "controlType": "Text",
-                    "row": 1,
-                    "col": 3,
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "project_num",
-                    "controlType": "Text",
-                    "row": 1,
-                    "col": 4,
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "specifications",
-                    "controlType": "Text",
-                    "row": 2,
-                    "col": 1,
-                    "colSpan": 4,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "device_number",
-                    "controlType": "Text",
-                    "row": 3,
-                    "col": 1,
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "time",
-                    "controlType": "Text",
-                    "row": 3,
-                    "col": 2,
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "type",
-                    "controlType": "Text",
-                    "row": 3,
-                    "col": 3,
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "eps",
-                    "controlType": "Text",
-                    "row": 3,
-                    "col": 4,
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "ibs",
-                    "controlType": "Text",
-                    "row": 4,
-                    "col": 1,
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "esc",
-                    "controlType": "Text",
-                    "row": 4,
-                    "col": 2,
-                    "colSpan": 1,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "raw_data",
-                    "controlType": "Text",
-                    "row": 4,
-                    "col": 3,
-                    "colSpan": 2,
-                    "rowSpan": 1
-                },
-                {
-                    "field": "diag_report",
-                    "controlType": "Text",
-                    "row": 5,
-                    "col": 1,
-                    "colSpan": 2,
-                    "rowSpan": 1
-                },
+                },    
                 {
                     "field": "status",
-                    "controlType": "Text",
-                    "row": 5,
-                    "col": 3,
-                    "colSpan": 2,
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"Open"
+                        },
+                        {
+                            "value":"1",
+                            "label":"Closed"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
                     "rowSpan": 1
-                },      
+                },    
                 {
                     "controlType": "TextArea",
-                    "row": 6,
+                    "row": 3,
                     "col": 1,
                     "field": "remark", 
                     "colSpan": 4,
-                    "rowSpan": 2
+                    "rowSpan": 1
                 }
             ]
         }

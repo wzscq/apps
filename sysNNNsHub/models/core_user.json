@@ -82,7 +82,7 @@
             "name": "创建",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/core_user/form1/create",
+                    "url":"/formview/#/core_user/form1/create",
                     "location":"modal",
                     "title":"创建用户",
                     "key":"/model/core_user/form1/create",
@@ -98,7 +98,7 @@
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/core_user/form1/edit",
+                    "url":"/formview/#/core_user/form1/edit",
                     "location":"modal",
                     "title":"编辑用户信息",
                     "key":"/model/core_user/form1/edit",
@@ -114,7 +114,7 @@
             "name": "查看详情",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/core_user/form1/detail",
+                    "url":"/formview/#/core_user/form1/detail",
                     "location":"modal",
                     "title":"用户信息详情",
                     "key":"/model/core_user/form1/edit",

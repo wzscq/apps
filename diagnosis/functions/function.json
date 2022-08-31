@@ -12,24 +12,6 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"http://121.36.222.9/carweb/#/",
-                        "location":"tab",
-                        "title":"故障仪表盘",
-                        "key":"/diag_dashboard"
-                    },
-                    "input":{},
-                    "description":"打开故障仪表盘"
-                },
-                "roles":"*"
-            },
-            {
-                "id":"1",
-                "name":"故障仪表盘new",
-                "description":"故障实时汇总统计",
-                "icon":"FileMarkdownTwoTone",
-                "operation":{
-                    "type":"open",
-                    "params":{
                         "url":"/diag_dashboard",
                         "location":"tab",
                         "title":"故障仪表盘",
@@ -44,8 +26,8 @@
     },
     {
         "id":"2",
-        "name":"故障智能分析",
-        "description":"故障智能分析",
+        "name":"数据智能分析",
+        "description":"数据智能分析",
         "children":[
             {
                 "id":"1",
@@ -55,10 +37,10 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"http://121.36.222.9/carweb/#/faultList",
+                        "url":"/listview/#/diag_result",
                         "location":"tab",
                         "title":"诊断智能分析",
-                        "key":"/diag_faultlist"
+                        "key":"/model/diag_result"
                     },
                     "input":{},
                     "description":"打开诊断智能分析"
@@ -67,19 +49,19 @@
             },
             {
                 "id":"2",
-                "name":"诊断智能分析new",
-                "description":"数据下载与报告查询",
+                "name":"场景信号分析",
+                "description":"场景信号分析",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/diag_result",
+                        "url":"/listview/#/diag_event",
                         "location":"tab",
-                        "title":"诊断智能分析new",
-                        "key":"/model/diag_result"
+                        "title":"场景信号分析",
+                        "key":"/model/diag_event"
                     },
                     "input":{},
-                    "description":"打开诊断智能分析"
+                    "description":"打开场景信号分析"
                 },
                 "roles":["admin","operator"]
             }
@@ -92,39 +74,39 @@
         "children":[
             {
                 "id":"1",
-                "name":"参数配置",
+                "name":"诊断参数配置",
                 "description":"车端算法配置",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/diag_parameter",
+                        "url":"/listview/#/diag_parameter",
                         "location":"tab",
-                        "title":"诊断参数下发",
+                        "title":"诊断参数配置",
                         "key":"/model/diag_parameter"
                     },
                     "input":{},
-                    "description":"打开诊断参数记录页面"
+                    "description":"打开诊断参数配置页面"
                 },
                 "roles":["admin","operator"]
             },
             {
                 "id":"2",
-                "name":"DTC Signal",
-                "description":"DTC Signal关系维护",
+                "name":"诊断下发记录",
+                "description":"查看下发记录",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/diag_dtc_signal",
+                        "url":"/listview/#/diag_param_sendrecord",
                         "location":"tab",
-                        "title":"DTC Signal信息维护",
-                        "key":"/model/diag_dtc_signal"
+                        "title":"参数下发记录",
+                        "key":"/model/diag_param_sendrecord"
                     },
                     "input":{},
-                    "description":"打开DTC Signal信息维护页面"
+                    "description":"打开参数下发记录页面"
                 },
-                "roles":""
+                "roles":["admin","operator"]
             },
             {
                 "id":"3",
@@ -134,13 +116,49 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/diag_exe_config",
+                        "url":"/listview/#/diag_exe_config",
                         "location":"tab",
                         "title":"诊断执行配置",
                         "key":"/model/diag_exe_config"
                     },
                     "input":{},
                     "description":"打开诊断执行参数配置页面"
+                },
+                "roles":["admin","operator"]
+            },
+            {
+                "id":"4",
+                "name":"场景信号配置",
+                "description":"车端算法配置",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/diag_event_parameter",
+                        "location":"tab",
+                        "title":"场景信号配置",
+                        "key":"/model/diag_event_parameter"
+                    },
+                    "input":{},
+                    "description":"打开场景信号配置页面"
+                },
+                "roles":["admin","operator"]
+            },
+            {
+                "id":"5",
+                "name":"场景下发记录",
+                "description":"查看场景下发记录",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/diag_event_sendrecord",
+                        "location":"tab",
+                        "title":"场景下发记录",
+                        "key":"/model/diag_event_sendrecord"
+                    },
+                    "input":{},
+                    "description":"打开场景下发记录页面"
                 },
                 "roles":["admin","operator"]
             }
@@ -153,13 +171,31 @@
         "children":[
             {
                 "id":"1",
+                "name":"项目平台数据库",
+                "description":"项目平台信息",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/diag_platform",
+                        "location":"tab",
+                        "title":"项目平台数据库",
+                        "key":"/model/diag_platform"
+                    },
+                    "input":{},
+                    "description":"打开项目平台数据库页面"
+                },
+                "roles":"*"
+            },
+            {
+                "id":"2",
                 "name":"域数据库",
                 "description":"总线信息",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/diag_domain",
+                        "url":"/listview/#/diag_domain",
                         "location":"tab",
                         "title":"域数据库",
                         "key":"/model/diag_domain"
@@ -170,14 +206,14 @@
                 "roles":"admin"
             },
             {
-                "id":"2",
+                "id":"3",
                 "name":"控制器数据库",
                 "description":"控制器信息",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/diag_ecu",
+                        "url":"/listview/#/diag_ecu",
                         "location":"tab",
                         "title":"控制器数据库",
                         "key":"/model/diag_ecu"
@@ -188,14 +224,14 @@
                 "roles":"admin"
             },
             {
-                "id":"3",
+                "id":"4",
                 "name":"信号数据库",
                 "description":"信号矩阵",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/diag_signal",
+                        "url":"/listview/#/diag_signal",
                         "location":"tab",
                         "title":"信号数据库",
                         "key":"/model/diag_signal"
@@ -206,14 +242,14 @@
                 "roles":"admin"
             },
             {
-                "id":"4",
+                "id":"5",
                 "name":"故障码数据库",
                 "description":"故障码",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/diag_dtc",
+                        "url":"/listview/#/diag_dtc",
                         "location":"tab",
                         "title":"故障码数据库",
                         "key":"/model/diag_dtc"
@@ -224,14 +260,14 @@
                 "roles":"admin"
             },
             {
-                "id":"5",
+                "id":"6",
                 "name":"信号关联数据库",
                 "description":"故障码与总线信号匹配",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/diag_manual_fault",
+                        "url":"/listview/#/diag_manual_fault",
                         "location":"tab",
                         "title":"信号关联数据库",
                         "key":"/model/diag_manual_fault"
@@ -242,14 +278,14 @@
                 "roles":["admin","operator"]
             },
             {
-                "id":"6",
+                "id":"7",
                 "name":"诊断服务数据库",
                 "description":"诊断服务内容",
                 "icon":"FileMarkdownTwoTone",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/diag_logistics",
+                        "url":"/listview/#/diag_logistics",
                         "location":"tab",
                         "title":"诊断服务数据库",
                         "key":"/model/diag_logistics"
@@ -258,29 +294,54 @@
                     "description":"打开诊断服务数据库页面"
                 },
                 "roles":"admin"
-            },
-            {
-                "id":"7",
-                "name":"项目平台数据库",
-                "description":"项目平台信息",
-                "icon":"FileMarkdownTwoTone",
-                "operation":{
-                    "type":"open",
-                    "params":{
-                        "url":"/crv_list_view/#/diag_platform",
-                        "location":"tab",
-                        "title":"项目平台数据库",
-                        "key":"/model/diag_platform"
-                    },
-                    "input":{},
-                    "description":"打开项目平台数据库页面"
-                },
-                "roles":"*"
             }
         ]
     },
     {
         "id":"5",
+        "name":"车辆设备信息",
+        "description":"车辆设备信息",
+        "children":[
+            {
+                "id":"1",
+                "name":"车辆信息",
+                "description":"维护项目车辆",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/vehiclemanagement",
+                        "location":"tab",
+                        "title":"车辆信息",
+                        "key":"/model/vehiclemanagement"
+                    },
+                    "input":{},
+                    "description":"打开车辆信息管理页面"
+                },
+                "roles":["admin","operator"]
+            },
+            {
+                "id":"2",
+                "name":"设备上报记录",
+                "description":"查看设备上报信息",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/diag_device_heartbeat",
+                        "location":"tab",
+                        "title":"设备上报记录",
+                        "key":"/model/diag_device_heartbeat"
+                    },
+                    "input":{},
+                    "description":"打开车端设备页面"
+                },
+                "roles":["admin","operator"]
+            }
+        ]
+    },
+    {
+        "id":"6",
         "name":"系统管理",
         "description":"系统管理相关功能",
         "children":[
@@ -292,7 +353,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_user",
+                        "url":"/listview/#/core_user",
                         "location":"tab",
                         "title":"用户管理",
                         "key":"/model/core_user"
@@ -310,7 +371,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_role",
+                        "url":"/listview/#/core_role",
                         "location":"tab",                         
                         "title":"角色管理",
                         "key":"/model/core_role"
@@ -346,7 +407,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/crv_list_view/#/core_file",
+                        "url":"/listview/#/core_file",
                         "location":"tab",
                         "title":"文件管理",
                         "key":"/model/core_file"

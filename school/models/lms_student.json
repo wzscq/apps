@@ -86,7 +86,7 @@
             }, 
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/lms_student/form1/create",
+                    "url":"/formview/#/lms_student/form1/create",
                     "location":"modal",
                     "title":"增加学生",
                     "key":"/model/lms_student/form1/create",
@@ -106,7 +106,7 @@
             },
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/lms_student/form1/edit",
+                    "url":"/formview/#/lms_student/form1/edit",
                     "location":"modal",
                     "title":{
                         "default":"编辑学生信息",
@@ -266,7 +266,7 @@
             "name": "批量更新",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/lms_student/batchUpdateForm/update",
+                    "url":"/formview/#/lms_student/batchUpdateForm/update",
                     "location":"modal",
                     "title":"编辑学生信息",
                     "key":"/model/lms_student/batchUpdateForm/update",

@@ -1,0 +1,98 @@
+{
+    "label":"Send Parameter",
+    "description":"This flow is a guid to send diagnosis parameters to cars.",
+    "nodes":[
+        {
+            "id":"1",
+            "type":"start",
+            "data":{ 
+                "label": "Node 1" 
+            },
+            "position":{
+                "x": 250, 
+                "y": 5 
+            }
+        },
+        {
+            "id":"2",
+            "type":"form",
+            "data":{ 
+                "label": "Select Cars",
+                "url":"/formview/#/diag_select_cars/form1/create",
+                "location":"modal",
+                "title":"选择车辆",
+                "key":"/model/diag_select_cars/form1/create",
+                "width":800,
+                "height":550
+            },
+            "position":{
+                "x": 250, 
+                "y": 5 
+            }
+        },
+        {
+            "id":"3",
+            "type":"merge",
+            "data":{ 
+                "label": "Merge Node",
+                "mainSource":"2",
+                "MergeFields":[
+                    {
+                        "fieldSource":"1",
+                        "fieldName":"parameters",
+                        "valueType":"selectedRowKey"
+                    }
+                ]
+            },
+            "position":{
+                "x": 250, 
+                "y": 5 
+            }
+        },
+        {
+            "id":"4",
+            "type":"request",
+            "data":{ 
+                "label": "Request Node",
+                "url":"http://127.0.0.1:8300/sendParameter1" 
+            },
+            "position":{
+                "x": 250, 
+                "y": 5 
+            }
+        },
+        {
+            "id":"5",
+            "type":"end",
+            "data":{ 
+                "label": "End Node" 
+            },
+            "position":{
+                "x": 250, 
+                "y": 5 
+            }
+        }
+    ],
+    "edges":[
+        {
+            "id":"1",
+            "source":"1",
+            "target":"2"
+        },
+        {
+            "id":"2",
+            "source":"2",
+            "target":"3"
+        },
+        {
+            "id":"3",
+            "source":"3",
+            "target":"4"
+        },
+        {
+            "id":"4",
+            "source":"4",
+            "target":"5"
+        }
+    ]
+}

@@ -59,7 +59,7 @@
             "name": "创建",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/lms_school/form1/create",
+                    "url":"/formview/#/lms_school/form1/create",
                     "location":"modal",
                     "title":"创建角色",
                     "key":"/model/lms_school/form1/create",
@@ -75,7 +75,7 @@
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/lms_school/form1/edit",
+                    "url":"/formview/#/lms_school/form1/edit",
                     "location":"modal",
                     "title":"编辑学校信息",
                     "key":"/model/lms_school/form1/edit",

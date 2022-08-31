@@ -65,7 +65,7 @@
             "name": "创建",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/nnn_basic_function/form1/create",
+                    "url":"/formview/#/nnn_basic_function/form1/create",
                     "location":"modal",
                     "title":"创建角色",
                     "key":"/model/nnn_basic_function/form1/create",
@@ -81,7 +81,7 @@
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/crv_form_view/#/nnn_basic_function/form1/edit",
+                    "url":"/formview/#/nnn_basic_function/form1/edit",
                     "location":"modal",
                     "title":"编辑功能开关",
                     "key":"/model/nnn_basic_function/form1/edit",
