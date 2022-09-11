@@ -1,0 +1,396 @@
+{
+    "modelID": "sl_authorization", 
+    "fields": [
+        {
+            "field": "id", 
+            "name": "ID", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "open_time", 
+            "name": "开启时间", 
+            "dataType": "datetime"
+        },
+        {
+            "field": "close_time", 
+            "name": "关闭时间", 
+            "dataType": "datetime"
+        },
+        {
+            "field": "lock_user", 
+            "name": "使用人", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "contact", 
+            "name": "联系电话", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "reason", 
+            "name": "事由", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field":"lock",
+            "name": "智能锁",
+            "fieldType":"many2many",
+            "relatedModelID":"sl_lock"
+        },
+        {
+            "field": "remark", 
+            "name": "备注", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "create_time", 
+            "name": "创建时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "create_user", 
+            "name": "创建人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "update_time", 
+            "name": "更新时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "update_user", 
+            "name": "更新人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "version", 
+            "name": "数据版本", 
+            "dataType": "int"
+        }
+    ],
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ], 
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_authorization/form1/create",
+                    "location":"modal",
+                    "title":"添加授权",
+                    "key":"/model/sl_authorization/form1/create",
+                    "width":900,
+                    "height":650
+            },
+            "input":{},
+            "description":"打开添加授权对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_authorization/form1/edit",
+                    "location":"modal",
+                    "title":"编辑授权信息",
+                    "key":"/model/sl_authorization/form1/edit",
+                    "width":900,
+                    "height":650
+            },
+            "input":{},
+            "description":"打开授权信息编辑对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "detail", 
+            "name": "详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_authorization/form1/detail",
+                    "location":"modal",
+                    "title":"查看授权信息",
+                    "key":"/model/sl_authorization/form1/edit",
+                    "width":900,
+                    "height":650
+            },
+            "input":{},
+            "description":"打开授权信息详情对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除信息成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/sl_authorization"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/sl_authorization"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "viewNormal", 
+            "name": "机房信息维护", 
+            "description": "添加修改诊机房信息", 
+            "fields": [
+                {
+                    "field": "id", 
+                    "width": 100
+                }, 
+                {
+                    "field": "open_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "close_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "lock_user", 
+                    "width": 100
+                },
+                {
+                    "field": "reason", 
+                    "width": 100
+                },
+                {
+                    "field": "contact", 
+                    "width": 100
+                },
+                {
+                    "field": "remark", 
+                    "width": 150
+                }, 
+                {
+                    "field": "create_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "create_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "version", 
+                    "width": 100
+                }
+            ], 
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"添加授权"
+                        }, 
+                        {
+                            "operationID": "delete",
+                            "name":"删除选中记录",
+                            "prompt":"确定要删除当前选择的记录吗？"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":100, 
+                    "buttons": [
+                        {
+                            "operationID": "edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        }, 
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除这个记录吗？"
+                        }
+                    ]
+                }
+            },
+            "roles":"admin"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"授权信息维护"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "label": "ID",
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                }, 
+                {
+                    "field": "open_time",
+                    "controlType": "DatePicker",
+                    "showTime":true,
+                    "row": 2,
+                    "col": 1, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "close_time",
+                    "controlType": "DatePicker",
+                    "showTime":true,
+                    "row": 2,
+                    "col": 2, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "lock_user",
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 3, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "contact",
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 4, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field": "reason",
+                    "controlType": "TextArea",
+                    "row": 3,
+                    "col": 1, 
+                    "colSpan": 4,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field":"lock",
+                    "controlType": "Transfer",
+                    "required":true,
+                    "row": 4,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1,
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "ip"
+                        }
+                    ]
+                },
+                {
+                    "field": "remark",
+                    "controlType": "TextArea",
+                    "row": 5,
+                    "col": 1, 
+                    "colSpan": 4,
+                    "rowSpan": 1,
+                    "required":false
+                }
+            ]
+        }
+    ]
+}

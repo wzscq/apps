@@ -88,12 +88,12 @@
             "name": "查看详情",
             "type":"open",
             "params":{
-                    "url1":"/diag_event_report",
-                    "url":"http://localhost:4003/",
+                    "url":"/diag_event_report",
+                    "url1":"http://localhost:4003/",
                     "location":"modal",
                     "title":"诊断结果详情",
                     "key":"/model/diag_event/diag_event_report",
-                    "width":1000,
+                    "width":1500,
                     "height":490
             },
             "input":{},
