@@ -155,7 +155,7 @@
                     "location":"modal",
                     "title":"诊断结果详情",
                     "key":"/model/diag_result/diag_report",
-                    "width":1200,
+                    "width":1500,
                     "height":600
             },
             "input":{},
