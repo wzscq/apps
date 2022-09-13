@@ -1,0 +1,11 @@
+{
+    "oauth2_authorize":{
+        "url":"http://localhost:3000/#/OAuthLogin/school?client_id=test&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F%23%2FOAuthBack%2Fschool"
+    },
+    "oauth2_accessToken":{
+        "url":"http://localhost:8200/oauth/accessToken?client_id=test&client_secret=test&code=%s"
+    },
+    "oauth2_userInfo":{  
+        "url":"http://localhost:8200/oauth/userInfo"
+    }
+}
