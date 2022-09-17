@@ -1,0 +1,25 @@
+{
+    "modelID": "lms_student",
+    "fields": [
+        {
+            "field": "id", 
+            "labelRegexp": "学号",
+            "excelRangeType": "table"
+        },
+        {
+            "field": "name", 
+            "labelRegexp": "姓名",
+            "excelRangeType": "table"
+        },
+        {
+            "field": "gender", 
+            "labelRegexp": "性别",
+            "excelRangeType": "table"
+        },
+        {
+            "field": "class_id", 
+            "labelRegexp": "班级",
+            "excelRangeType": "table"
+        }
+    ]
+}
