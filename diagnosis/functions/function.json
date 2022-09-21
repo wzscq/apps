@@ -161,6 +161,24 @@
                     "description":"打开场景下发记录页面"
                 },
                 "roles":["admin","operator"]
+            },
+            {
+                "id":"6",
+                "name":"信号下发记录",
+                "description":"查看信号下发记录",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/diag_signal_sendrecord",
+                        "location":"tab",
+                        "title":"信号下发记录",
+                        "key":"/model/diag_signal_sendrecord"
+                    },
+                    "input":{},
+                    "description":"打开信号下发记录页面"
+                },
+                "roles":["admin","operator"]
             }
         ]
     },

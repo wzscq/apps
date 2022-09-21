@@ -470,6 +470,7 @@
                     "field": "correlation_signals",
                     "controlType": "Transfer",
                     "optionLabel":"name",
+                    "pageSize":2000,
                     "fields":[
                         {
                             "field": "id"

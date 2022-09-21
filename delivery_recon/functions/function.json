@@ -1,126 +1,122 @@
 [
     {
         "id":"1",
-        "name":{
-            "default":"出入库单比对",
-            "zh_CN":"出入库单比对",
-            "en_US":"Receipts And Deliveries Match"
-        },
-        "description":{
-            "default":"出入库单比对",
-            "zh_CN":"出入库单比对",
-            "en_US":"Receipts And Deliveries Match"
-        },
+        "name":"数据获取",
+        "description":"数据获取",
         "children":[
             {
                 "id":"1",
-                "name":{
-                    "default":"入库单",
-                    "zh_CN":"入库单",
-                    "en_US":"Receipts"
-                },
-                "openLabel":{
-                    "default":"打开",
-                    "zh_CN":"打开",
-                    "en_US":"Open"
-                },
-                "description":{
-                    "default":"打开入库单页面",
-                    "zh_CN":"打开入库单页面",
-                    "en_US":"View Receipts"
-                },
+                "name":"客户对账单",
+                "openLabel":"打开",
+                "description":"原始客户对账单",
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/listview/#/match_receipts",
+                        "url":"/listview/#/dr_delivery_statement",
                         "location":"tab",
-                        "title":{
-                            "default":"入库单",
-                            "zh_CN":"入库单",
-                            "en_US":"Receipts"
-                        },
-                        "key":"/model/match_receipts"
+                        "title":"客户对账单",
+                        "key":"/model/dr_delivery_statement"
                     },
                     "input":{},
-                    "description":"打开入库单页面"
+                    "description":"打开客户对账单页面"
                 },
-                "roles":"admin"
+                "roles":"*"
             },
             {
                 "id":"2",
-                "name":{
-                    "default":"出库单",
-                    "zh_CN":"出库单",
-                    "en_US":"Deliveries"
-                },
-                "openLabel":{
-                    "default":"打开",
-                    "zh_CN":"打开",
-                    "en_US":"Open"
-                },
-                "description":{
-                    "default":"打开出库单页面",
-                    "zh_CN":"打开出库单页面",
-                    "en_US":"View Deliveries"
-                },
+                "name":"OpenBilling",
+                "openLabel":"打开",
+                "description":"原始OpenBilling",
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/listview/#/match_deliveries",
+                        "url":"/listview/#/dr_billing",
                         "location":"tab",
-                        "title":{
-                            "default":"出库单",
-                            "zh_CN":"出库单",
-                            "en_US":"Deliveries"
-                        },
-                        "key":"/model/match_deliveries"
+                        "title":"OpenBilling",
+                        "key":"/model/dr_billing"
                     },
                     "input":{},
-                    "description":"打开出库单页面"
+                    "description":"打开OpenBilling页面"
                 },
-                "roles":"admin"
-            },
-            {
-                "id":"3",
-                "name":{
-                    "default":"比对结果",
-                    "zh_CN":"比对结果",
-                    "en_US":"Match Group"
-                },
-                "openLabel":{
-                    "default":"打开",
-                    "zh_CN":"打开",
-                    "en_US":"Open"
-                },
-                "description":{
-                    "default":"打开比对结果页面",
-                    "zh_CN":"打开比对结果页面",
-                    "en_US":"View Match Group"
-                },
-                "icon":"UserOutlined",
-                "operation":{
-                    "type":"open",
-                    "params":{
-                        "url":"/listview/#/match_group_dr",
-                        "location":"tab",
-                        "title":{
-                            "default":"出入库单比对结果",
-                            "zh_CN":"出入库单比对结果",
-                            "en_US":"Deliveries&Receipts Match Group"
-                        },
-                        "key":"/model/match_group_dr"
-                    },
-                    "input":{},
-                    "description":"打开出入库单比对结果页面"
-                },
-                "roles":"admin"
+                "roles":"*"
             }
         ]
     },
     {
         "id":"2",
+        "name":"对账处理",
+        "description":"对账处理",
+        "children":[
+            {
+                "id":"1",
+                "name":"客户对账单",
+                "openLabel":"打开",
+                "description":"对账单比对记录",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/dr_delivery_recon",
+                        "location":"tab",
+                        "title":"客户对账单比对记录",
+                        "key":"/model/dr_delivery_recon"
+                    },
+                    "input":{},
+                    "description":"打开客户对账单比对记录页面"
+                },
+                "roles":"*"
+            },
+            {
+                "id":"2",
+                "name":"OpenBilling",
+                "openLabel":"打开",
+                "description":"OpenBilling For Recon",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/dr_billing_recon",
+                        "location":"tab",
+                        "title":"OpenBilling比对记录",
+                        "key":"/model/dr_billing_recon"
+                    },
+                    "input":{},
+                    "description":"打开OpenBilling比对记录页面"
+                },
+                "roles":"*"
+            }
+        ]
+    },
+    {
+        "id":"3",
+        "name":"主数据维护",
+        "description":"主数据维护",
+        "children":[
+            {
+                "id":"1",
+                "name":"客户信息",
+                "openLabel":"打开",
+                "description":"客户信息维护",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/dr_customer",
+                        "location":"tab",
+                        "title":"客户信息",
+                        "key":"/model/dr_customer"
+                    },
+                    "input":{},
+                    "description":"打开客户信息维护页面"
+                },
+                "roles":"*"
+            }
+        ]
+    },
+    {
+        "id":"4",
         "name":"系统管理",
         "description":"系统管理相关功能",
         "children":[
