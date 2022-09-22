@@ -67,6 +67,11 @@
             "dataType": "file"
         },
         {
+            "field":"value_type",
+            "name": "ValueType", 
+            "dataType": "file"
+        },
+        {
             "field": "create_time", 
             "name": "创建时间", 
             "dataType": "datetime"
@@ -280,6 +285,15 @@
                 }, 
                 {
                     "field": "pdu_id", 
+                    "width": 100
+                }, 
+                {
+                    "field": "value_type", 
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {"value":"+","label":"Unsigned"},
+                        {"value":"-","label":"Signed"}
+                    ],
                     "width": 100
                 }, 
                 {
@@ -657,6 +671,19 @@
                     "rowSpan": 1,
                     "required":true
                 }, 
+                {
+                    "field": "value_type", 
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {"value":"+","label":"Unsigned"},
+                        {"value":"-","label":"Signed"}
+                    ],
+                    "row": 4,
+                    "col": 4, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
                 {
                     "controlType": "TextArea",
                     "row": 5,
