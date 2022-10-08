@@ -86,6 +86,44 @@
                     "description":"打开OpenBilling比对记录页面"
                 },
                 "roles":"*"
+            },
+            {
+                "id":"3",
+                "name":"匹配分组",
+                "openLabel":"打开",
+                "description":"对账匹配分组",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/dr_delivery_billing_recon_group",
+                        "location":"tab",
+                        "title":"对账匹配分组",
+                        "key":"/model/dr_delivery_billing_recon_group"
+                    },
+                    "input":{},
+                    "description":"打开对账匹配分组页面"
+                },
+                "roles":"*"
+            },
+            {
+                "id":"4",
+                "name":"对账调差",
+                "openLabel":"打开",
+                "description":"对账差异调整",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/dr_delivery_billing_adjustment",
+                        "location":"tab",
+                        "title":"对账调差",
+                        "key":"/model/dr_delivery_billing_adjustment"
+                    },
+                    "input":{},
+                    "description":"打开对账调差页面"
+                },
+                "roles":"*"
             }
         ]
     },
@@ -117,6 +155,31 @@
     },
     {
         "id":"4",
+        "name":"数据处理逻辑配置",
+        "description":"数据处理逻辑配置",
+        "children":[
+            {
+                "id":"1",
+                "name":"预处理逻辑",
+                "description":"预处理逻辑配置",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"http://localhost:9901/#/delivery_recon",
+                        "location":"tab",
+                        "title":"预处理逻辑配置",
+                        "key":"/flowconfig/delivery_recon"
+                    },
+                    "input":{},
+                    "description":"打开预处理逻辑配置功能"
+                },
+                "roles":"admin"
+            }
+        ]
+    },
+    {
+        "id":"5",
         "name":"系统管理",
         "description":"系统管理相关功能",
         "children":[

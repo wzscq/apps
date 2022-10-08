@@ -26,7 +26,7 @@
         },
         {
             "field": "instruct", 
-            "name": "Instruct", 
+            "name": "DTC Status Mask", 
             "dataType": "varchar",
             "quickSearch":true
         },
@@ -198,10 +198,6 @@
                     "width": 100
                 }, 
                 {
-                    "field": "name", 
-                    "width": 100
-                },  
-                {
                     "field": "tx", 
                     "width": 100
                 },
@@ -211,11 +207,11 @@
                 },
                 {
                     "field": "instruct", 
-                    "width": 100
+                    "width": 150
                 },
                 {
                     "field": "trigger_can_id", 
-                    "width": 100
+                    "width": 150
                 }, 
                 {
                     "field": "domain_id", 
@@ -319,15 +315,6 @@
                     "row": 1,
                     "col": 1,
                     "label": "ID",
-                    "colSpan": 2,
-                    "rowSpan": 1,
-                    "required":true
-                }, 
-                {
-                    "field": "name",
-                    "controlType": "Text",
-                    "row": 1,
-                    "col": 3, 
                     "colSpan": 2,
                     "rowSpan": 1,
                     "required":true

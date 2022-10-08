@@ -1,5 +1,5 @@
 {
-    "matchflow":{
+    "processingFlow":{
         "url":"http://localhost:9900/flow/start"
     }
 }

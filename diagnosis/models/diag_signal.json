@@ -240,7 +240,7 @@
             "fields": [
                 {
                     "field": "id", 
-                    "width": 70
+                    "width": 250
                 }, 
                 {
                     "field": "name", 

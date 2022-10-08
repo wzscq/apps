@@ -45,19 +45,19 @@
         },
         {
             "field": "channel", 
-            "name": "Chanel", 
+            "name": "Channel", 
             "dataType": "varchar"
         },
         {
             "field": "logistics_did", 
-            "name": "物流DID", 
+            "name": "物流信息", 
             "fieldType":"many2many",
             "relatedModelID":"diag_logistics",
             "associationModelID":"diag_parameter_logistics_did"
         },
         {
             "field": "internal_did",
-            "name": "内部DID",
+            "name": "内部信息",
             "fieldType":"many2many",
             "relatedModelID":"diag_logistics",
             "associationModelID":"diag_parameter_internal_did"
@@ -286,7 +286,7 @@
                 },
                 {
                     "field": "use_triggercanid",
-                    "width": 100,
+                    "width": 150,
                     "filterControlType": "SingleSelect",
                     "options":[
                         {

@@ -99,13 +99,334 @@
                 }
             },
             "roles":"*"
+        },
+        {
+            "id":"closeManually",
+            "name":"关闭",
+            "type":"request",
+            "params":{
+                "url":"/data/update",
+                "method":"post"
+            },
+            "input":{
+                "list":[{"validation_processing_status":"3"}]
+            },
+            "description":"手工关闭对账单",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"已关闭!",
+                    "duration":"2"
+                },
+                "description":"提示关闭对账单操作成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/dr_delivery_statement"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"openManually",
+            "name":"恢复为待处理",
+            "type":"request",
+            "params":{
+                "url":"/data/update",
+                "method":"post"
+            },
+            "input":{
+                "list":[{"validation_processing_status":"0"}]
+            },
+            "description":"恢复对账单",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"已恢复为待对账!",
+                    "duration":"2"
+                },
+                "description":"提示恢复对账单操作成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/dr_delivery_statement"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"doProcessing",
+            "name":"客户对账单预处理",
+            "type":"request",
+            "params":{
+                "url":"/redirect",
+                "method":"post"
+            },
+            "input":{
+                "to":"processingFlow",
+                "FlowID":"dr_delivery_statement_preprocessing_for_chery"
+            },
+            "description":"提交客户对账单预处理",
+            "successOperation":{
+                "type":"reloadFrameData",
+                "params":{
+                    "location":"tab",
+                    "key":"/model/dr_delivery_statement"
+                },
+                "description":"刷新页面数据"
+            },
+            "roles":"*"
         }
     ],
     "views": [
         {
+            "viewID": "viewProcessing", 
+            "name": "待处理的客户对账单", 
+            "description": "待处理的对账单", 
+            "fields":[
+                {"field":"period","width":100},
+                {"field":"material","width":200},
+                {"field":"material_name","width":200},
+                {"field":"quantity","width":100},
+                {"field":"unit","width":100},
+                {"field":"po_price","width":100},
+                {"field":"price_unit","width":100},
+                {"field":"price","width":100},
+                {"field":"amount","width":100},
+                {"field":"tax_code","width":100},
+                {"field":"tax_amount","width":100},
+                {"field":"total_amount","width":100},
+                {"field":"po_number","width":200},
+                {"field":"line_number","width":200},
+                {
+                    "field":"customer_id",
+                    "width":300,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"validation_processing_status",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未处理"
+                        },
+                        {
+                            "value":"2",
+                            "label":"校验失败"
+                        }
+                    ]
+                },
+                {"field":"validation_error_message","width":300},
+                {"field":"processing_batch_number","width":200},
+                {"field":"import_file_name","width":300},
+                {"field":"import_batch_number","width":200},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"id","width":200},
+                {"field":"version","width":150}
+            ],
+            "filter": {"validation_processing_status":{"Op.in":[0,2]}},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID":"doProcessing",
+                            "name":"预处理"
+                        },
+                        {
+                            "operationID": "openESIForm",
+                            "name":"导入对账单"
+                        },
+                        {
+                            "operationID": "closeManually",
+                            "name":"关闭",
+                            "prompt":"确认要关闭当前选中的客户对账单?"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 2,
+                    "width":60, 
+                    "buttons": [
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "viewID": "viewSuccess", 
+            "name": "已处理成功的对账单", 
+            "description": "已处理成功的对账单", 
+            "fields":[
+                {"field":"period","width":100},
+                {"field":"material","width":200},
+                {"field":"material_name","width":200},
+                {"field":"quantity","width":100},
+                {"field":"unit","width":100},
+                {"field":"po_price","width":100},
+                {"field":"price_unit","width":100},
+                {"field":"price","width":100},
+                {"field":"amount","width":100},
+                {"field":"tax_code","width":100},
+                {"field":"tax_amount","width":100},
+                {"field":"total_amount","width":100},
+                {"field":"po_number","width":200},
+                {"field":"line_number","width":200},
+                {
+                    "field":"customer_id",
+                    "width":300,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"validation_processing_status",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"1",
+                            "label":"处理成功"
+                        }
+                    ]
+                },
+                {"field":"validation_error_message","width":300},
+                {"field":"processing_batch_number","width":200},
+                {"field":"import_file_name","width":300},
+                {"field":"import_batch_number","width":200},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"id","width":200},
+                {"field":"version","width":150}
+            ],
+            "filter": {"validation_processing_status":"1"},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                    
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 2,
+                    "width":60, 
+                    "buttons": [
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "viewID": "viewClosed", 
+            "name": "已关闭的客户对账单", 
+            "description": "已关闭的客户对账单", 
+            "fields":[
+                {"field":"period","width":100},
+                {"field":"material","width":200},
+                {"field":"material_name","width":200},
+                {"field":"quantity","width":100},
+                {"field":"unit","width":100},
+                {"field":"po_price","width":100},
+                {"field":"price_unit","width":100},
+                {"field":"price","width":100},
+                {"field":"amount","width":100},
+                {"field":"tax_code","width":100},
+                {"field":"tax_amount","width":100},
+                {"field":"total_amount","width":100},
+                {"field":"po_number","width":200},
+                {"field":"line_number","width":200},
+                {
+                    "field":"customer_id",
+                    "width":300,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"validation_processing_status",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"3",
+                            "label":"手工关闭"
+                        }
+                    ]
+                },
+                {"field":"validation_error_message","width":300},
+                {"field":"processing_batch_number","width":200},
+                {"field":"import_file_name","width":300},
+                {"field":"import_batch_number","width":200},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"id","width":200},
+                {"field":"version","width":150}
+            ],
+            "filter": {"validation_processing_status":3},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID":"openManually",
+                            "name":"待对账",
+                            "prompt":"确认要将当前选中的客户对账单改为待对账状态?"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 2,
+                    "width":60, 
+                    "buttons": [
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        },
+        {
             "viewID": "viewNormal", 
-            "name": "客户对账单", 
-            "description": "客户对账单", 
+            "name": "全部客户对账单", 
+            "description": "全部客户对账单", 
             "fields":[
                 {"field":"period","width":100},
                 {"field":"material","width":200},
@@ -170,10 +491,6 @@
                 "listToolbar": {
                     "showCount": 3, 
                     "buttons": [
-                        {
-                            "operationID": "openESIForm",
-                            "name":"导入对账单"
-                        }
                     ]
                 }, 
                 "rowToolbar": {

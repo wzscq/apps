@@ -8,7 +8,7 @@
         }, 
         {
             "field": "name", 
-            "name": "Logistics", 
+            "name": "Diagnostic Service", 
             "dataType": "varchar",
             "quickSearch":true
         },  
@@ -82,13 +82,13 @@
             "params":{
                     "url":"/formview/#/diag_logistics/form1/create",
                     "location":"modal",
-                    "title":"新建物流信息",
+                    "title":"新建诊断服务",
                     "key":"/model/diag_logistics/form1/create",
                     "width":600,
                     "height":370
             },
             "input":{},
-            "description":"打开新建物流信息对话框",
+            "description":"打开新建诊断服务对话框",
             "roles":"admin"
         }, 
         {
@@ -98,13 +98,13 @@
             "params":{
                     "url":"/formview/#/diag_logistics/form1/edit",
                     "location":"modal",
-                    "title":"编辑物流信息",
+                    "title":"编辑诊断服务",
                     "key":"/model/diag_logistics/form1/edit",
                     "width":600,
                     "height":370
             },
             "input":{},
-            "description":"打开物流信息编辑对话框",
+            "description":"打开诊断服务编辑对话框",
             "roles":"admin"
         }, 
         {
@@ -114,13 +114,13 @@
             "params":{
                     "url":"/formview/#/diag_logistics/form1/detail",
                     "location":"modal",
-                    "title":"物流信息详情",
+                    "title":"诊断服务详情",
                     "key":"/model/diag_logistics/form1/edit",
                     "width":600,
                     "height":370
             },
             "input":{},
-            "description":"打开物流信息详情对话框",
+            "description":"打开诊断服务详情对话框",
             "roles":"admin"
         }, 
         {
@@ -242,7 +242,7 @@
                     "buttons": [
                         {
                             "operationID": "create",
-                            "name":"新建物流信息"
+                            "name":"新建诊断服务"
                         }, 
                         {
                             "operationID": "delete",
@@ -281,7 +281,7 @@
             "rowCount": 26,
             "rowHeight": 30,
             "header":{
-                "label":"创建物流信息"
+                "label":"创建诊断服务"
             },
             "footer":{
                 "operations":[

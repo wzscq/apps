@@ -173,10 +173,6 @@
                 {
                     "field": "id", 
                     "width": 100
-                }, 
-                {
-                    "field": "name", 
-                    "width": 100
                 },  
                 {
                     "field": "ecu_id", 
@@ -285,15 +281,6 @@
                     "required":true
                 }, 
                 {
-                    "field": "name",
-                    "controlType": "Text",
-                    "row": 2,
-                    "col": 1, 
-                    "colSpan": 2,
-                    "rowSpan": 1,
-                    "required":true
-                }, 
-                {
                     "field": "ecu_id",
                     "controlType": "SingleSelect",
                     "fields":[
@@ -305,7 +292,7 @@
                         }
                     ],
                     "row": 2,
-                    "col": 3, 
+                    "col": 1, 
                     "colSpan": 2,
                     "rowSpan": 1
                 },

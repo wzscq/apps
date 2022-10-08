@@ -165,11 +165,7 @@
             "fields": [
                 {
                     "field": "id", 
-                    "width": 100
-                }, 
-                {
-                    "field": "name", 
-                    "width": 100
+                    "width": 200
                 }, 
                 {
                     "field": "remark", 
@@ -274,17 +270,8 @@
                     "required":true
                 }, 
                 {
-                    "field": "name",
-                    "controlType": "Text",
-                    "row": 2,
-                    "col": 1, 
-                    "colSpan": 2,
-                    "rowSpan": 1,
-                    "required":true
-                }, 
-                {
                     "controlType": "TextArea",
-                    "row": 3,
+                    "row": 2,
                     "col": 1,
                     "field": "remark", 
                     "colSpan": 4,

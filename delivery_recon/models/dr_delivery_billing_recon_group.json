@@ -1,0 +1,47 @@
+{
+    "modelID":"dr_delivery_billing_recon_group",
+    "fields":[
+        {"field":"id","name":"ID","dataType":"varchar"},
+        {"field":"confirmed","name":"确认状态","dataType":"int"},
+        {"field":"recon_status","name":"核销状态","dataType":"int"},
+        {"field":"match_result","name":"匹配结果","dataType":"int"},
+        {"field":"customer_id","name":"客户代码","dataType":"varchar"},
+        {"field":"po_number","name":"采购订单号","dataType":"varchar"},
+        {"field":"material","name":"物料编码","dataType":"varchar"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ],
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "views":[
+        {
+            "viewID":"allGroups",
+            "name": "全部匹配分组", 
+            "description": "全部匹配分组", 
+            "fields":[
+                {"field":"id","width":150},
+                {"field":"confirmed","width":150},
+                {"field":"recon_status","width":150},
+                {"field":"match_result","width":150},
+                {"field":"customer_id","width":150},
+                {"field":"po_number","width":150},
+                {"field":"material","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "roles":"*"
+        }
+    ]
+}
