@@ -5,14 +5,42 @@
         {"field":"confirmed","name":"确认状态","dataType":"int"},
         {"field":"recon_status","name":"核销状态","dataType":"int"},
         {"field":"match_result","name":"匹配结果","dataType":"int"},
-        {"field":"customer_id","name":"客户代码","dataType":"varchar"},
+        {"field":"customer_id","name":"客户代码","dataType":"varchar","fieldType":"many2one","relatedModelID":"dr_customer"},
         {"field":"po_number","name":"采购订单号","dataType":"varchar"},
         {"field":"material","name":"物料编码","dataType":"varchar"},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
         {"field":"update_user","name":"记录更新人","dataType":"varchar"},
-        {"field":"version","name":"数据版本号","dataType":"int"}
+        {"field":"version","name":"数据版本号","dataType":"int"},
+        {
+            "field":"deliveries",
+            "name":"对账单",
+            "fieldType":"one2many",
+            "relatedModelID":"dr_delivery_recon",
+            "relatedField":"match_group"
+        },
+        {
+            "field":"deliverys",
+            "name":"对账单",
+            "fieldType":"one2many",
+            "relatedModelID":"dr_delivery_recon",
+            "relatedField":"match_group"
+        },
+        {
+            "field":"billings",
+            "name":"Billing",
+            "fieldType":"one2many",
+            "relatedModelID":"dr_billing_recon",
+            "relatedField":"match_group"
+        },
+        {
+            "field":"adjustments",
+            "name":"Adjustments",
+            "fieldType":"one2many",
+            "relatedModelID":"dr_delivery_billing_adjustment",
+            "relatedField":"match_group"
+        }
     ],
     "datasets":[
         {
@@ -22,6 +50,114 @@
             "mutationRoles":"*"
         }
     ],
+    "operations":[
+        {
+            "id": "detail", 
+            "name": "查看详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/dr_delivery_billing_recon_group/formDetail/detail",
+                    "location":"modal",
+                    "title":"匹配详情",
+                    "key":"/model/dr_delivery_billing_recon_group/formDetail/detail",
+                    "width":1000,
+                    "height":600
+            },
+            "input":{},
+            "description":"打开匹配详情对话框",
+            "roles":"*"
+        },
+        {
+            "id":"generateAdjustment",
+            "name":"生成调整项",
+            "type":"request",
+            "params":{
+                "url":"/redirect",
+                "method":"post"
+            },
+            "input":{
+                "to":"processingFlow",
+                "FlowID":"deliver_billing_recon_adjust"
+            },
+            "description":"生成调整项",
+            "successOperation":{
+                "type":"reloadFrameData",
+                "params":{
+                    "location":"tab",
+                    "key":"/model/dr_delivery_billing_recon_group"
+                },
+                "description":"刷新页面数据"
+            },
+            "roles":"*"
+        },
+        {
+            "id":"confirmGroups",
+            "name":"确认",
+            "type":"request",
+            "params":{
+                "url":"/data/update",
+                "method":"post"
+            },
+            "input":{
+                "list":[{"confirmed":"1"}]
+            },
+            "description":"确认分组数据",
+            "successOperation":{
+                "type":"reloadFrameData",
+                "params":{
+                    "location":"tab",
+                    "key":"/model/dr_delivery_billing_recon_group"
+                },
+                "description":"刷新页面数据"
+            },
+            "roles":"*"
+        },
+        {
+            "id":"cancelGroups",
+            "name":"取消确认",
+            "type":"request",
+            "params":{
+                "url":"/data/update",
+                "method":"post"
+            },
+            "input":{
+                "list":[{"confirmed":"0"}]
+            },
+            "description":"取消确认分组数据",
+            "successOperation":{
+                "type":"reloadFrameData",
+                "params":{
+                    "location":"tab",
+                    "key":"/model/dr_delivery_billing_recon_group"
+                },
+                "description":"刷新页面数据"
+            },
+            "roles":"*"
+        },
+        {
+            "id":"releaseGroup",
+            "name":"撤销分组",
+            "type":"request",
+            "params":{
+                "url":"/redirect",
+                "method":"post"
+            },
+            "input":{
+                "to":"processingFlow",
+                "FlowID":"cancel_delivery_billing_recon_group"
+            },
+            "description":"撤销分组",
+            "successOperation":{
+                "type":"reloadFrameData",
+                "params":{
+                    "location":"tab",
+                    "key":"/model/dr_delivery_billing_recon_group"
+                },
+                "description":"刷新页面数据"
+            },
+            "roles":"*"
+        }
+    ],
     "views":[
         {
             "viewID":"allGroups",
@@ -29,10 +165,61 @@
             "description": "全部匹配分组", 
             "fields":[
                 {"field":"id","width":150},
-                {"field":"confirmed","width":150},
-                {"field":"recon_status","width":150},
-                {"field":"match_result","width":150},
-                {"field":"customer_id","width":150},
+                {
+                    "field":"confirmed",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未确认"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已确认"
+                        }
+                    ]
+                },
+                {
+                    "field":"recon_status",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未核销"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已核销"
+                        }
+                    ]
+                },
+                {
+                    "field":"match_result",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"完全匹配"
+                        },
+                        {
+                            "value":"1",
+                            "label":"部分匹配"
+                        }
+                    ]
+                },
+                {
+                    "field":"customer_id",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
                 {"field":"po_number","width":150},
                 {"field":"material","width":150},
                 {"field":"create_time","width":150},
@@ -41,7 +228,504 @@
                 {"field":"update_user","width":150},
                 {"field":"version","width":150}
             ],
+            "toolbar": {
+                "rowToolbar": {
+                    "showCount": 2,
+                    "width":120, 
+                    "buttons": [
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
             "roles":"*"
+        },
+        {
+            "viewID":"exactMatchGroups",
+            "name": "完全匹配分组(未确认)", 
+            "description": "完全匹配分组(未确认)", 
+            "fields":[
+                {"field":"id","width":150},
+                {
+                    "field":"confirmed",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未确认"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已确认"
+                        }
+                    ]
+                },
+                {
+                    "field":"recon_status",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未核销"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已核销"
+                        }
+                    ]
+                },
+                {
+                    "field":"match_result",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"完全匹配"
+                        }
+                    ]
+                },
+                {
+                    "field":"customer_id",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"po_number","width":150},
+                {"field":"material","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter":{"match_result":0,"confirmed":0},
+            "toolbar": {
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":120, 
+                    "buttons": [
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        },
+                        {
+                            "operationID":"confirmGroups",
+                            "name":"确认"
+                        },
+                        {
+                            "operationID":"releaseGroup",
+                            "name":"撤销",
+                            "prompt":"确定要撤销当前匹配分组吗？"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "viewID":"partialMatchingGroups",
+            "name": "部分匹配分组(未确认)", 
+            "description": "部分匹配分组(未确认)", 
+            "fields":[
+                {"field":"id","width":150},
+                {
+                    "field":"confirmed",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未确认"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已确认"
+                        }
+                    ]
+                },
+                {
+                    "field":"recon_status",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未核销"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已核销"
+                        }
+                    ]
+                },
+                {
+                    "field":"match_result",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"1",
+                            "label":"部分匹配"
+                        }
+                    ]
+                },
+                {
+                    "field":"customer_id",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"po_number","width":150},
+                {"field":"material","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter":{"match_result":1,"confirmed":0},
+            "toolbar": {
+                "listToolbar":{
+                    "showCount": 3,
+                    "buttons":[
+                        {
+                            "operationID":"generateAdjustment",
+                            "name":"生成调整项"
+                        }
+                    ]
+                },
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":120, 
+                    "buttons": [
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        },
+                        {
+                            "operationID":"confirmGroups",
+                            "name":"确认"
+                        },
+                        {
+                            "operationID":"releaseGroup",
+                            "name":"撤销",
+                            "prompt":"确定要撤销当前匹配分组吗？"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "viewID":"confirmedGroups",
+            "name": "已确认匹配分组", 
+            "description": "已确认匹配分组", 
+            "fields":[
+                {"field":"id","width":150},
+                {
+                    "field":"confirmed",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未确认"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已确认"
+                        }
+                    ]
+                },
+                {
+                    "field":"recon_status",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未核销"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已核销"
+                        }
+                    ]
+                },
+                {
+                    "field":"match_result",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"1",
+                            "label":"部分匹配"
+                        }
+                    ]
+                },
+                {
+                    "field":"customer_id",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"po_number","width":150},
+                {"field":"material","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter":{"confirmed":1},
+            "toolbar": {
+                "listToolbar":{
+                    "showCount": 3,
+                    "buttons":[
+                       
+                    ]
+                },
+                "rowToolbar": {
+                    "showCount": 2,
+                    "width":120, 
+                    "buttons": [
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        },
+                        {
+                            "operationID":"cancelGroups",
+                            "name":"取消确认"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "formDetail",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"匹配详情",
+                "operations":[
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "field": "id", 
+                    "label": "Group ID",
+                    "colSpan": 1,
+                    "rowSpan": 1
+                }, 
+                {
+                    "field":"match_result",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"完全匹配"
+                        },
+                        {
+                            "value":"1",
+                            "label":"部分匹配"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"confirmed",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未确认"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已确认"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"recon_status",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未核销"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已核销"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"customer_id",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field": "id"},
+                        {"field": "name"}
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"po_number",
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"material",
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"deliveries",
+                    "controlType":"EditTable",
+                    "fieldType":"one2many",
+                    "relatedModelID":"dr_delivery_recon",
+                    "relatedField":"match_group",
+                    "controls":[
+                        {"field":"id","width":150,"label":"id","visible":true,"controlType":"Text"},
+                        {"field":"period","width":150,"label":"会计期间","visible":true,"controlType":"Text"},
+                        {"field":"match_group","width":150,"label":"匹配分组","controlType":"Text"},
+                        {"field":"price","visible":true,"width":150,"label":"结算单价","controlType":"Text"},
+                        {"field":"quantity","visible":true,"width":150,"label":"结算数量","controlType":"Text"},
+                        {"field":"amount","visible":true,"width":150,"label":"结算金额","controlType":"Text"}
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"billings",
+                    "controlType":"EditTable",
+                    "fieldType":"one2many",
+                    "relatedModelID":"dr_billing_recon",
+                    "relatedField":"match_group",
+                    "controls":[
+                        {"field":"id","width":150,"label":"id","visible":true,"controlType":"Text"},
+                        {"field":"billing_document","width":150,"visible":true,"label":"Billing Document","controlType":"Text"},
+                        {"field":"material","width":150,"visible":true,"label":"Material","controlType":"Text"},
+                        {"field":"match_group","width":150,"label":"匹配分组","controlType":"Text"},
+                        {"field":"price","visible":true,"width":150,"label":"结算单价","controlType":"Text"},
+                        {"field":"quantity","visible":true,"width":150,"label":"结算数量","controlType":"Text"},
+                        {"field":"amount","visible":true,"width":150,"label":"结算金额","controlType":"Text"}
+                    ],
+                    "row": 4,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"adjustments",
+                    "fieldType":"one2many",
+                    "controlType":"EditTable",
+                    "relatedModelID":"dr_delivery_billing_adjustment",
+                    "relatedField":"match_group",
+                    "controls":[
+                        {"field":"id","width":150,"label":"id","visible":true,"controlType":"Text"},
+                        {"field":"sales_document_type","width":150,"visible":true,"label":"Sales Document Type","controlType":"Text"},
+                        {"field":"material","width":150,"visible":true,"label":"Material","controlType":"Text"},
+                        {"field":"match_group","width":150,"label":"匹配分组","controlType":"Text"},
+                        {"field":"price","visible":true,"width":150,"label":"结算单价","controlType":"Text"},
+                        {"field":"quantity","visible":true,"width":150,"label":"结算数量","controlType":"Text"},
+                        {"field":"amount","visible":true,"width":150,"label":"结算金额","controlType":"Text"}
+                    ],
+                    "row": 5,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"create_time",
+                    "controlType": "Text",
+                    "row": 6,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"create_user",
+                    "controlType": "Text",
+                    "row": 6,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"update_time",
+                    "controlType": "Text",
+                    "row": 6,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"update_user",
+                    "controlType": "Text",
+                    "row": 6,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                }
+            ]
         }
     ]
 }

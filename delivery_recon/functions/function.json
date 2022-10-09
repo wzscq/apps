@@ -160,19 +160,19 @@
         "children":[
             {
                 "id":"1",
-                "name":"预处理逻辑",
-                "description":"预处理逻辑配置",
+                "name":"处理逻辑",
+                "description":"处理逻辑配置",
                 "icon":"UserOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
                         "url":"http://localhost:9901/#/delivery_recon",
                         "location":"tab",
-                        "title":"预处理逻辑配置",
+                        "title":"处理逻辑配置",
                         "key":"/flowconfig/delivery_recon"
                     },
                     "input":{},
-                    "description":"打开预处理逻辑配置功能"
+                    "description":"打开处理逻辑配置功能"
                 },
                 "roles":"admin"
             }
