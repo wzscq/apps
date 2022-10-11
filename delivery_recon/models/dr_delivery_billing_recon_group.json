@@ -21,13 +21,6 @@
             "relatedField":"match_group"
         },
         {
-            "field":"deliverys",
-            "name":"对账单",
-            "fieldType":"one2many",
-            "relatedModelID":"dr_delivery_recon",
-            "relatedField":"match_group"
-        },
-        {
             "field":"billings",
             "name":"Billing",
             "fieldType":"one2many",
@@ -68,6 +61,22 @@
             "roles":"*"
         },
         {
+            "id": "customizedDetail", 
+            "name": "定制详情",
+            "type":"open",
+            "params":{
+                    "url":"http://localhost:9902/",
+                    "location":"modal",
+                    "title":"匹配详情",
+                    "key":"/model/dr_delivery_billing_recon_group/groupDetail",
+                    "width":1000,
+                    "height":600
+            },
+            "input":{},
+            "description":"打开匹配详情对话框",
+            "roles":"*"
+        },
+        {
             "id":"generateAdjustment",
             "name":"生成调整项",
             "type":"request",
@@ -77,7 +86,7 @@
             },
             "input":{
                 "to":"processingFlow",
-                "FlowID":"deliver_billing_recon_adjust"
+                "FlowID":"delivery_billing_recon_adjust"
             },
             "description":"生成调整项",
             "successOperation":{
@@ -234,7 +243,7 @@
                     "width":120, 
                     "buttons": [
                         {
-                            "operationID": "detail",
+                            "operationID": "customizedDetail",
                             "name":"详情"
                         }
                     ]
@@ -314,7 +323,7 @@
                     "width":120, 
                     "buttons": [
                         {
-                            "operationID": "detail",
+                            "operationID": "customizedDetail",
                             "name":"详情"
                         },
                         {
@@ -412,7 +421,7 @@
                     "width":120, 
                     "buttons": [
                         {
-                            "operationID": "detail",
+                            "operationID": "customizedDetail",
                             "name":"详情"
                         },
                         {
@@ -507,7 +516,7 @@
                     "width":120, 
                     "buttons": [
                         {
-                            "operationID": "detail",
+                            "operationID": "customizedDetail",
                             "name":"详情"
                         },
                         {

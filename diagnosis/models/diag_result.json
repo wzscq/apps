@@ -150,8 +150,8 @@
             "name": "查看详情",
             "type":"open",
             "params":{
-                    "url":"/diag_report",
-                    "url1":"http://localhost:3004/",
+                    "url1":"/diag_report",
+                    "url":"http://localhost:3004/",
                     "location":"modal",
                     "title":"诊断结果详情",
                     "key":"/model/diag_result/diag_report",

@@ -57,9 +57,45 @@
                 {"field":"amount","width":150},
                 {"field":"reason_code","width":150},
                 {"field":"match_group","width":150},
-                {"field":"adjust_by","width":150},
+                {
+                    "field":"adjust_by",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"人工调差"
+                        },
+                        {
+                            "value":"1",
+                            "label":"系统自动调差"
+                        }
+                    ]
+                },
                 {"field":"recon_status","width":150},
-                {"field":"source_type","width":150},
+                {
+                    "field":"source_type",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"原始数据导入"
+                        },
+                        {
+                            "value":"1",
+                            "label":"核销余额"
+                        },
+                        {
+                            "value":"2",
+                            "label":"撤销反冲"
+                        },
+                        {
+                            "value":"3",
+                            "label":"调差产生"
+                        }
+                    ]
+                },
                 {"field":"source_id","width":150},
                 {"field":"original_id","width":150},
                 {"field":"recon_amount","width":150},
