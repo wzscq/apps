@@ -8,6 +8,12 @@
         {"field":"customer_id","name":"客户代码","dataType":"varchar","fieldType":"many2one","relatedModelID":"dr_customer"},
         {"field":"po_number","name":"采购订单号","dataType":"varchar"},
         {"field":"material","name":"物料编码","dataType":"varchar"},
+        {"field":"delivery_quantity","name":"对账单数量","dataType":"decimal"},
+        {"field":"delivery_amount","name":"对账单金额","dataType":"decimal"},
+        {"field":"billing_quantity","name":"Billing数量","dataType":"decimal"},
+        {"field":"billing_amount","name":"Billing金额","dataType":"decimal"},
+        {"field":"quantity_gap","name":"数量差","dataType":"decimal"},
+        {"field":"amount_gap","name":"金额差","dataType":"decimal"},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
@@ -173,37 +179,18 @@
             "name": "全部匹配分组", 
             "description": "全部匹配分组", 
             "fields":[
-                {"field":"id","width":150},
                 {
-                    "field":"confirmed",
-                    "width":150,
+                    "field":"customer_id",
+                    "width":250,
                     "filterControlType": "SingleSelect",
-                    "options":[
-                        {
-                            "value":"0",
-                            "label":"未确认"
-                        },
-                        {
-                            "value":"1",
-                            "label":"已确认"
-                        }
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
                     ]
                 },
-                {
-                    "field":"recon_status",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "options":[
-                        {
-                            "value":"0",
-                            "label":"未核销"
-                        },
-                        {
-                            "value":"1",
-                            "label":"已核销"
-                        }
-                    ]
-                },
+                {"field":"po_number","width":150},
+                {"field":"material","width":150},
                 {
                     "field":"match_result",
                     "width":150,
@@ -219,23 +206,32 @@
                         }
                     ]
                 },
+                {"field":"delivery_quantity","width":120},
+                {"field":"billing_quantity","width":120},
+                {"field":"quantity_gap","width":120},
+                {"field":"delivery_amount","width":120},
+                {"field":"billing_amount","width":120},
+                {"field":"amount_gap","width":120},
+                
                 {
-                    "field":"customer_id",
+                    "field":"confirmed",
                     "width":150,
                     "filterControlType": "SingleSelect",
-                    "optionLabel":"name",
-                    "fields":[
-                        {"field":"id"},
-                        {"field":"name"}
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未确认"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已确认"
+                        }
                     ]
                 },
-                {"field":"po_number","width":150},
-                {"field":"material","width":150},
-                {"field":"create_time","width":150},
-                {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
-                {"field":"version","width":150}
+                {"field":"version","width":150},
+                {"field":"id","width":150}
             ],
             "toolbar": {
                 "rowToolbar": {
@@ -256,7 +252,39 @@
             "name": "完全匹配分组(未确认)", 
             "description": "完全匹配分组(未确认)", 
             "fields":[
-                {"field":"id","width":150},
+                {
+                    "field":"customer_id",
+                    "width":250,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"po_number","width":150},
+                {"field":"material","width":150},
+                {
+                    "field":"match_result",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"完全匹配"
+                        },
+                        {
+                            "value":"1",
+                            "label":"部分匹配"
+                        }
+                    ]
+                },
+                {"field":"delivery_quantity","width":120},
+                {"field":"billing_quantity","width":120},
+                {"field":"amount_gap","width":120},
+                {"field":"delivery_amount","width":120},
+                {"field":"billing_amount","width":120},
+                {"field":"quantity_gap","width":120},
                 {
                     "field":"confirmed",
                     "width":150,
@@ -272,49 +300,10 @@
                         }
                     ]
                 },
-                {
-                    "field":"recon_status",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "options":[
-                        {
-                            "value":"0",
-                            "label":"未核销"
-                        },
-                        {
-                            "value":"1",
-                            "label":"已核销"
-                        }
-                    ]
-                },
-                {
-                    "field":"match_result",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "options":[
-                        {
-                            "value":"0",
-                            "label":"完全匹配"
-                        }
-                    ]
-                },
-                {
-                    "field":"customer_id",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "optionLabel":"name",
-                    "fields":[
-                        {"field":"id"},
-                        {"field":"name"}
-                    ]
-                },
-                {"field":"po_number","width":150},
-                {"field":"material","width":150},
-                {"field":"create_time","width":150},
-                {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
-                {"field":"version","width":150}
+                {"field":"version","width":150},
+                {"field":"id","width":150}
             ],
             "filter":{"match_result":0,"confirmed":0},
             "toolbar": {
@@ -345,7 +334,39 @@
             "name": "部分匹配分组(未确认)", 
             "description": "部分匹配分组(未确认)", 
             "fields":[
-                {"field":"id","width":150},
+                {
+                    "field":"customer_id",
+                    "width":250,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"po_number","width":150},
+                {"field":"material","width":150},
+                {
+                    "field":"match_result",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"完全匹配"
+                        },
+                        {
+                            "value":"1",
+                            "label":"部分匹配"
+                        }
+                    ]
+                },
+                {"field":"delivery_quantity","width":120},
+                {"field":"billing_quantity","width":120},
+                {"field":"quantity_gap","width":120},
+                {"field":"delivery_amount","width":120},
+                {"field":"billing_amount","width":120},
+                {"field":"amount_gap","width":120},
                 {
                     "field":"confirmed",
                     "width":150,
@@ -361,49 +382,10 @@
                         }
                     ]
                 },
-                {
-                    "field":"recon_status",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "options":[
-                        {
-                            "value":"0",
-                            "label":"未核销"
-                        },
-                        {
-                            "value":"1",
-                            "label":"已核销"
-                        }
-                    ]
-                },
-                {
-                    "field":"match_result",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "options":[
-                        {
-                            "value":"1",
-                            "label":"部分匹配"
-                        }
-                    ]
-                },
-                {
-                    "field":"customer_id",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "optionLabel":"name",
-                    "fields":[
-                        {"field":"id"},
-                        {"field":"name"}
-                    ]
-                },
-                {"field":"po_number","width":150},
-                {"field":"material","width":150},
-                {"field":"create_time","width":150},
-                {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
-                {"field":"version","width":150}
+                {"field":"version","width":150},
+                {"field":"id","width":150}
             ],
             "filter":{"match_result":1,"confirmed":0},
             "toolbar": {
@@ -443,7 +425,39 @@
             "name": "已确认匹配分组", 
             "description": "已确认匹配分组", 
             "fields":[
-                {"field":"id","width":150},
+                {
+                    "field":"customer_id",
+                    "width":250,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"po_number","width":150},
+                {"field":"material","width":150},
+                {
+                    "field":"match_result",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"完全匹配"
+                        },
+                        {
+                            "value":"1",
+                            "label":"部分匹配"
+                        }
+                    ]
+                },
+                {"field":"delivery_quantity","width":120},
+                {"field":"billing_quantity","width":120},
+                {"field":"quantity_gap","width":120},
+                {"field":"delivery_amount","width":120},
+                {"field":"billing_amount","width":120},
+                {"field":"amount_gap","width":120},
                 {
                     "field":"confirmed",
                     "width":150,
@@ -459,49 +473,10 @@
                         }
                     ]
                 },
-                {
-                    "field":"recon_status",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "options":[
-                        {
-                            "value":"0",
-                            "label":"未核销"
-                        },
-                        {
-                            "value":"1",
-                            "label":"已核销"
-                        }
-                    ]
-                },
-                {
-                    "field":"match_result",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "options":[
-                        {
-                            "value":"1",
-                            "label":"部分匹配"
-                        }
-                    ]
-                },
-                {
-                    "field":"customer_id",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "optionLabel":"name",
-                    "fields":[
-                        {"field":"id"},
-                        {"field":"name"}
-                    ]
-                },
-                {"field":"po_number","width":150},
-                {"field":"material","width":150},
-                {"field":"create_time","width":150},
-                {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
-                {"field":"version","width":150}
+                {"field":"version","width":150},
+                {"field":"id","width":150}
             ],
             "filter":{"confirmed":1},
             "toolbar": {

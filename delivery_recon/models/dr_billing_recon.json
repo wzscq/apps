@@ -70,11 +70,10 @@
             "name": "待匹配Billing对记录", 
             "description": "待匹配Billing对记录", 
             "fields":[
-                {"field":"id","width":150},
+                {"field":"billing_document","width":150},
                 {"field":"sales_organization","width":150},
                 {"field":"ship_to_party","width":150},
                 {"field":"material_description","width":150},
-                {"field":"billing_document","width":150},
                 {"field":"sold_to_party","width":150},
                 {"field":"billing_date","width":150},
                 {"field":"billing_type","width":150},
@@ -155,7 +154,8 @@
                 {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
-                {"field":"version","width":150}
+                {"field":"version","width":150},
+                {"field":"id","width":150}
             ],
             "filter": {"match_status":{"Op.ne":1}}, 
             "toolbar": {
@@ -181,11 +181,10 @@
             "name": "已匹配的Billing对记录", 
             "description": "已匹配的Billing对记录", 
             "fields":[
-                {"field":"id","width":150},
+                {"field":"billing_document","width":150},
                 {"field":"sales_organization","width":150},
                 {"field":"ship_to_party","width":150},
                 {"field":"material_description","width":150},
-                {"field":"billing_document","width":150},
                 {"field":"sold_to_party","width":150},
                 {"field":"billing_date","width":150},
                 {"field":"billing_type","width":150},
@@ -258,7 +257,8 @@
                 {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
-                {"field":"version","width":150}
+                {"field":"version","width":150},
+                {"field":"id","width":150}
             ],
             "filter": {"match_status":1}, 
             "toolbar": {
@@ -284,11 +284,10 @@
             "name": "全部Billing对记录", 
             "description": "全部Billing对记录", 
             "fields":[
-                {"field":"id","width":150},
+                {"field":"billing_document","width":150},
                 {"field":"sales_organization","width":150},
                 {"field":"ship_to_party","width":150},
                 {"field":"material_description","width":150},
-                {"field":"billing_document","width":150},
                 {"field":"sold_to_party","width":150},
                 {"field":"billing_date","width":150},
                 {"field":"billing_type","width":150},
@@ -373,7 +372,8 @@
                 {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
-                {"field":"version","width":150}
+                {"field":"version","width":150},
+                {"field":"id","width":150}
             ],
             "filter": { }, 
             "toolbar": {
@@ -396,6 +396,49 @@
         }
     ],
     "forms":[
-        
+        {
+            "formID": "formDetail",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"Billing详情"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {"field":"id","controlType": "Text","row": 1,"col": 1,"colSpan": 1,"rowSpan": 1},
+                {"field":"material","controlType": "Text","row": 2,"col": 1,"colSpan": 1,"rowSpan": 1},
+                {"field":"quantity","controlType": "Number","row": 2,"col": 2,"colSpan": 1,"rowSpan": 1},
+                {"field":"price","controlType": "Number","row": 2,"col": 3,"colSpan": 1,"rowSpan": 1},
+                {"field":"amount","controlType": "Number","row": 2,"col": 4,"colSpan": 1,"rowSpan": 1},
+                {"field":"customer_material_number","controlType": "Text","row": 3,"col": 1,"colSpan": 1,"rowSpan": 1},
+                {"field":"purchase_order_number","controlType": "Text","row": 3,"col": 2,"colSpan": 1,"rowSpan": 1},
+                {
+                    "field": "sold_to_party", 
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 3,
+                    "colSpan": 2,
+                    "rowSpan": 1
+                },
+                {"field":"create_time","controlType": "Text","row": 4,"col": 1,"colSpan": 1,"rowSpan": 1},
+                {"field":"create_user","controlType": "Text","row": 4,"col": 2,"colSpan": 1,"rowSpan": 1},
+                {"field":"update_time","controlType": "Text","row": 4,"col": 3,"colSpan": 1,"rowSpan": 1},
+                {"field":"update_user","controlType": "Text","row": 4,"col": 4,"colSpan": 1,"rowSpan": 1}
+            ]
+        }
     ]
 }

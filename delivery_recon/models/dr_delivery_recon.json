@@ -144,7 +144,6 @@
             "name": "待比对对账单", 
             "description": "待比对对账单", 
             "fields":[
-                {"field":"id","width":150},
                 {"field":"period","width":150},
                 {"field":"material","width":150},
                 {"field":"po_number","width":150},
@@ -227,7 +226,8 @@
                 {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
-                {"field":"version","width":150}
+                {"field":"version","width":150},
+                {"field":"id","width":150}
             ],
             "filter": {"match_status":{"Op.in":[0,2,3]}}, 
             "toolbar": {
@@ -263,7 +263,6 @@
             "name": "已匹配对账单", 
             "description": "已匹配对账单", 
             "fields":[
-                {"field":"id","width":150},
                 {"field":"period","width":150},
                 {"field":"material","width":150},
                 {"field":"po_number","width":150},
@@ -338,7 +337,8 @@
                 {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
-                {"field":"version","width":150}
+                {"field":"version","width":150},
+                {"field":"id","width":150}
             ],
             "filter": {"match_status":1}, 
             "toolbar": {
@@ -364,7 +364,6 @@
             "name": "已关闭对账单", 
             "description": "已关闭对账单", 
             "fields":[
-                {"field":"id","width":150},
                 {"field":"period","width":150},
                 {"field":"material","width":150},
                 {"field":"po_number","width":150},
@@ -439,7 +438,8 @@
                 {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
-                {"field":"version","width":150}
+                {"field":"version","width":150},
+                {"field":"id","width":150}
             ],
             "filter": {"match_status":4}, 
             "toolbar": {
@@ -471,7 +471,6 @@
             "name": "全部对账单", 
             "description": "全部对账单", 
             "fields":[
-                {"field":"id","width":150},
                 {"field":"period","width":150},
                 {"field":"material","width":150},
                 {"field":"po_number","width":150},
@@ -562,7 +561,8 @@
                 {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
-                {"field":"version","width":150}
+                {"field":"version","width":150},
+                {"field":"id","width":150}
             ],
             "filter": { }, 
             "toolbar": {
@@ -585,6 +585,54 @@
         }
     ],
     "forms":[
-
+        {
+            "formID": "formDetail",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"对账单详情"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {"field":"id","controlType": "Text","row": 1,"col": 1,"colSpan": 1,"rowSpan": 1},
+                {"field":"period","controlType": "Text","row": 1,"col": 2,"colSpan": 1,"rowSpan": 1},
+                {"field":"material","controlType": "Text","row": 2,"col": 1,"colSpan": 1,"rowSpan": 1},
+                {"field":"quantity","controlType": "Number","row": 2,"col": 2,"colSpan": 1,"rowSpan": 1},
+                {"field":"price","controlType": "Number","row": 2,"col": 3,"colSpan": 1,"rowSpan": 1},
+                {"field":"amount","controlType": "Number","row": 2,"col": 4,"colSpan": 1,"rowSpan": 1},
+                {"field":"po_number","controlType": "Text","row": 3,"col": 1,"colSpan": 1,"rowSpan": 1},
+                {
+                    "field": "customer_id", 
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field": "id"},
+                        {"field": "name"}
+                    ],
+                    "row": 3,
+                    "col": 2,
+                    "colSpan": 3,
+                    "rowSpan": 1
+                },
+                {"field":"create_time","controlType": "Text","row": 4,"col": 1,"colSpan": 1,"rowSpan": 1},
+                {"field":"create_user","controlType": "Text","row": 4,"col": 2,"colSpan": 1,"rowSpan": 1},
+                {"field":"update_time","controlType": "Text","row": 4,"col": 3,"colSpan": 1,"rowSpan": 1},
+                {"field":"update_user","controlType": "Text","row": 4,"col": 4,"colSpan": 1,"rowSpan": 1}
+            ]
+        }
     ]
 }
