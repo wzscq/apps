@@ -206,12 +206,12 @@
                         }
                     ]
                 },
-                {"field":"delivery_quantity","width":120},
-                {"field":"billing_quantity","width":120},
-                {"field":"quantity_gap","width":120},
-                {"field":"delivery_amount","width":120},
-                {"field":"billing_amount","width":120},
-                {"field":"amount_gap","width":120},
+                {"field":"delivery_quantity","width":120,"summarize":"sum(delivery_quantity)"},
+                {"field":"billing_quantity","width":120,"summarize":"sum(billing_quantity)"},
+                {"field":"quantity_gap","width":120,"summarize":"sum(quantity_gap)"},
+                {"field":"delivery_amount","width":120,"summarize":"sum(delivery_amount)"},
+                {"field":"billing_amount","width":120,"summarize":"sum(billing_amount)"},
+                {"field":"amount_gap","width":120,"summarize":"sum(amount_gap)"},
                 
                 {
                     "field":"confirmed",
@@ -279,12 +279,12 @@
                         }
                     ]
                 },
-                {"field":"delivery_quantity","width":120},
-                {"field":"billing_quantity","width":120},
-                {"field":"amount_gap","width":120},
-                {"field":"delivery_amount","width":120},
-                {"field":"billing_amount","width":120},
-                {"field":"quantity_gap","width":120},
+                {"field":"delivery_quantity","width":120,"summarize":"sum(delivery_quantity)"},
+                {"field":"billing_quantity","width":120,"summarize":"sum(billing_quantity)"},
+                {"field":"quantity_gap","width":120,"summarize":"sum(quantity_gap)"},
+                {"field":"delivery_amount","width":120,"summarize":"sum(delivery_amount)"},
+                {"field":"billing_amount","width":120,"summarize":"sum(billing_amount)"},
+                {"field":"amount_gap","width":120,"summarize":"sum(amount_gap)"},
                 {
                     "field":"confirmed",
                     "width":150,
@@ -361,12 +361,12 @@
                         }
                     ]
                 },
-                {"field":"delivery_quantity","width":120},
-                {"field":"billing_quantity","width":120},
-                {"field":"quantity_gap","width":120},
-                {"field":"delivery_amount","width":120},
-                {"field":"billing_amount","width":120},
-                {"field":"amount_gap","width":120},
+                {"field":"delivery_quantity","width":120,"summarize":"sum(delivery_quantity)"},
+                {"field":"billing_quantity","width":120,"summarize":"sum(billing_quantity)"},
+                {"field":"quantity_gap","width":120,"summarize":"sum(quantity_gap)"},
+                {"field":"delivery_amount","width":120,"summarize":"sum(delivery_amount)"},
+                {"field":"billing_amount","width":120,"summarize":"sum(billing_amount)"},
+                {"field":"amount_gap","width":120,"summarize":"sum(amount_gap)"},
                 {
                     "field":"confirmed",
                     "width":150,
@@ -452,12 +452,12 @@
                         }
                     ]
                 },
-                {"field":"delivery_quantity","width":120},
-                {"field":"billing_quantity","width":120},
-                {"field":"quantity_gap","width":120},
-                {"field":"delivery_amount","width":120},
-                {"field":"billing_amount","width":120},
-                {"field":"amount_gap","width":120},
+                {"field":"delivery_quantity","width":120,"summarize":"sum(delivery_quantity)"},
+                {"field":"billing_quantity","width":120,"summarize":"sum(billing_quantity)"},
+                {"field":"quantity_gap","width":120,"summarize":"sum(quantity_gap)"},
+                {"field":"delivery_amount","width":120,"summarize":"sum(delivery_amount)"},
+                {"field":"billing_amount","width":120,"summarize":"sum(billing_amount)"},
+                {"field":"amount_gap","width":120,"summarize":"sum(amount_gap)"},
                 {
                     "field":"confirmed",
                     "width":150,

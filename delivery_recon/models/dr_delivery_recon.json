@@ -3,8 +3,8 @@
     "fields":[
         {"field":"id","name":"ID","dataType":"varchar"},
         {"field":"period","name":"会计期间","dataType":"varchar"},
-        {"field":"material","name":"物料编码","dataType":"varchar"},
-        {"field":"po_number","name":"采购订单号","dataType":"varchar"},
+        {"field":"material","name":"物料编码","dataType":"varchar","quickSearch":true},
+        {"field":"po_number","name":"采购订单号","dataType":"varchar","quickSearch":true},
         {"field":"price","name":"单价","dataType":"decimal"},
         {"field":"quantity","name":"待比对数量","dataType":"decimal"},
         {"field":"amount","name":"待比对金额","dataType":"decimal"},
@@ -144,15 +144,23 @@
             "name": "待比对对账单", 
             "description": "待比对对账单", 
             "fields":[
-                {"field":"period","width":150},
+                {"field":"period","width":100},
                 {"field":"material","width":150},
                 {"field":"po_number","width":150},
-                {"field":"price","width":150},
-                {"field":"quantity","width":150},
-                {"field":"amount","width":150},
+                {"field":"price","width":100},
+                {
+                    "field":"quantity",
+                    "width":120,
+                    "summarize":"sum(quantity)"
+                },
+                {
+                    "field":"amount",
+                    "width":120,
+                    "summarize":"sum(amount)"
+                },
                 {
                     "field":"customer_id",
-                    "width":300,
+                    "width":250,
                     "filterControlType": "SingleSelect",
                     "optionLabel":"name",
                     "fields":[
@@ -162,7 +170,7 @@
                 },
                 {
                     "field":"match_status",
-                    "width":150,
+                    "width":100,
                     "filterControlType": "SingleSelect",
                     "options":[
                         {
@@ -179,23 +187,8 @@
                         }
                     ]
                 },
+                {"field":"match_failure_reason","width":250},
                 {"field":"match_group","width":150},
-                {"field":"match_failure_reason","width":150},
-                {
-                    "field":"recon_status",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "options":[
-                        {
-                            "value":"0",
-                            "label":"未核销"
-                        },
-                        {
-                            "value":"1",
-                            "label":"已核销"
-                        }
-                    ]
-                },
                 {
                     "field":"source_type",
                     "width":150,
@@ -217,13 +210,7 @@
                 },
                 {"field":"source_id","width":150},
                 {"field":"original_id","width":150},
-                {"field":"recon_amount","width":150},
-                {"field":"recon_quantity","width":150},
-                {"field":"amount_balance","width":150},
-                {"field":"quantity_balance","width":150},
                 {"field":"processing_batch_number","width":150},
-                {"field":"create_time","width":150},
-                {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150},
@@ -263,15 +250,23 @@
             "name": "已匹配对账单", 
             "description": "已匹配对账单", 
             "fields":[
-                {"field":"period","width":150},
+                {"field":"period","width":100},
                 {"field":"material","width":150},
                 {"field":"po_number","width":150},
-                {"field":"price","width":150},
-                {"field":"quantity","width":150},
-                {"field":"amount","width":150},
+                {"field":"price","width":100},
+                {
+                    "field":"quantity",
+                    "width":120,
+                    "summarize":"sum(quantity)"
+                },
+                {
+                    "field":"amount",
+                    "width":120,
+                    "summarize":"sum(amount)"
+                },
                 {
                     "field":"customer_id",
-                    "width":300,
+                    "width":250,
                     "filterControlType": "SingleSelect",
                     "optionLabel":"name",
                     "fields":[
@@ -281,7 +276,7 @@
                 },
                 {
                     "field":"match_status",
-                    "width":150,
+                    "width":100,
                     "filterControlType": "SingleSelect",
                     "options":[
                         {
@@ -290,23 +285,8 @@
                         }
                     ]
                 },
+                {"field":"match_failure_reason","width":250},
                 {"field":"match_group","width":150},
-                {"field":"match_failure_reason","width":150},
-                {
-                    "field":"recon_status",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "options":[
-                        {
-                            "value":"0",
-                            "label":"未核销"
-                        },
-                        {
-                            "value":"1",
-                            "label":"已核销"
-                        }
-                    ]
-                },
                 {
                     "field":"source_type",
                     "width":150,
@@ -328,13 +308,6 @@
                 },
                 {"field":"source_id","width":150},
                 {"field":"original_id","width":150},
-                {"field":"recon_amount","width":150},
-                {"field":"recon_quantity","width":150},
-                {"field":"amount_balance","width":150},
-                {"field":"quantity_balance","width":150},
-                {"field":"processing_batch_number","width":150},
-                {"field":"create_time","width":150},
-                {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150},
@@ -364,15 +337,23 @@
             "name": "已关闭对账单", 
             "description": "已关闭对账单", 
             "fields":[
-                {"field":"period","width":150},
+                {"field":"period","width":100},
                 {"field":"material","width":150},
                 {"field":"po_number","width":150},
-                {"field":"price","width":150},
-                {"field":"quantity","width":150},
-                {"field":"amount","width":150},
+                {"field":"price","width":100},
+                {
+                    "field":"quantity",
+                    "width":120,
+                    "summarize":"sum(quantity)"
+                },
+                {
+                    "field":"amount",
+                    "width":120,
+                    "summarize":"sum(amount)"
+                },
                 {
                     "field":"customer_id",
-                    "width":300,
+                    "width":250,
                     "filterControlType": "SingleSelect",
                     "optionLabel":"name",
                     "fields":[
@@ -382,7 +363,7 @@
                 },
                 {
                     "field":"match_status",
-                    "width":150,
+                    "width":100,
                     "filterControlType": "SingleSelect",
                     "options":[
                         {
@@ -391,23 +372,8 @@
                         }
                     ]
                 },
+                {"field":"match_failure_reason","width":250},
                 {"field":"match_group","width":150},
-                {"field":"match_failure_reason","width":150},
-                {
-                    "field":"recon_status",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "options":[
-                        {
-                            "value":"0",
-                            "label":"未核销"
-                        },
-                        {
-                            "value":"1",
-                            "label":"已核销"
-                        }
-                    ]
-                },
                 {
                     "field":"source_type",
                     "width":150,
@@ -429,13 +395,6 @@
                 },
                 {"field":"source_id","width":150},
                 {"field":"original_id","width":150},
-                {"field":"recon_amount","width":150},
-                {"field":"recon_quantity","width":150},
-                {"field":"amount_balance","width":150},
-                {"field":"quantity_balance","width":150},
-                {"field":"processing_batch_number","width":150},
-                {"field":"create_time","width":150},
-                {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150},
@@ -471,15 +430,23 @@
             "name": "全部对账单", 
             "description": "全部对账单", 
             "fields":[
-                {"field":"period","width":150},
+                {"field":"period","width":100},
                 {"field":"material","width":150},
                 {"field":"po_number","width":150},
-                {"field":"price","width":150},
-                {"field":"quantity","width":150},
-                {"field":"amount","width":150},
+                {"field":"price","width":100},
+                {
+                    "field":"quantity",
+                    "width":120,
+                    "summarize":"sum(quantity)"
+                },
+                {
+                    "field":"amount",
+                    "width":120,
+                    "summarize":"sum(amount)"
+                },
                 {
                     "field":"customer_id",
-                    "width":300,
+                    "width":250,
                     "filterControlType": "SingleSelect",
                     "optionLabel":"name",
                     "fields":[
@@ -489,7 +456,7 @@
                 },
                 {
                     "field":"match_status",
-                    "width":150,
+                    "width":100,
                     "filterControlType": "SingleSelect",
                     "options":[
                         {
@@ -514,23 +481,8 @@
                         }
                     ]
                 },
+                {"field":"match_failure_reason","width":250},
                 {"field":"match_group","width":150},
-                {"field":"match_failure_reason","width":150},
-                {
-                    "field":"recon_status",
-                    "width":150,
-                    "filterControlType": "SingleSelect",
-                    "options":[
-                        {
-                            "value":"0",
-                            "label":"未核销"
-                        },
-                        {
-                            "value":"1",
-                            "label":"已核销"
-                        }
-                    ]
-                },
                 {
                     "field":"source_type",
                     "width":150,
@@ -552,13 +504,6 @@
                 },
                 {"field":"source_id","width":150},
                 {"field":"original_id","width":150},
-                {"field":"recon_amount","width":150},
-                {"field":"recon_quantity","width":150},
-                {"field":"amount_balance","width":150},
-                {"field":"quantity_balance","width":150},
-                {"field":"processing_batch_number","width":150},
-                {"field":"create_time","width":150},
-                {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150},
