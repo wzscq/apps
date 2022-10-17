@@ -72,6 +72,7 @@
             "type":"open",
             "params":{
                     "url":"http://localhost:9902/",
+                    "url1":"http://192.168.1.144/matchgroup/",
                     "location":"modal",
                     "title":"匹配详情",
                     "key":"/model/dr_delivery_billing_recon_group/groupDetail",

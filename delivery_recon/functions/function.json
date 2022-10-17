@@ -150,6 +150,44 @@
                     "description":"打开客户信息维护页面"
                 },
                 "roles":"*"
+            },
+            {
+                "id":"2",
+                "name":"客户物料信息",
+                "openLabel":"打开",
+                "description":"客户物料维护",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/dr_customer_material",
+                        "location":"tab",
+                        "title":"客户物料信息",
+                        "key":"/model/dr_customer_material"
+                    },
+                    "input":{},
+                    "description":"打开客户物料信息维护页面"
+                },
+                "roles":"*"
+            },
+            {
+                "id":"3",
+                "name":"CS Team",
+                "openLabel":"打开",
+                "description":"CS Team",
+                "icon":"UserOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/dr_cs_team",
+                        "location":"tab",
+                        "title":"CS Team",
+                        "key":"/model/dr_cs_team"
+                    },
+                    "input":{},
+                    "description":"打开CS Team信息维护页面"
+                },
+                "roles":"*"
             }
         ]
     },

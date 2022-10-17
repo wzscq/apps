@@ -1,44 +1,15 @@
 {
-    "modelID": "dr_customer", 
+    "modelID": "dr_cs_team", 
     "fields": [
-        {
-            "field": "id", 
-            "name": "客户代码", 
-            "dataType": "varchar",
-            "quickSearch":true
-        }, 
-        {
-            "field": "name", 
-            "name": "客户名称", 
-            "dataType": "varchar",
-            "quickSearch":true
-        }, 
-        {
-            "field": "create_time", 
-            "name": "创建时间", 
-            "dataType": "datetime"
-        }, 
-        {
-            "field": "create_user", 
-            "name": "创建人", 
-            "dataType": "varchar"
-        }, 
-        {
-            "field": "update_time", 
-            "name": "更新时间", 
-            "dataType": "datetime"
-        }, 
-        {
-            "field": "update_user", 
-            "name": "更新人", 
-            "dataType": "varchar"
-        }, 
-        {
-            "field": "version", 
-            "name": "数据版本", 
-            "dataType": "int"
-        }
-    ], 
+        {"field":"id","name":"CS Team Code","dataType":"varchar"},
+        {"field":"name","name":"名称","dataType":"varchar"},
+        {"field":"remark","name":"备注","dataType":"varchar"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ],
     "datasets":[
         {
             "id":"DEFAULT",
@@ -53,15 +24,15 @@
             "name": "创建",
             "type":"open",
             "params":{
-                    "url":"/formview/#/dr_customer/form1/create",
+                    "url":"/formview/#/dr_cs_team/form1/create",
                     "location":"modal",
                     "title":"创建客户",
-                    "key":"/model/dr_customer/form1/create",
+                    "key":"/model/dr_cs_team/form1/create",
                     "width":600,
                     "height":400
             },
             "input":{},
-            "description":"打开创建客户对话框" ,
+            "description":"打开创建CS Team对话框" ,
             "roles":"admin"
         }, 
         {
@@ -69,15 +40,15 @@
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/formview/#/dr_customer/form1/edit",
+                    "url":"/formview/#/dr_cs_team/form1/edit",
                     "location":"modal",
-                    "title":"编辑客户信息",
-                    "key":"/model/dr_customer/form1/edit",
+                    "title":"编辑CS Team信息",
+                    "key":"/model/dr_cs_team/form1/edit",
                     "width":600,
                     "height":400
             },
             "input":{},
-            "description":"打开编辑客户对话框",
+            "description":"打开编辑CS Team对话框",
             "roles":"admin"
         },  
         {
@@ -93,7 +64,7 @@
                 "type":"message",
                 "params":{
                     "type":"success",
-                    "content":"删除客户信息成功!",
+                    "content":"删除CS Team成功!",
                     "duration":"2"
                 },
                 "description":"提示删除数据成功",
@@ -101,7 +72,7 @@
                     "type":"reloadFrameData",
                     "params":{
                         "location":"tab",
-                        "key":"/model/dr_customer"
+                        "key":"/model/dr_cs_team"
                     },
                     "description":"刷新页面数据"
                 }
@@ -128,7 +99,7 @@
                     "type":"reloadFrameData",
                     "params":{
                         "location":"tab",
-                        "key":"/model/dr_customer"
+                        "key":"/model/dr_cs_team"
                     },
                     "description":"刷新页面数据"
                 }
@@ -139,32 +110,36 @@
     "views": [
         {
             "viewID": "viewNormal", 
-            "name": "客户信息维护", 
-            "description": "客户信息维护", 
+            "name": "CS Team", 
+            "description": "CS Team维护", 
             "fields": [
                 {
                     "field": "id", 
-                    "width": 100
+                    "width": 150
                 }, 
                 {
                     "field": "name", 
+                    "width": 150
+                }, 
+                {
+                    "field": "remark", 
                     "width": 300
                 }, 
                 {
                     "field": "create_time", 
-                    "width": 200
+                    "width": 150
                 }, 
                 {
                     "field": "create_user", 
-                    "width": 200
+                    "width": 100
                 }, 
                 {
                     "field": "update_time", 
-                    "width": 200
+                    "width": 150
                 }, 
                 {
                     "field": "update_user", 
-                    "width": 200
+                    "width": 100
                 }, 
                 {
                     "field": "version", 
@@ -178,14 +153,18 @@
                     "buttons": [
                         {
                             "operationID": "create",
-                            "name":"创建客户"
+                            "name":"创建CS Team"
                         }
                     ]
-                }, 
+                },
                 "rowToolbar": {
                     "showCount": 2,
-                    "width":60, 
+                    "width":80, 
                     "buttons": [
+                        {
+                            "operationID": "edit",
+                            "name":"编辑"
+                        },
                         {
                             "operationID": "delete",
                             "name":"删除"
@@ -239,6 +218,14 @@
                     "row": 2,
                     "col": 1,
                     "field": "name", 
+                    "colSpan": 2,
+                    "rowSpan": 1
+                },
+                {
+                    "controlType": "TextArea",
+                    "row": 3,
+                    "col": 1,
+                    "field": "remark", 
                     "colSpan": 4,
                     "rowSpan": 2
                 }
