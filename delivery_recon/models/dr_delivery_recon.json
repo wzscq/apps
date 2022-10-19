@@ -21,6 +21,7 @@
         {"field":"amount_balance","name":"核销后剩余金额","dataType":"decimal"},
         {"field":"quantity_balance","name":"核销后剩余数量","dataType":"decimal"},
         {"field":"processing_batch_number","name":"处理批次号","dataType":"varchar"},
+        {"field":"cs_team_id","name":"CS Team","dataType":"varchar"},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
@@ -211,12 +212,32 @@
                 {"field":"source_id","width":150},
                 {"field":"original_id","width":150},
                 {"field":"processing_batch_number","width":150},
+                {"field":"cs_team_id","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150},
                 {"field":"id","width":150}
             ],
-            "filter": {"match_status":{"Op.in":[0,2,3]}}, 
+            "filterData":[
+                {
+                    "modelID":"core_user",
+                    "filter":{"id":"%{userID}"},
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"cs_teams",
+                            "fieldType":"many2many",
+                            "relatedModelID":"dr_cs_team",
+                            "fields":[
+                                {"field":"id"}
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "filter": {"match_status":{"Op.in":[0,2,3]},"cs_team_id":{"Op.in":["%{core_user.cs_teams.id}"]}}, 
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 

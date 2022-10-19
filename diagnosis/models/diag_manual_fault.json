@@ -32,7 +32,8 @@
             "name": "DTC", 
             "dataType": "varchar",
             "fieldType":"many2one",
-            "relatedModelID":"diag_dtc"
+            "relatedModelID":"diag_dtc",
+            "quickSearch":true
         },
         {
             "field": "signals", 
@@ -253,7 +254,7 @@
                     "field": "dtc_id", 
                     "width": 100,
                     "filterControlType": "SingleSelect",
-                    "optionLabel":"name",
+                    "optionLabel":"id",
                     "fields":[
                         {
                             "field": "id"

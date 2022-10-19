@@ -8,7 +8,13 @@
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
         {"field":"update_user","name":"记录更新人","dataType":"varchar"},
-        {"field":"version","name":"数据版本号","dataType":"int"}
+        {"field":"version","name":"数据版本号","dataType":"int"},
+        {
+            "field":"team_user",
+            "name":"团队成员",
+            "fieldType":"many2many",
+            "relatedModelID":"core_user"
+        }
     ],
     "datasets":[
         {
@@ -29,7 +35,7 @@
                     "title":"创建客户",
                     "key":"/model/dr_cs_team/form1/create",
                     "width":600,
-                    "height":400
+                    "height":450
             },
             "input":{},
             "description":"打开创建CS Team对话框" ,
@@ -45,7 +51,7 @@
                     "title":"编辑CS Team信息",
                     "key":"/model/dr_cs_team/form1/edit",
                     "width":600,
-                    "height":400
+                    "height":450
             },
             "input":{},
             "description":"打开编辑CS Team对话框",
@@ -209,16 +215,30 @@
                     "col": 1,
                     "field": "id", 
                     "label": "ID",
-                    "colSpan": 1,
+                    "colSpan": 2,
                     "rowSpan": 1,
                     "required":true
                 },
                 {
                     "controlType": "Text",
-                    "row": 2,
-                    "col": 1,
+                    "row": 1,
+                    "col": 3,
                     "field": "name", 
                     "colSpan": 2,
+                    "rowSpan": 1
+                },
+                
+                {
+                    "controlType": "Transfer",
+                    "field": "team_user", 
+                    "fields":[
+                        {
+                            "field": "id"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 4,
                     "rowSpan": 1
                 },
                 {
