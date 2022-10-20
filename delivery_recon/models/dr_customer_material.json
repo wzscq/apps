@@ -2,7 +2,6 @@
     "modelID": "dr_customer_material", 
     "fields": [
         {"field":"id","name":"主键","dataType":"varchar"},
-        {"field":"material","name":"Material","dataType":"varchar","quickSearch":true},
         {"field":"customer_id","name":"客户代码","dataType":"varchar","fieldType":"many2one","relatedModelID":"dr_customer","quickSearch":true},
         {"field":"customer_material_number","name":"客户物料编码","dataType":"varchar","quickSearch":true},
         {"field":"cs_team_id","name":"CS团队","dataType":"varchar","fieldType":"many2one","relatedModelID":"dr_cs_team","quickSearch":true},
@@ -116,7 +115,6 @@
             "description": "客户物料信息维护", 
             "fields": [
                 {"field":"id","width":150},
-                {"field":"material","width":150},
                 {
                     "field":"customer_id",
                     "width":250,
@@ -233,14 +231,6 @@
                     "rowSpan": 1
                 },
                 {
-                    "controlType": "Text",
-                    "row": 3,
-                    "col": 1,
-                    "field": "material", 
-                    "colSpan": 2,
-                    "rowSpan": 1
-                },
-                {
                     "controlType": "SingleSelect",
                     "optionLabel":"name",
                     "fields":[
@@ -248,7 +238,7 @@
                         {"field":"name"}
                     ],
                     "row": 3,
-                    "col": 3,
+                    "col": 1,
                     "field": "cs_team_id", 
                     "colSpan": 2,
                     "rowSpan": 1
