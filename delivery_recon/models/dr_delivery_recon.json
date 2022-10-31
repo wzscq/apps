@@ -32,7 +32,9 @@
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
         {"field":"update_user","name":"记录更新人","dataType":"varchar"},
-        {"field":"version","name":"数据版本号","dataType":"int"}
+        {"field":"version","name":"数据版本号","dataType":"int"},
+        {"field":"customer_material_number","name":"内部客户物料号","dataType":"varchar"},
+        {"field":"set_material","name":"是否套件","dataType":"int"}
     ],
     "datasets":[
         {
@@ -227,6 +229,22 @@
             "fields":[
                 {"field":"period","width":100},
                 {"field":"material","width":150},
+                {"field":"customer_material_number","width":150},
+                {
+                    "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
                 {"field":"po_number","width":150},
                 {"field":"price","width":100},
                 {
@@ -358,6 +376,22 @@
             "fields":[
                 {"field":"period","width":100},
                 {"field":"material","width":150},
+                {"field":"customer_material_number","width":150},
+                {
+                    "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
                 {"field":"po_number","width":150},
                 {"field":"price","width":100},
                 {
@@ -465,6 +499,22 @@
             "fields":[
                 {"field":"period","width":100},
                 {"field":"material","width":150},
+                {"field":"customer_material_number","width":150},
+                {
+                    "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
                 {"field":"po_number","width":150},
                 {"field":"price","width":100},
                 {
@@ -571,6 +621,22 @@
             "fields":[
                 {"field":"period","width":100},
                 {"field":"material","width":150},
+                {"field":"customer_material_number","width":150},
+                {
+                    "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
                 {"field":"po_number","width":150},
                 {"field":"price","width":100},
                 {
@@ -683,6 +749,22 @@
             "fields":[
                 {"field":"period","width":100},
                 {"field":"material","width":150},
+                {"field":"customer_material_number","width":150},
+                {
+                    "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
                 {"field":"po_number","width":150},
                 {"field":"price","width":100},
                 {

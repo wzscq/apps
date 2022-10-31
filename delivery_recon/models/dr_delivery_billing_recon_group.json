@@ -39,7 +39,11 @@
             "fieldType":"one2many",
             "relatedModelID":"dr_delivery_billing_adjustment",
             "relatedField":"match_group"
-        }
+        },
+        {"field":"set_material","name":"是否套件","dataType":"int"},
+        {"field":"cs_team_id","name":"CS Team","dataType":"varchar"},
+        {"field":"quantity_adjusted","name":"调整数量","dataType":"int"},
+        {"field":"price_adjusted","name":"调整单价","dataType":"int"}
     ],
     "datasets":[
         {
@@ -59,7 +63,7 @@
                     "location":"modal",
                     "title":"匹配详情",
                     "key":"/model/dr_delivery_billing_recon_group/formDetail/detail",
-                    "width":1000,
+                    "width":1200,
                     "height":600
             },
             "input":{},
@@ -76,7 +80,7 @@
                     "location":"modal",
                     "title":"匹配详情",
                     "key":"/model/dr_delivery_billing_recon_group/groupDetail",
-                    "width":1000,
+                    "width":1200,
                     "height":600
             },
             "input":{},
@@ -172,6 +176,22 @@
                 "description":"刷新页面数据"
             },
             "roles":"*"
+        },
+        {
+            "id":"exportAdjustment",
+            "name":"导出CDN",
+            "type":"request",
+            "params":{
+                "url":"/redirect",
+                "method":"post",
+                "responseType":"blob"
+            },
+            "input":{
+                "to":"exportCDN"
+            },
+            "description":"导出CDN",
+            
+            "roles":"*"
         }
     ],
     "views":[
@@ -193,6 +213,21 @@
                 {"field":"po_number","width":150},
                 {"field":"material","width":150},
                 {
+                    "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
                     "field":"match_result",
                     "width":150,
                     "filterControlType": "SingleSelect",
@@ -207,13 +242,42 @@
                         }
                     ]
                 },
+                {
+                    "field":"quantity_adjusted",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
+                    "field":"price_adjusted",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
                 {"field":"delivery_quantity","width":120,"summarize":"sum(delivery_quantity)"},
                 {"field":"billing_quantity","width":120,"summarize":"sum(billing_quantity)"},
                 {"field":"quantity_gap","width":120,"summarize":"sum(quantity_gap)"},
                 {"field":"delivery_amount","width":120,"summarize":"sum(delivery_amount)"},
                 {"field":"billing_amount","width":120,"summarize":"sum(billing_amount)"},
                 {"field":"amount_gap","width":120,"summarize":"sum(amount_gap)"},
-                
                 {
                     "field":"confirmed",
                     "width":150,
@@ -229,6 +293,7 @@
                         }
                     ]
                 },
+                {"field":"cs_team_id","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150},
@@ -237,7 +302,7 @@
             "toolbar": {
                 "rowToolbar": {
                     "showCount": 2,
-                    "width":120, 
+                    "width":60, 
                     "buttons": [
                         {
                             "operationID": "customizedDetail",
@@ -266,6 +331,21 @@
                 {"field":"po_number","width":150},
                 {"field":"material","width":150},
                 {
+                    "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
                     "field":"match_result",
                     "width":150,
                     "filterControlType": "SingleSelect",
@@ -280,12 +360,21 @@
                         }
                     ]
                 },
-                {"field":"delivery_quantity","width":120,"summarize":"sum(delivery_quantity)"},
-                {"field":"billing_quantity","width":120,"summarize":"sum(billing_quantity)"},
-                {"field":"quantity_gap","width":120,"summarize":"sum(quantity_gap)"},
-                {"field":"delivery_amount","width":120,"summarize":"sum(delivery_amount)"},
-                {"field":"billing_amount","width":120,"summarize":"sum(billing_amount)"},
-                {"field":"amount_gap","width":120,"summarize":"sum(amount_gap)"},
+                {
+                    "field":"price_adjusted",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
                 {
                     "field":"confirmed",
                     "width":150,
@@ -301,12 +390,53 @@
                         }
                     ]
                 },
+                {"field":"delivery_quantity","width":120,"summarize":"sum(delivery_quantity)"},
+                {"field":"billing_quantity","width":120,"summarize":"sum(billing_quantity)"},
+                {"field":"quantity_gap","width":120,"summarize":"sum(quantity_gap)"},
+                {"field":"delivery_amount","width":120,"summarize":"sum(delivery_amount)"},
+                {"field":"billing_amount","width":120,"summarize":"sum(billing_amount)"},
+                {"field":"amount_gap","width":120,"summarize":"sum(amount_gap)"},
+                {
+                    "field":"quantity_adjusted",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {"field":"cs_team_id","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150},
                 {"field":"id","width":150}
             ],
-            "filter":{"match_result":0,"confirmed":0},
+            "filterData":[
+                {
+                    "modelID":"core_user",
+                    "filter":{"id":"%{userID}"},
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"cs_teams",
+                            "fieldType":"many2many",
+                            "relatedModelID":"dr_cs_team",
+                            "fields":[
+                                {"field":"id"}
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "filter":{"match_result":0,"confirmed":0,"cs_team_id":{"Op.in":["%{core_user.cs_teams.id}"]}},
             "toolbar": {
                 "rowToolbar": {
                     "showCount": 3,
@@ -348,6 +478,21 @@
                 {"field":"po_number","width":150},
                 {"field":"material","width":150},
                 {
+                    "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
                     "field":"match_result",
                     "width":150,
                     "filterControlType": "SingleSelect",
@@ -359,6 +504,36 @@
                         {
                             "value":"1",
                             "label":"部分匹配"
+                        }
+                    ]
+                },
+                {
+                    "field":"quantity_adjusted",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
+                    "field":"price_adjusted",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
                         }
                     ]
                 },
@@ -383,12 +558,32 @@
                         }
                     ]
                 },
+                {"field":"cs_team_id","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150},
                 {"field":"id","width":150}
             ],
-            "filter":{"match_result":1,"confirmed":0},
+            "filterData":[
+                {
+                    "modelID":"core_user",
+                    "filter":{"id":"%{userID}"},
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"cs_teams",
+                            "fieldType":"many2many",
+                            "relatedModelID":"dr_cs_team",
+                            "fields":[
+                                {"field":"id"}
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "filter":{"match_result":1,"confirmed":0,"cs_team_id":{"Op.in":["%{core_user.cs_teams.id}"]}},
             "toolbar": {
                 "listToolbar":{
                     "showCount": 3,
@@ -439,6 +634,21 @@
                 {"field":"po_number","width":150},
                 {"field":"material","width":150},
                 {
+                    "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
                     "field":"match_result",
                     "width":150,
                     "filterControlType": "SingleSelect",
@@ -450,6 +660,36 @@
                         {
                             "value":"1",
                             "label":"部分匹配"
+                        }
+                    ]
+                },
+                {
+                    "field":"quantity_adjusted",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
+                    "field":"price_adjusted",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
                         }
                     ]
                 },
@@ -474,17 +714,40 @@
                         }
                     ]
                 },
+                {"field":"cs_team_id","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150},
                 {"field":"id","width":150}
             ],
-            "filter":{"confirmed":1},
+            "filterData":[
+                {
+                    "modelID":"core_user",
+                    "filter":{"id":"%{userID}"},
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"cs_teams",
+                            "fieldType":"many2many",
+                            "relatedModelID":"dr_cs_team",
+                            "fields":[
+                                {"field":"id"}
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "filter":{"confirmed":1,"cs_team_id":{"Op.in":["%{core_user.cs_teams.id}"]}},
             "toolbar": {
                 "listToolbar":{
                     "showCount": 3,
                     "buttons":[
-                       
+                       {
+                            "operationID":"exportAdjustment",
+                            "name":"导出CDN"
+                       }
                     ]
                 },
                 "rowToolbar": {

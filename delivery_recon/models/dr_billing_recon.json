@@ -36,7 +36,15 @@
         {"field":"version","name":"数据版本号","dataType":"int"},
         {"field":"sales_organization","name":"Sales Organization","dataType":"varchar"},
         {"field":"ship_to_party","name":"Ship-To Party","dataType":"varchar"},
-        {"field":"material_description","name":"Material Description","dataType":"varchar"}
+        {"field":"material_description","name":"Material Description","dataType":"varchar"},
+        {"field":"priority","name":"优先级","dataType":"int"},
+        {"field":"period","name":"会计期间","dataType":"varchar"},
+        {"field":"adjusted_price","name":"调整后单价","dataType":"decimal"},
+        {"field":"adjusted_amount","name":"调整后金额","dataType":"decimal"},
+        {"field":"customer_name_zh","name":"customer name(zh)","dataType":"varchar"},
+        {"field":"item","name":"Item","dataType":"int"},
+        {"field":"delivery","name":"Delivery","dataType":"varchar"},
+        {"field":"document_currency","name":"Document Currency","dataType":"varchar"}
     ],
     "datasets":[
         {
@@ -72,6 +80,7 @@
             "fields":[
                 {"field":"billing_document","width":150},
                 {"field":"sold_to_party","width":150},
+                {"field":"period","width":150},
                 {"field":"material","width":150},
                 {"field":"customer_material_number","width":150},
                 {"field":"purchase_order_number","width":150},
@@ -82,6 +91,8 @@
                 {"field":"price","width":150},
                 {"field":"quantity","width":150,"summarize":"sum(quantity)"},
                 {"field":"amount","width":150,"summarize":"sum(amount)"},
+                {"field":"adjusted_price","width":150},
+                {"field":"adjusted_amount","width":150,"summarize":"sum(if(adjusted_amount is null,0,adjusted_amount))"},
                 {"field":"sales_organization","width":150},
                 {"field":"ship_to_party","width":150},
                 {"field":"material_description","width":150},
@@ -128,8 +139,13 @@
                         }
                     ]
                 },
+                {"field":"customer_name_zh","width":150},
+                {"field":"item","width":150},
+                {"field":"delivery","width":150},
+                {"field":"document_currency","width":150},
                 {"field":"source_id","width":150},
                 {"field":"original_id","width":150},
+                {"field":"priority","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150},
@@ -161,6 +177,7 @@
             "fields":[
                 {"field":"billing_document","width":150},
                 {"field":"sold_to_party","width":150},
+                {"field":"period","width":150},
                 {"field":"material","width":150},
                 {"field":"customer_material_number","width":150},
                 {"field":"purchase_order_number","width":150},
@@ -171,6 +188,8 @@
                 {"field":"price","width":150},
                 {"field":"quantity","width":150,"summarize":"sum(quantity)"},
                 {"field":"amount","width":150,"summarize":"sum(amount)"},
+                {"field":"adjusted_price","width":150},
+                {"field":"adjusted_amount","width":150,"summarize":"sum(if(adjusted_amount is null,0,adjusted_amount))"},
                 {"field":"sales_organization","width":150},
                 {"field":"ship_to_party","width":150},
                 {"field":"material_description","width":150},
@@ -209,8 +228,13 @@
                         }
                     ]
                 },
+                {"field":"customer_name_zh","width":150},
+                {"field":"item","width":150},
+                {"field":"delivery","width":150},
+                {"field":"document_currency","width":150},
                 {"field":"source_id","width":150},
                 {"field":"original_id","width":150},
+                {"field":"priority","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150},
@@ -242,6 +266,7 @@
             "fields":[
                 {"field":"billing_document","width":150},
                 {"field":"sold_to_party","width":150},
+                {"field":"period","width":150},
                 {"field":"material","width":150},
                 {"field":"customer_material_number","width":150},
                 {"field":"purchase_order_number","width":150},
@@ -252,10 +277,13 @@
                 {"field":"price","width":150},
                 {"field":"quantity","width":150,"summarize":"sum(quantity)"},
                 {"field":"amount","width":150,"summarize":"sum(amount)"},
+                {"field":"adjusted_price","width":150},
+                {"field":"adjusted_amount","width":150,"summarize":"sum(if(adjusted_amount is null,0,adjusted_amount))"},
                 {"field":"sales_organization","width":150},
                 {"field":"ship_to_party","width":150},
                 {"field":"material_description","width":150},
                 {"field":"billing_date","width":150},
+                {"field":"period","name":"会计期间","dataType":"varchar"},
                 {"field":"billing_type","width":150},
                 {"field":"fiscal_year","width":150},
                 {
@@ -302,8 +330,13 @@
                         }
                     ]
                 },
+                {"field":"customer_name_zh","width":150},
+                {"field":"item","width":150},
+                {"field":"delivery","width":150},
+                {"field":"document_currency","width":150},
                 {"field":"source_id","width":150},
                 {"field":"original_id","width":150},
+                {"field":"priority","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150},
@@ -354,6 +387,8 @@
             },
             "controls": [
                 {"field":"id","controlType": "Text","row": 1,"col": 1,"colSpan": 1,"rowSpan": 1},
+                {"field":"period","controlType": "Text","row": 1,"col": 2,"colSpan": 1,"rowSpan": 1},
+                {"field":"priority","controlType": "Text","row": 1,"col": 3,"colSpan": 1,"rowSpan": 1},
                 {"field":"material","controlType": "Text","row": 2,"col": 1,"colSpan": 1,"rowSpan": 1},
                 {"field":"quantity","controlType": "Number","row": 2,"col": 2,"colSpan": 1,"rowSpan": 1},
                 {"field":"price","controlType": "Number","row": 2,"col": 3,"colSpan": 1,"rowSpan": 1},

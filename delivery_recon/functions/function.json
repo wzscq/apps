@@ -9,7 +9,7 @@
                 "name":"客户对账单",
                 "openLabel":"打开",
                 "description":"原始客户对账单",
-                "icon":"UserOutlined",
+                "icon":"SolutionOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -28,7 +28,7 @@
                 "name":"OpenBilling",
                 "openLabel":"打开",
                 "description":"原始OpenBilling",
-                "icon":"UserOutlined",
+                "icon":"MoneyCollectOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -54,7 +54,7 @@
                 "name":"客户对账单",
                 "openLabel":"打开",
                 "description":"对账单比对记录",
-                "icon":"UserOutlined",
+                "icon":"SwitcherOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -73,7 +73,7 @@
                 "name":"OpenBilling",
                 "openLabel":"打开",
                 "description":"OpenBilling For Recon",
-                "icon":"UserOutlined",
+                "icon":"MoneyCollectOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -92,7 +92,7 @@
                 "name":"匹配分组",
                 "openLabel":"打开",
                 "description":"对账匹配分组",
-                "icon":"UserOutlined",
+                "icon":"MergeCellsOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -111,7 +111,7 @@
                 "name":"对账调差",
                 "openLabel":"打开",
                 "description":"对账差异调整",
-                "icon":"UserOutlined",
+                "icon":"CalculatorOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -156,7 +156,7 @@
                 "name":"客户物料信息",
                 "openLabel":"打开",
                 "description":"客户物料维护",
-                "icon":"UserOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -175,7 +175,7 @@
                 "name":"CS Team",
                 "openLabel":"打开",
                 "description":"CS Team",
-                "icon":"UserOutlined",
+                "icon":"TeamOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -186,6 +186,25 @@
                     },
                     "input":{},
                     "description":"打开CS Team信息维护页面"
+                },
+                "roles":"*"
+            },
+            {
+                "id":"4",
+                "name":"套件",
+                "openLabel":"打开",
+                "description":"套件信息维护",
+                "icon":"PartitionOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/dr_set_material",
+                        "location":"tab",
+                        "title":"套件信息维护",
+                        "key":"/model/dr_set_material"
+                    },
+                    "input":{},
+                    "description":"打开套件信息维护页面"
                 },
                 "roles":"*"
             }
@@ -200,7 +219,7 @@
                 "id":"1",
                 "name":"处理逻辑",
                 "description":"处理逻辑配置",
-                "icon":"UserOutlined",
+                "icon":"SisternodeOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
