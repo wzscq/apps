@@ -1,5 +1,23 @@
 [
     {
+        "id":"0",
+        "name":"Dashboard",
+        "description":"Dashboard",
+        "icon":"BarChartOutlined",
+        "operation":{
+            "type":"open",
+            "params":{
+                "url":"/report/#/dashboard",
+                "location":"tab",
+                "title":"Dashboard",
+                "key":"/report/dashboard"
+            },
+            "input":{},
+            "description":"打开dashboard"
+        },
+        "roles":"*"
+    },
+    {
         "id":"1",
         "name":"数据获取",
         "description":"数据获取",
