@@ -1,11 +1,7 @@
 [
     {
         "id":"0",
-        "name":{
-            "default":"Dashboard",
-            "zh_CN":"仪表盘",
-            "en_US":"Dashboard"
-        },
+        "name":"Dashboard",
         "description":"Dashboard",
         "icon":"BarChartOutlined",
         "operation":{

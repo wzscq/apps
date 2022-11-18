@@ -192,21 +192,6 @@
             "description":"导出CDN",
             
             "roles":"*"
-        },
-        {
-            "id":"exportTaxLink",
-            "name":"导出开票数据",
-            "type":"request",
-            "params":{
-                "url":"/redirect",
-                "method":"post",
-                "responseType":"blob"
-            },
-            "input":{
-                "to":"exportTaxLink"
-            },
-            "description":"导出CDN",
-            "roles":"*"
         }
     ],
     "views":[
@@ -762,10 +747,6 @@
                        {
                             "operationID":"exportAdjustment",
                             "name":"导出CDN"
-                       },
-                       {
-                            "operationID":"exportTaxLink",
-                            "name":"导出TaxLink开票数据"
                        }
                     ]
                 },

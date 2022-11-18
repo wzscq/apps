@@ -1,0 +1,18 @@
+{
+    "modelID": "lms_student",
+    "fields": [
+        {"field":"id","labelRegexp":"统一编号","excelRangeType":"table"},
+        {"field":"name","labelRegexp":"姓名","excelRangeType":"table"},
+        {"field":"sn","labelRegexp":"学号","excelRangeType":"table"},
+        {"field":"gender","labelRegexp":"性别","excelRangeType":"table"},
+        {"field":"birthday","labelRegexp":"出生日期","excelRangeType":"table"},
+        {"field":"enrollment_year","labelRegexp":"入学年份","excelRangeType":"table"},
+        {"field":"class","labelRegexp":"班级","excelRangeType":"table"},
+        {"field":"study_type","labelRegexp":"就读类型","excelRangeType":"table"},
+        {"field":"enrollment_type","labelRegexp":"入校类型","excelRangeType":"table"},
+        {"field":"home_address","labelRegexp":"家庭住址","excelRangeType":"table"}
+    ],
+    "options":{
+        "generateRowID":false
+    }
+}
