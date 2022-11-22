@@ -61,37 +61,91 @@
             },
             {
                 "id":"3",
-                "name":"入校年份",
-                "description":"入校年份",
+                "name":"年份字典",
+                "description":"年份字典",
                 "icon":"DiffOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/listview/#/lms_enrollment_year",
+                        "url":"/listview/#/lms_year",
                         "location":"tab",
-                        "title":"入校年份",
-                        "key":"/model/lms_enrollment_year"
+                        "title":"年份字典",
+                        "key":"/model/lms_year"
                     },
                     "input":{},
-                    "description":"打开入校年份维护功能"
+                    "description":"打开年份字典功能"
                 },
                 "roles":"admin"
             },
             {
                 "id":"4",
-                "name":"班级信息",
-                "description":"班级信息",
+                "name":"班级字典",
+                "description":"班级字典",
                 "icon":"DiffOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
                         "url":"/listview/#/lms_class",
                         "location":"tab",
-                        "title":"班级信息",
+                        "title":"班级字典",
                         "key":"/model/lms_class"
                     },
                     "input":{},
-                    "description":"打开班级信息维护功能"
+                    "description":"打开班级字典维护功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"5",
+                "name":"学期字典",
+                "description":"学期字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_semester",
+                        "location":"tab",
+                        "title":"学期字典",
+                        "key":"/model/lms_semester"
+                    },
+                    "input":{},
+                    "description":"打开学期字典维护功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"6",
+                "name":"年级字典",
+                "description":"年级字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_grade",
+                        "location":"tab",
+                        "title":"年级字典",
+                        "key":"/model/lms_grade"
+                    },
+                    "input":{},
+                    "description":"打开年级字典维护功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"7",
+                "name":"课程节次字典",
+                "description":"课程节次字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_section",
+                        "location":"tab",
+                        "title":"课程节次字典",
+                        "key":"/model/lms_section"
+                    },
+                    "input":{},
+                    "description":"打开课程节次字典维护功能"
                 },
                 "roles":"admin"
             }

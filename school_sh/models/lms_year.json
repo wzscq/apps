@@ -1,8 +1,7 @@
 {
-    "modelID": "lms_class", 
+    "modelID": "lms_year", 
     "fields": [
-        {"field":"id","name":"编号","dataType":"varchar","quickSearch":true},
-        {"field":"name","name":"名称","dataType":"varchar","quickSearch":true},
+        {"field":"id","name":"名称","dataType":"varchar","quickSearch":true},
         {"field":"remark","name":"备注","dataType":"varchar","quickSearch":true},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
@@ -24,31 +23,15 @@
             "name": "新增",
             "type":"open",
             "params":{
-                    "url":"/formview/#/lms_class/form1/create",
+                    "url":"/formview/#/lms_year/form1/create",
                     "location":"modal",
-                    "title":"新增班级",
-                    "key":"/model/lms_class/form1/create",
-                    "width":600,
-                    "height":340
+                    "title":"新增年份",
+                    "key":"/model/lms_year/form1/create",
+                    "width":400,
+                    "height":240
             },
             "input":{},
-            "description":"打开新增班级对话框",
-            "roles":"*"
-        },
-        {
-            "id": "edit", 
-            "name": "编辑",
-            "type":"open",
-            "params":{
-                    "url":"/formview/#/lms_class/form1/edit",
-                    "location":"modal",
-                    "title":"编辑班级",
-                    "key":"/model/lms_class/form1/edit",
-                    "width":600,
-                    "height":340
-            },
-            "input":{},
-            "description":"打开编辑班级对话框",
+            "description":"打开新增对话框",
             "roles":"*"
         },
         {
@@ -72,7 +55,7 @@
                     "type":"reloadFrameData",
                     "params":{
                         "location":"tab",
-                        "key":"/model/lms_class"
+                        "key":"/model/lms_year"
                     },
                     "description":"刷新页面数据"
                 }
@@ -99,7 +82,7 @@
                     "type":"reloadFrameData",
                     "params":{
                         "location":"tab",
-                        "key":"/model/lms_class"
+                        "key":"/model/lms_year"
                     },
                     "description":"刷新页面数据"
                 }
@@ -110,11 +93,10 @@
     "views": [
         {
             "viewID": "view1", 
-            "name": "班级维护", 
-            "description": "班级维护", 
+            "name": "年份字典维护", 
+            "description": "年份字典维护", 
             "fields": [
                 {"field":"id","width":150},
-                {"field":"name","width":150},
                 {"field":"remark","width":150},
                 {"field":"create_time","width":150},
                 {"field":"create_user","width":150},
@@ -135,16 +117,12 @@
                 }, 
                 "rowToolbar": {
                     "showCount": 3,
-                    "width":90, 
+                    "width":50, 
                     "buttons": [
                         {
                             "operationID": "delete",
                             "name":"删除",
                             "prompt":"确定要删除当前记录吗？"
-                        },
-                        {
-                            "operationID":"edit",
-                            "name":"编辑"
                         }
                     ]
                 }
@@ -159,7 +137,7 @@
             "rowCount": 26,
             "rowHeight": 30,
             "header":{
-                "label":"创建班级"
+                "label":"创建"
             },
             "footer":{
                 "operations":[
@@ -182,6 +160,7 @@
             "controls": [
                 {
                     "field": "id", 
+                    "label": "ID",
                     "controlType": "Text",
                     "row": 1,
                     "col": 1,
@@ -190,18 +169,9 @@
                     "required":true
                 },
                 {
-                    "field":"name",
-                    "controlType": "Text",
-                    "row": 2,
-                    "col": 1,
-                    "colSpan": 2,
-                    "rowSpan": 1,
-                    "required":true
-                },
-                {
                     "field":"remark",
                     "controlType": "Text",
-                    "row": 3,
+                    "row": 2,
                     "col": 1,
                     "colSpan": 4,
                     "rowSpan": 1

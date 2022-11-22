@@ -6,7 +6,7 @@
         {"field":"sn","name":"学号","dataType":"varchar","quickSearch":true},
         {"field":"gender","name":"性别","dataType":"varchar"},
         {"field":"birthday","name":"出生日期","dataType":"datetime"},
-        {"field":"enrollment_year","name":"入学年份","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_enrollment_year","quickSearch":true},
+        {"field":"enrollment_year","name":"入学年份","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_year","quickSearch":true},
         {"field":"class","name":"班级","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_class","quickSearch":true},
         {"field":"study_type","name":"就读类型","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_study_type","quickSearch":true},
         {"field":"enrollment_type","name":"入校类型","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_enrollment_type","quickSearch":true},
@@ -189,7 +189,20 @@
                 {"field":"gender","width":150},
                 {"field":"birthday","width":150,"format":"YYYY-MM-DD"},
                 {"field":"enrollment_year","width":150},
-                {"field":"class","width":150},
+                {
+                    "field":"class",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
                 {"field":"study_type","width":150},
                 {"field":"enrollment_type","width":150},
                 {"field":"home_address","width":150},
