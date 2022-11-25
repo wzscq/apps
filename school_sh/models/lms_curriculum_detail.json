@@ -1,0 +1,28 @@
+{
+    "modelID": "lms_curriculum_detail", 
+    "fields": [
+        {"field":"id","name":"名称","dataType":"bigint"},
+        {"field":"curriculum_id","name":"班级课表","dataType":"varchar"},
+        {"field":"section","name":"节次","dataType":"varchar"},
+        {"field":"monday","name":"星期一","dataType":"varchar"},
+        {"field":"tuesday","name":"星期二","dataType":"varchar"},
+        {"field":"wednesday","name":"星期三","dataType":"varchar"},
+        {"field":"thursday","name":"星期四","dataType":"varchar"},
+        {"field":"friday","name":"星期五","dataType":"varchar"},
+        {"field":"saturday","name":"星期六","dataType":"varchar"},
+        {"field":"sunday","name":"星期日","dataType":"varchar"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ]
+}

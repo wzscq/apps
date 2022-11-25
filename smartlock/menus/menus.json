@@ -3,12 +3,13 @@
         "id":"1",
         "name":"智能锁管理",
         "description":"开锁任务与记录",
+        "icon":"BlockOutlined",
         "children":[
             {
                 "id":"1",
                 "name":"授权开锁",
                 "description":"开锁授权记录",
-                "icon":"FileMarkdownTwoTone",
+                "icon":"CheckSquareOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -26,7 +27,7 @@
                 "id":"2",
                 "name":"智能锁",
                 "description":"维护智能锁信息",
-                "icon":"FileMarkdownTwoTone",
+                "icon":"FormOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -44,7 +45,7 @@
                 "id":"3",
                 "name":"开锁记录",
                 "description":"查看开锁记录",
-                "icon":"FileMarkdownTwoTone",
+                "icon":"AlignLeftOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -64,12 +65,13 @@
         "id":"2",
         "name":"信息维护",
         "description":"相关信息维护",
+        "icon":"DiffOutlined",
         "children":[
             {
                 "id":"1",
                 "name":"机房信息",
                 "description":"维护机房信息",
-                "icon":"FileMarkdownTwoTone",
+                "icon":"BankOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -87,7 +89,7 @@
                 "id":"2",
                 "name":"区域类型",
                 "description":"维护区域类型",
-                "icon":"FileMarkdownTwoTone",
+                "icon":"AppstoreAddOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -107,6 +109,7 @@
         "id":"3",
         "name":"系统管理",
         "description":"系统管理相关功能",
+        "icon":"SettingOutlined",
         "children":[
             {
                 "id":"1",

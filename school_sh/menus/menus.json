@@ -1,21 +1,47 @@
 [
     {
         "id":"1",
-        "name":"学生信息",
-        "description":"管理学生信息",
+        "name":"教务管理",
+        "description":"教务管理",
         "icon":"DiffOutlined",
-        "operation":{
-            "type":"open",
-            "params":{
-                "url":"/listview/#/lms_student",
-                "location":"tab",
-                "title":"学生信息",
-                "key":"/model/lms_student"
+        "children":[
+            {
+                "id":"1",
+                "name":"人员信息",
+                "description":"人员信息",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_person",
+                        "location":"tab",
+                        "title":"人员信息",
+                        "key":"/model/lms_person"
+                    },
+                    "input":{},
+                    "description":"打开人员信息管理功能"
+                },
+                "roles":"*"
             },
-            "input":{},
-            "description":"打开学生信息管理功能"
-        },
-        "roles":"*"
+            {
+                "id":"2",
+                "name":"班级课程表",
+                "description":"班级课程表",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_curriculum",
+                        "location":"tab",
+                        "title":"学生信息",
+                        "key":"/model/lms_curriculum"
+                    },
+                    "input":{},
+                    "description":"打开课程表功能"
+                },
+                "roles":"*"
+            }
+        ]
     },
     {
         "id":"4",
@@ -79,16 +105,16 @@
             },
             {
                 "id":"4",
-                "name":"班级字典",
-                "description":"班级字典",
+                "name":"班级序号字典",
+                "description":"班级序号字典",
                 "icon":"DiffOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/listview/#/lms_class",
+                        "url":"/listview/#/lms_class_number",
                         "location":"tab",
-                        "title":"班级字典",
-                        "key":"/model/lms_class"
+                        "title":"班级序号字典",
+                        "key":"/model/lms_class_number"
                     },
                     "input":{},
                     "description":"打开班级字典维护功能"
@@ -146,6 +172,96 @@
                     },
                     "input":{},
                     "description":"打开课程节次字典维护功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"8",
+                "name":"学科字典",
+                "description":"学科字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_subject",
+                        "location":"tab",
+                        "title":"学科字典",
+                        "key":"/model/lms_subject"
+                    },
+                    "input":{},
+                    "description":"打开学科字典维护功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"9",
+                "name":"等第字典",
+                "description":"等第字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_exam_level",
+                        "location":"tab",
+                        "title":"等第字典",
+                        "key":"/model/lms_exam_level"
+                    },
+                    "input":{},
+                    "description":"打开等第字典维护功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"10",
+                "name":"综合考察类型字典",
+                "description":"综合考察类型字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_lea_type",
+                        "location":"tab",
+                        "title":"综合考察类型字典",
+                        "key":"/model/lms_lea_type"
+                    },
+                    "input":{},
+                    "description":"打开综合考察类型字典维护功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"11",
+                "name":"综合考察项目字典",
+                "description":"综合考察项目字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_lea_item",
+                        "location":"tab",
+                        "title":"综合考察项目字典",
+                        "key":"/model/lms_lea_item"
+                    },
+                    "input":{},
+                    "description":"打开综合考察项目字典维护功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"12",
+                "name":"人员类别字典",
+                "description":"人员类别字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_person_type",
+                        "location":"tab",
+                        "title":"人员类别字典",
+                        "key":"/model/lms_person_type"
+                    },
+                    "input":{},
+                    "description":"打开人员类别字典维护功能"
                 },
                 "roles":"admin"
             }

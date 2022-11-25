@@ -1,18 +1,16 @@
 {
-    "modelID": "lms_class", 
+    "modelID": "lms_curriculum", 
     "fields": [
-        {"field":"id","name":"编号","dataType":"varchar","quickSearch":true},
-        {"field":"enrollment_year","name":"入校年份","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_year","quickSearch":true},
-        {"field":"class_number","name":"班级序号","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_class_number","quickSearch":true},
-        {"field":"current_grade","name":"当前年级","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_grade","quickSearch":true},
-        {"field":"current_year","name":"教学年度","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_year","quickSearch":true},
-        {"field":"current_semester","name":"学期","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_semester","quickSearch":true},
-        {"field":"remark","name":"备注","dataType":"varchar"},
+        {"field":"id","name":"名称","dataType":"varchar"},
+        {"field":"year","name":"教学年度","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_year","quickSearch":true},
+        {"field":"semester","name":"学期","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_semester","quickSearch":true},
+        {"field":"class","name":"班级","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_class","quickSearch":true},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
         {"field":"update_user","name":"记录更新人","dataType":"varchar"},
-        {"field":"version","name":"数据版本号","dataType":"int"}
+        {"field":"version","name":"数据版本号","dataType":"int"},
+        {"field":"detail","name":"课程表","fieldType":"one2many","relatedModelID":"lms_curriculum_detail","relatedField":"curriculum_id"}
     ], 
     "datasets":[
         {
@@ -28,10 +26,10 @@
             "name": "新增",
             "type":"open",
             "params":{
-                    "url":"/formview/#/lms_class/form1/create",
+                    "url":"/formview/#/lms_curriculum/form1/create",
                     "location":"modal",
                     "title":"新增课表",
-                    "key":"/model/lms_class/form1/create",
+                    "key":"/model/lms_curriculum/form1/create",
                     "width":1100,
                     "height":540
             },
