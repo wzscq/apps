@@ -97,7 +97,7 @@
             },
             "input":{},
             "description":"打开新建ECU对话框" ,
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "edit", 
@@ -113,7 +113,7 @@
             },
             "input":{},
             "description":"打开ECU信息编辑对话框",
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "detail", 
@@ -129,7 +129,7 @@
             },
             "input":{},
             "description":"打开ECU信息编辑对话框",
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "delete", 
@@ -157,7 +157,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         },
         {
             "id":"save",
@@ -184,7 +184,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         }
     ], 
     "views": [
@@ -278,7 +278,7 @@
                     ]
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         }
     ],
     "forms":[

@@ -89,7 +89,7 @@
             },
             "input":{},
             "description":"打开新建诊断服务对话框",
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "edit", 
@@ -105,7 +105,7 @@
             },
             "input":{},
             "description":"打开诊断服务编辑对话框",
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "detail", 
@@ -121,7 +121,7 @@
             },
             "input":{},
             "description":"打开诊断服务详情对话框",
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "delete", 
@@ -149,7 +149,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         },
         {
             "id":"save",
@@ -176,7 +176,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         }
     ], 
     "views": [
@@ -271,7 +271,7 @@
                     ]
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         }
     ],
     "forms":[

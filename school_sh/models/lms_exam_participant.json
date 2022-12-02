@@ -1,0 +1,1007 @@
+{
+    "modelID": "lms_exam_participant", 
+    "fields": [
+        {"field":"id","name":"编号","dataType":"bigint"},
+        {"field":"exam","name":"考试名称","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_exam"},
+        {"field":"start_time","name":"开始时间","dataType":"datetime"},
+        {"field":"end_time","name":"结束时间","dataType":"datetime"},
+        {"field":"person","name":"参与人","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_person"},
+        {"field":"role","name":"角色","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_exam_role"},
+        {"field":"subject","name":"课程","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_subject"},
+        {"field":"year","name":"学年","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_year"},
+        {"field":"grade","name":"年级","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_grade"},
+        {"field":"class","name":"班级","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_class"},
+        {"field":"semester","name":"学期","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_semester"},
+        {"field":"score","name":"成绩","dataType":"decimal"},
+        {"field":"level","name":"等第","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_exam_level"},
+        {"field":"remark","name":"备注","dataType":"varchar","quickSearch":true},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "新增",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_exam_participant/form1/create",
+                    "location":"modal",
+                    "title":"新增",
+                    "key":"/model/lms_exam_participant/form1/create",
+                    "width":800,
+                    "height":440
+            },
+            "input":{},
+            "description":"打开新增对话框",
+            "roles":"*"
+        },
+        {
+            "id": "createByTeacher", 
+            "name": "新增",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_exam_participant/formEditByTeacher/create",
+                    "location":"modal",
+                    "title":"新增",
+                    "key":"/model/lms_exam_participant/formEditByTeacher/create",
+                    "width":800,
+                    "height":440
+            },
+            "input":{},
+            "description":"打开新增对话框",
+            "roles":"*"
+        },
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_exam_participant/form1/edit",
+                    "location":"modal",
+                    "title":"编辑",
+                    "key":"/model/lms_exam_participant/form1/edit",
+                    "width":800,
+                    "height":440
+            },
+            "input":{},
+            "description":"打开编辑对话框",
+            "roles":"*"
+        },
+        {
+            "id": "editByTeacher", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_exam_participant/formEditByTeacher/edit",
+                    "location":"modal",
+                    "title":"编辑",
+                    "key":"/model/lms_exam_participant/formEditByTeacher/edit",
+                    "width":800,
+                    "height":440
+            },
+            "input":{},
+            "description":"打开编辑对话框",
+            "roles":"*"
+        },
+        {
+            "id": "detail", 
+            "name": "详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_exam_participant/form1/detail",
+                    "location":"modal",
+                    "title":"编辑",
+                    "key":"/model/lms_exam_participant/form1/detail",
+                    "width":800,
+                    "height":440
+            },
+            "input":{},
+            "description":"打开详情对话框",
+            "roles":"*"
+        },
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除记录成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_exam_participant"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_exam_participant"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "viewMe", 
+            "name": "我的考试信息", 
+            "description": "我的考试信息", 
+            "fields": [
+                {
+                    "field":"exam",
+                    "width":250,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"start_time","width":150},
+                {"field":"end_time","width":150},
+                {
+                    "field":"person",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"return record.sn+'-'+record.name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"},
+                        {"field":"sn"}
+                    ]
+                },
+                {
+                    "field":"role",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"subject",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"year",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {"field":"id"}
+                    ]
+                },
+                {
+                    "field":"grade",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"class",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班)'",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"class_number"},
+                        {"field":"current_grade"}
+                    ]
+                },
+                {
+                    "field":"semester",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"score","width":150},
+                {
+                    "field":"level",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"remark","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"id","width":150},
+                {"field":"version","width":150}
+            ],
+            "filterData":[
+                {
+                    "modelID":"lms_person",
+                    "filter":{"sn":"%{userID}"},
+                    "fields":[
+                        {
+                            "field":"id"
+                        }
+                    ]
+                }
+            ],
+            "filter": {"person":"%{lms_person.id}"}, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":50, 
+                    "buttons": [
+                        {
+                            "operationID":"detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":["student"]
+        },
+        {
+            "viewID": "viewByTeacher", 
+            "name": "我的班级考试信息", 
+            "description": "我的班级考试信息", 
+            "fields": [
+                {
+                    "field":"exam",
+                    "width":250,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"start_time","width":150},
+                {"field":"end_time","width":150},
+                {
+                    "field":"person",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"return record.sn+'-'+record.name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"},
+                        {"field":"sn"}
+                    ]
+                },
+                {
+                    "field":"role",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"subject",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"year",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {"field":"id"}
+                    ]
+                },
+                {
+                    "field":"grade",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"class",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班)'",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"class_number"},
+                        {"field":"current_grade"}
+                    ]
+                },
+                {
+                    "field":"semester",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"score","width":150},
+                {
+                    "field":"level",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"remark","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"id","width":150},
+                {"field":"version","width":150}
+            ],
+            "filterData":[
+                {
+                    "modelID":"lms_person",
+                    "filter":{"sn":"%{userID}"},
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"my_class",
+                            "fieldType":"one2many",
+                            "relatedModelID":"lms_class_participant",
+                            "relatedField":"person",
+                            "fields":[
+                                {"field":"class"},
+                                {"field":"person"}
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "filter": {"class":"%{lms_person.my_class.class}"}, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "createByTeacher",
+                            "name":"新增"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":90, 
+                    "buttons": [
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除当前记录吗？"
+                        },
+                        {
+                            "operationID":"editByTeacher",
+                            "name":"编辑"
+                        }
+                    ]
+                }
+            },
+            "roles":["teacher"]
+        },
+        {
+            "viewID": "viewAll", 
+            "name": "考试参与人维护", 
+            "description": "考试参与人维护", 
+            "fields": [
+                {
+                    "field":"exam",
+                    "width":250,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"start_time","width":150},
+                {"field":"end_time","width":150},
+                {
+                    "field":"person",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"return record.sn+'-'+record.name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"},
+                        {"field":"sn"}
+                    ]
+                },
+                {
+                    "field":"role",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"subject",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"year",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {"field":"id"}
+                    ]
+                },
+                {
+                    "field":"grade",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"class",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班)'",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"class_number"},
+                        {"field":"current_grade"}
+                    ]
+                },
+                {
+                    "field":"semester",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"score","width":150},
+                {
+                    "field":"level",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"remark","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"id","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter": {}, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"新增"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":90, 
+                    "buttons": [
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除当前记录吗？"
+                        },
+                        {
+                            "operationID":"edit",
+                            "name":"编辑"
+                        }
+                    ]
+                }
+            },
+            "roles":["admin"]
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                },
+                {
+                    "field":"exam",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"start_time",
+                    "controlType": "DatePicker",
+                    "showTime":true,
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"end_time",
+                    "controlType": "DatePicker",
+                    "showTime":true,
+                    "row": 2,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"year",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {"field":"id"}
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"grade",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 3,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"class",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班'",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"class_number"},
+                        {"field":"current_grade"}
+                    ],
+                    "row": 3,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"person",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.sn+'-'+record.name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"},
+                        {"field":"sn"}
+                    ],
+                    "row": 3,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"role",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 4,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"subject",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 4,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"score",
+                    "controlType": "Number",
+                    "row": 4,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"level",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 4,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"remark",
+                    "controlType": "TextArea",
+                    "row": 5,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
+            ]
+        },
+        {
+            "formID": "formEditByTeacher",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                },
+                {
+                    "field":"exam",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"start_time",
+                    "controlType": "DatePicker",
+                    "showTime":true,
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"end_time",
+                    "controlType": "DatePicker",
+                    "showTime":true,
+                    "row": 2,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"year",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {"field":"id"}
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"grade",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 3,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"class",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班'",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"class_number"},
+                        {"field":"current_grade"}
+                    ],
+                    "filterData":[
+                        {
+                            "modelID":"lms_person",
+                            "filter":{"sn":"%{userID}"},
+                            "fields":[
+                                {
+                                    "field":"id"
+                                },
+                                {
+                                    "field":"my_class",
+                                    "fieldType":"one2many",
+                                    "relatedModelID":"lms_class_participant",
+                                    "relatedField":"person",
+                                    "fields":[
+                                        {"field":"class"},
+                                        {"field":"person"}
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "filter": {"id":{"Op.in":["%{lms_person.my_class.class}"]}},
+                    "row": 3,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"person",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.sn+'-'+record.name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"},
+                        {"field":"sn"}
+                    ],
+                    "cascade":[
+                        {
+                            "parentField":"class",
+                            "type":"many2many",
+                            "relatedField":"class",
+                            "middleModelID":"lms_class_participant"
+                        }
+                    ],
+                    "row": 3,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"role",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 4,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"subject",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 4,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"score",
+                    "controlType": "Number",
+                    "row": 4,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"level",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 4,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"remark",
+                    "controlType": "TextArea",
+                    "row": 5,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
+            ]
+        }
+    ]
+}

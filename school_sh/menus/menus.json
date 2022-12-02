@@ -1,8 +1,8 @@
 [
     {
         "id":"1",
-        "name":"教务管理",
-        "description":"教务管理",
+        "name":"人员管理",
+        "description":"人员管理",
         "icon":"DiffOutlined",
         "children":[
             {
@@ -25,32 +25,6 @@
             },
             {
                 "id":"2",
-                "name":"班级课程表",
-                "description":"班级课程表",
-                "icon":"DiffOutlined",
-                "operation":{
-                    "type":"open",
-                    "params":{
-                        "url":"/listview/#/lms_curriculum",
-                        "location":"tab",
-                        "title":"学生信息",
-                        "key":"/model/lms_curriculum"
-                    },
-                    "input":{},
-                    "description":"打开课程表功能"
-                },
-                "roles":"*"
-            }
-        ]
-    },
-    {
-        "id":"4",
-        "name":"字典数据维护",
-        "description":"字典数据维护",
-        "icon":"DiffOutlined",
-        "children":[
-            {
-                "id":"1",
                 "name":"就读类型",
                 "description":"就读类型",
                 "icon":"DiffOutlined",
@@ -68,7 +42,7 @@
                 "roles":"admin"
             },
             {
-                "id":"2",
+                "id":"3",
                 "name":"入校类型",
                 "description":"入校类型",
                 "icon":"DiffOutlined",
@@ -86,22 +60,84 @@
                 "roles":"admin"
             },
             {
-                "id":"3",
-                "name":"年份字典",
-                "description":"年份字典",
+                "id":"4",
+                "name":"人员类别字典",
+                "description":"人员类别字典",
                 "icon":"DiffOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/listview/#/lms_year",
+                        "url":"/listview/#/lms_person_type",
                         "location":"tab",
-                        "title":"年份字典",
-                        "key":"/model/lms_year"
+                        "title":"人员类别字典",
+                        "key":"/model/lms_person_type"
                     },
                     "input":{},
-                    "description":"打开年份字典功能"
+                    "description":"打开人员类别字典维护功能"
                 },
                 "roles":"admin"
+            }
+        ]
+    },
+    {
+        "id":"2",
+        "name":"班级管理",
+        "description":"班级管理",
+        "icon":"DiffOutlined",
+        "children":[
+            {
+                "id":"1",
+                "name":"班级信息",
+                "description":"班级信息",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_class",
+                        "location":"tab",
+                        "title":"班级信息",
+                        "key":"/model/lms_class"
+                    },
+                    "input":{},
+                    "description":"打开班级信息管理功能"
+                },
+                "roles":"*"
+            },
+            {
+                "id":"2",
+                "name":"班级人员信息",
+                "description":"班级人员信息",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_class_participant",
+                        "location":"tab",
+                        "title":"班级人员信息",
+                        "key":"/model/lms_class_participant"
+                    },
+                    "input":{},
+                    "description":"打开班级人员信息管理功能"
+                },
+                "roles":"*"
+            },
+            {
+                "id":"3",
+                "name":"班级课程表",
+                "description":"班级课程表",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_curriculum",
+                        "location":"tab",
+                        "title":"班级课程表",
+                        "key":"/model/lms_curriculum"
+                    },
+                    "input":{},
+                    "description":"打开课程表功能"
+                },
+                "roles":"*"
             },
             {
                 "id":"4",
@@ -123,96 +159,148 @@
             },
             {
                 "id":"5",
-                "name":"学期字典",
-                "description":"学期字典",
+                "name":"班级角色字典",
+                "description":"班级角色字典",
                 "icon":"DiffOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/listview/#/lms_semester",
+                        "url":"/listview/#/lms_class_role",
                         "location":"tab",
-                        "title":"学期字典",
-                        "key":"/model/lms_semester"
+                        "title":"班级序号字典",
+                        "key":"/model/lms_class_role"
                     },
                     "input":{},
-                    "description":"打开学期字典维护功能"
+                    "description":"打开班级角色字典维护功能"
                 },
                 "roles":"admin"
             },
             {
                 "id":"6",
-                "name":"年级字典",
-                "description":"年级字典",
+                "name":"班级人员状态字典",
+                "description":"班级人员状态字典",
                 "icon":"DiffOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/listview/#/lms_grade",
+                        "url":"/listview/#/lms_class_participant_status",
                         "location":"tab",
-                        "title":"年级字典",
-                        "key":"/model/lms_grade"
+                        "title":"班级人员状态字典",
+                        "key":"/model/lms_class_participant_status"
                     },
                     "input":{},
-                    "description":"打开年级字典维护功能"
+                    "description":"打开班级人员状态字典护功能"
                 },
                 "roles":"admin"
-            },
+            }
+        ]
+    },
+    {
+        "id":"3",
+        "name":"考试管理",
+        "description":"考试管理",
+        "icon":"DiffOutlined",
+        "children":[
             {
-                "id":"7",
-                "name":"课程节次字典",
-                "description":"课程节次字典",
+                "id":"1",
+                "name":"考试信息",
+                "description":"考试信息",
                 "icon":"DiffOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/listview/#/lms_section",
+                        "url":"/listview/#/lms_exam",
                         "location":"tab",
-                        "title":"课程节次字典",
-                        "key":"/model/lms_section"
+                        "title":"考试信息",
+                        "key":"/model/lms_exam"
                     },
                     "input":{},
-                    "description":"打开课程节次字典维护功能"
+                    "description":"打开考试信息维护功能"
                 },
                 "roles":"admin"
             },
             {
-                "id":"8",
-                "name":"学科字典",
-                "description":"学科字典",
+                "id":"2",
+                "name":"考试参与人",
+                "description":"考试参与人",
                 "icon":"DiffOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/listview/#/lms_subject",
+                        "url":"/listview/#/lms_exam_participant",
                         "location":"tab",
-                        "title":"学科字典",
-                        "key":"/model/lms_subject"
+                        "title":"考试参与人",
+                        "key":"/model/lms_exam_participant"
                     },
                     "input":{},
-                    "description":"打开学科字典维护功能"
+                    "description":"打开考试参与人维护功能"
                 },
-                "roles":"admin"
+                "roles":"*"
             },
             {
-                "id":"9",
-                "name":"等第字典",
-                "description":"等第字典",
+                "id":"3",
+                "name":"考试类型字典",
+                "description":"考试类型字典",
                 "icon":"DiffOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/listview/#/lms_exam_level",
+                        "url":"/listview/#/lms_exam_type",
                         "location":"tab",
-                        "title":"等第字典",
-                        "key":"/model/lms_exam_level"
+                        "title":"考试类型字典",
+                        "key":"/model/lms_exam_type"
                     },
                     "input":{},
-                    "description":"打开等第字典维护功能"
+                    "description":"打开考试类型字典维护功能"
                 },
                 "roles":"admin"
             },
             {
-                "id":"10",
+                "id":"4",
+                "name":"考试角色字典",
+                "description":"考试角色字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_exam_role",
+                        "location":"tab",
+                        "title":"考试角色字典",
+                        "key":"/model/lms_exam_role"
+                    },
+                    "input":{},
+                    "description":"打开考试角色字典维护功能"
+                },
+                "roles":"admin"
+            }
+        ]
+    },
+    {
+        "id":"4",
+        "name":"综评管理",
+        "description":"综评管理",
+        "icon":"DiffOutlined",
+        "children":[
+            {
+                "id":"1",
+                "name":"学生综合考察",
+                "description":"学生综合考察",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_lea",
+                        "location":"tab",
+                        "title":"学生综合考察",
+                        "key":"/model/lms_lea"
+                    },
+                    "input":{},
+                    "description":"打开学生综合考察维护功能"
+                },
+                "roles":"*"
+            },
+            {
+                "id":"2",
                 "name":"综合考察类型字典",
                 "description":"综合考察类型字典",
                 "icon":"DiffOutlined",
@@ -230,7 +318,7 @@
                 "roles":"admin"
             },
             {
-                "id":"11",
+                "id":"3",
                 "name":"综合考察项目字典",
                 "description":"综合考察项目字典",
                 "icon":"DiffOutlined",
@@ -246,29 +334,127 @@
                     "description":"打开综合考察项目字典维护功能"
                 },
                 "roles":"admin"
-            },
+            }
+        ]
+    },
+    {
+        "id":"5",
+        "name":"通用数据维护",
+        "description":"通用数据维护",
+        "icon":"DiffOutlined",
+        "children":[
             {
-                "id":"12",
-                "name":"人员类别字典",
-                "description":"人员类别字典",
+                "id":"1",
+                "name":"年份字典",
+                "description":"年份字典",
                 "icon":"DiffOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"/listview/#/lms_person_type",
+                        "url":"/listview/#/lms_year",
                         "location":"tab",
-                        "title":"人员类别字典",
-                        "key":"/model/lms_person_type"
+                        "title":"年份字典",
+                        "key":"/model/lms_year"
                     },
                     "input":{},
-                    "description":"打开人员类别字典维护功能"
+                    "description":"打开年份字典功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"2",
+                "name":"学期字典",
+                "description":"学期字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_semester",
+                        "location":"tab",
+                        "title":"学期字典",
+                        "key":"/model/lms_semester"
+                    },
+                    "input":{},
+                    "description":"打开学期字典维护功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"3",
+                "name":"年级字典",
+                "description":"年级字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_grade",
+                        "location":"tab",
+                        "title":"年级字典",
+                        "key":"/model/lms_grade"
+                    },
+                    "input":{},
+                    "description":"打开年级字典维护功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"4",
+                "name":"课程节次字典",
+                "description":"课程节次字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_section",
+                        "location":"tab",
+                        "title":"课程节次字典",
+                        "key":"/model/lms_section"
+                    },
+                    "input":{},
+                    "description":"打开课程节次字典维护功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"5",
+                "name":"学科字典",
+                "description":"学科字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_subject",
+                        "location":"tab",
+                        "title":"学科字典",
+                        "key":"/model/lms_subject"
+                    },
+                    "input":{},
+                    "description":"打开学科字典维护功能"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"6",
+                "name":"等第字典",
+                "description":"等第字典",
+                "icon":"DiffOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_exam_level",
+                        "location":"tab",
+                        "title":"等第字典",
+                        "key":"/model/lms_exam_level"
+                    },
+                    "input":{},
+                    "description":"打开等第字典维护功能"
                 },
                 "roles":"admin"
             }
         ]
     },
     {
-        "id":"5",
+        "id":"6",
         "name":"系统管理",
         "description":"系统管理相关功能",
         "icon":"SettingOutlined",
@@ -342,6 +528,24 @@
                     },
                     "input":{},
                     "description":"打开文件管理窗口"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"5",
+                "name":"处理逻辑配置",
+                "description":"处理逻辑配置",
+                "icon":"FileTextOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"http://localhost:9901/#/school_sh",
+                        "location":"tab",
+                        "title":"处理逻辑配置",
+                        "key":"/flowconfig/school_sh"
+                    },
+                    "input":{},
+                    "description":"打开处理逻辑配置窗口"
                 },
                 "roles":"admin"
             }

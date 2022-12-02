@@ -181,9 +181,68 @@
     ], 
     "views": [
         {
-            "viewID": "view1", 
-            "name": "人员信息维护", 
-            "description": "人员信息维护", 
+            "viewID": "viewMe", 
+            "name": "我的个人信息", 
+            "description": "我的个人信息", 
+            "fields": [
+                {"field":"id","width":200},
+                {"field":"name","width":150},
+                {"field":"sn","width":150},
+                {"field":"gender","width":150},
+                {"field":"birthday","width":150,"format":"YYYY-MM-DD"},
+                {"field":"enrollment_year","width":150},
+                {
+                    "field":"type",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
+                {"field":"study_type","width":150},
+                {"field":"enrollment_type","width":150},
+                {"field":"home_address","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter": {"sn":"%{userID}"}, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":90, 
+                    "buttons": [
+                        {
+                            "operationID": "edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":["student","teacher"]
+        },
+        {
+            "viewID": "viewAll", 
+            "name": "全部人员信息维护", 
+            "description": "全部人员信息维护", 
             "fields": [
                 {"field":"id","width":200},
                 {"field":"name","width":150},
@@ -306,7 +365,7 @@
                     "col": 3,
                     "colSpan": 1,
                     "rowSpan": 1,
-                    "required":true
+                    "required":false
                 },
                 {
                     "field":"gender",
@@ -349,16 +408,15 @@
                     "col": 2,
                     "colSpan": 1,
                     "rowSpan": 1,
-                    "required":true
+                    "required":false
                 },
                 {
                     "field":"type",
                     "controlType": "SingleSelect",
-                    "optionLabel":"id",
+                    "optionLabel":"name",
                     "fields":[
-                        {
-                            "field": "id"
-                        }
+                        {"field": "id"},
+                        {"field": "name"}
                     ],
                     "row": 2,
                     "col": 3,
@@ -379,7 +437,7 @@
                     "col": 4,
                     "colSpan": 1,
                     "rowSpan": 1,
-                    "required":true
+                    "required":false
                 },
                 {
                     "field":"enrollment_type",
@@ -394,7 +452,7 @@
                     "col": 1,
                     "colSpan": 1,
                     "rowSpan": 1,
-                    "required":true
+                    "required":false
                 },
                 {
                     "field":"home_address",
@@ -403,7 +461,7 @@
                     "col": 2,
                     "colSpan": 3,
                     "rowSpan": 1,
-                    "required":true
+                    "required":false
                 }
             ]
         },
