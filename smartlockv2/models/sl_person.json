@@ -1,0 +1,249 @@
+{
+    "modelID":"sl_person",
+    "fields":[
+        {"field":"id","name":"账号","dataType":"varchar","quickSearch":true},
+        {"field":"name","name":"姓名","dataType":"varchar","quickSearch":true},
+        {"field":"gender","name":"性别","dataType":"varchar"},
+        {"field":"company","name":"单位","dataType":"varchar","quickSearch":true},
+        {"field":"department","name":"部门","dataType":"varchar","quickSearch":true},
+        {"field":"position","name":"职位","dataType":"varchar","quickSearch":true},
+        {"field":"phone","name":"联系电话","dataType":"varchar","quickSearch":true},
+        {"field":"email","name":"邮箱","dataType":"varchar","quickSearch":true},
+        {"field":"import_file_name","name":"导入文件名称","dataType":"varchar"},
+        {"field":"import_batch_number","name":"导入批次","dataType":"varchar"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ],
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_person/formCreate/create",
+                    "location":"modal",
+                    "title":"创建",
+                    "key":"/model/sl_person/formCreate/create",
+                    "width":800,
+                    "height":440
+            },
+            "input":{},
+            "description":"打开创建对话框" ,
+            "roles":"admin"
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_person/formCreate/edit",
+                    "location":"modal",
+                    "title":"编辑",
+                    "key":"/model/sl_person/formCreate/edit",
+                    "width":800,
+                    "height":450
+            },
+            "input":{},
+            "description":"打开编辑对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "detail", 
+            "name": "详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_person/formCreate/detail",
+                    "location":"modal",
+                    "title":"详情",
+                    "key":"/model/sl_person/formCreate/detail",
+                    "width":800,
+                    "height":450
+            },
+            "input":{},
+            "description":"打开信息编辑对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除信息成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/sl_person"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/sl_person"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        }   
+    ],
+    "views":[
+        {
+            "viewID": "viewNormal", 
+            "name": "人员信息维护", 
+            "description": "人员信息维护", 
+            "fields": [
+                {"field":"id","width":150},
+                {"field":"name","width":150},
+                {
+                    "field":"gender",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"男",
+                            "label":"男"
+                        },
+                        {
+                            "value":"女",
+                            "label":"女"
+                        }
+                    ]
+                },
+                {"field":"company","width":150},
+                {"field":"department","width":150},
+                {"field":"position","width":150},
+                {"field":"phone","width":150},
+                {"field":"email","width":150},
+                {"field":"import_file_name","width":150},
+                {"field":"import_batch_number","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"新增"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":80, 
+                    "buttons": [
+                        {
+                            "operationID": "edit"
+                        },
+                        {
+                            "operationID": "delete"
+                        }
+                    ]
+                }
+            },
+            "roles":"admin"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "formCreate",
+            "colCount": 4,
+            "rowCount": 2,
+            "rowHeight": 30,
+            "header":{
+                "label":"新增"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {"field":"id","width":150,"controlType": "Text","row": 1,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true},
+                {"field":"name","width":150,"controlType": "Text","row": 2,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true},
+                {
+                    "field":"gender",
+                    "width":150,
+                    "controlType":"SingleSelect",
+                    "options":[
+                        {
+                            "value":"男",
+                            "label":"男"
+                        },
+                        {
+                            "value":"女",
+                            "label":"女"
+                        }
+                    ],
+                    "row": 2,"col": 3,"colSpan": 1,"rowSpan": 1,"required":false
+                },
+                {"field":"phone","width":150,"controlType": "Text","row": 3,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true},
+                {"field":"email","width":150,"controlType": "Text","row": 3,"col": 3,"colSpan": 2,"rowSpan": 1,"required":false},
+                {"field":"company","width":150,"controlType": "Text","row": 4,"col": 1,"colSpan": 4,"rowSpan": 1,"required":false},
+                {"field":"department","width":150,"controlType": "Text","row": 5,"col": 1,"colSpan": 2,"rowSpan": 1,"required":false},
+                {"field":"position","width":150,"controlType": "Text","row": 5,"col": 3,"colSpan": 2,"rowSpan": 1,"required":false}
+            ]
+        }
+    ]
+}

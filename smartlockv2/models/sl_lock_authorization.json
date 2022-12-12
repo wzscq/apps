@@ -1,0 +1,273 @@
+{
+    "modelID":"sl_lock_authorization",
+    "fields":[
+        {"field":"id","name":"编号","dataType":"bigint"},
+        {"field":"locks","name":"智能锁ID","dataType":"varchar","fieldType":"many2many","relatedModelID":"sl_lock"},
+        {"field":"operators","name":"操作人","dataType":"varchar","fieldType":"many2many","relatedModelID":"sl_person"},
+        {"field":"remark","name":"事由说明","dataType":"varchar"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_person"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ],
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_lock_authorization/formCreate/create",
+                    "location":"modal",
+                    "title":"创建",
+                    "key":"/model/sl_lock_authorization/formCreate/create",
+                    "width":1200,
+                    "height":540
+            },
+            "input":{},
+            "description":"打开创建对话框" ,
+            "roles":"admin"
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_lock_authorization/formCreate/edit",
+                    "location":"modal",
+                    "title":"编辑",
+                    "key":"/model/sl_lock_authorization/formCreate/edit",
+                    "width":1200,
+                    "height":540
+            },
+            "input":{},
+            "description":"打开编辑对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "detail", 
+            "name": "详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_lock_authorization/formDetail/detail",
+                    "location":"modal",
+                    "title":"详情",
+                    "key":"/model/sl_lock_authorization/formDetail/detail",
+                    "width":1200,
+                    "height":540
+            },
+            "input":{},
+            "description":"打开信息编辑对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除信息成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/sl_lock_authorization"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/sl_lock_authorization"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        }
+    ],
+    "views":[
+        {
+            "viewID": "viewMNormal", 
+            "name": "远程开锁记录", 
+            "description": "远程开锁记录",
+            "fields": [
+                {"field":"remark","width":250},
+                {"field":"id","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter":{},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"新增开锁记录"
+                        },
+                        {
+                            "operationID": "submmit",
+                            "name":"远程开锁"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":50, 
+                    "buttons": [
+                        {
+                            "operationID": "detail"
+                        }
+                    ]
+                }
+            },
+            "roles":"admin"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "formCreate",
+            "colCount": 4,
+            "rowCount": 2,
+            "rowHeight": 30,
+            "header":{
+                "label":"新增"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {"field":"id","controlType": "Text","row": 1,"col": 1,"colSpan": 2,"rowSpan": 1,"required":false,"disabled":true},
+                {"field":"remark","controlType": "TextArea","row": 2,"col": 1,"colSpan": 4,"rowSpan": 1,"required":true},
+                {
+                    "field":"locks",
+                    "width":150,
+                    "controlType": "Transfer",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 3,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true
+                },
+                {
+                    "field":"operators",
+                    "width":150,
+                    "controlType": "Transfer",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 3,"col": 3,"colSpan": 2,"rowSpan": 1,"required":false
+                }
+            ]
+        },
+        {
+            "formID": "formDetail",
+            "colCount": 4,
+            "rowCount": 2,
+            "rowHeight": 30,
+            "header":{
+                "label":"新增"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {"field":"id","controlType": "Text","row": 1,"col": 1,"colSpan": 2,"rowSpan": 1,"required":false,"disabled":true},
+                {"field":"remark","controlType": "TextArea","row": 2,"col": 1,"colSpan": 4,"rowSpan": 1,"required":true},
+                {
+                    "field":"locks",
+                    "width":150,
+                    "controlType": "Transfer",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 3,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true
+                },
+                {
+                    "field":"operators",
+                    "width":150,
+                    "controlType": "Transfer",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 3,"col": 3,"colSpan": 2,"rowSpan": 1,"required":false
+                }
+            ]
+        }
+    ]
+}
