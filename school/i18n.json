@@ -97,7 +97,8 @@
             "error.10000036":"删除数据失败，数据不存在或您没有权限删除相应数据",
             "error.10000037":"更新数据失败，未指定需要更新的字段",
             "error.10000038":"获取语言资源错误，未定义系统支持的语言种类",
-            "error.10000039":"获取语言资源错误，未找到对应语言翻译"
+            "error.10000039":"获取语言资源错误，未找到对应语言翻译",
+            "error.10000040":"加载Excel文件失败，您选择的Excel文件格式不正确或文件损坏，请选择正确文件并重新尝试"
         },
         "en_US":{
             "page.login.login":"Login",
@@ -191,7 +192,8 @@
             "error.10000036":"Failed to delete record，the record is not exist or you have no right to do the operation.",
             "error.10000037":"Failed to update data，no field provided for the udpate operation.",
             "error.10000038":"Failed to load i18n resources.",
-            "error.10000039":"Failed to load i18n resources."
+            "error.10000039":"Failed to load i18n resources.",
+            "error.10000040":"read excel file error，please select a valid file and try again."
         }
     }
 }

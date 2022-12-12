@@ -50,6 +50,11 @@
             "relatedModelID":"diag_signal"
         },
         {
+            "field": "channel", 
+            "name": "Channel", 
+            "dataType": "varchar"
+        },
+        {
             "field": "create_time", 
             "name": "创建时间", 
             "dataType": "datetime"
@@ -204,7 +209,7 @@
                 }, 
                 {
                     "field": "name", 
-                    "width": 100
+                    "width": 200
                 }, 
                 {
                     "field": "platform_id", 
@@ -215,8 +220,12 @@
                     "width": 100
                 },
                 {
+                    "field": "channel", 
+                    "width": 100
+                },
+                {
                     "field": "remark", 
-                    "width": 200
+                    "width": 300
                 }, 
                 {
                     "field": "create_time", 
@@ -281,7 +290,7 @@
     "forms":[
         {
             "formID": "form1",
-            "colCount": 3,
+            "colCount": 4,
             "rowCount": 26,
             "rowHeight": 30,
             "header":{
@@ -378,6 +387,15 @@
                     "required":true
                 }, 
                 {
+                    "field": "channel",
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 4, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
                     "field":"triggers",
                     "controlType":"EditTable",
                     "fieldType":"one2many",
@@ -444,7 +462,7 @@
                     ],
                     "row": 3,
                     "col": 1,
-                    "colSpan": 3,
+                    "colSpan": 4,
                     "rowSpan": 1,
                     "required":true
                 },
@@ -452,6 +470,7 @@
                     "field": "correlation_signals",
                     "controlType": "Transfer",
                     "optionLabel":"name",
+                    "pageSize":2000,
                     "fields":[
                         {
                             "field": "id"
@@ -475,7 +494,7 @@
                     "maxHeight":200,
                     "row": 4,
                     "col": 1,
-                    "colSpan": 3,
+                    "colSpan": 4,
                     "rowSpan": 1,
                     "required":true
                 },
@@ -484,7 +503,7 @@
                     "row": 5,
                     "col": 1,
                     "field": "remark", 
-                    "colSpan": 3,
+                    "colSpan": 4,
                     "rowSpan": 1
                 }
             ]

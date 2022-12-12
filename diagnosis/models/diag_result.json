@@ -250,7 +250,7 @@
                 },
                 {
                     "field": "time",
-                    "width": 100
+                    "width": 150
                 },
                 {
                     "field": "dtc",
@@ -262,7 +262,7 @@
                 },
                 {
                     "field": "diag_report",
-                    "width": 100
+                    "width": 300
                 },
                 {
                     "field": "status",

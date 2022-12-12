@@ -67,6 +67,11 @@
             "dataType": "file"
         },
         {
+            "field":"value_type",
+            "name": "ValueType", 
+            "dataType": "file"
+        },
+        {
             "field": "create_time", 
             "name": "创建时间", 
             "dataType": "datetime"
@@ -121,7 +126,7 @@
             },
             "input":{},
             "description":"打开新建信号对话框" ,
-            "roles":"admin"
+            "roles":["admin","operator"]
         },
         {
             "id": "openUploadDBCForm", 
@@ -137,7 +142,7 @@
             },
             "input":{},
             "description":"打开DBC上传对话框" ,
-            "roles":"admin"
+            "roles":["admin","operator"]
         },
         {
             "id": "edit", 
@@ -153,7 +158,7 @@
             },
             "input":{},
             "description":"打开信号编辑对话框",
-            "roles":"admin"
+            "roles":["admin","operator"]
         },
         {
             "id": "detail", 
@@ -169,7 +174,7 @@
             },
             "input":{},
             "description":"打开信号信息编辑对话框",
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "delete", 
@@ -197,7 +202,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         },
         {
             "id":"save",
@@ -224,7 +229,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         }
     ],
     "views": [
@@ -235,7 +240,7 @@
             "fields": [
                 {
                     "field": "id", 
-                    "width": 70
+                    "width": 250
                 }, 
                 {
                     "field": "name", 
@@ -280,6 +285,15 @@
                 }, 
                 {
                     "field": "pdu_id", 
+                    "width": 100
+                }, 
+                {
+                    "field": "value_type", 
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {"value":"+","label":"Unsigned"},
+                        {"value":"-","label":"Signed"}
+                    ],
                     "width": 100
                 }, 
                 {
@@ -347,7 +361,7 @@
                     ]
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         }
     ],
     "forms":[
@@ -657,6 +671,19 @@
                     "rowSpan": 1,
                     "required":true
                 }, 
+                {
+                    "field": "value_type", 
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {"value":"+","label":"Unsigned"},
+                        {"value":"-","label":"Signed"}
+                    ],
+                    "row": 4,
+                    "col": 4, 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
                 {
                     "controlType": "TextArea",
                     "row": 5,

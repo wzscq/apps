@@ -1,0 +1,262 @@
+{
+    "reportID":"dashboard",
+    "colCount": 4,
+    "rowHeight": 30,
+    "controls": [
+      {
+          "id":"1",
+          "controlType": "EChart",
+          "minHeight":250,
+          "option":{
+              "title":{
+                "text":"当月核销情况",
+                "show":true,
+                "textStyle":{
+                  "fontWeight":"normal",
+                  "fontSize":12
+                }
+              },
+              "color":["#91cc75","#fac858"],
+              "legend":{
+                "bottom":10
+              },
+              "dataset":{
+                "source":[
+                  {"match_status": 0, "quantity": 0}
+                ],
+                "dimensions":["quantity","match_status"]
+              },
+              "tooltip": {
+                "trigger": "item"
+              },
+              "toolbox": {
+                  "show": true,
+                  "orient": "vertical",
+                  "left": "right",
+                  "top": "center",
+                  "feature": {
+                    "mark": { "show": true },
+                    "dataView": { "show": true, "readOnly": false },
+                    "saveAsImage": { "show": true }
+                  }
+                },
+                "series": [{
+                  "type":"pie",
+                  "radius":80,
+                  "label":{
+                    "position":"inside",
+                    "show":false
+                  }
+                }]
+          },
+          "query":"select if(match_status=0,'To be reconciled','Reconciled') as match_status,sum(abs(quantity)) as quantity from dr_delivery_recon group by match_status",
+          "row": 1,
+          "col": 1,
+          "colSpan": 1,
+          "rowSpan": 1
+        },
+        {
+          "id":"2",
+          "controlType": "EChart",
+          "minHeight":250,
+          "option":{
+              "title":{
+                "text":"当月核销中Billing期间分布",
+                "show":true,
+                "textStyle":{
+                  "fontWeight":"normal",
+                  "fontSize":12
+                }
+              },
+              "legend":{
+                "bottom":10
+              },
+              "dataset":{
+                "source":[
+                  {"period": "", "billing_count": 0}
+                ],
+                "dimensions":["period","billing_count"]
+              },
+              "tooltip": {
+                "trigger": "item"
+              },
+              "toolbox": {
+                  "show": true,
+                  "orient": "vertical",
+                  "left": "right",
+                  "top": "center",
+                  "feature": {
+                    "mark": { "show": true },
+                    "dataView": { "show": true, "readOnly": false },
+                    "saveAsImage": { "show": true }
+                  }
+                },
+                "series": [{
+                  "type":"pie",
+                  "radius":60,
+                  "startAngle":60
+                }]
+          },
+          "query":"select period,count(1) as billing_count from dr_billing_recon where match_group in (select match_group from dr_delivery_recon) group by period",
+          "row": 1,
+          "col": 2,
+          "colSpan": 1,
+          "rowSpan": 1
+        },
+        {
+            "id":"3",
+            "controlType": "EChart",
+            "minHeight":250,
+            "option":{
+                "title":{
+                  "text":"近三个月核销情况",
+                  "show":true,
+                  "textStyle":{
+                    "fontWeight":"normal",
+                    "fontSize":12
+                  }
+                },
+                "color":["orange","green"],
+                "legend":{
+                  "bottom":10
+                },
+                "dataset":{
+                  "source":[
+                    {"period": "", "quantity0": 0,  "quantity1": 0}
+                  ],
+                  "dimensions":["period","quantity0","quantity1"]
+                },
+                "tooltip": {
+                    "trigger": "axis",
+                    "axisPointer": {
+                        "type": "shadow"
+                    }
+                },
+                "toolbox": {
+                    "show": true,
+                    "orient": "vertical",
+                    "left": "right",
+                    "top": "center",
+                    "feature": {
+                      "mark": { "show": true },
+                      "dataView": { "show": true, "readOnly": false },
+                      "magicType": { "show": true, "type": ["line", "bar", "stack"] },
+                      "restore": { "show": true },
+                      "saveAsImage": { "show": true }
+                    }
+                  },
+                  "grid":{
+                    "left":100
+                  },
+                  "xAxis": [
+                    {
+                      "type": "category",
+                      "axisTick": { "show": false }
+                    }
+                  ],
+                  "yAxis": [
+                    {
+                      "type": "value",
+                      "offset":0
+                    }
+                  ],
+                  "series": [{
+                    "type":"bar",
+                    "name":"To be reconciled",
+                    "barMaxWidth":40
+                    },{
+                    "type":"bar",
+                    "name":"Reconciled",
+                    "barMaxWidth":40
+                    }]
+            },
+            "query":"select period,sum(if(match_status=0,abs(quantity),0)) as quantity0,sum(if(match_status=1,abs(quantity),0)) as quantity1 from dr_delivery_recon GROUP BY period",
+            "row": 1,
+            "col": 3,
+            "colSpan": 2,
+            "rowSpan": 1
+        },
+        {
+          "id":"4",
+          "controlType": "EChart",
+          "minHeight":250,
+          "option":{
+              "title":{
+                "text":"分客户核销情况(Top 10)",
+                "show":true,
+                "textStyle":{
+                  "fontWeight":"normal",
+                  "fontSize":12
+                }
+              },
+              "color":["yellow","blue"],
+              "legend":{
+                "bottom":10
+              },
+              "dataset":{
+                "source":[
+                  {"customer_id": "", "quantity0": 0,  "quantity1": 0,"amount0":0,"amount1":0}
+                ],
+                "dimensions":["customer_id","quantity0","quantity1","amount0","amount1"]
+              },
+              "tooltip": {
+                  "trigger": "axis",
+                  "axisPointer": {
+                      "type": "shadow"
+                  }
+              },
+              "toolbox": {
+                  "show": true,
+                  "orient": "vertical",
+                  "left": "right",
+                  "top": "center",
+                  "feature": {
+                    "mark": { "show": true },
+                    "dataView": { "show": true, "readOnly": false },
+                    "saveAsImage": { "show": true }
+                  }
+                },
+                "grid":{
+                  "left":100
+                },
+                "xAxis": [
+                  {
+                    "type": "value"
+                  }
+                ],
+                "yAxis": [
+                  {
+                    "type": "category"
+                  }
+                ],
+                "series": [{
+                  "type":"bar",
+                  "name":"To be reconciled",
+                  "barMaxWidth":20,
+                  "stack":"quantity"
+                  },{
+                  "type":"bar",
+                  "name":"Reconciled",
+                  "barMaxWidth":20,
+                  "stack":"quantity"
+                  },
+                  {
+                    "type":"bar",
+                    "name":"To be reconciled",
+                    "barMaxWidth":20,
+                    "stack":"amount"
+                    },{
+                    "type":"bar",
+                    "name":"Reconciled",
+                    "barMaxWidth":20,
+                    "stack":"amount"
+                  }]
+          },
+          "query":"select customer_id,sum(if(match_status=0,abs(quantity),0)) as quantity0,sum(if(match_status=1,abs(quantity),0)) as quantity1,sum(if(match_status=0,abs(amount),0)) as amount0,sum(if(match_status=1,abs(amount),0)) as amount1 from dr_delivery_recon group by customer_id",
+          "row": 2,
+          "col": 1,
+          "colSpan": 4,
+          "rowSpan": 1
+      }
+    ]
+}

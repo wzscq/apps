@@ -74,7 +74,7 @@
             },
             "input":{},
             "description":"打开新建DTC对话框" ,
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "edit", 
@@ -90,7 +90,7 @@
             },
             "input":{},
             "description":"打开DTC信息编辑对话框",
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "detail", 
@@ -106,7 +106,7 @@
             },
             "input":{},
             "description":"打开DTC信息编辑对话框",
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "delete", 
@@ -134,7 +134,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         },
         {
             "id":"save",
@@ -161,7 +161,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         }
     ], 
     "views": [
@@ -172,10 +172,6 @@
             "fields": [
                 {
                     "field": "id", 
-                    "width": 100
-                }, 
-                {
-                    "field": "name", 
                     "width": 100
                 },  
                 {
@@ -243,7 +239,7 @@
                     ]
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         }
     ],
     "forms":[
@@ -285,15 +281,6 @@
                     "required":true
                 }, 
                 {
-                    "field": "name",
-                    "controlType": "Text",
-                    "row": 2,
-                    "col": 1, 
-                    "colSpan": 2,
-                    "rowSpan": 1,
-                    "required":true
-                }, 
-                {
                     "field": "ecu_id",
                     "controlType": "SingleSelect",
                     "fields":[
@@ -305,7 +292,7 @@
                         }
                     ],
                     "row": 2,
-                    "col": 3, 
+                    "col": 1, 
                     "colSpan": 2,
                     "rowSpan": 1
                 },

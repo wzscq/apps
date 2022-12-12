@@ -1,0 +1,350 @@
+{
+    "modelID": "bf_news", 
+    "fields": [
+        {"field":"id","name":"ID","dataType":"int"},
+        {"field":"title","name":"标题","dataType":"varchar","quickSearch":true},
+        {"field":"summary","name":"概述","dataType":"varchar","quickSearch":true},
+        {"field":"news_date","name":"新闻发生日期","dataType":"datetime"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"},
+        {"field": "content", "name": "新闻内容", "fieldType":"file"},
+        {"field": "logo", "name": "新闻Logo", "fieldType":"file"},
+        {"field":"news_type","name":"类型","dataType":"varchar"}
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/bf_news/form1/create",
+                    "location":"modal",
+                    "title":"创建新闻",
+                    "key":"/model/bf_news/form1/create",
+                    "width":800,
+                    "height":540
+            },
+            "input":{},
+            "description":"打开创建新闻对话框" ,
+            "roles":"*"
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/bf_news/form1/edit",
+                    "location":"modal",
+                    "title":"编辑新闻",
+                    "key":"/model/bf_news/form1/edit",
+                    "width":800,
+                    "height":550
+            },
+            "input":{},
+            "description":"打开新闻编辑对话框",
+            "roles":"*"
+        }, 
+        {
+            "id": "editContent", 
+            "name": "编辑内容",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/bf_news/formContent/edit",
+                    "location":"modal",
+                    "title":"编辑新闻",
+                    "key":"/model/bf_news/formContent/edit",
+                    "width":1100,
+                    "height":600
+            },
+            "input":{},
+            "description":"打开新闻内容编辑对话框",
+            "roles":"*"
+        },
+        {
+            "id": "detail", 
+            "name": "查看详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/bf_news/form1/detail",
+                    "location":"modal",
+                    "title":"新闻详情",
+                    "key":"/model/bf_news/form1/detail",
+                    "width":800,
+                    "height":450
+            },
+            "input":{},
+            "description":"打开新闻详情对话框",
+            "roles":"*"
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除新闻成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/bf_news"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/bf_news"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "view1", 
+            "name": "新闻信息维护", 
+            "description": "新闻信息维护", 
+            "fields": [
+                {"field":"title","width":250},
+                {"field":"summary","width":350},
+                {"field":"news_date","width":150},
+                {
+                    "field":"news_type",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"新闻资讯"
+                        },
+                        {
+                            "value":"1",
+                            "label":"活动资讯"
+                        }
+                    ]
+                },
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150},
+                {"field":"id","width":150}
+            ], 
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"新建新闻"
+                        }, 
+                        {
+                            "operationID": "delete",
+                            "name":"删除选中新闻",
+                            "prompt":"确定要删除当前选择的新闻信息吗？"
+                       }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":120, 
+                    "buttons": [
+                        {
+                            "operationID": "edit",
+                            "name":"概要"
+                        },
+                        {
+                            "operationID": "editContent",
+                            "name":"内容"
+                        }, 
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除这个新闻信息吗？"
+                        }
+                    ]
+                }
+            },
+            "roles":["admin"]
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建新闻"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "field": "id", 
+                    "label": "ID",
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                },
+                {
+                    "controlType": "DatePicker",
+                    "row": 1,
+                    "col": 2,
+                    "field": "news_date", 
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                }, 
+                {
+                    "field":"news_type",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {"value":"0","label":"新闻资讯"},
+                        {"value":"1","label":"活动资讯"}
+                    ],
+                    "placeholder":"请选择资讯类型",
+                    "row": 1,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 1,
+                    "field": "title",
+                    "colSpan": 4,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "controlType": "TextArea",
+                    "row": 3,
+                    "col": 1,
+                    "textRowCount":4,
+                    "field": "summary", 
+                    "colSpan": 4,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "controlType": "ImageList",
+                    "row": 4,
+                    "col": 1,
+                    "maxCount":1,
+                    "maxPreviewWidth":200,
+                    "maxPreviewHeight":200,
+                    "field": "logo",
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                }
+            ]
+        },
+        {
+            "formID": "formContent",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"新闻内容"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "controlType": "RichText",
+                    "height":400,
+                    "showLable":false,
+                    "row": 1,
+                    "col": 1,
+                    "field": "content", 
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
+            ]
+        }
+    ]
+}

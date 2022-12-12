@@ -26,7 +26,7 @@
         },
         {
             "field": "instruct", 
-            "name": "Instruct", 
+            "name": "DTC Status Mask", 
             "dataType": "varchar",
             "quickSearch":true
         },
@@ -97,7 +97,7 @@
             },
             "input":{},
             "description":"打开新建ECU对话框" ,
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "edit", 
@@ -113,7 +113,7 @@
             },
             "input":{},
             "description":"打开ECU信息编辑对话框",
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "detail", 
@@ -129,7 +129,7 @@
             },
             "input":{},
             "description":"打开ECU信息编辑对话框",
-            "roles":"admin"
+            "roles":["admin","operator"]
         }, 
         {
             "id": "delete", 
@@ -157,7 +157,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         },
         {
             "id":"save",
@@ -184,7 +184,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         }
     ], 
     "views": [
@@ -198,10 +198,6 @@
                     "width": 100
                 }, 
                 {
-                    "field": "name", 
-                    "width": 100
-                },  
-                {
                     "field": "tx", 
                     "width": 100
                 },
@@ -211,11 +207,11 @@
                 },
                 {
                     "field": "instruct", 
-                    "width": 100
+                    "width": 150
                 },
                 {
                     "field": "trigger_can_id", 
-                    "width": 100
+                    "width": 150
                 }, 
                 {
                     "field": "domain_id", 
@@ -282,7 +278,7 @@
                     ]
                 }
             },
-            "roles":"admin"
+            "roles":["admin","operator"]
         }
     ],
     "forms":[
@@ -319,15 +315,6 @@
                     "row": 1,
                     "col": 1,
                     "label": "ID",
-                    "colSpan": 2,
-                    "rowSpan": 1,
-                    "required":true
-                }, 
-                {
-                    "field": "name",
-                    "controlType": "Text",
-                    "row": 1,
-                    "col": 3, 
                     "colSpan": 2,
                     "rowSpan": 1,
                     "required":true

@@ -1,0 +1,255 @@
+{
+    "modelID": "dr_cs_team", 
+    "fields": [
+        {"field":"id","name":"CS Team Code","dataType":"varchar"},
+        {"field":"name","name":"名称","dataType":"varchar"},
+        {"field":"remark","name":"备注","dataType":"varchar"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"},
+        {
+            "field":"team_user",
+            "name":"团队成员",
+            "fieldType":"many2many",
+            "relatedModelID":"core_user"
+        }
+    ],
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/dr_cs_team/form1/create",
+                    "location":"modal",
+                    "title":"创建客户",
+                    "key":"/model/dr_cs_team/form1/create",
+                    "width":600,
+                    "height":450
+            },
+            "input":{},
+            "description":"打开创建CS Team对话框" ,
+            "roles":"admin"
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/dr_cs_team/form1/edit",
+                    "location":"modal",
+                    "title":"编辑CS Team信息",
+                    "key":"/model/dr_cs_team/form1/edit",
+                    "width":600,
+                    "height":450
+            },
+            "input":{},
+            "description":"打开编辑CS Team对话框",
+            "roles":"admin"
+        },  
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除CS Team成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/dr_cs_team"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/dr_cs_team"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "viewNormal", 
+            "name": "CS Team", 
+            "description": "CS Team维护", 
+            "fields": [
+                {
+                    "field": "id", 
+                    "width": 150
+                }, 
+                {
+                    "field": "name", 
+                    "width": 150
+                }, 
+                {
+                    "field": "remark", 
+                    "width": 300
+                }, 
+                {
+                    "field": "create_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "create_user", 
+                    "width": 100
+                }, 
+                {
+                    "field": "update_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_user", 
+                    "width": 100
+                }, 
+                {
+                    "field": "version", 
+                    "width": 100
+                }
+            ], 
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"创建CS Team"
+                        }
+                    ]
+                },
+                "rowToolbar": {
+                    "showCount": 2,
+                    "width":80, 
+                    "buttons": [
+                        {
+                            "operationID": "edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID": "delete",
+                            "name":"删除"
+                        }
+                    ]
+                }
+            },
+            "roles":"admin"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 2,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建客户"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "field": "id", 
+                    "label": "ID",
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 3,
+                    "field": "name", 
+                    "colSpan": 2,
+                    "rowSpan": 1
+                },
+                
+                {
+                    "controlType": "Transfer",
+                    "field": "team_user", 
+                    "fields":[
+                        {
+                            "field": "id"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1
+                },
+                {
+                    "controlType": "TextArea",
+                    "row": 3,
+                    "col": 1,
+                    "field": "remark", 
+                    "colSpan": 4,
+                    "rowSpan": 2
+                }
+            ]
+        }
+    ]
+}

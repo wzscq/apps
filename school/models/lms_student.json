@@ -262,6 +262,37 @@
             "roles":"admin"
         },
         {
+            "id":"esiImport",
+            "name":"导入数据",
+            "type":"request",
+            "params":{
+                "url":"/esi/import",
+                "method":"post"
+            },
+            "input":{
+                "specific":""
+            },
+            "description":"导入学生信息",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{
+                },
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_student"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        },
+        {
             "id": "openbatchUpdateForm", 
             "name": "批量更新",
             "type":"open",
@@ -275,6 +306,22 @@
             },
             "input":{},
             "description":"打开学生信息批量更新窗口",
+            "roles":"admin"
+        },
+        {
+            "id":"openESIImportForm",
+            "name": "导入学生信息",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_student/esiImportForm/create",
+                    "location":"modal",
+                    "title":"导入学生信息",
+                    "key":"/model/lms_student/esiImportForm/create",
+                    "width":600,
+                    "height":300
+            },
+            "input":{},
+            "description":"打开学生信息导入对话框",
             "roles":"admin"
         }
     ], 
@@ -352,7 +399,7 @@
             "filter": { }, 
             "toolbar": {
                 "listToolbar": {
-                    "showCount": 3, 
+                    "showCount": 4, 
                     "buttons": [
                         {
                             "operationID": "create",
@@ -369,6 +416,10 @@
                         {
                             "operationID": "openbatchUpdateForm",
                             "name":"批量更新"
+                        },
+                        {
+                            "operationID": "openESIImportForm",
+                            "name":"导入学生信息"
                         }
                     ]
                 }, 
@@ -714,6 +765,64 @@
                     "field": "remark", 
                     "colSpan": 2,
                     "rowSpan": 2
+                }
+            ]
+        },
+        {
+            "formID": "esiImportForm",
+            "colCount": 2,
+            "rowCount": 2,
+            "rowHeight": 30,
+            "header":{
+                "label":"导入学生信息"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"esiImport",
+                        "name":"确定导入"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "class_id", 
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "esiFile", 
+                    "fieldType":"file",
+                    "controlType": "File",
+                    "label":"导入文件",
+                    "maxCount":1,
+                    "accept":".xlsx,.xlsx",
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1
                 }
             ]
         }

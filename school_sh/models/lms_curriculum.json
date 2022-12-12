@@ -1,0 +1,1038 @@
+{
+    "modelID": "lms_curriculum", 
+    "fields": [
+        {"field":"id","name":"ID","dataType":"varchar"},
+        {"field":"year","name":"教学年度","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_year","quickSearch":true},
+        {"field":"semester","name":"学期","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_semester","quickSearch":true},
+        {"field":"class","name":"班级","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_class","quickSearch":true},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"},
+        {"field":"detail","name":"课程表","fieldType":"one2many","relatedModelID":"lms_curriculum_detail","relatedField":"curriculum_id"}
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "新增",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_curriculum/form1/create",
+                    "location":"modal",
+                    "title":"新增课表",
+                    "key":"/model/lms_curriculum/form1/create",
+                    "width":1100,
+                    "height":540
+            },
+            "input":{},
+            "description":"打开新增课表对话框",
+            "roles":"*"
+        },
+        {
+            "id": "createByTeacher", 
+            "name": "新增",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_curriculum/formEditByTeacher/create",
+                    "location":"modal",
+                    "title":"新增课表",
+                    "key":"/model/lms_curriculum/formEditByTeacher/create",
+                    "width":1100,
+                    "height":540
+            },
+            "input":{},
+            "description":"打开新增课表对话框",
+            "roles":"*"
+        },
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_curriculum/form1/edit",
+                    "location":"modal",
+                    "title":"编辑课表",
+                    "key":"/model/lms_curriculum/form1/edit",
+                    "width":1100,
+                    "height":540
+            },
+            "input":{},
+            "description":"打开编辑课表对话框",
+            "roles":"*"
+        },
+        {
+            "id": "editByTeacher", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_curriculum/formEditByTeacher/edit",
+                    "location":"modal",
+                    "title":"编辑课表",
+                    "key":"/model/lms_curriculum/formEditByTeacher/edit",
+                    "width":1100,
+                    "height":540
+            },
+            "input":{},
+            "description":"打开编辑课表对话框",
+            "roles":"*"
+        },
+        {
+            "id": "detail", 
+            "name": "详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_curriculum/formDetail/detail",
+                    "location":"modal",
+                    "title":"课表详情",
+                    "key":"/model/lms_curriculum/formDetail/detail",
+                    "width":1100,
+                    "height":540
+            },
+            "input":{},
+            "description":"打开课表详情对话框",
+            "roles":"*"
+        },
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除记录成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_curriculum"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_curriculum"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "viewMe", 
+            "name": "我的班级课程表", 
+            "description": "我的班级课程表", 
+            "fields": [
+                {"field":"year","width":150},
+                {
+                    "field":"semester",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
+                {
+                    "field":"class",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班)'",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "current_grade"
+                        },
+                        {
+                            "field": "class_number"
+                        }
+                    ]
+                },
+                {"field":"id","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filterData":[
+                {
+                    "modelID":"lms_person",
+                    "filter":{"sn":"%{userID}"},
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"my_class",
+                            "fieldType":"one2many",
+                            "relatedModelID":"lms_class_participant",
+                            "relatedField":"person",
+                            "fields":[
+                                {"field":"class"},
+                                {"field":"person"}
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "filter": {"class":{"Op.in":["%{lms_person.my_class.class}"]}},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                       
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":50, 
+                    "buttons": [
+                        {
+                            "operationID":"detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":["student","teacher"]
+        },
+        {
+            "viewID": "viewMaintianMe", 
+            "name": "维护我的班级课程表", 
+            "description": "维护我的班级课程表", 
+            "fields": [
+                {"field":"year","width":150},
+                {
+                    "field":"semester",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
+                {
+                    "field":"class",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班)'",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "current_grade"
+                        },
+                        {
+                            "field": "class_number"
+                        }
+                    ]
+                },
+                {"field":"id","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filterData":[
+                {
+                    "modelID":"lms_person",
+                    "filter":{"sn":"%{userID}"},
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"my_class",
+                            "fieldType":"one2many",
+                            "relatedModelID":"lms_class_participant",
+                            "relatedField":"person",
+                            "fields":[
+                                {"field":"class"},
+                                {"field":"person"}
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "filter": {"class":{"Op.in":["%{lms_person.my_class.class}"]}},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "createByTeacher",
+                            "name":"新增"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":120, 
+                    "buttons": [
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除当前记录吗？"
+                        },
+                        {
+                            "operationID":"editByTeacher",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID":"detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":["teacher"]
+        },
+        {
+            "viewID": "viewAll", 
+            "name": "班级课程表维护", 
+            "description": "班级课程表维护", 
+            "fields": [
+                {"field":"year","width":150},
+                {
+                    "field":"semester",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
+                {
+                    "field":"class",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班)'",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "current_grade"
+                        },
+                        {
+                            "field": "class_number"
+                        }
+                    ]
+                },
+                {"field":"id","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter": {}, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"新增"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":120, 
+                    "buttons": [
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除当前记录吗？"
+                        },
+                        {
+                            "operationID":"edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID":"detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":["admin"]
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建课程表"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                },
+                {
+                    "field":"class",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班)'",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "current_grade"
+                        },
+                        {
+                            "field": "class_number"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"year",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {
+                            "field": "id"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"semester",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"detail",
+                    "controlType":"EditTable",
+                    "fieldType":"one2many",
+                    "relatedModelID":"lms_curriculum_detail",
+                    "relatedField":"curriculum_id",
+                    "controls":[
+                        {
+                            "field":"id",
+                            "label":"ID"
+                        },
+                        {
+                            "field":"section",
+                            "visible":true,
+                            "label":"第几节",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_section",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":120
+                        },
+                        {
+                            "field":"monday",
+                            "visible":true,
+                            "label":"星期一",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"tuesday",
+                            "visible":true,
+                            "label":"星期二",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"wednesday",
+                            "visible":true,
+                            "label":"星期三",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"thursday",
+                            "visible":true,
+                            "label":"星期四",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"friday",
+                            "visible":true,
+                            "label":"星期五",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"curriculum_id"
+                        },
+                        {
+                            "field":"version"
+                        }
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 4
+                }
+            ]
+        },
+        {
+            "formID": "formDetail",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"课程表",
+                "operations":[
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"class",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班)'",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "current_grade"
+                        },
+                        {
+                            "field": "class_number"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"year",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {
+                            "field": "id"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"semester",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"detail",
+                    "controlType":"EditTable",
+                    "fieldType":"one2many",
+                    "relatedModelID":"lms_curriculum_detail",
+                    "relatedField":"curriculum_id",
+                    "controls":[
+                        {
+                            "field":"id",
+                            "label":"ID"
+                        },
+                        {
+                            "field":"section",
+                            "visible":true,
+                            "label":"第几节",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_section",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":120
+                        },
+                        {
+                            "field":"monday",
+                            "visible":true,
+                            "label":"星期一",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"tuesday",
+                            "visible":true,
+                            "label":"星期二",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"wednesday",
+                            "visible":true,
+                            "label":"星期三",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"thursday",
+                            "visible":true,
+                            "label":"星期四",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"friday",
+                            "visible":true,
+                            "label":"星期五",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"curriculum_id"
+                        },
+                        {
+                            "field":"version"
+                        }
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 4
+                }
+            ]
+        },
+        {
+            "formID": "formEditByTeacher",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建课程表"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                },
+                {
+                    "field":"class",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班)'",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "current_grade"
+                        },
+                        {
+                            "field": "class_number"
+                        }
+                    ],
+                    "filterData":[
+                        {
+                            "modelID":"lms_person",
+                            "filter":{"sn":"%{userID}"},
+                            "fields":[
+                                {
+                                    "field":"id"
+                                },
+                                {
+                                    "field":"my_class",
+                                    "fieldType":"one2many",
+                                    "relatedModelID":"lms_class_participant",
+                                    "relatedField":"person",
+                                    "fields":[
+                                        {"field":"class"},
+                                        {"field":"person"}
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "filter": {"id":{"Op.in":["%{lms_person.my_class.class}"]}},
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"year",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {
+                            "field": "id"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"semester",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"detail",
+                    "controlType":"EditTable",
+                    "fieldType":"one2many",
+                    "relatedModelID":"lms_curriculum_detail",
+                    "relatedField":"curriculum_id",
+                    "controls":[
+                        {
+                            "field":"id",
+                            "label":"ID"
+                        },
+                        {
+                            "field":"section",
+                            "visible":true,
+                            "label":"第几节",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_section",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":120
+                        },
+                        {
+                            "field":"monday",
+                            "visible":true,
+                            "label":"星期一",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"tuesday",
+                            "visible":true,
+                            "label":"星期二",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"wednesday",
+                            "visible":true,
+                            "label":"星期三",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"thursday",
+                            "visible":true,
+                            "label":"星期四",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"friday",
+                            "visible":true,
+                            "label":"星期五",
+                            "controlType":"SingleSelect",
+                            "fieldType":"many2one",
+                            "relatedModelID":"lms_subject",
+                            "optionLabel":"name",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ],
+                            "width":180
+                        },
+                        {
+                            "field":"curriculum_id"
+                        },
+                        {
+                            "field":"version"
+                        }
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 4
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,510 @@
+{
+    "modelID": "lms_person", 
+    "fields": [
+        {"field":"id","name":"统一编号","dataType":"varchar","quickSearch":true},
+        {"field":"name","name":"姓名","dataType":"varchar","quickSearch":true},
+        {"field":"sn","name":"学号","dataType":"varchar","quickSearch":true},
+        {"field":"gender","name":"性别","dataType":"varchar"},
+        {"field":"birthday","name":"出生日期","dataType":"datetime"},
+        {"field":"enrollment_year","name":"入学年份","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_year","quickSearch":true},
+        {"field":"type","name":"人员类别","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_person_type","quickSearch":true},
+        {"field":"study_type","name":"就读类型","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_study_type","quickSearch":true},
+        {"field":"enrollment_type","name":"入校类型","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_enrollment_type","quickSearch":true},
+        {"field":"home_address","name":"家庭住址","dataType":"varchar"},
+        {"field":"import_file_name","name":"导入文件名称","dataType":"varchar"},
+        {"field":"import_batch_number","name":"导入批次","dataType":"varchar"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "新增",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_person/form1/create",
+                    "location":"modal",
+                    "title":"新增人员信息",
+                    "key":"/model/lms_person/form1/create",
+                    "width":800,
+                    "height":340
+            },
+            "input":{},
+            "description":"打开新增人员对话框",
+            "roles":"*"
+        },
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_person/form1/edit",
+                    "location":"modal",
+                    "title":"编辑人员信息",
+                    "key":"/model/lms_person/form1/edit",
+                    "width":800,
+                    "height":340
+            },
+            "input":{},
+            "description":"打开人员编辑对话框",
+            "roles":"*"
+        }, 
+        {
+            "id": "detail", 
+            "name": "查看详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_person/form1/detail",
+                    "location":"modal",
+                    "title":"人员信息详情",
+                    "key":"/model/lms_person/form1/detail",
+                    "width":800,
+                    "height":340
+            },
+            "input":{},
+            "description":"打开人员详情对话框",
+            "roles":"*"
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除人员信息记录成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_person"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_person"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id": "openESIForm", 
+            "name": "导入人员信息",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_person/formESI/create",
+                    "location":"modal",
+                    "title":"导入人员信息",
+                    "key":"/model/lms_person/formESI/create",
+                    "width":600,
+                    "height":250
+            },
+            "input":{},
+            "description":"打开导入人员信息对话框",
+            "roles":"*"
+        },
+        {
+            "id":"esiImport",
+            "name":"导入",
+            "type":"request",
+            "params":{
+                "url":"/esi/import",
+                "method":"post"
+            },
+            "input":{
+                "specific":""
+            },
+            "description":"导入人员信息",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{
+                },
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_person"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "viewMe", 
+            "name": "我的个人信息", 
+            "description": "我的个人信息", 
+            "fields": [
+                {"field":"id","width":200},
+                {"field":"name","width":150},
+                {"field":"sn","width":150},
+                {"field":"gender","width":150},
+                {"field":"birthday","width":150,"format":"YYYY-MM-DD"},
+                {"field":"enrollment_year","width":150},
+                {
+                    "field":"type",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
+                {"field":"study_type","width":150},
+                {"field":"enrollment_type","width":150},
+                {"field":"home_address","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter": {"sn":"%{userID}"}, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":90, 
+                    "buttons": [
+                        {
+                            "operationID": "edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID": "detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":["student","teacher"]
+        },
+        {
+            "viewID": "viewAll", 
+            "name": "全部人员信息维护", 
+            "description": "全部人员信息维护", 
+            "fields": [
+                {"field":"id","width":200},
+                {"field":"name","width":150},
+                {"field":"sn","width":150},
+                {"field":"gender","width":150},
+                {"field":"birthday","width":150,"format":"YYYY-MM-DD"},
+                {"field":"enrollment_year","width":150},
+                {
+                    "field":"type",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
+                {"field":"study_type","width":150},
+                {"field":"enrollment_type","width":150},
+                {"field":"home_address","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"新增"
+                        },
+                        {
+                            "operationID": "openESIForm",
+                            "name":"导入"
+                        }, 
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除当前选择的学生信息吗？"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":90, 
+                    "buttons": [
+                        {
+                            "operationID": "edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除这个学生信息吗？"
+                        }
+                    ]
+                }
+            },
+            "roles":["admin"]
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建人员"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"name",
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"sn",
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"gender",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"男",
+                            "label":"男"
+                        },
+                        {
+                            "value":"女",
+                            "label":"女"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"birthday",
+                    "controlType": "DatePicker",
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"enrollment_year",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {
+                            "field": "id"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"type",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field": "id"},
+                        {"field": "name"}
+                    ],
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"study_type",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {
+                            "field": "id"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"enrollment_type",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {
+                            "field": "id"
+                        }
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"home_address",
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 2,
+                    "colSpan": 3,
+                    "rowSpan": 1,
+                    "required":false
+                }
+            ]
+        },
+        {
+            "formID": "formESI",
+            "colCount": 3,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"导入人员信息"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"esiImport",
+                        "name":"确定导入"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "esiFile", 
+                    "fieldType":"file",
+                    "controlType": "File",
+                    "label":"导入文件",
+                    "maxCount":1,
+                    "accept":".xlsx,.xlsx",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                }
+            ]
+        }
+    ]
+}

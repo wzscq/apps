@@ -161,6 +161,24 @@
                     "description":"打开场景下发记录页面"
                 },
                 "roles":["admin","operator"]
+            },
+            {
+                "id":"6",
+                "name":"信号下发记录",
+                "description":"查看信号下发记录",
+                "icon":"FileMarkdownTwoTone",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/diag_signal_sendrecord",
+                        "location":"tab",
+                        "title":"信号下发记录",
+                        "key":"/model/diag_signal_sendrecord"
+                    },
+                    "input":{},
+                    "description":"打开信号下发记录页面"
+                },
+                "roles":["admin","operator"]
             }
         ]
     },
@@ -185,7 +203,7 @@
                     "input":{},
                     "description":"打开项目平台数据库页面"
                 },
-                "roles":"*"
+                "roles":["admin","operator"]
             },
             {
                 "id":"2",
@@ -203,7 +221,7 @@
                     "input":{},
                     "description":"打开域数据库页面"
                 },
-                "roles":"admin"
+                "roles":["admin","operator"]
             },
             {
                 "id":"3",
@@ -221,7 +239,7 @@
                     "input":{},
                     "description":"打开控制器数据库页面"
                 },
-                "roles":"admin"
+                "roles":["admin","operator"]
             },
             {
                 "id":"4",
@@ -239,7 +257,7 @@
                     "input":{},
                     "description":"打开信号数据库页面"
                 },
-                "roles":"admin"
+                "roles":["admin","operator"]
             },
             {
                 "id":"5",
@@ -257,7 +275,7 @@
                     "input":{},
                     "description":"打开故障码数据库页面"
                 },
-                "roles":"admin"
+                "roles":["admin","operator"]
             },
             {
                 "id":"6",
@@ -293,7 +311,7 @@
                     "input":{},
                     "description":"打开诊断服务数据库页面"
                 },
-                "roles":"admin"
+                "roles":["admin","operator"]
             }
         ]
     },

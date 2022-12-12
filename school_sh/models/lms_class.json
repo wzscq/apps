@@ -1,0 +1,577 @@
+{
+    "modelID": "lms_class", 
+    "fields": [
+        {"field":"id","name":"编号","dataType":"varchar","quickSearch":true},
+        {"field":"enrollment_year","name":"入校年份","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_year","quickSearch":true},
+        {"field":"class_number","name":"班级序号","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_class_number","quickSearch":true},
+        {"field":"current_grade","name":"当前年级","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_grade","quickSearch":true},
+        {"field":"current_year","name":"教学年度","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_year","quickSearch":true},
+        {"field":"current_semester","name":"学期","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_semester","quickSearch":true},
+        {"field":"remark","name":"备注","dataType":"varchar"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "新增",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_class/form1/create",
+                    "location":"modal",
+                    "title":"新增班级",
+                    "key":"/model/lms_class/form1/create",
+                    "width":800,
+                    "height":440
+            },
+            "input":{},
+            "description":"打开新增课表对话框",
+            "roles":"*"
+        },
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_class/form1/edit",
+                    "location":"modal",
+                    "title":"编辑班级信息",
+                    "key":"/model/lms_class/form1/edit",
+                    "width":800,
+                    "height":440
+            },
+            "input":{},
+            "description":"打开编辑对话框",
+            "roles":"*"
+        },
+        {
+            "id": "detail", 
+            "name": "详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_class/formDetail/detail",
+                    "location":"modal",
+                    "title":"详情",
+                    "key":"/model/lms_class/formDetail/detail",
+                    "width":800,
+                    "height":440
+            },
+            "input":{},
+            "description":"打表详情对话框",
+            "roles":"*"
+        },
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除记录成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_class"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_class"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "viewMe", 
+            "name": "我的班级", 
+            "description": "我的班级", 
+            "fields": [
+                {"field":"id","width":150},
+                {"field":"enrollment_year","width":150},
+                {
+                    "field":"class_number",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
+                {
+                    "field":"current_grade",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
+                {"field":"current_year","width":150},
+                {
+                    "field":"current_semester",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
+                {"field":"remark","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filterData":[
+                {
+                    "modelID":"lms_person",
+                    "filter":{"sn":"%{userID}"},
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"my_class",
+                            "fieldType":"one2many",
+                            "relatedModelID":"lms_class_participant",
+                            "relatedField":"person",
+                            "fields":[
+                                {"field":"class"},
+                                {"field":"person"}
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "filter": {"id":{"Op.in":["%{lms_person.my_class.class}"]}},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        
+                    ]
+                },
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":50, 
+                    "buttons": [
+                        {
+                            "operationID":"detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":["student","teacher"]
+        },
+        {
+            "viewID": "viewAll", 
+            "name": "班级信息维护", 
+            "description": "班级信息表维护", 
+            "fields": [
+                {"field":"id","width":150},
+                {"field":"enrollment_year","width":150},
+                {
+                    "field":"class_number",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
+                {
+                    "field":"current_grade",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
+                {"field":"current_year","width":150},
+                {
+                    "field":"current_semester",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ]
+                },
+                {"field":"remark","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter": {}, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"新增"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":120, 
+                    "buttons": [
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除当前记录吗？"
+                        },
+                        {
+                            "operationID":"edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID":"detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":["admin"]
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"新建班级"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"enrollment_year",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {
+                            "field": "id"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"current_year",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {
+                            "field": "id"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"current_grade",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field":"name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"current_semester",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"class_number",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"remark",
+                    "controlType":"TextArea",
+                    "row": 4,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
+            ]
+        },
+        {
+            "formID": "formDetail",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"课程表",
+                "operations":[
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"enrollment_year",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {
+                            "field": "id"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"current_year",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {
+                            "field": "id"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"current_grade",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field":"name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"current_semester",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"class_number",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"remark",
+                    "controlType":"TextArea",
+                    "row": 4,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
+            ]
+        }
+    ]
+}
