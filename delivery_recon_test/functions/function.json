@@ -1,54 +1,8 @@
 [
     {
-        "id":"0",
-        "name":{
-            "default":"Dashboard",
-            "zh_CN":"仪表盘",
-            "en_US":"Dashboard"
-        },
-        "description":"Dashboard",
-        "icon":"BarChartOutlined",
-        "operation":{
-            "type":"open",
-            "params":{
-                "url":"/report/#/dashboard",
-                "location":"tab",
-                "title":"Dashboard",
-                "key":"/report/dashboard"
-            },
-            "input":{},
-            "description":"打开dashboard"
-        },
-        "roles":"*"
-    },
-    {
         "id":"1",
-        "name":{
-            "default":"Dashboard",
-            "zh_CN":"对账信息总览",
-            "en_US":"Dashboard"
-        },
-        "description":"Dashboard",
-        "icon":"BarChartOutlined",
-        "operation":{
-            "type":"open",
-            "params":{
-                "url":"http://localhost:9904",
-                "url1":"http://1.15.91.60:8050/matchresult/",
-                "location":"tab",
-                "title":"对账信息总览",
-                "key":"/delivery_recon/matchResult"
-            },
-            "input":{},
-            "description":"打开对账信息总览"
-        },
-        "roles":"*"
-    },
-    {
-        "id":"2",
         "name":"数据获取",
         "description":"数据获取",
-        "icon":"ImportOutlined",
         "children":[
             {
                 "id":"1",
@@ -91,10 +45,9 @@
         ]
     },
     {
-        "id":"3",
+        "id":"2",
         "name":"对账处理",
         "description":"对账处理",
-        "icon":"MergeCellsOutlined",
         "children":[
             {
                 "id":"1",
@@ -175,10 +128,9 @@
         ]
     },
     {
-        "id":"4",
+        "id":"3",
         "name":"主数据维护",
         "description":"主数据维护",
-        "icon":"ProfileOutlined",
         "children":[
             {
                 "id":"1",
@@ -259,10 +211,9 @@
         ]
     },
     {
-        "id":"5",
+        "id":"4",
         "name":"数据处理逻辑配置",
         "description":"数据处理逻辑配置",
-        "icon":"NodeIndexOutlined",
         "children":[
             {
                 "id":"1",
@@ -272,7 +223,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"http://localhost:9901/#/recon_demo",
+                        "url":"http://localhost:9901/#/delivery_recon",
                         "url1":"http://192.168.1.144:8090/flowconfig/#/delivery_recon",
                         "location":"tab",
                         "title":"处理逻辑配置",
@@ -286,10 +237,9 @@
         ]
     },
     {
-        "id":"6",
+        "id":"5",
         "name":"系统管理",
         "description":"系统管理相关功能",
-        "icon":"SettingOutlined",
         "children":[
             {
                 "id":"1",
@@ -310,7 +260,7 @@
                 "roles":"admin"
             },
             {
-                "id":"2",
+                "id":"1",
                 "name":"角色管理",
                 "description":"维护系统角色信息",
                 "icon":"UserOutlined",

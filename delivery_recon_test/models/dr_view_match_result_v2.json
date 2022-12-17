@@ -1,0 +1,28 @@
+{
+  "modelID":"dr_view_match_result_v2",
+  "fields":[
+    {"field":"id","name":"ID","dataType":"varchar"},
+    {"field":"customer_id","name":"客户代码","dataType":"varchar"},
+    {"field":"period","name":"账期","dataType":"int"},
+    {"field":"delivery_quantity","name":"对账单数量","dataType":"decimal"},
+    {"field":"billing_quantity","name":"对账单金额","dataType":"decimal"},
+    {"field":"delivery_amount","name":"Billing数量","dataType":"decimal"},
+    {"field":"billing_amount","name":"Billing金额","dataType":"decimal"},
+    {"field":"quantity_gap","name":"数量差异","dataType":"decimal"},
+    {"field":"amount_gap","name":"金额差异","dataType":"decimal"},
+    {"field":"exact_match","name":"完全匹配分组数","dataType":"int"},
+    {"field":"partial_match","name":"部分匹配分组数","dataType":"int"},
+    {"field":"adjusted_quantity","name":"已调整数量","dataType":"decimal"},
+    {"field":"adjusted_amount","name":"已调整金额","dataType":"decimal"},
+    {"field":"not_adjusted_quantity","name":"未调整数量","dataType":"decimal"},
+    {"field":"not_adjusted_amount","name":"未调整金额","dataType":"decimal"}
+  ],
+  "datasets":[
+    {
+        "id":"DEFAULT",
+        "fields":"*",
+        "queryRoles":"*",
+        "mutationRoles":"*"
+    }
+  ]
+}

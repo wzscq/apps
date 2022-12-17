@@ -1,0 +1,16 @@
+{
+    "modelID": "dr_delivery_statement",
+    "fields": [
+        {"field":"material","labelRegexp":"零件号","excelRangeType":"table"},
+        {"field":"material_name","labelRegexp":"零件名称","excelRangeType":"table"},
+        {"field":"quantity","labelRegexp":"收货数量","excelRangeType":"table"},
+        {"field":"price","labelRegexp":"结算价","excelRangeType":"table"},
+        {"field":"amount","labelRegexp":"结算金额","excelRangeType":"table"},
+        {"field":"po_number","labelRegexp":"采购订单号","excelRangeType":"table"},
+        {"field":"line_number","labelRegexp":"行项目号","excelRangeType":"table"},
+        {"field":"customer_id","labelRegexp":"","excelRangeType":"","source":"input"}
+    ],
+    "options":{
+        "generateRowID":true
+    }
+}

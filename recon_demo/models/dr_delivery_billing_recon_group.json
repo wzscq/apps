@@ -8,6 +8,9 @@
         {"field":"customer_id","name":"客户代码","dataType":"varchar","fieldType":"many2one","relatedModelID":"dr_customer","quickSearch":true},
         {"field":"po_number","name":"采购订单号","dataType":"varchar","quickSearch":true},
         {"field":"material","name":"物料编码","dataType":"varchar","quickSearch":true},
+        {"field":"period","name":"会计期间","dataType":"varchar"},
+        {"field":"delivery_count","name":"对账单条数","dataType":"int"},
+        {"field":"billing_count","name":"Billing条数","dataType":"int"},
         {"field":"delivery_quantity","name":"对账单数量","dataType":"decimal"},
         {"field":"delivery_amount","name":"对账单金额","dataType":"decimal"},
         {"field":"billing_quantity","name":"Billing数量","dataType":"decimal"},
@@ -75,8 +78,8 @@
             "name": "定制详情",
             "type":"open",
             "params":{
-                    "url":"http://localhost:9902/",
-                    "url1":"http://192.168.1.144/matchgroup/",
+                    "url1":"http://localhost:9902/",
+                    "url":"http://1.15.91.60:8050/matchgroup/",
                     "location":"modal",
                     "title":"匹配详情",
                     "key":"/model/dr_delivery_billing_recon_group/groupDetail",
@@ -191,6 +194,21 @@
             },
             "description":"导出CDN",
             
+            "roles":"*"
+        },
+        {
+            "id":"exportTaxLink",
+            "name":"导出开票数据",
+            "type":"request",
+            "params":{
+                "url":"/redirect",
+                "method":"post",
+                "responseType":"blob"
+            },
+            "input":{
+                "to":"exportTaxLink"
+            },
+            "description":"导出CDN",
             "roles":"*"
         }
     ],
@@ -747,6 +765,10 @@
                        {
                             "operationID":"exportAdjustment",
                             "name":"导出CDN"
+                       },
+                       {
+                            "operationID":"exportTaxLink",
+                            "name":"导出TaxLink开票数据"
                        }
                     ]
                 },
@@ -761,6 +783,282 @@
                         {
                             "operationID":"cancelGroups",
                             "name":"取消确认"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "viewID":"exactMatchGroupsAll",
+            "name": "完全匹配分组", 
+            "description": "完全匹配分组", 
+            "fields":[
+                {
+                    "field":"customer_id",
+                    "width":250,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"po_number","width":150},
+                {"field":"material","width":150},
+                {
+                    "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
+                    "field":"match_result",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"完全匹配"
+                        },
+                        {
+                            "value":"1",
+                            "label":"部分匹配"
+                        }
+                    ]
+                },
+                {
+                    "field":"price_adjusted",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
+                    "field":"confirmed",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未确认"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已确认"
+                        }
+                    ]
+                },
+                {"field":"delivery_quantity","width":120,"summarize":"sum(delivery_quantity)"},
+                {"field":"billing_quantity","width":120,"summarize":"sum(billing_quantity)"},
+                {"field":"quantity_gap","width":120,"summarize":"sum(quantity_gap)"},
+                {"field":"delivery_amount","width":120,"summarize":"sum(delivery_amount)"},
+                {"field":"billing_amount","width":120,"summarize":"sum(billing_amount)"},
+                {"field":"amount_gap","width":120,"summarize":"sum(amount_gap)"},
+                {
+                    "field":"quantity_adjusted",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {"field":"cs_team_id","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150},
+                {"field":"id","width":150}
+            ],
+            "filterData":[
+                {
+                    "modelID":"core_user",
+                    "filter":{"id":"%{userID}"},
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"cs_teams",
+                            "fieldType":"many2many",
+                            "relatedModelID":"dr_cs_team",
+                            "fields":[
+                                {"field":"id"}
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "filter":{"match_result":0},
+            "toolbar": {
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":50, 
+                    "buttons": [
+                        {
+                            "operationID": "customizedDetail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "viewID":"partialMatchingGroupsAll",
+            "name": "部分匹配分组", 
+            "description": "部分匹配分组", 
+            "fields":[
+                {
+                    "field":"customer_id",
+                    "width":250,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"po_number","width":150},
+                {"field":"material","width":150},
+                {
+                    "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
+                    "field":"match_result",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"完全匹配"
+                        },
+                        {
+                            "value":"1",
+                            "label":"部分匹配"
+                        }
+                    ]
+                },
+                {
+                    "field":"price_adjusted",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
+                    "field":"confirmed",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"未确认"
+                        },
+                        {
+                            "value":"1",
+                            "label":"已确认"
+                        }
+                    ]
+                },
+                {"field":"delivery_quantity","width":120,"summarize":"sum(delivery_quantity)"},
+                {"field":"billing_quantity","width":120,"summarize":"sum(billing_quantity)"},
+                {"field":"quantity_gap","width":120,"summarize":"sum(quantity_gap)"},
+                {"field":"delivery_amount","width":120,"summarize":"sum(delivery_amount)"},
+                {"field":"billing_amount","width":120,"summarize":"sum(billing_amount)"},
+                {"field":"amount_gap","width":120,"summarize":"sum(amount_gap)"},
+                {
+                    "field":"quantity_adjusted",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {"field":"cs_team_id","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150},
+                {"field":"id","width":150}
+            ],
+            "filterData":[
+                {
+                    "modelID":"core_user",
+                    "filter":{"id":"%{userID}"},
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"cs_teams",
+                            "fieldType":"many2many",
+                            "relatedModelID":"dr_cs_team",
+                            "fields":[
+                                {"field":"id"}
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "filter":{"match_result":1},
+            "toolbar": {
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":50, 
+                    "buttons": [
+                        {
+                            "operationID": "customizedDetail",
+                            "name":"详情"
                         }
                     ]
                 }
