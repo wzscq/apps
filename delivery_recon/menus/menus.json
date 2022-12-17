@@ -23,6 +23,48 @@
     },
     {
         "id":"1",
+        "name":{
+            "default":"控制台",
+            "zh_CN":"控制台",
+            "en_US":"控制台"
+        },
+        "description":"Dashboard",
+        "icon":"DesktopOutlined",
+        "operation":{
+            "type":"open",
+            "params":{
+                "url":"http://localhost:9904",
+                "url1":"http://1.15.91.60:8050/matchresult/",
+                "location":"tab",
+                "title":"控制台",
+                "key":"/delivery_recon/matchResult"
+            },
+            "input":{},
+            "description":"打开控制台"
+        },
+        "roles":"*"
+    },
+    {
+        "id":"12",
+        "name":"控制台V2",
+        "description":"Dashboard",
+        "icon":"DesktopOutlined",
+        "operation":{
+            "type":"open",
+            "params":{
+                "url":"http://localhost:9905",
+                "url1":"http://1.15.91.60:8050/dr_console/",
+                "location":"tab",
+                "title":"控制台V2",
+                "key":"/delivery_recon/dr_console"
+            },
+            "input":{},
+            "description":"打开控制台"
+        },
+        "roles":"*"
+    },
+    {
+        "id":"2",
         "name":"数据获取",
         "description":"数据获取",
         "icon":"ImportOutlined",
@@ -68,7 +110,7 @@
         ]
     },
     {
-        "id":"2",
+        "id":"3",
         "name":"对账处理",
         "description":"对账处理",
         "icon":"MergeCellsOutlined",
@@ -152,7 +194,7 @@
         ]
     },
     {
-        "id":"3",
+        "id":"4",
         "name":"主数据维护",
         "description":"主数据维护",
         "icon":"ProfileOutlined",
@@ -236,7 +278,7 @@
         ]
     },
     {
-        "id":"4",
+        "id":"5",
         "name":"数据处理逻辑配置",
         "description":"数据处理逻辑配置",
         "icon":"NodeIndexOutlined",
@@ -263,7 +305,7 @@
         ]
     },
     {
-        "id":"5",
+        "id":"6",
         "name":"系统管理",
         "description":"系统管理相关功能",
         "icon":"SettingOutlined",

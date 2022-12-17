@@ -1,0 +1,23 @@
+{
+    "modelID": "dr_delivery_statement",
+    "fields": [
+        {"field":"period","labelRegexp":"会计期间","excelRangeType":"table"},
+        {"field":"material","labelRegexp":"物料编码","excelRangeType":"table"},
+        {"field":"material_name","labelRegexp":"物料名称","excelRangeType":"table"},
+        {"field":"quantity","labelRegexp":"结算数量","excelRangeType":"table"},
+        {"field":"unit","labelRegexp":"单位","excelRangeType":"table"},
+        {"field":"po_price","labelRegexp":"采购合同价格","excelRangeType":"table"},
+        {"field":"price_unit","labelRegexp":"定价单位","excelRangeType":"table"},
+        {"field":"price","labelRegexp":"结算单价","excelRangeType":"table"},
+        {"field":"amount","labelRegexp":"结算金额","excelRangeType":"table"},
+        {"field":"tax_code","labelRegexp":"税率代码","excelRangeType":"table"},
+        {"field":"tax_amount","labelRegexp":"税额","excelRangeType":"table"},
+        {"field":"total_amount","labelRegexp":"价税合计","excelRangeType":"table"},
+        {"field":"po_number","labelRegexp":"采购订单号","excelRangeType":"table"},
+        {"field":"line_number","labelRegexp":"对账单行项目","excelRangeType":"table"},
+        {"field":"customer_id","labelRegexp":"","excelRangeType":"","source":"input"}
+    ],
+    "options":{
+        "generateRowID":true
+    }
+}

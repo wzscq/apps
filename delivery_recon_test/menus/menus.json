@@ -24,23 +24,42 @@
     {
         "id":"1",
         "name":{
-            "default":"Dashboard",
-            "zh_CN":"对账信息总览",
-            "en_US":"Dashboard"
+            "default":"控制台",
+            "zh_CN":"控制台",
+            "en_US":"控制台"
         },
         "description":"Dashboard",
-        "icon":"BarChartOutlined",
+        "icon":"DesktopOutlined",
         "operation":{
             "type":"open",
             "params":{
                 "url":"http://localhost:9904",
                 "url1":"http://1.15.91.60:8050/matchresult/",
                 "location":"tab",
-                "title":"对账信息总览",
+                "title":"控制台",
                 "key":"/delivery_recon/matchResult"
             },
             "input":{},
-            "description":"打开对账信息总览"
+            "description":"打开控制台"
+        },
+        "roles":"*"
+    },
+    {
+        "id":"12",
+        "name":"控制台V2",
+        "description":"Dashboard",
+        "icon":"DesktopOutlined",
+        "operation":{
+            "type":"open",
+            "params":{
+                "url":"http://localhost:9905",
+                "url1":"http://1.15.91.60:8050/dr_console/",
+                "location":"tab",
+                "title":"控制台V2",
+                "key":"/delivery_recon/dr_console"
+            },
+            "input":{},
+            "description":"打开控制台"
         },
         "roles":"*"
     },
@@ -155,6 +174,26 @@
             },
             {
                 "id":"4",
+                "name":"手工匹配",
+                "openLabel":"打开",
+                "description":"手工匹配",
+                "icon":"MergeCellsOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"http://localhost:9906",
+                        "url1":"http://1.15.91.60:8050/manualmatch/",
+                        "location":"tab",
+                        "title":"手工匹配",
+                        "key":"/delivery_recon/manualmatch"
+                    },
+                    "input":{},
+                    "description":"打开手工匹配页面"
+                },
+                "roles":"*"
+            },
+            {
+                "id":"5",
                 "name":"对账调差",
                 "openLabel":"打开",
                 "description":"对账差异调整",
@@ -272,7 +311,7 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"http://localhost:9901/#/recon_demo",
+                        "url":"http://localhost:9901/#/delivery_recon_test",
                         "url1":"http://192.168.1.144:8090/flowconfig/#/delivery_recon",
                         "location":"tab",
                         "title":"处理逻辑配置",
