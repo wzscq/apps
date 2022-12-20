@@ -297,6 +297,9 @@
                 }
             ], 
             "filter": { }, 
+            "sorter":[
+                {"field":"id","order":"desc"}
+            ],
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 

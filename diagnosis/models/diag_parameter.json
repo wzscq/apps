@@ -325,6 +325,9 @@
                 }
             ], 
             "filter": { }, 
+            "sorter":[
+                {"field":"update_time","order":"desc"}
+            ],
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 

@@ -1,0 +1,688 @@
+{
+    "modelID":"sl_application",
+    "fields":[
+        {"field":"id","name":"编号","dataType":"bigint"},
+        {"field":"locks","name":"智能锁ID","dataType":"varchar","fieldType":"many2many","relatedModelID":"sl_lock"},
+        {"field":"operators","name":"操作人","dataType":"varchar","fieldType":"many2many","relatedModelID":"sl_person"},
+        {"field":"approver","name":"审批人","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_person"},
+        {"field":"start_date","name":"开始日期","dataType":"datetime"},
+        {"field":"end_date","name":"截止日期","dataType":"datetime"},
+        {"field":"start_time","name":"开始时间","dataType":"time"},
+        {"field":"end_time","name":"截止时间","dataType":"time"},
+        {"field":"description","name":"事由说明","dataType":"varchar"},
+        {"field":"status","name":"状态","dataType":"varchar"},
+        {"field":"approval_comments","name":"审批意见","dataType":"varchar"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_person"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ],
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_application/formCreate/create",
+                    "location":"modal",
+                    "title":"创建",
+                    "key":"/model/sl_application/formCreate/create",
+                    "width":1200,
+                    "height":640
+            },
+            "input":{},
+            "description":"打开创建对话框" ,
+            "roles":"admin"
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_application/formCreate/edit",
+                    "location":"modal",
+                    "title":"编辑",
+                    "key":"/model/sl_application/formCreate/edit",
+                    "width":1200,
+                    "height":640
+            },
+            "input":{},
+            "description":"打开编辑对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "detail", 
+            "name": "详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_application/formCreate/detail",
+                    "location":"modal",
+                    "title":"详情",
+                    "key":"/model/sl_application/formCreate/detail",
+                    "width":1200,
+                    "height":640
+            },
+            "input":{},
+            "description":"打开信息编辑对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除信息成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/sl_application"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/sl_application"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        },
+        {
+            "id":"submmit",
+            "name":"提交审批",
+            "type":"request",
+            "params":{
+                "url":"/data/update",
+                "method":"post"
+            },
+            "input":{
+                "list":[{"status":"1"}]
+            },
+            "description":"提交审批",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"提交审批成功!",
+                    "duration":"2"
+                },
+                "description":"提示提交审批成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/sl_application"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id": "approval", 
+            "name": "审批",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_application/formApproval/edit",
+                    "location":"modal",
+                    "title":"审批",
+                    "key":"/model/sl_application/formApproval/edit",
+                    "width":1200,
+                    "height":740
+            },
+            "input":{
+                "list":[{"status":"3"}]
+            },
+            "description":"打开审批对话框",
+            "roles":"*"
+        },
+        {
+            "id": "authToKey", 
+            "name": "智能钥匙授权",
+            "type":"message",
+            "params":{
+                "type":"success",
+                "content":"功能开发中!",
+                "duration":"2"
+            },
+            "description":"提示",
+            "roles":"*"
+        }
+    ],
+    "views":[
+        {
+            "viewID": "viewMyDraft", 
+            "name": "待提交的申请", 
+            "description": "待提交的申请",
+            "fields": [
+                {"field":"description","width":250},
+                {"field":"start_date","width":150,"format":"YYYY-MM-DD"},
+                {"field":"end_date","width":150,"format":"YYYY-MM-DD"},
+                {"field":"start_time","width":150},
+                {"field":"end_time","width":150},
+                {
+                    "field":"status",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "options":[
+                        {"value":"0","label":"草稿"},
+                        {"value":"1","label":"审批中"},
+                        {"value":"2","label":"审批通过"},
+                        {"value":"3","label":"审批拒绝"}
+                    ]
+                },
+                {
+                    "field":"approver",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"approval_comments","width":150},
+                {"field":"id","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter":{"create_user":"%{userID}","status":{"Op.in":["0","3"]}},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"新增"
+                        },
+                        {
+                            "operationID": "submmit",
+                            "name":"提交"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":90, 
+                    "buttons": [
+                        {
+                            "operationID": "edit"
+                        },
+                        {
+                            "operationID":"delete"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "viewID": "viewMyApplication", 
+            "name": "我的全部申请", 
+            "description": "我的全部申请",
+            "fields": [
+                {"field":"description","width":250},
+                {"field":"start_date","width":150,"format":"YYYY-MM-DD"},
+                {"field":"end_date","width":150,"format":"YYYY-MM-DD"},
+                {"field":"start_time","width":150},
+                {"field":"end_time","width":150},
+                {
+                    "field":"status",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "options":[
+                        {"value":"0","label":"草稿"},
+                        {"value":"1","label":"审批中"},
+                        {"value":"2","label":"审批通过"},
+                        {"value":"3","label":"审批拒绝"}
+                    ]
+                },
+                {
+                    "field":"approver",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"approval_comments","width":150},
+                {"field":"id","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter":{"create_user":"%{userID}"},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":50, 
+                    "buttons": [
+                        {
+                            "operationID": "detail"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "viewID": "viewForApproval", 
+            "name": "需要我审批的申请", 
+            "description": "需要我审批的申请",
+            "fields": [
+                {"field":"create_user","width":150,"name":"申请人"},
+                {"field":"description","width":250},
+                {"field":"start_date","width":150,"format":"YYYY-MM-DD"},
+                {"field":"end_date","width":150,"format":"YYYY-MM-DD"},
+                {"field":"start_time","width":150},
+                {"field":"end_time","width":150},
+                {
+                    "field":"status",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "options":[
+                        {"value":"0","label":"草稿"},
+                        {"value":"1","label":"审批中"},
+                        {"value":"2","label":"审批通过"},
+                        {"value":"3","label":"审批拒绝"}
+                    ]
+                },
+                {
+                    "field":"approver",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"approval_comments","width":150},
+                {"field":"id","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter":{"approver":"%{userID}","status":"1"},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":90, 
+                    "buttons": [
+                        {
+                            "operationID": "detail"
+                        },
+                        {
+                            "operationID": "approval"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "viewID": "viewApprovalEdByMe", 
+            "name": "我审批的申请", 
+            "description": "我审批的申请",
+            "fields": [
+                {"field":"create_user","width":150,"name":"申请人"},
+                {"field":"description","width":250},
+                {"field":"start_date","width":150,"format":"YYYY-MM-DD"},
+                {"field":"end_date","width":150,"format":"YYYY-MM-DD"},
+                {"field":"start_time","width":150},
+                {"field":"end_time","width":150},
+                {
+                    "field":"status",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "options":[
+                        {"value":"0","label":"草稿"},
+                        {"value":"1","label":"审批中"},
+                        {"value":"2","label":"审批通过"},
+                        {"value":"3","label":"审批拒绝"}
+                    ]
+                },
+                {
+                    "field":"approver",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"approval_comments","width":150},
+                {"field":"id","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter":{"approver":"%{userID}","status":{"Op.in":["2","3"]}},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":50, 
+                    "buttons": [
+                        {
+                            "operationID": "detail"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "viewID": "viewApprovaled", 
+            "name": "审批通过的开锁申请", 
+            "description": "审批通过的开锁申请",
+            "fields": [
+                {"field":"create_user","width":150,"name":"申请人"},
+                {"field":"description","width":250},
+                {"field":"start_date","width":150,"format":"YYYY-MM-DD"},
+                {"field":"end_date","width":150,"format":"YYYY-MM-DD"},
+                {"field":"start_time","width":150},
+                {"field":"end_time","width":150},
+                {
+                    "field":"status",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "options":[
+                        {"value":"0","label":"草稿"},
+                        {"value":"1","label":"审批中"},
+                        {"value":"2","label":"审批通过"},
+                        {"value":"3","label":"审批拒绝"}
+                    ]
+                },
+                {
+                    "field":"approver",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"approval_comments","width":150},
+                {"field":"id","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter":{"status":{"Op.in":["2"]}},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID":"authToKey"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":50, 
+                    "buttons": [
+                        {
+                            "operationID": "detail"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "formCreate",
+            "colCount": 4,
+            "rowCount": 2,
+            "rowHeight": 30,
+            "header":{
+                "label":"新增"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {"field":"id","width":150,"controlType": "Text","row": 1,"col": 1,"colSpan": 2,"rowSpan": 1,"required":false,"disabled":true},
+                {
+                    "field":"create_user",
+                    "width":150,
+                    "label":"申请人",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 1,"col": 3,"colSpan": 1,"rowSpan": 1,
+                    "required":false,
+                    "disabled":true
+                },
+                {"field":"start_date","width":150,"controlType": "DatePicker","row": 2,"col": 1,"colSpan": 1,"rowSpan": 1,"required":true},
+                {"field":"end_date","width":150,"controlType": "DatePicker","row": 2,"col": 2,"colSpan": 1,"rowSpan": 1,"required":true},
+                {"field":"start_time","width":150,"controlType": "TimePicker","row": 2,"col": 3,"colSpan": 1,"rowSpan": 1,"required":true},
+                {"field":"end_time","width":150,"controlType": "TimePicker","row": 2,"col": 4,"colSpan": 1,"rowSpan": 1,"required":true},
+                {
+                    "field":"approver",
+                    "width":150,
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 3,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true
+                },
+                {"field":"description","width":150,"controlType": "TextArea","row": 4,"col": 1,"colSpan": 4,"rowSpan": 1,"required":true},
+                {
+                    "field":"locks",
+                    "width":150,
+                    "controlType": "Transfer",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 5,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true
+                },
+                {
+                    "field":"operators",
+                    "width":150,
+                    "controlType": "Transfer",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 5,"col": 3,"colSpan": 2,"rowSpan": 1,"required":false
+                }
+            ]
+        },
+        {
+            "formID": "formApproval",
+            "colCount": 4,
+            "rowCount": 2,
+            "rowHeight": 30,
+            "header":{
+                "label":"拒绝原因"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {"field":"id","width":150,"controlType": "Text","row": 1,"col": 1,"colSpan": 2,"rowSpan": 1,"required":false,"disabled":true},
+                {
+                    "field":"create_user",
+                    "width":150,
+                    "label":"申请人",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 1,"col": 3,"colSpan": 1,"rowSpan": 1,
+                    "required":false,
+                    "disabled":true
+                },
+                {
+                    "field":"status",
+                    "width":150,
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {"value":"1","label":""},
+                        {"value":"2","label":"审批通过"},
+                        {"value":"3","label":"审批拒绝"}
+                    ],
+                    "row": 2,"col": 1,"colSpan": 1,"rowSpan": 1,"required":true
+                },
+                {"field":"approval_comments","width":150,"controlType": "Text","row": 2,"col": 2,"colSpan": 3,"rowSpan": 1},    
+                {"field":"start_date","width":150,"controlType": "DatePicker","row": 3,"col": 1,"colSpan": 1,"rowSpan": 1,"disabled":true},
+                {"field":"end_date","width":150,"controlType": "DatePicker","row": 3,"col": 2,"colSpan": 1,"rowSpan": 1,"disabled":true},
+                {"field":"start_time","width":150,"controlType": "TimePicker","row": 3,"col": 3,"colSpan": 1,"rowSpan": 1,"disabled":true},
+                {"field":"end_time","width":150,"controlType": "TimePicker","row": 3,"col": 4,"colSpan": 1,"rowSpan": 1,"disabled":true},
+                {
+                    "field":"approver",
+                    "width":150,
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 4,"col": 1,"colSpan": 2,"rowSpan": 1,"disabled":true
+                },
+                {"field":"description","width":150,"controlType": "TextArea","row": 5,"col": 1,"colSpan": 4,"rowSpan": 1,"disabled":true},
+                {
+                    "field":"locks",
+                    "width":150,
+                    "controlType": "Transfer",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 6,"col": 1,"colSpan": 2,"rowSpan": 1,"disabled":true
+                },
+                {
+                    "field":"operators",
+                    "width":150,
+                    "controlType": "Transfer",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 6,"col": 3,"colSpan": 2,"rowSpan": 1,"disabled":true
+                }
+            ]
+        }
+    ]
+}

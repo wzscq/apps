@@ -1,0 +1,220 @@
+{
+    "modelID":"sl_key_authorization",
+    "fields":[
+        {"field":"id","name":"编号","dataType":"bigint"},
+        {"field":"key_controller_id","name":"智能钥匙管理机","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_key_controller"},
+        {"field":"key_id","name":"智能钥匙","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_key"},
+        {"field":"remark","name":"备注","dataType":"varchar"},
+        {"field":"applications","name":"授权开锁申请","fieldType":"many2many","relatedModelID":"sl_application"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ],
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_key_authorization/formCreate/create",
+                    "location":"modal",
+                    "title":"创建",
+                    "key":"/model/sl_key_authorization/formCreate/create",
+                    "width":800,
+                    "height":440
+            },
+            "input":{},
+            "description":"打开创建对话框" ,
+            "roles":"admin"
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_key_authorization/formCreate/edit",
+                    "location":"modal",
+                    "title":"编辑",
+                    "key":"/model/sl_key_authorization/formCreate/edit",
+                    "width":800,
+                    "height":450
+            },
+            "input":{},
+            "description":"打开编辑对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "detail", 
+            "name": "详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_key_authorization/formDetail/detail",
+                    "location":"modal",
+                    "title":"详情",
+                    "key":"/model/sl_key_authorization/formDetail/detail",
+                    "width":800,
+                    "height":450
+            },
+            "input":{},
+            "description":"打开信息编辑对话框",
+            "roles":"admin"
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除信息成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/sl_key_authorization"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/sl_key_authorization"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        }   
+    ],
+    "views":[
+        {
+            "viewID": "viewNormal", 
+            "name": "智能钥匙授权记录", 
+            "description": "智能钥匙授权记录", 
+            "fields": [
+                {"field":"id","width":150},
+                {
+                    "field":"key_controller_id",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"key_id","width":150},
+                {"field":"remark","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":50, 
+                    "buttons": [
+                        {
+                            "operationID": "detail"
+                        }
+                    ]
+                }
+            },
+            "roles":"admin"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "formDetail",
+            "colCount": 4,
+            "rowCount": 2,
+            "rowHeight": 30,
+            "header":{
+                "label":"详情"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {"field":"id","controlType": "Text","row": 1,"col": 1,"colSpan": 2,"rowSpan": 1},
+                {"field":"key_controller_id","controlType": "Text","row": 2,"col": 1,"colSpan": 2,"rowSpan": 1},
+                {"field":"key_id","controlType": "Text","row": 2,"col": 3,"colSpan": 1,"rowSpan": 1},
+                {"field":"remark","controlType": "TextArea","row": 3,"col": 1,"colSpan": 4,"rowSpan": 1},
+                {
+                    "field":"applications",
+                    "controlType": "EditTable",
+                    "controls":[
+                        {"field":"id","controlType":"Text","width":150},
+                        {"field":"id","controlType":"Text","width":150},
+                        {"field":"approver","controlType":"Text","width":150},
+                        {"field":"start_date","controlType":"Text","width":150},
+                        {"field":"end_date","controlType":"Text","width":150},
+                        {"field":"start_time","controlType":"Text","width":150},
+                        {"field":"end_time","controlType":"Text","width":150},
+                        {"field":"description","controlType":"Text","width":150},
+                        {"field":"status","controlType":"Text","width":150}
+                    ],
+                    "row": 4,"col": 1,"colSpan": 4,"rowSpan": 1
+                }
+            ]
+        }
+    ]
+}
