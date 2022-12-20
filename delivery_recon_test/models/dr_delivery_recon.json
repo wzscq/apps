@@ -33,7 +33,7 @@
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
         {"field":"update_user","name":"记录更新人","dataType":"varchar"},
         {"field":"version","name":"数据版本号","dataType":"int"},
-        {"field":"customer_material_number","name":"内部客户物料号","dataType":"varchar"},
+        {"field":"customer_material_number","name":"内部客户物料号","dataType":"varchar","quickSearch":true},
         {"field":"set_material","name":"是否套件","dataType":"int"}
     ],
     "datasets":[
@@ -133,7 +133,7 @@
             },
             "input":{
                 "to":"processingFlow",
-                "FlowID":"delivery_billing_recon"
+                "FlowID":"delivery_billing_recon_v2"
             },
             "description":"提交客户对账单匹配处理",
             "successOperation":{
