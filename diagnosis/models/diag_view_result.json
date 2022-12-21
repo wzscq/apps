@@ -1,0 +1,392 @@
+{
+    "modelID": "diag_view_result", 
+    "fields": [
+        {
+            "field": "id", 
+            "name": "ID", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "vehicle_management_code", 
+            "name": "车辆管理码", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },  
+        {
+            "field": "vin",
+            "name": "车辆识别码", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "project_num",
+            "name": "项目号", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "specifications",
+            "name": "试验规范", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "device_number",
+            "name": "设备号", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "time",
+            "name": "采集时间", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "dtc",
+            "name": "DTC", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "type",
+            "name": "故障类型", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "raw_data",
+            "name": "原始数据路径", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "diag_report",
+            "name": "报告ID", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "status",
+            "name": "状态", 
+            "dataType": "varchar",
+            "quickSearch":true
+        }, 
+        {
+            "field": "remark", 
+            "name": "备注", 
+            "dataType": "varchar",
+            "quickSearch":true
+        },
+        {
+            "field": "create_time", 
+            "name": "创建时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "create_user", 
+            "name": "创建人", 
+            "dataType": "varchar"
+        }, 
+        {
+            "field": "update_time", 
+            "name": "更新时间", 
+            "dataType": "datetime"
+        }, 
+        {
+            "field": "update_user", 
+            "name": "更新人", 
+            "dataType": "varchar"
+        },  
+        {
+            "field": "version", 
+            "name": "数据版本", 
+            "dataType": "int"
+        }
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/diag_view_result/form1/create",
+                    "location":"modal",
+                    "title":"新建诊断结果",
+                    "key":"/model/diag_view_result/form1/create",
+                    "width":600,
+                    "height":350
+            },
+            "input":{},
+            "description":"打开新建诊断结果对话框" ,
+            "roles":"*"
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/diag_view_result/form1/edit",
+                    "location":"modal",
+                    "title":"编辑诊断结果",
+                    "key":"/model/diag_view_result/form1/edit",
+                    "width":600,
+                    "height":350
+            },
+            "input":{},
+            "description":"打开诊断结果信息编辑对话框",
+            "roles":"*"
+        }, 
+        {
+            "id": "detail", 
+            "name": "查看详情",
+            "type":"open",
+            "params":{
+                    "url1":"/diag_report",
+                    "url":"http://localhost:9005/",
+                    "location":"modal",
+                    "title":"诊断结果详情",
+                    "key":"/model/diag_view_result/diag_report",
+                    "width":1500,
+                    "height":600
+            },
+            "input":{},
+            "description":"打开诊断结果编辑对话框",
+            "roles":"*"
+        }, 
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除信息成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/diag_view_result"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/diag_view_result"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "view1", 
+            "name": "诊断结果数据库", 
+            "description": "查看诊断结果信息", 
+            "fields": [
+                {
+                    "field": "id", 
+                    "width": 100
+                }, 
+                {
+                    "field": "vehicle_management_code", 
+                    "width": 200
+                },  
+                {
+                    "field": "vin",
+                    "width": 200
+                },
+                {
+                    "field": "project_num",
+                    "width": 200
+                },
+                {
+                    "field": "specifications",
+                    "width": 200
+                },
+                {
+                    "field": "device_number",
+                    "width": 200
+                },
+                {
+                    "field": "time",
+                    "width": 150
+                },
+                {
+                    "field": "dtc",
+                    "width": 100
+                },
+                {
+                    "field": "type",
+                    "width": 100
+                },
+                {
+                    "field": "diag_report",
+                    "width": 300
+                },
+                {
+                    "field": "status",
+                    "width": 100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"Open"
+                        },
+                        {
+                            "value":"1",
+                            "label":"Closed"
+                        }
+                    ]
+                },      
+                {
+                    "field": "remark", 
+                    "width": 200
+                }, 
+                {
+                    "field": "update_time", 
+                    "width": 150
+                }, 
+                {
+                    "field": "update_user", 
+                    "width": 150
+                }, 
+                {
+                    "field": "version", 
+                    "width": 100
+                }
+            ], 
+            "filter": { }, 
+            "sorter":[
+                {"field":"id","order":"desc"}
+            ],
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": []
+                }, 
+                "rowToolbar": {
+                    "showCount": 2,
+                    "width":120, 
+                    "buttons": [
+                        {
+                            "operationID": "detail",
+                            "name":"查看报告"
+                        },
+                        {
+                            "operationID": "edit",
+                            "name":"关闭"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"关闭问题"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "label": "ID",
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },    
+                {
+                    "field": "status",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"Open"
+                        },
+                        {
+                            "value":"1",
+                            "label":"Closed"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },    
+                {
+                    "controlType": "TextArea",
+                    "row": 3,
+                    "col": 1,
+                    "field": "remark", 
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
+            ]
+        }
+    ]
+}
