@@ -33,6 +33,24 @@
         "children":[
             {
                 "id":"1",
+                "name":"诊断智能综合分析",
+                "description":"诊断智能综合分析",
+                "icon":"BranchesOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/diag_view_result",
+                        "location":"tab",
+                        "title":"诊断智能综合分析",
+                        "key":"/model/diag_view_result"
+                    },
+                    "input":{},
+                    "description":"打开诊断智能分析"
+                },
+                "roles":["admin","operator"]
+            },
+            {
+                "id":"2",
                 "name":"诊断智能分析",
                 "description":"数据下载与报告查询",
                 "icon":"BranchesOutlined",
@@ -50,7 +68,7 @@
                 "roles":["admin","operator"]
             },
             {
-                "id":"2",
+                "id":"3",
                 "name":"场景信号分析",
                 "description":"场景信号分析",
                 "icon":"CloudServerOutlined",

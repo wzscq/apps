@@ -551,7 +551,10 @@
                             "options":[
                                 {"value":"=","label":"="},
                                 {"value":">","label":">"},
-                                {"value":"<","label":"<"}
+                                {"value":"<","label":"<"},
+                                {"value":">=","label":">="},
+                                {"value":"<=","label":"<="},
+                                {"value":"!=","label":"!="}
                             ],
                             "width":140
                         },
