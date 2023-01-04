@@ -1,0 +1,11 @@
+[
+    {"field":"id"},
+    {
+        "field":"cs_teams",
+        "fieldType":"many2many",
+        "relatedModelID":"dr_cs_team",
+        "fields":[
+            {"field":"id"}
+        ]
+    }
+]

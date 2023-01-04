@@ -1,0 +1,84 @@
+{
+  "viewID": "view_processing", 
+  "name": "待处理 OpenBilling", 
+  "description": "OpenBilling for Processing", 
+  "fields":[
+      {"field":"sold_to_party","width":150},
+      {"field":"po_number","width":150},
+      {"field":"sales_document","width":150},
+      {"field":"material","width":150},
+      {"field":"customer_material_number","width":150},
+      {"field":"quantity","width":150,"summarize":"sum(quantity)"},
+      {"field":"price","width":150},
+      {"field":"amount","width":150},
+      {"field":"billing_date","width":150},
+      {"field":"currency","width":150},
+      {"field":"cost","width":150},
+      {"field":"sales_organization","width":150},
+      {"field":"distribution_channel","width":150},
+      {
+          "field":"validation_processing_status",
+          "width":150,
+          "filterControlType": "SingleSelect",
+          "options":[
+              {
+                  "value":"0",
+                  "label":"未处理"
+              },
+              {
+                  "value":"1",
+                  "label":"处理成功"
+              },
+              {
+                  "value":"2",
+                  "label":"校验失败"
+              },
+              {
+                  "value":"3",
+                  "label":"手工关闭"
+              }
+          ]
+      },
+      {"field":"validation_error_message","width":300},
+      {"field":"processing_batch_number","width":200},
+      {"field":"import_file_name","width":250},
+      {"field":"import_batch_number","width":200},
+      {"field":"create_time","width":150},
+      {"field":"create_user","width":150},
+      {"field":"update_time","width":150},
+      {"field":"update_user","width":150},
+      {"field":"id","width":200},
+      {"field":"version","width":150}
+  ],
+  "filter": {"validation_processing_status":{"Op.in":[0,2]} }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+              {
+                  "operationID":"doProcessing",
+                  "name":"预处理"
+              },
+              {
+                  "operationID": "openESIForm",
+                  "name":"导入OpenBilling"
+              },
+              {
+                  "operationID":"closeManually",
+                  "name":"关闭",
+                  "prompt":"确认要关闭当前选中的Billing记录？"
+              }
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+              {
+                  "operationID": "detail",
+                  "name":"详情"
+              }
+          ]
+      }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id":"open_manually",
+  "name":"恢复为待对账",
+  "type":"request",
+  "params":{
+      "url":"/data/update",
+      "method":"post"
+  },
+  "input":{
+      "list":[{"validation_processing_status":"0"}]
+  },
+  "description":"恢复Billing",
+  "successOperation":{
+      "type":"message",
+      "params":{
+          "type":"success",
+          "content":"已恢复为待对账!",
+          "duration":"2"
+      },
+      "description":"提示恢复Billing操作成功",
+      "successOperation":{
+          "type":"reloadFrameData",
+          "params":{
+              "location":"tab",
+              "key":"/model/dr_billing_test"
+          },
+          "description":"刷新页面数据"
+      }
+  }
+}

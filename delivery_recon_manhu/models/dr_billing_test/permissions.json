@@ -1,0 +1,50 @@
+{
+  "operations": [
+    {
+        "id": "detail", 
+        "roles":"*"
+    },
+    {
+        "id": "open_esi_form", 
+        "roles":"*"
+    },
+    {
+        "id":"esi_import",
+        "roles":"*"
+    },
+    {
+        "id":"close_manually",
+        "roles":"*"
+    },
+    {
+        "id":"open_manually",
+        "roles":"*"
+    },
+    {
+        "id":"do_processing",
+        "roles":"*"
+    },
+    {
+        "id":"esi_control_import",
+        "roles":"*"
+    }
+  ],
+  "views":[
+    {
+        "id": "view_processing", 
+        "roles":"*"
+    },
+    {
+        "id": "view_processed", 
+        "roles":"*"
+    },
+    {
+        "id": "view_closed", 
+        "roles":"*"
+    },
+    {
+        "id": "view_all", 
+        "roles":"*"
+    }
+  ]
+}

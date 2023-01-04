@@ -1,0 +1,31 @@
+{
+  "id":"esi_import",
+  "name":"导入OpenBilling",
+  "type":"request",
+  "params":{
+      "url":"/redirect",
+      "method":"post"
+  },
+  "input":{
+      "to":"processingFlow",
+      "flowID":"import_billing"
+  },
+  "description":"导入OpenBilling",
+  "successOperation":{
+      "type":"close",
+      "params":{
+          "location":"modal"
+      },
+      "input":{
+      },
+      "description":"关闭对话框",
+      "successOperation":{
+          "type":"reloadFrameData",
+          "params":{
+              "location":"tab",
+              "key":"/model/dr_billing_test"
+          },
+          "description":"刷新页面数据"
+      }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "formID": "form_detail",
+  "colCount": 4,
+  "rowCount": 26,
+  "rowHeight": 30,
+  "header":{
+      "label":"OpenBilling Deatail"
+  },
+  "footer":{
+      "operations":[
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                  "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"                            
+          }
+      ]
+  },
+  "controls": [
+      {"field":"id","controlType": "Text","row": 1,"col": 1,"colSpan": 1,"rowSpan": 1}
+      
+  ]
+}

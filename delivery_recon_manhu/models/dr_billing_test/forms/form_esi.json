@@ -1,0 +1,41 @@
+{
+  "formID": "form_esi",
+  "colCount": 3,
+  "rowCount": 26,
+  "rowHeight": 30,
+  "header":{
+      "label":"对账OpenBilling"
+  },
+  "footer":{
+      "operations":[
+          {
+              "operationID":"esiImport",
+              "name":"确定导入"
+          },
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                  "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"
+          }
+      ]
+  },
+  "controls": [
+      {
+          "field": "esiFile", 
+          "fieldType":"file",
+          "controlType": "File",
+          "label":"导入文件",
+          "maxCount":1,
+          "accept":".xlsx,.xlsx",
+          "row": 1,
+          "col": 1,
+          "colSpan": 1,
+          "rowSpan": 1
+      }
+  ]
+}

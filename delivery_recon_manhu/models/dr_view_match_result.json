@@ -1,0 +1,19 @@
+{
+  "modelID":"dr_view_match_result",
+  "fields":[
+    {"field":"id","name":"ID","dataType":"varchar"},
+    {"field":"customer_id","name":"客户代码","dataType":"varchar"},
+    {"field":"match_result","name":"匹配结果","dataType":"int"},
+    {"field":"delivery_value","name":"对账单数值","dataType":"decimal"},
+    {"field":"billing_value","name":"Billing数值","dataType":"decimal"},
+    {"field":"value_type","name":"数据类型","dataType":"int"}
+  ],
+  "datasets":[
+    {
+        "id":"DEFAULT",
+        "fields":"*",
+        "queryRoles":"*",
+        "mutationRoles":"*"
+    }
+  ]
+}

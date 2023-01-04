@@ -1,0 +1,23 @@
+{
+  "id":"do_processing",
+  "name":"Process",
+  "type":"request",
+  "params":{
+      "url":"/redirect",
+      "method":"post"
+  },
+  "input":{
+      "to":"processingFlow",
+      "flowID":"billing_process"
+  },
+  "description":"提交Billing预处理",
+  "successOperation":{
+      "type":"reloadFrameData",
+      "params":{
+          "location":"tab",
+          "key":"/model/dr_billing_test"
+      },
+      "description":"刷新页面数据"
+  },
+  "roles":"*"
+}

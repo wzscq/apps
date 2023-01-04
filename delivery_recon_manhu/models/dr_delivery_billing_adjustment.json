@@ -1,0 +1,115 @@
+{
+    "modelID":"dr_delivery_billing_adjustment",
+    "fields":[
+        {"field":"id","name":"ID","dataType":"varchar"},
+        {"field":"sales_organization","name":"Sales Organization","dataType":"varchar"},
+        {"field":"sold_to_party","name":"Sold-To Party","dataType":"varchar"},
+        {"field":"ship_to_party","name":"Ship-To Party","dataType":"varchar"},
+        {"field":"customer_material_number","name":"Customer Material Number","dataType":"varchar"},
+        {"field":"sales_document_type","name":"Sales Document Type","dataType":"varchar"},
+        {"field":"material","name":"Material","dataType":"varchar"},
+        {"field":"material_description","name":"Material Description","dataType":"varchar"},
+        {"field":"price","name":"单价","dataType":"decimal"},
+        {"field":"quantity","name":"数量","dataType":"decimal"},
+        {"field":"amount","name":"金额","dataType":"decimal"},
+        {"field":"reason_code","name":"调差原因","dataType":"varchar"},
+        {"field":"match_group","name":"比对分组号","dataType":"varchar"},
+        {"field":"adjust_by","name":"调差方式","dataType":"int"},
+        {"field":"recon_status","name":"核销状态","dataType":"int"},
+        {"field":"source_type","name":"数据来源","dataType":"int"},
+        {"field":"source_id","name":"来源数据ID","dataType":"varchar"},
+        {"field":"original_id","name":"原始数据ID","dataType":"varchar"},
+        {"field":"recon_amount","name":"已核销金额","dataType":"decimal"},
+        {"field":"recon_quantity","name":"已核销数量","dataType":"decimal"},
+        {"field":"amount_balance","name":"核销后剩余金额","dataType":"decimal"},
+        {"field":"quantity_balance","name":"核销后剩余数量","dataType":"decimal"},
+        {"field":"processing_batch_number","name":"处理批次号","dataType":"varchar"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ],
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "views":[
+        {
+            "viewID":"all",
+            "name":"全部调整记录",
+            "description": "全部对账调整记录",
+            "fields":[
+                {"field":"id","width":150},
+                {"field":"sales_organization","width":150},
+                {"field":"sold_to_party","width":150},
+                {"field":"ship_to_party","width":150},
+                {"field":"customer_material_number","width":150},
+                {"field":"sales_document_type","width":150},
+                {"field":"material","width":150},
+                {"field":"material_description","width":150},
+                {"field":"price","width":150},
+                {"field":"quantity","width":150},
+                {"field":"amount","width":150},
+                {"field":"reason_code","width":150},
+                {"field":"match_group","width":150},
+                {
+                    "field":"adjust_by",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"人工调差"
+                        },
+                        {
+                            "value":"1",
+                            "label":"系统自动调差"
+                        }
+                    ]
+                },
+                {"field":"recon_status","width":150},
+                {
+                    "field":"source_type",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"原始数据导入"
+                        },
+                        {
+                            "value":"1",
+                            "label":"核销余额"
+                        },
+                        {
+                            "value":"2",
+                            "label":"撤销反冲"
+                        },
+                        {
+                            "value":"3",
+                            "label":"调差产生"
+                        }
+                    ]
+                },
+                {"field":"source_id","width":150},
+                {"field":"original_id","width":150},
+                {"field":"recon_amount","width":150},
+                {"field":"recon_quantity","width":150},
+                {"field":"amount_balance","width":150},
+                {"field":"quantity_balance","width":150},
+                {"field":"processing_batch_number","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "roles":"*"
+        }
+    ]
+}

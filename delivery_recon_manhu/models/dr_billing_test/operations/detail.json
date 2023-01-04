@@ -1,0 +1,15 @@
+{
+  "id": "detail", 
+  "name": "查看详情",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/dr_billing_test/form_detail/detail",
+          "location":"modal",
+          "title":"OpenBilling Detail",
+          "key":"/model/dr_billing_test/form_detail/edit",
+          "width":800,
+          "height":550
+  },
+  "input":{},
+  "description":"打开OpenBilling Detail对话框"
+}

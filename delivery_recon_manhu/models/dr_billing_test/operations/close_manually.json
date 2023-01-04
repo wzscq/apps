@@ -1,0 +1,30 @@
+{
+  "id":"close_manually",
+  "name":"关闭",
+  "type":"request",
+  "params":{
+      "url":"/data/update",
+      "method":"post"
+  },
+  "input":{
+      "list":[{"validation_processing_status":"3"}]
+  },
+  "description":"手工关闭Billing",
+  "successOperation":{
+      "type":"message",
+      "params":{
+          "type":"success",
+          "content":"已关闭!",
+          "duration":"2"
+      },
+      "description":"提示关闭对Billing操作成功",
+      "successOperation":{
+          "type":"reloadFrameData",
+          "params":{
+              "location":"tab",
+              "key":"/model/dr_billing_test"
+          },
+          "description":"刷新页面数据"
+      }
+  }
+}

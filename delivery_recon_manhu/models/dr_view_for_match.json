@@ -1,0 +1,22 @@
+{
+  "modelID":"dr_view_for_match",
+  "fields":[
+    {"field":"id","name":"客户代码","dataType":"varchar"},
+    {"field":"delivery_quantity_processing","name":"待处理对账单数量","dataType":"decimal"},
+    {"field":"delivery_amount_processing","name":"待处理对账单金额","dataType":"decimal"},
+    {"field":"billing_quantity_processing","name":"待处理Billing数量","dataType":"decimal"},
+    {"field":"billing_amount_processing","name":"待处理Billing金额","dataType":"decimal"},
+    {"field":"delivery_amount_match","name":"待匹配对账单数量","dataType":"decimal"},
+    {"field":"delivery_quantity_match","name":"待匹配对账单金额","dataType":"decimal"},
+    {"field":"billing_quantity_match","name":"待匹配Billing数量","dataType":"decimal"},
+    {"field":"billing_amount_match","name":"待匹配Billing金额","dataType":"decimal"}
+  ],
+  "datasets":[
+    {
+        "id":"DEFAULT",
+        "fields":"*",
+        "queryRoles":"*",
+        "mutationRoles":"*"
+    }
+  ]
+}

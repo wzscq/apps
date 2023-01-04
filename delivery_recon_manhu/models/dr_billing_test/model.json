@@ -1,0 +1,29 @@
+{
+  "modelID":"dr_billing_test",
+  "fields":[
+      {"field":"id","name":"ID","dataType":"varchar"},
+      {"field":"sold_to_party","name":"Cust.","dataType":"varchar"},
+      {"field":"po_number","name":"PO Number","dataType":"varchar"},
+      {"field":"sales_document","name":"Sales document","dataType":"varchar"},
+      {"field":"material","name":"Material","dataType":"varchar"},
+      {"field":"customer_material_number","name":"Customer material","dataType":"varchar"},
+      {"field":"quantity","name":"Deliv. qty.","dataType":"decimal"},
+      {"field":"price","name":"Unit price","dataType":"decimal"},
+      {"field":"amount","name":"Total price","dataType":"decimal"},
+      {"field":"billing_date","name":"Act. Gds Mvmnt Date","dataType":"varchar"},
+      {"field":"currency","name":"Currency","dataType":"varchar"},
+      {"field":"cost","name":"Costs","dataType":"decimal"},
+      {"field":"sales_organization","name":"Sales Organization","dataType":"varchar"},
+      {"field":"distribution_channel","name":"Distribution channel","dataType":"varchar"},
+      {"field":"import_file_name","name":"导入文件名","dataType":"varchar"},
+      {"field":"import_batch_number","name":"导入批次号","dataType":"varchar"},
+      {"field":"validation_processing_status","name":"校验处理状态","dataType":"int"},
+      {"field":"validation_error_message","name":"校验错误信息","dataType":"varchar"},
+      {"field":"processing_batch_number","name":"处理批次号","dataType":"varchar"},
+      {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+      {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+      {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+      {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+      {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

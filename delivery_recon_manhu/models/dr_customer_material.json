@@ -1,0 +1,249 @@
+{
+    "modelID": "dr_customer_material", 
+    "fields": [
+        {"field":"id","name":"主键","dataType":"varchar"},
+        {"field":"customer_id","name":"客户代码","dataType":"varchar","fieldType":"many2one","relatedModelID":"dr_customer","quickSearch":true},
+        {"field":"customer_material_number","name":"客户物料编码","dataType":"varchar","quickSearch":true},
+        {"field":"cs_team_id","name":"CS团队","dataType":"varchar","fieldType":"many2one","relatedModelID":"dr_cs_team","quickSearch":true},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "创建",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/dr_customer_material/form1/create",
+                    "location":"modal",
+                    "title":"创建客户物料信息",
+                    "key":"/model/dr_customer_material/form1/create",
+                    "width":600,
+                    "height":300
+            },
+            "input":{},
+            "description":"打开创建客户物料信息对话框" ,
+            "roles":"admin"
+        }, 
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/dr_customer_material/form1/edit",
+                    "location":"modal",
+                    "title":"编辑客户物料信息",
+                    "key":"/model/dr_customer_material/form1/edit",
+                    "width":600,
+                    "height":300
+            },
+            "input":{},
+            "description":"打开编辑客户物料信息对话框",
+            "roles":"admin"
+        },  
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/dr_customer_material"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/dr_customer_material"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
+        }
+    ],
+    "views": [
+        {
+            "viewID": "viewNormal", 
+            "name": "客户物料信息维护", 
+            "description": "客户物料信息维护", 
+            "fields": [
+                {"field":"id","width":150},
+                {
+                    "field":"customer_id",
+                    "width":250,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"return '('+record.id+')'+record.name;",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"customer_material_number","width":150},
+                {
+                    "field":"cs_team_id",
+                    "width":150,
+                    "filterControlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ], 
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"创建客户物料"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 2,
+                    "width":80, 
+                    "buttons": [
+                        {
+                            "operationID": "edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID": "delete",
+                            "name":"删除"
+                        }
+                    ]
+                }
+            },
+            "roles":"admin"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 2,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建客户物料"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "field": "id", 
+                    "label": "ID",
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return '('+record.id+')'+record.name;",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "field": "customer_id", 
+                    "colSpan": 2,
+                    "rowSpan": 1
+                },
+                {
+                    "controlType": "Text",
+                    "row": 2,
+                    "col": 3,
+                    "field": "customer_material_number", 
+                    "colSpan": 2,
+                    "rowSpan": 1
+                },
+                {
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "field": "cs_team_id", 
+                    "colSpan": 2,
+                    "rowSpan": 1
+                }
+            ]
+        }
+    ]
+}

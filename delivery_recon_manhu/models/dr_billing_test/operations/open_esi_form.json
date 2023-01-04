@@ -1,0 +1,15 @@
+{
+  "id": "open_esi_form", 
+  "name": "导入OpenBilling",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/dr_billing_test/form_esi/create",
+          "location":"modal",
+          "title":"导入OpenBilling",
+          "key":"/model/dr_billing_test/form_esi/create",
+          "width":600,
+          "height":250
+  },
+  "input":{},
+  "description":"打开导入OpenBilling对话框"
+}

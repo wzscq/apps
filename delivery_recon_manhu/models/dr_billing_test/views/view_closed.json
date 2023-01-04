@@ -1,0 +1,64 @@
+{
+  "viewID": "view_closed", 
+  "name": "关闭的 OpenBilling", 
+  "description": "Closed OpenBilling", 
+  "fields":[
+      {"field":"sold_to_party","width":150},
+      {"field":"po_number","width":150},
+      {"field":"sales_document","width":150},
+      {"field":"material","width":150},
+      {"field":"customer_material_number","width":150},
+      {"field":"quantity","width":150,"summarize":"sum(quantity)"},
+      {"field":"price","width":150},
+      {"field":"amount","width":150},
+      {"field":"billing_date","width":150},
+      {"field":"currency","width":150},
+      {"field":"cost","width":150},
+      {"field":"sales_organization","width":150},
+      {"field":"distribution_channel","width":150},                
+      {
+          "field":"validation_processing_status",
+          "width":150,
+          "filterControlType": "SingleSelect",
+          "options":[
+              {
+                  "value":"3",
+                  "label":"手工关闭"
+              }
+          ]
+      },
+      {"field":"validation_error_message","width":300},
+      {"field":"processing_batch_number","width":200},
+      {"field":"import_file_name","width":250},
+      {"field":"import_batch_number","width":200},
+      {"field":"create_time","width":150},
+      {"field":"create_user","width":150},
+      {"field":"update_time","width":150},
+      {"field":"update_user","width":150},
+      {"field":"id","width":200},
+      {"field":"version","width":150}
+  ],
+  "filter": {"validation_processing_status":3 },
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+              {
+                  "operationID":"openManually",
+                  "name":"待对账",
+                  "prompt":"确认要将当前选中的Billing改为待对账状态?"
+              }
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+              {
+                  "operationID": "detail",
+                  "name":"详情"
+              }
+          ]
+      }
+  }
+}
