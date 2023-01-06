@@ -49,7 +49,7 @@
                   }
                 }]
           },
-          "query":"select if(match_status=0,'To be reconciled','Reconciled') as match_status,sum(abs(quantity)) as quantity from dr_delivery_recon group by match_status",
+          "query":"select if(match_status=0,'To be reconciled','Reconciled') as match_status,sum(abs(quantity)) as quantity from delivery_recon_manhu.dr_delivery_recon group by match_status",
           "row": 1,
           "col": 1,
           "colSpan": 1,
@@ -97,7 +97,7 @@
                   "startAngle":60
                 }]
           },
-          "query":"select period,count(1) as billing_count from dr_billing_recon where match_group in (select match_group from dr_delivery_recon) group by period",
+          "query":"select period,count(1) as billing_count from delivery_recon_manhu.dr_billing_recon where match_group in (select match_group from delivery_recon_manhu.dr_delivery_recon) group by period",
           "row": 1,
           "col": 2,
           "colSpan": 1,
@@ -170,7 +170,7 @@
                     "barMaxWidth":40
                     }]
             },
-            "query":"select period,sum(if(match_status=0,abs(quantity),0)) as quantity0,sum(if(match_status=1,abs(quantity),0)) as quantity1 from dr_delivery_recon GROUP BY period",
+            "query":"select period,sum(if(match_status=0,abs(quantity),0)) as quantity0,sum(if(match_status=1,abs(quantity),0)) as quantity1 from delivery_recon_manhu.dr_delivery_recon GROUP BY period",
             "row": 1,
             "col": 3,
             "colSpan": 2,
@@ -252,7 +252,7 @@
                     "stack":"amount"
                   }]
           },
-          "query":"select customer_id,sum(if(match_status=0,abs(quantity),0)) as quantity0,sum(if(match_status=1,abs(quantity),0)) as quantity1,sum(if(match_status=0,abs(amount),0)) as amount0,sum(if(match_status=1,abs(amount),0)) as amount1 from dr_delivery_recon group by customer_id",
+          "query":"select customer_id,sum(if(match_status=0,abs(quantity),0)) as quantity0,sum(if(match_status=1,abs(quantity),0)) as quantity1,sum(if(match_status=0,abs(amount),0)) as amount0,sum(if(match_status=1,abs(amount),0)) as amount1 from delivery_recon_manhu.dr_delivery_recon group by customer_id",
           "row": 2,
           "col": 1,
           "colSpan": 4,
