@@ -1,5 +1,27 @@
 [
     {
+        "id":"0",
+        "name":{
+            "default":"控制台",
+            "zh_CN":"控制台",
+            "en_US":"控制台"
+        },
+        "description":"Dashboard",
+        "icon":"BarChartOutlined",
+        "operation":{
+            "type":"open",
+            "params":{
+                "url":"/report/#/dashboard",
+                "location":"tab",
+                "title":"控制台",
+                "key":"/report/dashboard"
+            },
+            "input":{},
+            "description":"打开dashboard"
+        },
+        "roles":"*"
+    },
+    {
         "id":"1",
         "name":"人员管理",
         "description":"人员管理",

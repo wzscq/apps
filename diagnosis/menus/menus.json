@@ -145,7 +145,7 @@
                     "input":{},
                     "description":"打开诊断执行参数配置页面"
                 },
-                "roles":["admin"]
+                "roles":["admin","operator"]
             },
             {
                 "id":"4",
@@ -163,7 +163,7 @@
                     "input":{},
                     "description":"打开场景信号配置页面"
                 },
-                "roles":["admin"]
+                "roles":["admin","operator"]
             },
             {
                 "id":"5",
@@ -181,7 +181,7 @@
                     "input":{},
                     "description":"打开场景下发记录页面"
                 },
-                "roles":["admin"]
+                "roles":["admin","operator"]
             },
             {
                 "id":"6",
@@ -199,7 +199,7 @@
                     "input":{},
                     "description":"打开信号下发记录页面"
                 },
-                "roles":["admin"]
+                "roles":["admin","operator"]
             }
         ]
     },

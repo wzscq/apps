@@ -111,7 +111,7 @@
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":"*"
         }
     ], 
     "views": [

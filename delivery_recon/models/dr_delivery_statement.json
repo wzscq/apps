@@ -101,6 +101,49 @@
             "roles":"*"
         },
         {
+            "id":"controlESIImport",
+            "name":"导入对账单",
+            "type":"request",
+            "params":{
+                "url":"/esi/import",
+                "method":"post"
+            },
+            "input":{
+                "specific":""
+            },
+            "description":"导入对账单",
+            "successOperation":{
+                "type":"request",
+                "params":{
+                    "url":"/redirect",
+                    "method":"post"
+                },
+                "input":{
+                    "to":"processingFlow",
+                    "FlowID":"dr_delivery_statement_preprocessing_for_chery"
+                },
+                "description":"提交客户对账单预处理",
+                "successOperation":{
+                    "type":"close",
+                    "params":{
+                        "location":"modal"
+                    },
+                    "input":{
+                    },
+                    "description":"关闭对话框",
+                    "successOperation":{
+                        "type":"reloadFrameData",
+                        "params":{
+                            "location":"tab",
+                            "key":"/delivery_recon/dr_console"
+                        },
+                        "description":"刷新页面数据"
+                    }
+                }
+            },
+            "roles":"*"
+        },
+        {
             "id":"closeManually",
             "name":"关闭",
             "type":"request",
@@ -604,6 +647,64 @@
                 "operations":[
                     {
                         "operationID":"esiImport",
+                        "name":"确定导入"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "customer_id", 
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {
+                            "field": "id"
+                        },
+                        {
+                            "field": "name"
+                        }
+                    ],
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 3,
+                    "rowSpan": 1
+                },
+                {
+                    "field": "esiFile", 
+                    "fieldType":"file",
+                    "controlType": "File",
+                    "label":"导入文件",
+                    "maxCount":1,
+                    "accept":".xlsx,.xlsx",
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                }
+            ]
+        },
+        {
+            "formID": "formControlImportFlow",
+            "colCount": 3,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"对账单导入"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"controlESIImport",
                         "name":"确定导入"
                     },
                     {

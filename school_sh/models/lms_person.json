@@ -11,6 +11,7 @@
         {"field":"study_type","name":"就读类型","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_study_type","quickSearch":true},
         {"field":"enrollment_type","name":"入校类型","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_enrollment_type","quickSearch":true},
         {"field":"home_address","name":"家庭住址","dataType":"varchar"},
+        {"field":"login_account","name":"登录账号","dataType":"varchar","quickSearch":true},
         {"field":"import_file_name","name":"导入文件名称","dataType":"varchar"},
         {"field":"import_batch_number","name":"导入批次","dataType":"varchar"},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
@@ -38,7 +39,7 @@
                     "title":"新增人员信息",
                     "key":"/model/lms_person/form1/create",
                     "width":800,
-                    "height":340
+                    "height":360
             },
             "input":{},
             "description":"打开新增人员对话框",
@@ -54,7 +55,7 @@
                     "title":"编辑人员信息",
                     "key":"/model/lms_person/form1/edit",
                     "width":800,
-                    "height":340
+                    "height":360
             },
             "input":{},
             "description":"打开人员编辑对话框",
@@ -70,7 +71,7 @@
                     "title":"人员信息详情",
                     "key":"/model/lms_person/form1/detail",
                     "width":800,
-                    "height":340
+                    "height":360
             },
             "input":{},
             "description":"打开人员详情对话框",
@@ -208,13 +209,14 @@
                 {"field":"study_type","width":150},
                 {"field":"enrollment_type","width":150},
                 {"field":"home_address","width":150},
+                {"field":"login_account","width":150},
                 {"field":"create_time","width":150},
                 {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},
                 {"field":"version","width":150}
             ],
-            "filter": {"sn":"%{userID}"}, 
+            "filter": {"login_account":"%{userID}"}, 
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 
@@ -267,6 +269,7 @@
                 {"field":"study_type","width":150},
                 {"field":"enrollment_type","width":150},
                 {"field":"home_address","width":150},
+                {"field":"login_account","width":150},
                 {"field":"create_time","width":150},
                 {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
@@ -455,11 +458,20 @@
                     "required":false
                 },
                 {
-                    "field":"home_address",
+                    "field":"login_account",
                     "controlType": "Text",
                     "row": 3,
                     "col": 2,
-                    "colSpan": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"home_address",
+                    "controlType": "Text",
+                    "row": 4,
+                    "col": 1,
+                    "colSpan": 4,
                     "rowSpan": 1,
                     "required":false
                 }

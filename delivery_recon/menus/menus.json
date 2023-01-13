@@ -22,7 +22,7 @@
         "roles":"*"
     },
     {
-        "id":"1",
+        "id":"12",
         "name":{
             "default":"控制台",
             "zh_CN":"控制台",
@@ -42,11 +42,11 @@
             "input":{},
             "description":"打开控制台"
         },
-        "roles":"*"
+        "roles":""
     },
     {
-        "id":"12",
-        "name":"控制台V2",
+        "id":"1",
+        "name":"控制台",
         "description":"Dashboard",
         "icon":"DesktopOutlined",
         "operation":{
@@ -55,7 +55,7 @@
                 "url":"http://localhost:9905",
                 "url1":"http://1.15.91.60:8050/dr_console/",
                 "location":"tab",
-                "title":"控制台V2",
+                "title":"控制台",
                 "key":"/delivery_recon/dr_console"
             },
             "input":{},

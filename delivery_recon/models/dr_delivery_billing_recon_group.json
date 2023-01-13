@@ -9,6 +9,7 @@
         {"field":"po_number","name":"采购订单号","dataType":"varchar","quickSearch":true},
         {"field":"material","name":"物料编码","dataType":"varchar","quickSearch":true},
         {"field":"period","name":"会计期间","dataType":"varchar"},
+        {"field":"import_batch_number","name":"导入批次号","dataType":"varchar"},
         {"field":"delivery_count","name":"对账单条数","dataType":"int"},
         {"field":"billing_count","name":"Billing条数","dataType":"int"},
         {"field":"delivery_quantity","name":"对账单数量","dataType":"decimal"},
@@ -100,7 +101,7 @@
             },
             "input":{
                 "to":"processingFlow",
-                "FlowID":"delivery_billing_recon_adjust"
+                "FlowID":"delivery_billing_recon_adjust_v2"
             },
             "description":"生成调整项",
             "successOperation":{
@@ -230,6 +231,7 @@
                 },
                 {"field":"po_number","width":150},
                 {"field":"period","width":150},
+                {"field":"import_batch_number","width":150},
                 {"field":"material","width":150},
                 {
                     "field":"set_material",
@@ -349,6 +351,7 @@
                 },
                 {"field":"po_number","width":150},
                 {"field":"period","width":150},
+                {"field":"import_batch_number","width":150},
                 {"field":"material","width":150},
                 {
                     "field":"set_material",
@@ -498,6 +501,7 @@
                 {"field":"po_number","width":150},
                 {"field":"material","width":150},
                 {"field":"period","width":150},
+                {"field":"import_batch_number","width":150},
                 {
                     "field":"set_material",
                     "width":100,
@@ -654,6 +658,7 @@
                 },
                 {"field":"po_number","width":150},
                 {"field":"period","width":150},
+                {"field":"import_batch_number","width":150},
                 {"field":"material","width":150},
                 {
                     "field":"set_material",
@@ -809,6 +814,7 @@
                     ]
                 },
                 {"field":"po_number","width":150},
+                {"field":"import_batch_number","width":150},
                 {"field":"material","width":150},
                 {
                     "field":"set_material",
@@ -947,6 +953,7 @@
                     ]
                 },
                 {"field":"po_number","width":150},
+                {"field":"import_batch_number","width":150},
                 {"field":"material","width":150},
                 {
                     "field":"set_material",
