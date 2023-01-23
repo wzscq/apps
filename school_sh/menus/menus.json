@@ -572,5 +572,32 @@
                 "roles":"admin"
             }
         ]
+    },
+    {
+        "id":"7",
+        "name":"数据处理逻辑配置",
+        "description":"数据处理逻辑配置",
+        "icon":"NodeIndexOutlined",
+        "children":[
+            {
+                "id":"1",
+                "name":"处理逻辑",
+                "description":"处理逻辑配置",
+                "icon":"SisternodeOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"http://localhost:9901/#/school_sh",
+                        "url1":"http://192.168.1.144:8090/flowconfig/#/school_sh",
+                        "location":"tab",
+                        "title":"处理逻辑配置",
+                        "key":"/flowconfig/school_sh"
+                    },
+                    "input":{},
+                    "description":"打开处理逻辑配置功能"
+                },
+                "roles":"admin"
+            }
+        ]
     }
 ]

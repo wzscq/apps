@@ -122,6 +122,36 @@
                 }
             },
             "roles":"admin"
+        },
+        {
+            "id":"openLock",
+            "name":"确认开锁",
+            "type":"request",
+            "params":{
+                "url":"/redirect",
+                "method":"post"
+            },
+            "input":{
+                "to":"samrtlockservice/open"
+            },
+            "description":"智能锁开启操作",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/sl_lock_authorization"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"admin"
         }
     ],
     "views":[
@@ -177,6 +207,9 @@
             },
             "footer":{
                 "operations":[
+                    {
+                        "operationID":"openLock"
+                    },
                     {
                         "operationID":"save",
                         "name":"保存"

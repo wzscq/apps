@@ -8,11 +8,16 @@
           "controlType": "DateLine",
           "minHeight":250,
           "option":{
-              "title":"近期代办",
-              "label":"",
-              "content":""
+              "title":"近期待办",
+              "label":"return data.task_date;",
+              "content":"return data.week_day_name+','+data.section_name+'('+data.start_time+'到'+data.end_time+'),'+data.class_current_grade+'年级'+data.class_number+'班'+data.subject_name+'课';"
           },
-          "query":"select if(match_status=0,'To be reconciled','Reconciled') as match_status,sum(abs(quantity)) as quantity from dr_delivery_recon group by match_status",
+          "query":{
+            "url":"http://localhost:9900/flow/start",
+            "params":{
+                "flowID":"get_user_task"
+            }
+          },
           "row": 1,
           "col": 1,
           "colSpan": 2,
