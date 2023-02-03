@@ -174,6 +174,26 @@
             },
             {
                 "id":"4",
+                "name":"手工匹配",
+                "openLabel":"打开",
+                "description":"手工匹配",
+                "icon":"MergeCellsOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"http://localhost:9906",
+                        "url1":"http://1.15.91.60:8050/manualmatch/",
+                        "location":"tab",
+                        "title":"手工匹配",
+                        "key":"/delivery_recon/manualmatch"
+                    },
+                    "input":{},
+                    "description":"打开手工匹配页面"
+                },
+                "roles":"*"
+            },
+            {
+                "id":"5",
                 "name":"对账调差",
                 "openLabel":"打开",
                 "description":"对账差异调整",
@@ -272,6 +292,25 @@
                     },
                     "input":{},
                     "description":"打开套件信息维护页面"
+                },
+                "roles":"*"
+            },
+            {
+                "id":"5",
+                "name":"客户关联对账维护",
+                "openLabel":"打开",
+                "description":"客户关联对账维护",
+                "icon":"PartitionOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/dr_recon_customer",
+                        "location":"tab",
+                        "title":"套件信息维护",
+                        "key":"/model/dr_recon_customer"
+                    },
+                    "input":{},
+                    "description":"打开客户关联对账维护页面"
                 },
                 "roles":"*"
             }

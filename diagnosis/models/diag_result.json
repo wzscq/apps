@@ -56,9 +56,8 @@
         },
         {
             "field": "raw_data",
-            "name": "原始数据路径", 
-            "dataType": "varchar",
-            "quickSearch":true
+            "name": "原始数据", 
+            "dataType": "varchar"
         },
         {
             "field": "diag_report",
@@ -118,10 +117,10 @@
             "name": "创建",
             "type":"open",
             "params":{
-                    "url":"/formview/#/diag_result/form1/create",
+                    "url":"/formview/#/diag_result/formCreate/create",
                     "location":"modal",
                     "title":"新建诊断结果",
-                    "key":"/model/diag_result/form1/create",
+                    "key":"/model/diag_result/formCreate/create",
                     "width":600,
                     "height":350
             },
@@ -216,6 +215,47 @@
                 }
             },
             "roles":"*"
+        },
+        {
+            "id":"saveDemo",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save1",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/diag_result"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"downloadRawData",
+            "name":"下载原始文件",
+            "type":"request",
+            "params":{
+                "url":"/redirect",
+                "method":"post"
+            },
+            "input":{
+                "to":"downloadRawData"
+            },
+            "description":"下载原始文件",
+            "roles":"*"
         }
     ], 
     "views": [
@@ -284,6 +324,10 @@
                     "width": 200
                 }, 
                 {
+                    "field": "raw_data",
+                    "width": 300
+                },
+                {
                     "field": "update_time", 
                     "width": 150
                 }, 
@@ -303,15 +347,20 @@
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 
-                    "buttons": []
+                    "buttons": [
+                    ]
                 }, 
                 "rowToolbar": {
-                    "showCount": 2,
-                    "width":120, 
+                    "showCount": 3,
+                    "width":200, 
                     "buttons": [
                         {
                             "operationID": "detail",
                             "name":"查看报告"
+                        },
+                        {
+                            "operationID": "downloadRawData",
+                            "name":"下载原始文件"
                         },
                         {
                             "operationID": "edit",
@@ -383,6 +432,79 @@
                     "row": 3,
                     "col": 1,
                     "field": "remark", 
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
+            ]
+        },
+        {
+            "formID": "formCreate",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"关闭问题"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"saveDemo",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "label": "ID",
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },    
+                {
+                    "field": "status",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"Open"
+                        },
+                        {
+                            "value":"1",
+                            "label":"Closed"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },    
+                {
+                    "controlType": "TextArea",
+                    "row": 3,
+                    "col": 1,
+                    "field": "remark", 
+                    "colSpan": 4,
+                    "rowSpan": 1
+                },
+                {
+                    "controlType": "File",
+                    "maxCount":1,
+                    "row": 4,
+                    "col": 1,
+                    "field": "raw_data", 
                     "colSpan": 4,
                     "rowSpan": 1
                 }

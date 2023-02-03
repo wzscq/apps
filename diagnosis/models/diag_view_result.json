@@ -216,6 +216,20 @@
                 }
             },
             "roles":"*"
+        },
+        {
+            "id":"downloadRawData",
+            "name":"下载原始文件",
+            "type":"request",
+            "params":{
+                "url":"/redirect",
+                "method":"post"
+            },
+            "input":{
+                "to":"downloadRawData"
+            },
+            "description":"下载原始文件",
+            "roles":"*"
         }
     ], 
     "views": [
@@ -284,6 +298,10 @@
                     "width": 200
                 }, 
                 {
+                    "field": "raw_data",
+                    "width": 300
+                },
+                {
                     "field": "update_time", 
                     "width": 150
                 }, 
@@ -306,12 +324,16 @@
                     "buttons": []
                 }, 
                 "rowToolbar": {
-                    "showCount": 2,
-                    "width":120, 
+                    "showCount": 3,
+                    "width":200, 
                     "buttons": [
                         {
                             "operationID": "detail",
                             "name":"查看报告"
+                        },
+                        {
+                            "operationID": "downloadRawData",
+                            "name":"下载原始文件"
                         },
                         {
                             "operationID": "edit",

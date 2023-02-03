@@ -4,5 +4,8 @@
     },
     "diagnosisUploadDBC":{
         "url":"http://localhost:8300/uploadDBC"
+    },
+    "downloadRawData":{
+        "url":"http://localhost:8300/downloadRawData"
     }
 }

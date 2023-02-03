@@ -49,6 +49,11 @@
             "quickSearch":true
         },
         {
+            "field": "raw_data",
+            "name": "原始数据", 
+            "dataType": "varchar"
+        },
+        {
             "field": "create_time", 
             "name": "创建时间", 
             "dataType": "datetime"
@@ -99,6 +104,20 @@
             "input":{},
             "description":"打开诊断结果编辑对话框",
             "roles":"*"
+        },
+        {
+            "id":"downloadRawData",
+            "name":"下载原始文件",
+            "type":"request",
+            "params":{
+                "url":"/redirect",
+                "method":"post"
+            },
+            "input":{
+                "to":"downloadRawData"
+            },
+            "description":"下载原始文件",
+            "roles":"*"
         }
     ], 
     "views": [
@@ -140,6 +159,10 @@
                     "width": 300
                 }, 
                 {
+                    "field": "raw_data",
+                    "width": 300
+                },
+                {
                     "field": "update_time", 
                     "width": 150
                 }, 
@@ -163,11 +186,15 @@
                 }, 
                 "rowToolbar": {
                     "showCount": 2,
-                    "width":80, 
+                    "width":180, 
                     "buttons": [
                         {
                             "operationID": "detail",
                             "name":"查看报告"
+                        },
+                        {
+                            "operationID": "downloadRawData",
+                            "name":"下载原始文件"
                         }
                     ]
                 }

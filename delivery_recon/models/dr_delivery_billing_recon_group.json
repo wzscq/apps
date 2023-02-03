@@ -45,6 +45,7 @@
             "relatedField":"match_group"
         },
         {"field":"set_material","name":"是否套件","dataType":"int"},
+        {"field":"corss_customer","name":"跨客户对账","dataType":"int"},
         {"field":"cs_team_id","name":"CS Team","dataType":"varchar"},
         {"field":"quantity_adjusted","name":"调整数量","dataType":"int"},
         {"field":"price_adjusted","name":"调整单价","dataType":"int"}
@@ -79,11 +80,11 @@
             "name": "定制详情",
             "type":"open",
             "params":{
-                    "url1":"http://localhost:9902/",
-                    "url":"http://1.15.91.60:8050/matchgroup/",
+                    "url":"http://localhost:9902/",
+                    "url1":"http://1.15.91.60:8050/matchgroup/",
                     "location":"modal",
                     "title":"匹配详情",
-                    "key":"/model/dr_delivery_billing_recon_group/groupDetail",
+                    "key":"/delivery_recon/matchgroup",
                     "width":1200,
                     "height":600
             },
@@ -249,6 +250,21 @@
                     ]
                 },
                 {
+                    "field":"corss_customer",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
                     "field":"match_result",
                     "width":150,
                     "filterControlType": "SingleSelect",
@@ -355,6 +371,21 @@
                 {"field":"material","width":150},
                 {
                     "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
+                    "field":"corss_customer",
                     "width":100,
                     "filterControlType": "SingleSelect",
                     "options":[
@@ -504,6 +535,21 @@
                 {"field":"import_batch_number","width":150},
                 {
                     "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
+                    "field":"corss_customer",
                     "width":100,
                     "filterControlType": "SingleSelect",
                     "options":[
@@ -676,6 +722,21 @@
                     ]
                 },
                 {
+                    "field":"corss_customer",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
                     "field":"match_result",
                     "width":150,
                     "filterControlType": "SingleSelect",
@@ -832,6 +893,21 @@
                     ]
                 },
                 {
+                    "field":"corss_customer",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
                     "field":"match_result",
                     "width":150,
                     "filterControlType": "SingleSelect",
@@ -957,6 +1033,21 @@
                 {"field":"material","width":150},
                 {
                     "field":"set_material",
+                    "width":100,
+                    "filterControlType": "SingleSelect",
+                    "options":[
+                        {
+                            "value":"0",
+                            "label":"否"
+                        },
+                        {
+                            "value":"1",
+                            "label":"是"
+                        }
+                    ]
+                },
+                {
+                    "field":"corss_customer",
                     "width":100,
                     "filterControlType": "SingleSelect",
                     "options":[
