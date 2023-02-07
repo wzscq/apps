@@ -223,7 +223,8 @@
             "type":"request",
             "params":{
                 "url":"/redirect",
-                "method":"post"
+                "method":"post",
+                "responseType":"blob"
             },
             "input":{
                 "to":"downloadRawData"
