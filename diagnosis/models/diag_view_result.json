@@ -150,7 +150,7 @@
             "name": "查看详情",
             "type":"open",
             "params":{
-                    "url1":"/diag_report",
+                    "url1":"/diag_v2report",
                     "url":"http://localhost:9005/",
                     "location":"modal",
                     "title":"诊断结果详情",

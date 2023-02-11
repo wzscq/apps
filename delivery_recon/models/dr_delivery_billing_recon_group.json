@@ -339,11 +339,15 @@
             "toolbar": {
                 "rowToolbar": {
                     "showCount": 2,
-                    "width":60, 
+                    "width":90, 
                     "buttons": [
                         {
                             "operationID": "customizedDetail",
                             "name":"详情"
+                        },
+                        {
+                            "operationID":"releaseGroup",
+                            "name":"撤销"
                         }
                     ]
                 }
