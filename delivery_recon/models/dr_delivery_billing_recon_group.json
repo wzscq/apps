@@ -689,6 +689,7 @@
                     ]
                 }
             },
+            "rowStyle":"console.log('rowStyle func:',rowIndex,record); if(parseFloat(record.quantity_gap)>0){ return {backgroundColor:'#FFFF00'} }",
             "roles":"*"
         },
         {
