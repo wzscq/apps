@@ -1,5 +1,8 @@
 {
     "samrtlockservice/open":{
         "url":"http://localhost:8301/open"
+    },
+    "samrtlockservice/writekey":{
+        "url":"http://localhost:8301/writekey"
     }
 }

@@ -1,5 +1,27 @@
 [
     {
+        "id":"0",
+        "name":{
+            "default":"Dashboard",
+            "zh_CN":"仪表盘",
+            "en_US":"Dashboard"
+        },
+        "description":"Dashboard",
+        "icon":"BarChartOutlined",
+        "operation":{
+            "type":"open",
+            "params":{
+                "url":"/report/#/dashboard",
+                "location":"tab",
+                "title":"Dashboard",
+                "key":"/report/dashboard"
+            },
+            "input":{},
+            "description":"打开dashboard"
+        },
+        "roles":"*"
+    },
+    {
         "id":"1",
         "name":"开锁申请",
         "description":"开锁申请",

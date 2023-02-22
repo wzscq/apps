@@ -212,7 +212,7 @@
                     "field": "platform_id", 
                     "width": 100,
                     "filterControlType": "SingleSelect",
-                    "optionLabel":"name",
+                    "optionLabel":"id",
                     "fields":[
                         {
                             "field": "id"
@@ -240,7 +240,7 @@
                     "field": "ecu_id", 
                     "width": 100,
                     "filterControlType": "SingleSelect",
-                    "optionLabel":"name",
+                    "optionLabel":"id",
                     "fields":[
                         {
                             "field": "id"

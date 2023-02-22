@@ -211,10 +211,6 @@
                         "operationID":"openLock"
                     },
                     {
-                        "operationID":"save",
-                        "name":"保存"
-                    },
-                    {
                         "name":"关闭",
                         "type":"close",
                         "validateFormData":false,

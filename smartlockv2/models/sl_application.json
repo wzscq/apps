@@ -182,14 +182,25 @@
         {
             "id": "authToKey", 
             "name": "智能钥匙授权",
-            "type":"message",
+            "type":"request",
             "params":{
-                "type":"success",
-                "content":"功能开发中!",
-                "duration":"2"
+                "url":"/redirect",
+                "method":"post"
             },
-            "description":"提示",
-            "roles":"*"
+            "input":{
+                "to":"samrtlockservice/writekey"
+            },
+            "description":"智能锁开启操作",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"开锁权限下发成功!",
+                    "duration":"2"
+                },
+                "description":"提示"
+            },
+            "roles":"admin"
         }
     ],
     "views":[
