@@ -1,23 +1,11 @@
 {
-    "modelID": "diag_dtc", 
+    "modelID": "core_role", 
     "fields": [
         {
             "field": "id", 
             "name": "ID", 
-            "dataType": "varchar"
-        }, 
-        {
-            "field": "name", 
-            "name": "名称", 
             "dataType": "varchar",
             "quickSearch":true
-        },  
-        {
-            "field": "ecu_id",
-            "name": "ECU", 
-            "dataType": "varchar",
-            "fieldType":"many2one",
-            "relatedModelID":"diag_ecu"
         }, 
         {
             "field": "create_time", 
@@ -41,16 +29,10 @@
         }, 
         {
             "field": "remark", 
-            "name": "故障内容", 
+            "name": "备注", 
             "dataType": "varchar",
             "quickSearch":true
         }, 
-        {
-            "field": "sae_code", 
-            "name": "SAE Code", 
-            "dataType": "varchar",
-            "quickSearch":true
-        },
         {
             "field": "version", 
             "name": "数据版本", 
@@ -71,49 +53,33 @@
             "name": "创建",
             "type":"open",
             "params":{
-                    "url":"/formview/#/diag_dtc/form1/create",
+                    "url":"/formview/#/core_role/form1/create",
                     "location":"modal",
-                    "title":"新建DTC",
-                    "key":"/model/diag_dtc/form1/create",
+                    "title":"创建角色",
+                    "key":"/model/core_role/form1/create",
                     "width":600,
-                    "height":350
+                    "height":400
             },
             "input":{},
-            "description":"打开新建DTC对话框" ,
-            "roles":["admin","operator"]
+            "description":"打开创建角色对话框" ,
+            "roles":"admin"
         }, 
         {
             "id": "edit", 
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/formview/#/diag_dtc/form1/edit",
+                    "url":"/formview/#/core_role/form1/edit",
                     "location":"modal",
-                    "title":"编辑DTC",
-                    "key":"/model/diag_dtc/form1/edit",
+                    "title":"编辑角色信息",
+                    "key":"/model/core_role/form1/edit",
                     "width":600,
-                    "height":350
+                    "height":400
             },
             "input":{},
-            "description":"打开DTC信息编辑对话框",
-            "roles":["admin","operator"]
-        }, 
-        {
-            "id": "detail", 
-            "name": "查看详情",
-            "type":"open",
-            "params":{
-                    "url":"/formview/#/diag_dtc/form1/detail",
-                    "location":"modal",
-                    "title":"DTC信息详情",
-                    "key":"/model/diag_dtc/form1/edit",
-                    "width":600,
-                    "height":350
-            },
-            "input":{},
-            "description":"打开DTC信息编辑对话框",
-            "roles":["admin","operator"]
-        }, 
+            "description":"打开角色编辑对话框",
+            "roles":"admin"
+        },  
         {
             "id": "delete", 
             "name": "删除",
@@ -127,7 +93,7 @@
                 "type":"message",
                 "params":{
                     "type":"success",
-                    "content":"删除信息成功!",
+                    "content":"删除角色成功!",
                     "duration":"2"
                 },
                 "description":"提示删除数据成功",
@@ -135,12 +101,12 @@
                     "type":"reloadFrameData",
                     "params":{
                         "location":"tab",
-                        "key":"/model/diag_dtc"
+                        "key":"/model/core_role"
                     },
                     "description":"刷新页面数据"
                 }
             },
-            "roles":["admin","operator"]
+            "roles":"admin"
         },
         {
             "id":"save",
@@ -162,107 +128,82 @@
                     "type":"reloadFrameData",
                     "params":{
                         "location":"tab",
-                        "key":"/model/diag_dtc"
+                        "key":"/model/core_role"
                     },
                     "description":"刷新页面数据"
                 }
             },
-            "roles":["admin","operator"]
+            "roles":"admin"
         }
     ], 
     "views": [
         {
             "viewID": "view1", 
-            "name": "故障码数据库", 
-            "description": "添加修改DTC信息", 
+            "name": "角色信息维护", 
+            "description": "仅包含必要的角色信息", 
             "fields": [
                 {
                     "field": "id", 
                     "width": 100
-                },  
+                }, 
                 {
-                    "field": "sae_code", 
-                    "width": 100
-                },
+                    "field": "create_time", 
+                    "width": 200
+                }, 
                 {
-                    "field": "ecu_id", 
-                    "width": 100
-                },
+                    "field": "create_user", 
+                    "width": 200
+                }, 
+                {
+                    "field": "update_time", 
+                    "width": 200
+                }, 
+                {
+                    "field": "update_user", 
+                    "width": 200
+                }, 
                 {
                     "field": "remark", 
                     "width": 200
                 }, 
                 {
-                    "field": "create_time", 
-                    "width": 150
-                }, 
-                {
-                    "field": "create_user", 
-                    "width": 150
-                }, 
-                {
-                    "field": "update_time", 
-                    "width": 150
-                }, 
-                {
-                    "field": "update_user", 
-                    "width": 150
-                }, 
-                {
                     "field": "version", 
-                    "width": 100
+                    "width": 200
                 }
             ], 
-            "filter": { },
-            "sorter":[
-                {"field":"update_time","order":"desc"}
-            ], 
+            "filter": { }, 
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 
                     "buttons": [
                         {
                             "operationID": "create",
-                            "name":"新建DTC"
-                        }, 
-                        {
-                            "operationID": "delete",
-                            "name":"删除选中DTC",
-                            "prompt":"确定要删除当前选择的DTC记录吗？"
+                            "name":"创建角色"
                         }
                     ]
                 }, 
                 "rowToolbar": {
                     "showCount": 2,
-                    "width":120, 
+                    "width":60, 
                     "buttons": [
                         {
-                            "operationID": "edit",
-                            "name":"编辑"
-                        },
-                        {
-                            "operationID": "detail",
-                            "name":"详情"
-                        }, 
-                        {
                             "operationID": "delete",
-                            "name":"删除",
-                            "prompt":"确定要删除这个DTC信息吗？"
+                            "name":"删除"
                         }
                     ]
                 }
             },
-            "roles":["admin","operator"]
+            "roles":"admin"
         }
     ],
     "forms":[
         {
             "formID": "form1",
             "colCount": 4,
-            "rowCount": 26,
+            "rowCount": 2,
             "rowHeight": 30,
             "header":{
-                "label":"创建ECU"
+                "label":"创建角色"
             },
             "footer":{
                 "operations":[
@@ -284,44 +225,18 @@
             },
             "controls": [
                 {
-                    "field": "id", 
                     "controlType": "Text",
                     "row": 1,
                     "col": 1,
+                    "field": "id", 
                     "label": "ID",
-                    "colSpan": 2,
+                    "colSpan": 1,
                     "rowSpan": 1,
                     "required":true
-                }, 
+                },
                 {
-                    
-                    "field": "sae_code", 
                     "controlType": "Text",
-                    "row": 1,
-                    "col": 3,
-                    "colSpan": 2,
-                    "rowSpan": 1,
-                    "required":true  
-                },
-                {
-                    "field": "ecu_id",
-                    "controlType": "SingleSelect",
-                    "fields":[
-                        {
-                            "field": "id"
-                        },
-                        {
-                            "field": "name"
-                        }
-                    ],
                     "row": 2,
-                    "col": 1, 
-                    "colSpan": 2,
-                    "rowSpan": 1
-                },
-                {
-                    "controlType": "TextArea",
-                    "row": 3,
                     "col": 1,
                     "field": "remark", 
                     "colSpan": 4,
