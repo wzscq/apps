@@ -1,7 +1,8 @@
 {
     "modelID": "lms_person",
     "fields": [
-        {"field":"id","labelRegexp":"统一编号","excelRangeType":"table"},
+        {"field":"id","labelRegexp":"身份证","excelRangeType":"table"},
+        {"field":"rn","labelRegexp":"统一编号","excelRangeType":"table"},
         {"field":"name","labelRegexp":"姓名","excelRangeType":"table"},
         {"field":"sn","labelRegexp":"学号","excelRangeType":"table"},
         {"field":"gender","labelRegexp":"性别","excelRangeType":"table"},
