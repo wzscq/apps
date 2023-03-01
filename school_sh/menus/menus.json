@@ -2,9 +2,9 @@
     {
         "id":"0",
         "name":{
-            "default":"控制台",
-            "zh_CN":"控制台",
-            "en_US":"控制台"
+            "default":"我的事项",
+            "zh_CN":"我的事项",
+            "en_US":"我的事项"
         },
         "description":"Dashboard",
         "icon":"BarChartOutlined",
@@ -13,11 +13,11 @@
             "params":{
                 "url":"/report/#/dashboard",
                 "location":"tab",
-                "title":"控制台",
+                "title":"我的事项",
                 "key":"/report/dashboard"
             },
             "input":{},
-            "description":"打开dashboard"
+            "description":"打开我的事项"
         },
         "roles":"*"
     },

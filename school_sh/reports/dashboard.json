@@ -20,7 +20,68 @@
           },
           "row": 1,
           "col": 1,
-          "colSpan": 2,
+          "colSpan": 1,
+          "rowSpan": 1
+        },
+        {
+          "id":"2",
+          "controlType": "Table",
+          "minHeight":250,
+          "option":{
+              "title":"return '我的课程表'",
+              "pagination":false,
+              "columns":[
+                {
+                  "title": "第几节",
+                  "dataIndex": "section",
+                  "key": "section"
+                },
+                {
+                  "title": "星期一",
+                  "dataIndex": "monday",
+                  "key": "monday"
+                },
+                {
+                  "title": "星期二",
+                  "dataIndex": "tuesday",
+                  "key": "tuesday"
+                },
+                {
+                  "title": "星期三",
+                  "dataIndex": "wednesday",
+                  "key": "wednesday"
+                },
+                {
+                  "title": "星期四",
+                  "dataIndex": "thursday",
+                  "key": "thursday"
+                },
+                {
+                  "title": "星期五",
+                  "dataIndex": "friday",
+                  "key": "friday"
+                },
+                {
+                  "title": "星期六",
+                  "dataIndex": "saturday",
+                  "key": "saturday"
+                },
+                {
+                  "title": "星期日",
+                  "dataIndex": "sunday",
+                  "key": "sunday"
+                }
+              ]
+          },
+          "query":{
+            "url":"http://localhost:9900/flow/start",
+            "params":{
+                "flowID":"get_teacher_curriculumn"
+            }
+          },
+          "row": 1,
+          "col": 2,
+          "colSpan": 3,
           "rowSpan": 1
         }
     ]
