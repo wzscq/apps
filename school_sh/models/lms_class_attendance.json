@@ -1,0 +1,387 @@
+{
+    "modelID": "lms_class_attendance", 
+    "fields": [
+        {"field":"id","name":"编号","dataType":"bigint"},
+        {"field":"class","name":"班级","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_class","quickSearch":true},
+        {"field":"person","name":"成员","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_person","quickSearch":true},
+        {"field":"remark","name":"备注","dataType":"varchar"},
+        {"field":"start_date","name":"日期","dataType":"datetime"},
+        {"field":"end_date","name":"截止日期","dataType":"datetime"},
+        {"field":"start_time","name":"开始时间","dataType":"time"},
+        {"field":"end_time","name":"结束时间","dataType":"time"},
+        {"field":"attendance_status","name":"状态","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_class_attendance_status"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "新增",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_class_attendance/form1/create",
+                    "location":"modal",
+                    "title":"新增",
+                    "key":"/model/lms_class_attendance/form1/create",
+                    "width":700,
+                    "height":400
+            },
+            "input":{},
+            "description":"打开新增对话框",
+            "roles":"*"
+        },
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_class_attendance/form1/edit",
+                    "location":"modal",
+                    "title":"编辑",
+                    "key":"/model/lms_class_attendance/form1/edit",
+                    "width":700,
+                    "height":400
+            },
+            "input":{},
+            "description":"打开编辑对话框",
+            "roles":"*"
+        },
+        {
+            "id": "detail", 
+            "name": "详情",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_class_attendance/form1/detail",
+                    "location":"modal",
+                    "title":"编辑",
+                    "key":"/model/lms_class_attendance/form1/detail",
+                    "width":700,
+                    "height":400
+            },
+            "input":{},
+            "description":"打开详情对话框",
+            "roles":"*"
+        },
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除记录成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_class_attendance"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_class_attendance"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "viewMe", 
+            "name": "我所在的班级", 
+            "description": "我所在的班级", 
+            "fields": [
+                {
+                    "field":"class",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班'",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"class_number"},
+                        {"field":"current_grade"}
+                    ]
+                },
+                {
+                    "field":"person",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"return record.sn+'-'+record.name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"},
+                        {"field":"sn"}
+                    ]
+                },
+                {
+                    "field":"attendance_status",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"start_date","width":150},
+                {"field":"start_time","width":150},
+                {"field":"end_time","width":150},
+                {"field":"remark","width":150},
+                {"field":"id","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filterData":[
+                {
+                    "modelID":"lms_person",
+                    "filter":{"login_account":"%{userID}"},
+                    "fields":[
+                        {
+                            "field":"id"
+                        },
+                        {
+                            "field":"my_class",
+                            "fieldType":"one2many",
+                            "relatedModelID":"lms_class_participant",
+                            "relatedField":"person",
+                            "fields":[
+                                {"field":"class"},
+                                {"field":"person"}
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "filter": {"class":{"Op.in":["%{lms_person.my_class.class}"]}},
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID":"create",
+                            "name":"创建"
+                        },
+                        {
+                            "operationID":"delete",
+                            "name":"删除",
+                            "prompt":"确定要删除当前选择的记录吗？"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":120, 
+                    "buttons": [
+                        {
+                            "operationID":"delete",
+                            "name":"删除",
+                            "prompt":"确定要删除当前记录吗？"
+                        },
+                        {
+                            "operationID":"edit",
+                            "name":"编辑"
+                        },
+                        {
+                            "operationID":"detail",
+                            "name":"详情"
+                        }
+                    ]
+                }
+            },
+            "roles":"*"
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                },
+                {
+                    "field":"class",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班'",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"class_number"},
+                        {"field":"current_grade"}
+                    ],
+                    "filterData":[
+                        {
+                            "modelID":"lms_person",
+                            "filter":{"login_account":"%{userID}"},
+                            "fields":[
+                                {
+                                    "field":"id"
+                                },
+                                {
+                                    "field":"my_class",
+                                    "fieldType":"one2many",
+                                    "relatedModelID":"lms_class_participant",
+                                    "relatedField":"person",
+                                    "fields":[
+                                        {"field":"class"},
+                                        {"field":"person"}
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "filter": {"id":{"Op.in":["%{lms_person.my_class.class}"]}},
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"person",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.sn+'-'+record.name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"},
+                        {"field":"sn"}
+                    ],
+                    "cascade":[
+                        {
+                            "parentField":"class",
+                            "type":"many2many",
+                            "relatedField":"class",
+                            "middleModelID":"lms_class_participant"
+                        }
+                    ],
+                    "row": 2,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"attendance_status",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"start_date",
+                    "controlType": "DatePicker",
+                    "row": 3,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"start_time",
+                    "controlType": "TimePicker",
+                    "row": 3,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"end_time",
+                    "controlType": "TimePicker",
+                    "row": 3,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"remark",
+                    "controlType": "TextArea",
+                    "textRowCount":3,
+                    "row": 4,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
+            ]
+        }
+    ]
+}

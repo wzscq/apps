@@ -14,6 +14,7 @@
           },
           "query":{
             "url":"http://localhost:9900/flow/start",
+            "url1":"http://172.17.0.1:8080/dataflowservice/flow/start",
             "params":{
                 "flowID":"get_user_task"
             }
@@ -75,6 +76,7 @@
           },
           "query":{
             "url":"http://localhost:9900/flow/start",
+            "url1":"http://172.17.0.1:8080/dataflowservice/flow/start",
             "params":{
                 "flowID":"get_teacher_curriculumn"
             }
