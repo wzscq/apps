@@ -4,7 +4,8 @@
         {
             "field": "id", 
             "name": "ID", 
-            "dataType": "varchar"
+            "dataType": "varchar",
+            "quickSearch":true
         }, 
         {
             "field": "name", 
@@ -16,7 +17,7 @@
             "field": "ecu_id",
             "name": "ECU", 
             "dataType": "varchar",
-            "fieldType":"many2one",
+            "fieldType":"many2many",
             "relatedModelID":"diag_ecu"
         }, 
         {
@@ -76,7 +77,7 @@
                     "title":"新建DTC",
                     "key":"/model/diag_dtc/form1/create",
                     "width":600,
-                    "height":350
+                    "height":480
             },
             "input":{},
             "description":"打开新建DTC对话框" ,
@@ -92,7 +93,7 @@
                     "title":"编辑DTC",
                     "key":"/model/diag_dtc/form1/edit",
                     "width":600,
-                    "height":350
+                    "height":480
             },
             "input":{},
             "description":"打开DTC信息编辑对话框",
@@ -108,7 +109,7 @@
                     "title":"DTC信息详情",
                     "key":"/model/diag_dtc/form1/edit",
                     "width":600,
-                    "height":350
+                    "height":480
             },
             "input":{},
             "description":"打开DTC信息编辑对话框",
@@ -185,7 +186,12 @@
                     "width": 100
                 },
                 {
-                    "field": "ecu_id", 
+                    "field": "ecu_id",
+                    "optionLabel":"return record.reduce((a,b)=>a+b.id+',','').slice(0,-1)",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
                     "width": 100
                 },
                 {
@@ -305,7 +311,9 @@
                 },
                 {
                     "field": "ecu_id",
-                    "controlType": "SingleSelect",
+                    "controlType": "Transfer",
+                    "optionsLabel": "return record.name+'('+record.id+')';",
+                    "maxHeight": 200,
                     "fields":[
                         {
                             "field": "id"
@@ -316,7 +324,7 @@
                     ],
                     "row": 2,
                     "col": 1, 
-                    "colSpan": 2,
+                    "colSpan": 4,
                     "rowSpan": 1
                 },
                 {

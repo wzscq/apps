@@ -447,8 +447,10 @@
                     ],
                     "cascade":{
                         "parentField":"ecu_id",
-                        "type":"many2one",
-                        "relatedField":"ecu_id"
+                        "parentRelatedField":"diag_ecu_id",
+                        "relatedField":"diag_dtc_id",
+                        "type":"many2many",
+                        "middleModelID":"diag_dtc_diag_ecu"
                     },
                     "row": 2,
                     "col": 4, 
