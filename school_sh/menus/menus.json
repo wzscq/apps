@@ -7,7 +7,7 @@
             "en_US":"我的事项"
         },
         "description":"Dashboard",
-        "icon":"BarChartOutlined",
+        "icon":"SnippetsOutlined",
         "operation":{
             "type":"open",
             "params":{
@@ -25,13 +25,13 @@
         "id":"1",
         "name":"人员管理",
         "description":"人员管理",
-        "icon":"DiffOutlined",
+        "icon":"UsergroupAddOutlined",
         "children":[
             {
                 "id":"1",
                 "name":"人员信息",
                 "description":"人员信息",
-                "icon":"DiffOutlined",
+                "icon":"UsergroupAddOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -49,7 +49,7 @@
                 "id":"2",
                 "name":"就读类型",
                 "description":"就读类型",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -67,7 +67,7 @@
                 "id":"3",
                 "name":"入校类型",
                 "description":"入校类型",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -85,7 +85,7 @@
                 "id":"4",
                 "name":"人员类别字典",
                 "description":"人员类别字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -105,13 +105,13 @@
         "id":"2",
         "name":"班级管理",
         "description":"班级管理",
-        "icon":"DiffOutlined",
+        "icon":"IdcardOutlined",
         "children":[
             {
                 "id":"1",
                 "name":"班级信息",
                 "description":"班级信息",
-                "icon":"DiffOutlined",
+                "icon":"IdcardOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -129,7 +129,7 @@
                 "id":"2",
                 "name":"班级人员信息",
                 "description":"班级人员信息",
-                "icon":"DiffOutlined",
+                "icon":"UserSwitchOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -147,7 +147,7 @@
                 "id":"3",
                 "name":"班级考勤信息",
                 "description":"班级考勤信息",
-                "icon":"DiffOutlined",
+                "icon":"ReconciliationOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -165,7 +165,7 @@
                 "id":"4",
                 "name":"班级课程表",
                 "description":"班级课程表",
-                "icon":"DiffOutlined",
+                "icon":"InsertRowBelowOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -183,7 +183,7 @@
                 "id":"5",
                 "name":"班级序号字典",
                 "description":"班级序号字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -201,7 +201,7 @@
                 "id":"6",
                 "name":"班级角色字典",
                 "description":"班级角色字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -219,7 +219,7 @@
                 "id":"7",
                 "name":"班级人员状态字典",
                 "description":"班级人员状态字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -237,7 +237,7 @@
                 "id":"8",
                 "name":"班级考勤状态字典",
                 "description":"班级考勤状态字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -281,7 +281,7 @@
                 "id":"2",
                 "name":"考试参与人",
                 "description":"考试参与人",
-                "icon":"DiffOutlined",
+                "icon":"TeamOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -299,7 +299,7 @@
                 "id":"3",
                 "name":"考试类型字典",
                 "description":"考试类型字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -317,7 +317,7 @@
                 "id":"4",
                 "name":"考试角色字典",
                 "description":"考试角色字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -337,13 +337,13 @@
         "id":"4",
         "name":"综评管理",
         "description":"综评管理",
-        "icon":"DiffOutlined",
+        "icon":"SolutionOutlined",
         "children":[
             {
                 "id":"1",
                 "name":"学生综合考察",
                 "description":"学生综合考察",
-                "icon":"DiffOutlined",
+                "icon":"SolutionOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -361,7 +361,7 @@
                 "id":"2",
                 "name":"综合考察类型字典",
                 "description":"综合考察类型字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -379,7 +379,7 @@
                 "id":"3",
                 "name":"综合考察项目字典",
                 "description":"综合考察项目字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -397,15 +397,113 @@
     },
     {
         "id":"5",
+        "name":"组织架构",
+        "description":"组织架构",
+        "icon":"PartitionOutlined",
+        "children":[
+            {
+                "id":"1",
+                "name":"人员岗位维护",
+                "description":"人员岗位维护",
+                "icon":"UserSwitchOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_dep_person",
+                        "location":"tab",
+                        "title":"人员岗位维护",
+                        "key":"/model/lms_dep_person"
+                    },
+                    "input":{},
+                    "description":"打开人员岗位维护功能"
+                },
+                "roles":["admin","teacher"]
+            },
+            {
+                "id":"2",
+                "name":"部门岗位维护",
+                "description":"部门岗位维护",
+                "icon":"PartitionOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_dep_pos",
+                        "location":"tab",
+                        "title":"部门岗位维护",
+                        "key":"/model/lms_dep_pos"
+                    },
+                    "input":{},
+                    "description":"打开部门岗位维护功能"
+                },
+                "roles":["admin","teacher"]
+            },
+            {
+                "id":"3",
+                "name":"部门维护",
+                "description":"部门维护",
+                "icon":"AppstoreAddOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_department",
+                        "location":"tab",
+                        "title":"部门维护",
+                        "key":"/model/lms_department"
+                    },
+                    "input":{},
+                    "description":"打开部门维护功能"
+                },
+                "roles":["admin","teacher"]
+            },
+            {
+                "id":"4",
+                "name":"岗位维护",
+                "description":"岗位维护",
+                "icon":"GroupOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_position",
+                        "location":"tab",
+                        "title":"岗位维护",
+                        "key":"/model/lms_position"
+                    },
+                    "input":{},
+                    "description":"打开岗位维护功能"
+                },
+                "roles":["admin"]
+            },
+            {
+                "id":"5",
+                "name":"岗位人员状态维护",
+                "description":"岗位人员状态维护",
+                "icon":"GroupOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_dep_person_status",
+                        "location":"tab",
+                        "title":"岗位人员状态维护",
+                        "key":"/model/lms_dep_person_status"
+                    },
+                    "input":{},
+                    "description":"打开岗位维护功能"
+                },
+                "roles":["admin"]
+            }
+        ]
+    },
+    {
+        "id":"6",
         "name":"通用数据维护",
         "description":"通用数据维护",
-        "icon":"DiffOutlined",
+        "icon":"CodeOutlined",
         "children":[
             {
                 "id":"1",
                 "name":"年份字典",
                 "description":"年份字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -423,7 +521,7 @@
                 "id":"2",
                 "name":"学期字典",
                 "description":"学期字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -441,7 +539,7 @@
                 "id":"3",
                 "name":"年级字典",
                 "description":"年级字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -459,7 +557,7 @@
                 "id":"4",
                 "name":"课程节次字典",
                 "description":"课程节次字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -477,7 +575,7 @@
                 "id":"5",
                 "name":"学科字典",
                 "description":"学科字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -495,7 +593,7 @@
                 "id":"6",
                 "name":"等第字典",
                 "description":"等第字典",
-                "icon":"DiffOutlined",
+                "icon":"GroupOutlined",
                 "operation":{
                     "type":"open",
                     "params":{
@@ -512,7 +610,7 @@
         ]
     },
     {
-        "id":"6",
+        "id":"7",
         "name":"系统管理",
         "description":"系统管理相关功能",
         "icon":"SettingOutlined",

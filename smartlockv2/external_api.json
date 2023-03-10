@@ -4,5 +4,8 @@
     },
     "samrtlockservice/writekey":{
         "url":"http://localhost:8301/writekey"
+    },
+    "samrtlockservice/syncLockList":{
+        "url":"http://localhost:8301/syncLockList"
     }
 }

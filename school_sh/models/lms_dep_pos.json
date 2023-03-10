@@ -1,18 +1,16 @@
 {
-    "modelID":"sl_lock",
-    "fields":[
-        {"field":"id","name":"编号","dataType":"varchar","quickSearch":true},
-        {"field":"name","name":"名称","dataType":"varchar","quickSearch":true},
-        {"field":"room","name":"机房","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_room","quickSearch":true},
-        {"field":"area_type","name":"区域类型","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_area_type","quickSearch":true},
-        {"field":"rack","name":"机柜","dataType":"varchar","quickSearch":true},
-        {"field":"remark","name":"备注","dataType":"varchar","quickSearch":true},
+    "modelID": "lms_dep_pos", 
+    "fields": [
+        {"field":"id","name":"编号","dataType":"varchar"},
+        {"field":"dep_id","name":"部门ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_department"},
+        {"field":"pos_id","name":"岗位ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_position"},
+        {"field":"remark","name":"备注","dataType":"varchar"},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
         {"field":"update_user","name":"记录更新人","dataType":"varchar"},
         {"field":"version","name":"数据版本号","dataType":"int"}
-    ],
+    ], 
     "datasets":[
         {
             "id":"DEFAULT",
@@ -24,52 +22,36 @@
     "operations": [
         {
             "id": "create", 
-            "name": "创建",
+            "name": "新增",
             "type":"open",
             "params":{
-                    "url":"/formview/#/sl_lock/formCreate/create",
+                    "url":"/formview/#/lms_dep_pos/form1/create",
                     "location":"modal",
-                    "title":"创建",
-                    "key":"/model/sl_lock/formCreate/create",
-                    "width":800,
-                    "height":440
+                    "title":"新增",
+                    "key":"/model/lms_dep_pos/form1/create",
+                    "width":600,
+                    "height":340
             },
             "input":{},
-            "description":"打开创建对话框" ,
-            "roles":"admin"
-        }, 
+            "description":"打开新增对话框",
+            "roles":"*"
+        },
         {
             "id": "edit", 
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/formview/#/sl_lock/formCreate/edit",
+                    "url":"/formview/#/lms_dep_pos/form1/edit",
                     "location":"modal",
                     "title":"编辑",
-                    "key":"/model/sl_lock/formCreate/edit",
-                    "width":800,
-                    "height":450
+                    "key":"/model/lms_dep_pos/form1/edit",
+                    "width":600,
+                    "height":340
             },
             "input":{},
             "description":"打开编辑对话框",
-            "roles":"admin"
-        }, 
-        {
-            "id": "detail", 
-            "name": "详情",
-            "type":"open",
-            "params":{
-                    "url":"/formview/#/sl_lock/formCreate/detail",
-                    "location":"modal",
-                    "title":"详情",
-                    "key":"/model/sl_lock/formCreate/detail",
-                    "width":800,
-                    "height":450
-            },
-            "input":{},
-            "description":"打开信息编辑对话框",
-            "roles":"admin"
-        }, 
+            "roles":"*"
+        },
         {
             "id": "delete", 
             "name": "删除",
@@ -83,7 +65,7 @@
                 "type":"message",
                 "params":{
                     "type":"success",
-                    "content":"删除信息成功!",
+                    "content":"删除记录成功!",
                     "duration":"2"
                 },
                 "description":"提示删除数据成功",
@@ -91,12 +73,12 @@
                     "type":"reloadFrameData",
                     "params":{
                         "location":"tab",
-                        "key":"/model/sl_lock"
+                        "key":"/model/lms_dep_pos"
                     },
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
+            "roles":"*"
         },
         {
             "id":"save",
@@ -118,65 +100,41 @@
                     "type":"reloadFrameData",
                     "params":{
                         "location":"tab",
-                        "key":"/model/sl_lock"
+                        "key":"/model/lms_dep_pos"
                     },
                     "description":"刷新页面数据"
                 }
             },
-            "roles":"admin"
-        },
-        {
-            "id": "syncLockList", 
-            "name": "同步锁信息",
-            "type":"request",
-            "params":{
-                "url":"/redirect",
-                "method":"post"
-            },
-            "input":{
-                "to":"samrtlockservice/syncLockList"
-            },
-            "description":"同步锁信息",
-            "successOperation":{
-                "type":"message",
-                "params":{
-                    "type":"success",
-                    "content":"同步锁信息成功!",
-                    "duration":"2"
-                },
-                "description":"提示"
-            },
-            "roles":"admin"
+            "roles":"*"
         }
-    ],
-    "views":[
+    ], 
+    "views": [
         {
-            "viewID": "viewNormal", 
-            "name": "智能锁维护", 
-            "description": "智能锁维护", 
+            "viewID": "view1", 
+            "name": "部门岗位维护", 
+            "description": "部门岗位维护", 
             "fields": [
                 {"field":"id","width":150},
-                {"field":"name","width":150},
                 {
-                    "field":"room",
+                    "field":"dep_id",
                     "width":150,
                     "filterControlType":"SingleSelect",
-                    "optionLabel":"return record.name+'('+record.id+')'",
+                    "optionLabel":"return record.name+'('+record.id+')';",
                     "fields":[
-                        {"field":"id"},
-                        {"field":"name"}
+                        {"field":"id","name":"编号"},
+                        {"field":"name","name":"名称"}
                     ]
                 },
                 {
-                    "field":"area_type",
+                    "field":"pos_id",
                     "width":150,
-                    "optionLabel":"name",
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"return record.name+'('+record.id+')';",
                     "fields":[
-                        {"field":"id"},
-                        {"field":"name"}
+                        {"field":"id","name":"编号"},
+                        {"field":"name","name":"名称"}
                     ]
                 },
-                {"field":"rack","width":150},
                 {"field":"remark","width":150},
                 {"field":"create_time","width":150},
                 {"field":"create_user","width":150},
@@ -184,6 +142,7 @@
                 {"field":"update_user","width":150},
                 {"field":"version","width":150}
             ],
+            "filter": { }, 
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 
@@ -191,37 +150,36 @@
                         {
                             "operationID": "create",
                             "name":"新增"
-                        },
-                        {
-                            "operationID": "syncLockList",
-                            "name":"同步锁信息"
                         }
                     ]
                 }, 
                 "rowToolbar": {
                     "showCount": 3,
-                    "width":80, 
+                    "width":90, 
                     "buttons": [
                         {
-                            "operationID": "edit"
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除当前记录吗？"
                         },
                         {
-                            "operationID": "delete"
+                            "operationID":"edit",
+                            "name":"编辑"
                         }
                     ]
                 }
             },
-            "roles":"admin"
+            "roles":["admin"]
         }
     ],
     "forms":[
         {
-            "formID": "formCreate",
+            "formID": "form1",
             "colCount": 4,
-            "rowCount": 2,
+            "rowCount": 26,
             "rowHeight": 30,
             "header":{
-                "label":"新增"
+                "label":"创建"
             },
             "footer":{
                 "operations":[
@@ -242,34 +200,51 @@
                 ]
             },
             "controls": [
-                {"field":"id","width":150,"controlType": "Text","row": 1,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true},
-                {"field":"name","width":150,"controlType": "Text","row": 2,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true},
                 {
-                    "field":"room",
-                    "width":150,
-                    "controlType": "SingleSelect",
-                    "optionLabel":"return record.name+'('+record.id+')'",
-                    "fields":[
-                        {"field":"id"},
-                        {"field":"name"}
-                    ],
-                    "row": 3,"col": 1,"colSpan": 2,"rowSpan": 1,
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 2,
+                    "rowSpan": 1,
                     "required":true
                 },
                 {
-                    "field":"area_type",
-                    "width":150,
+                    "field": "dep_id", 
                     "controlType": "SingleSelect",
-                    "optionLabel":"name",
+                    "optionLabel":"return record.name+'('+record.id+')';",
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true,
                     "fields":[
-                        {"field":"id"},
-                        {"field":"name"}
-                    ],
-                    "row": 3,"col": 3,"colSpan": 2,"rowSpan": 1,
-                    "required":true
+                        {"field":"id","name":"编号"},
+                        {"field":"name","name":"名称"}
+                    ]
                 },
-                {"field":"rack","width":150,"controlType": "Text","row": 4,"col": 1,"colSpan": 4,"rowSpan": 1,"required":false},
-                {"field":"remark","width":150,"controlType": "TextArea","row": 5,"col": 1,"colSpan": 4,"rowSpan": 1,"required":false}
+                {
+                    "field": "pos_id", 
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.name+'('+record.id+')';",
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true,
+                    "fields":[
+                        {"field":"id","name":"编号"},
+                        {"field":"name","name":"名称"}
+                    ]
+                },
+                {
+                    "field":"remark",
+                    "controlType": "Text",
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
             ]
         }
     ]

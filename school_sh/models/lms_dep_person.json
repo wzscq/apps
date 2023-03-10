@@ -1,0 +1,329 @@
+{
+    "modelID": "lms_dep_person", 
+    "fields": [
+        {"field":"id","name":"编号","dataType":"varchar"},
+        {"field":"dep_id","name":"部门ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_department"},
+        {"field":"pos_id","name":"岗位ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_position"},
+        {"field":"person_id","name":"人员ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_person"},
+        {"field":"status","name":"状态","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_dep_person_status"},
+        {"field":"start_date","name":"开始日期","dataType":"datetime"},
+        {"field":"end_date","name":"截止日期","dataType":"datetime"},
+        {"field":"remark","name":"备注","dataType":"varchar"},
+        {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+        {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+        {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+        {"field":"version","name":"数据版本号","dataType":"int"}
+    ], 
+    "datasets":[
+        {
+            "id":"DEFAULT",
+            "fields":"*",
+            "queryRoles":"*",
+            "mutationRoles":"*"
+        }
+    ],
+    "operations": [
+        {
+            "id": "create", 
+            "name": "新增",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_dep_person/form1/create",
+                    "location":"modal",
+                    "title":"新增",
+                    "key":"/model/lms_dep_person/form1/create",
+                    "width":650,
+                    "height":400
+            },
+            "input":{},
+            "description":"打开新增对话框",
+            "roles":"*"
+        },
+        {
+            "id": "edit", 
+            "name": "编辑",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_dep_person/form1/edit",
+                    "location":"modal",
+                    "title":"编辑",
+                    "key":"/model/lms_dep_person/form1/edit",
+                    "width":650,
+                    "height":400
+            },
+            "input":{},
+            "description":"打开编辑对话框",
+            "roles":"*"
+        },
+        {
+            "id": "delete", 
+            "name": "删除",
+            "type":"request",
+            "params":{
+                "url":"/data/delete",
+                "method":"post"
+            },
+            "description":"删除选中数据",
+            "successOperation":{
+                "type":"message",
+                "params":{
+                    "type":"success",
+                    "content":"删除记录成功!",
+                    "duration":"2"
+                },
+                "description":"提示删除数据成功",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_dep_person"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        },
+        {
+            "id":"save",
+            "name":"保存",
+            "type":"request",
+            "params":{
+                "url":"/data/save",
+                "method":"post"
+            },
+            "description":"保存数据",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{},
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_dep_person"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
+            "roles":"*"
+        }
+    ], 
+    "views": [
+        {
+            "viewID": "view1", 
+            "name": "岗位人员维护", 
+            "description": "岗位人员维护", 
+            "fields": [
+                {"field":"id","width":50},
+                {
+                    "field":"dep_id",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"return record.name+'('+record.id+')';",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"pos_id",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"return record.name+'('+record.id+')';",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"person_id",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"return record.name;",
+                    "filter":{"type":{"Op.in": ["02","03"]}},
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"status",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {"field":"start_date","width":150},
+                {"field":"end_date","width":150},
+                {"field":"remark","width":150},
+                {"field":"create_time","width":150},
+                {"field":"create_user","width":150},
+                {"field":"update_time","width":150},
+                {"field":"update_user","width":150},
+                {"field":"version","width":150}
+            ],
+            "filter": { }, 
+            "toolbar": {
+                "listToolbar": {
+                    "showCount": 3, 
+                    "buttons": [
+                        {
+                            "operationID": "create",
+                            "name":"新增"
+                        }
+                    ]
+                }, 
+                "rowToolbar": {
+                    "showCount": 3,
+                    "width":90, 
+                    "buttons": [
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "prompt":"确定要删除当前记录吗？"
+                        },
+                        {
+                            "operationID":"edit",
+                            "name":"编辑"
+                        }
+                    ]
+                }
+            },
+            "roles":["admin"]
+        }
+    ],
+    "forms":[
+        {
+            "formID": "form1",
+            "colCount": 3,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"save",
+                        "name":"保存"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field": "id", 
+                    "controlType": "Text",
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "disabled":true
+                },
+                {
+                    "field": "dep_id", 
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.name+'('+record.id+')';",
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true,
+                    "fields":[
+                        {"field":"id","name":"编号"},
+                        {"field":"name","name":"名称"}
+                    ]
+                },
+                {
+                    "field": "pos_id", 
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.name+'('+record.id+')';",
+                    "row": 2,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true,
+                    "fields":[
+                        {"field":"id","name":"编号"},
+                        {"field":"name","name":"名称"}
+                    ],
+                    "cascade":[
+                        {
+                            "parentField":"dep_id",
+                            "type":"many2many",
+                            "middleModelID":"lms_dep_pos"
+                        }
+                    ]
+                },
+                {
+                    "field": "person_id", 
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.name+'('+record.id+')';",
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true,
+                    "filter":{"type":{"Op.in": ["02","03"]}},
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ]
+                },
+                {
+                    "field":"status",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"start_date",
+                    "controlType": "DatePicker",
+                    "row": 3,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"end_date",
+                    "controlType": "DatePicker",
+                    "row": 3,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"remark",
+                    "controlType": "Text",
+                    "row": 4,
+                    "col": 1,
+                    "colSpan": 3,
+                    "rowSpan": 1
+                }
+            ]
+        }
+    ]
+}
