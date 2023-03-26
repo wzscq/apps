@@ -1,0 +1,15 @@
+{
+  "id": "edit", 
+  "name": "编辑",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/gpt_recharge_rec/formCreate/edit",
+          "location":"modal",
+          "title":"编辑客户充值记录",
+          "key":"/model/gpt_recharge_rec/formCreate/edit",
+          "width":800,
+          "height":450
+  },
+  "input":{},
+  "description":"打开客户充值记录编辑对话框"
+}

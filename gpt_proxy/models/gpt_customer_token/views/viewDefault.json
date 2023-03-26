@@ -1,0 +1,52 @@
+{
+  "viewID": "viewDefault", 
+  "name": "客户账户总览", 
+  "description": "客户账户总览", 
+  "fields": [
+    {"field":"id","width":150},
+    {"field":"total","width":150},
+    {"field":"used","width":150},
+    {"field":"remark","width":150},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}
+  ], 
+  "filter": { }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+              {
+                  "operationID": "create",
+                  "name":"创建客户账户"
+              }, 
+              {
+                  "operationID": "delete",
+                  "name":"删除选中客户账户",
+                  "prompt":"确定要删除当前选择的客户账户记录吗？"
+             }
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":120, 
+          "buttons": [
+              {
+                  "operationID": "edit",
+                  "name":"编辑"
+              },
+              {
+                  "operationID": "detail",
+                  "name":"详情"
+              }, 
+              {
+                  "operationID": "delete",
+                  "name":"删除",
+                  "prompt":"确定要删除这个客户账户信息吗？"
+              }
+          ]
+      }
+  }
+}

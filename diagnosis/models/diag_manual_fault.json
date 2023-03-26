@@ -226,7 +226,7 @@
                     "field": "domain_id", 
                     "width": 100,
                     "filterControlType": "SingleSelect",
-                    "optionLabel":"name",
+                    "optionLabel":"id",
                     "fields":[
                         {
                             "field": "id"
@@ -433,7 +433,7 @@
                 {
                     "field": "dtc_id",
                     "controlType": "SingleSelect",
-                    "optionLabel":"name",
+                    "optionLabel":"id",
                     "fields":[
                         {
                             "field": "id"

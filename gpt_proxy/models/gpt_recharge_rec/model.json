@@ -1,0 +1,15 @@
+{
+  "modelID": "gpt_recharge_rec", 
+  "fields": [
+    {"field":"id","name":"编号","dataType":"bigint"},
+    {"field":"openid","name":"用户ID","dataType":"varchar","quickSearch":true},
+    {"field":"amount","name":"金额","dataType":"decimal"},
+    {"field":"token","name":"对应token数","dataType":"bigint"},
+    {"field":"remark","name":"备注","dataType":"varchar","quickSearch":true},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}
