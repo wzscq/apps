@@ -3,6 +3,7 @@
     "fields":[
         {"field":"id","name":"编号","dataType":"varchar","quickSearch":true},
         {"field":"name","name":"名称","dataType":"varchar","quickSearch":true},
+        {"field":"controller","name":"管理机","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_key_controller"},
         {"field":"remark","name":"备注","dataType":"varchar","quickSearch":true},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
@@ -29,7 +30,7 @@
                     "title":"创建",
                     "key":"/model/sl_key/formCreate/create",
                     "width":800,
-                    "height":340
+                    "height":400
             },
             "input":{},
             "description":"打开创建对话框" ,
@@ -45,7 +46,7 @@
                     "title":"编辑",
                     "key":"/model/sl_key/formCreate/edit",
                     "width":800,
-                    "height":340
+                    "height":400
             },
             "input":{},
             "description":"打开编辑对话框",
@@ -61,7 +62,7 @@
                     "title":"详情",
                     "key":"/model/sl_key/formCreate/detail",
                     "width":800,
-                    "height":340
+                    "height":400
             },
             "input":{},
             "description":"打开信息编辑对话框",
@@ -131,6 +132,16 @@
             "fields": [
                 {"field":"id","width":150},
                 {"field":"name","width":150},
+                {
+                    "field":"controller",
+                    "width":150,
+                    "filterControlType":"SingleSelect",
+                    "optionLabel":"ip",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"ip"}
+                    ]
+                },
                 {"field":"remark","width":150},
                 {"field":"create_time","width":150},
                 {"field":"create_user","width":150},
@@ -194,7 +205,18 @@
             "controls": [
                 {"field":"id","width":150,"controlType": "Text","row": 1,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true},
                 {"field":"name","width":150,"controlType": "Text","row": 2,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true},
-                {"field":"remark","width":150,"controlType": "TextArea","row": 3,"col": 1,"colSpan": 4,"rowSpan": 1,"required":false}
+                {
+                    "field":"controller",
+                    "controlType":"SingleSelect",
+                    "optionLabel":"ip",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"ip"}
+                    ],
+                    "row": 3,"col": 1,"colSpan": 2,"rowSpan": 1,
+                    "required":true
+                },
+                {"field":"remark","width":150,"controlType": "TextArea","row": 4,"col": 1,"colSpan": 4,"rowSpan": 1,"required":false}
             ]
         }
     ]

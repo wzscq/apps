@@ -163,6 +163,24 @@
             },
             {
                 "id":"3",
+                "name":"智能锁网关",
+                "description":"智能锁网关",
+                "icon":"ControlOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/sl_lock_hub",
+                        "location":"tab",
+                        "title":"智能锁网关",
+                        "key":"/model/sl_lock_hub"
+                    },
+                    "input":{},
+                    "description":"打开智能锁网关维护页面"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"4",
                 "name":"智能钥匙管理机",
                 "description":"智能钥匙管理机",
                 "icon":"ControlOutlined",
@@ -180,7 +198,7 @@
                 "roles":"admin"
             },
             {
-                "id":"4",
+                "id":"5",
                 "name":"机房信息",
                 "description":"维护机房信息",
                 "icon":"BankOutlined",
@@ -198,7 +216,7 @@
                 "roles":"admin"
             },
             {
-                "id":"5",
+                "id":"6",
                 "name":"区域类型",
                 "description":"维护区域类型",
                 "icon":"AppstoreAddOutlined",

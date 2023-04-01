@@ -1,8 +1,8 @@
 {
-    "modelID":"sl_key_controller",
+    "modelID":"sl_lock_hub",
     "fields":[
         {"field":"id","name":"编号","dataType":"varchar","quickSearch":true},
-        {"field":"ip","name":"IP地址","dataType":"varchar","quickSearch":true},
+        {"field":"ip","name":"网关IP","dataType":"varchar","quickSearch":true},
         {"field":"remark","name":"备注","dataType":"varchar","quickSearch":true},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
@@ -24,10 +24,10 @@
             "name": "创建",
             "type":"open",
             "params":{
-                    "url":"/formview/#/sl_key_controller/formCreate/create",
+                    "url":"/formview/#/sl_lock_hub/formCreate/create",
                     "location":"modal",
                     "title":"创建",
-                    "key":"/model/sl_key_controller/formCreate/create",
+                    "key":"/model/sl_lock_hub/formCreate/create",
                     "width":800,
                     "height":340
             },
@@ -40,10 +40,10 @@
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/formview/#/sl_key_controller/formCreate/edit",
+                    "url":"/formview/#/sl_lock_hub/formCreate/edit",
                     "location":"modal",
                     "title":"编辑",
-                    "key":"/model/sl_key_controller/formCreate/edit",
+                    "key":"/model/sl_lock_hub/formCreate/edit",
                     "width":800,
                     "height":340
             },
@@ -56,10 +56,10 @@
             "name": "详情",
             "type":"open",
             "params":{
-                    "url":"/formview/#/sl_key_controller/formCreate/detail",
+                    "url":"/formview/#/sl_lock_hub/formCreate/detail",
                     "location":"modal",
                     "title":"详情",
-                    "key":"/model/sl_key_controller/formCreate/detail",
+                    "key":"/model/sl_lock_hub/formCreate/detail",
                     "width":800,
                     "height":340
             },
@@ -88,7 +88,7 @@
                     "type":"reloadFrameData",
                     "params":{
                         "location":"tab",
-                        "key":"/model/sl_key_controller"
+                        "key":"/model/sl_lock_hub"
                     },
                     "description":"刷新页面数据"
                 }
@@ -115,7 +115,7 @@
                     "type":"reloadFrameData",
                     "params":{
                         "location":"tab",
-                        "key":"/model/sl_key_controller"
+                        "key":"/model/sl_lock_hub"
                     },
                     "description":"刷新页面数据"
                 }
@@ -126,8 +126,8 @@
     "views":[
         {
             "viewID": "viewNormal", 
-            "name": "智能钥匙管理机维护", 
-            "description": "智能钥匙管理机维护", 
+            "name": "智能锁网关维护", 
+            "description": "智能锁网关维护", 
             "fields": [
                 {"field":"id","width":150},
                 {"field":"ip","width":150},
