@@ -281,7 +281,9 @@
                     "optionLabel":"name",
                     "fields":[
                         {"field":"id"},
-                        {"field":"name"}
+                        {"field":"name"},
+                        {"field":"master_hub"},
+                        {"field":"slaver_hub"}
                     ],
                     "row": 3,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true
                 },

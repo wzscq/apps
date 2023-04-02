@@ -146,12 +146,20 @@
                     "filterControlType": "SingleSelect",
                     "options":[
                         {
-                            "value":"0",
-                            "label":"关闭"
+                            "value":"000",
+                            "label":"门开锁开"
                         },
                         {
-                            "value":"1",
-                            "label":"开启"
+                            "value":"001",
+                            "label":"门开锁关"
+                        },
+                        {
+                            "value":"010",
+                            "label":"门关锁开"
+                        },
+                        {
+                            "value":"011",
+                            "label":"门关锁关"
                         }
                     ]
                 },
