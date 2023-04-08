@@ -169,6 +169,7 @@
                 {"field":"update_user","width":150},
                 {"field":"version","width":150}
             ],
+            "sorter":[{"field":"update_time","order":"desc"}],
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 

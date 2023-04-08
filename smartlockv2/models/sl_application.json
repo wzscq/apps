@@ -244,6 +244,7 @@
                 {"field":"version","width":150}
             ],
             "filter":{"create_user":"%{userID}","status":{"Op.in":["0","3"]}},
+            "sorter":[{"field":"update_time","order":"desc"}],
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 
@@ -313,6 +314,7 @@
                 {"field":"version","width":150}
             ],
             "filter":{"create_user":"%{userID}"},
+            "sorter":[{"field":"update_time","order":"desc"}],
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 
@@ -373,6 +375,7 @@
                 {"field":"version","width":150}
             ],
             "filter":{"approver":"%{userID}","status":"1"},
+            "sorter":[{"field":"update_time","order":"desc"}],
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 
@@ -436,6 +439,7 @@
                 {"field":"version","width":150}
             ],
             "filter":{"approver":"%{userID}","status":{"Op.in":["2","3"]}},
+            "sorter":[{"field":"update_time","order":"desc"}],
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 
@@ -496,6 +500,7 @@
                 {"field":"version","width":150}
             ],
             "filter":{"status":{"Op.in":["2"]}},
+            "sorter":[{"field":"update_time","order":"desc"}],
             "toolbar": {
                 "listToolbar": {
                     "showCount": 3, 

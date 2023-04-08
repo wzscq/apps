@@ -4,6 +4,7 @@
         {"field":"id","name":"编号","dataType":"bigint"},
         {"field":"locks","name":"智能锁ID","dataType":"varchar","fieldType":"many2many","relatedModelID":"sl_lock"},
         {"field":"operators","name":"操作人","dataType":"varchar","fieldType":"many2many","relatedModelID":"sl_person"},
+        {"field":"close_delay","name":"闭锁延迟","dataType":"varchar"},
         {"field":"remark","name":"事由说明","dataType":"varchar"},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_person"},
@@ -168,6 +169,7 @@
                 {"field":"update_user","width":150},
                 {"field":"version","width":150}
             ],
+            "sorter":[{"field":"update_time","order":"desc"}],
             "filter":{},
             "toolbar": {
                 "listToolbar": {
@@ -224,6 +226,17 @@
             },
             "controls": [
                 {"field":"id","controlType": "Text","row": 1,"col": 1,"colSpan": 2,"rowSpan": 1,"required":false,"disabled":true},
+                {
+                    "field":"close_delay",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {"value":"010","label":"10秒"},
+                        {"value":"030","label":"30秒"},
+                        {"value":"060","label":"60秒"}
+                    ],
+                    "row": 1,"col": 3,"colSpan": 2,"rowSpan": 1,
+                    "required":true
+                },
                 {"field":"remark","controlType": "TextArea","row": 2,"col": 1,"colSpan": 4,"rowSpan": 1,"required":true},
                 {
                     "field":"locks",
@@ -273,6 +286,17 @@
             },
             "controls": [
                 {"field":"id","controlType": "Text","row": 1,"col": 1,"colSpan": 2,"rowSpan": 1,"required":false,"disabled":true},
+                {
+                    "field":"close_delay",
+                    "controlType": "SingleSelect",
+                    "options":[
+                        {"value":"010","label":"10秒"},
+                        {"value":"030","label":"30秒"},
+                        {"value":"060","label":"60秒"}
+                    ],
+                    "row": 1,"col": 3,"colSpan": 2,"rowSpan": 1,
+                    "required":true
+                },
                 {"field":"remark","controlType": "TextArea","row": 2,"col": 1,"colSpan": 4,"rowSpan": 1,"required":true},
                 {
                     "field":"locks",
