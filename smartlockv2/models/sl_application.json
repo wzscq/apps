@@ -16,7 +16,8 @@
         {"field":"create_user","name":"记录创建人","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_person"},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
         {"field":"update_user","name":"记录更新人","dataType":"varchar"},
-        {"field":"version","name":"数据版本号","dataType":"int"}
+        {"field":"version","name":"数据版本号","dataType":"int"},
+        {"field":"key_controller_id","name":"钥匙管理机","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_key_controller"}
     ],
     "datasets":[
         {
@@ -182,6 +183,22 @@
         {
             "id": "authToKey", 
             "name": "智能钥匙授权",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/sl_application/selectKeyControllerForm/update",
+                    "location":"modal",
+                    "title":"选择钥匙管理机",
+                    "key":"/model/sl_application/selectKeyControllerForm/update",
+                    "width":400,
+                    "height":200
+            },
+            "input":{},
+            "description":"打开选择钥匙管理机窗口",
+            "roles":"admin"
+        },
+        {
+            "id": "authToKeyConfirm", 
+            "name": "智能钥匙授权确认",
             "type":"request",
             "params":{
                 "url":"/redirect",
@@ -198,7 +215,15 @@
                     "content":"开锁权限下发成功!",
                     "duration":"2"
                 },
-                "description":"提示"
+                "description":"提示",
+                "successOperation":{
+                    "type":"close",
+                    "params":{
+                        "location":"modal"
+                    },
+                    "input":{},
+                    "description":"关闭对话框"  
+                }
             },
             "roles":"admin"
         }
@@ -210,10 +235,8 @@
             "description": "待提交的申请",
             "fields": [
                 {"field":"description","width":250},
-                {"field":"start_date","width":150,"format":"YYYY-MM-DD"},
-                {"field":"end_date","width":150,"format":"YYYY-MM-DD"},
-                {"field":"start_time","width":150},
-                {"field":"end_time","width":150},
+                {"field":"start_date","width":150,"format":"YYYY-MM-DD HH:mm:ss"},
+                {"field":"end_date","width":150,"format":"YYYY-MM-DD HH:mm:ss"},
                 {
                     "field":"status",
                     "width":150,
@@ -280,10 +303,8 @@
             "description": "我的全部申请",
             "fields": [
                 {"field":"description","width":250},
-                {"field":"start_date","width":150,"format":"YYYY-MM-DD"},
-                {"field":"end_date","width":150,"format":"YYYY-MM-DD"},
-                {"field":"start_time","width":150},
-                {"field":"end_time","width":150},
+                {"field":"start_date","width":150,"format":"YYYY-MM-DD HH:mm:ss"},
+                {"field":"end_date","width":150,"format":"YYYY-MM-DD HH:mm:ss"},
                 {
                     "field":"status",
                     "width":150,
@@ -341,10 +362,8 @@
             "fields": [
                 {"field":"create_user","width":150,"name":"申请人"},
                 {"field":"description","width":250},
-                {"field":"start_date","width":150,"format":"YYYY-MM-DD"},
-                {"field":"end_date","width":150,"format":"YYYY-MM-DD"},
-                {"field":"start_time","width":150},
-                {"field":"end_time","width":150},
+                {"field":"start_date","width":150,"format":"YYYY-MM-DD HH:mm:ss"},
+                {"field":"end_date","width":150,"format":"YYYY-MM-DD HH:mm:ss"},
                 {
                     "field":"status",
                     "width":150,
@@ -405,10 +424,8 @@
             "fields": [
                 {"field":"create_user","width":150,"name":"申请人"},
                 {"field":"description","width":250},
-                {"field":"start_date","width":150,"format":"YYYY-MM-DD"},
-                {"field":"end_date","width":150,"format":"YYYY-MM-DD"},
-                {"field":"start_time","width":150},
-                {"field":"end_time","width":150},
+                {"field":"start_date","width":150,"format":"YYYY-MM-DD HH:mm:ss"},
+                {"field":"end_date","width":150,"format":"YYYY-MM-DD HH:mm:ss"},
                 {
                     "field":"status",
                     "width":150,
@@ -466,10 +483,8 @@
             "fields": [
                 {"field":"create_user","width":150,"name":"申请人"},
                 {"field":"description","width":250},
-                {"field":"start_date","width":150,"format":"YYYY-MM-DD"},
-                {"field":"end_date","width":150,"format":"YYYY-MM-DD"},
-                {"field":"start_time","width":150},
-                {"field":"end_time","width":150},
+                {"field":"start_date","width":150,"format":"YYYY-MM-DD HH:mm:ss"},
+                {"field":"end_date","width":150,"format":"YYYY-MM-DD HH:mm:ss"},
                 {
                     "field":"status",
                     "width":150,
@@ -566,10 +581,8 @@
                     "required":false,
                     "disabled":true
                 },
-                {"field":"start_date","width":150,"controlType": "DatePicker","row": 2,"col": 1,"colSpan": 1,"rowSpan": 1,"required":true},
-                {"field":"end_date","width":150,"controlType": "DatePicker","row": 2,"col": 2,"colSpan": 1,"rowSpan": 1,"required":true},
-                {"field":"start_time","width":150,"controlType": "TimePicker","row": 2,"col": 3,"colSpan": 1,"rowSpan": 1,"required":true},
-                {"field":"end_time","width":150,"controlType": "TimePicker","row": 2,"col": 4,"colSpan": 1,"rowSpan": 1,"required":true},
+                {"field":"start_date","width":150,"controlType": "DatePicker","showTime":true,"row": 2,"col": 1,"colSpan": 1,"rowSpan": 1,"required":true},
+                {"field":"end_date","width":150,"controlType": "DatePicker","showTime":true,"row": 2,"col": 2,"colSpan": 1,"rowSpan": 1,"required":true},
                 {
                     "field":"approver",
                     "width":150,
@@ -660,10 +673,8 @@
                     "row": 2,"col": 1,"colSpan": 1,"rowSpan": 1,"required":true
                 },
                 {"field":"approval_comments","width":150,"controlType": "Text","row": 2,"col": 2,"colSpan": 3,"rowSpan": 1},    
-                {"field":"start_date","width":150,"controlType": "DatePicker","row": 3,"col": 1,"colSpan": 1,"rowSpan": 1,"disabled":true},
-                {"field":"end_date","width":150,"controlType": "DatePicker","row": 3,"col": 2,"colSpan": 1,"rowSpan": 1,"disabled":true},
-                {"field":"start_time","width":150,"controlType": "TimePicker","row": 3,"col": 3,"colSpan": 1,"rowSpan": 1,"disabled":true},
-                {"field":"end_time","width":150,"controlType": "TimePicker","row": 3,"col": 4,"colSpan": 1,"rowSpan": 1,"disabled":true},
+                {"field":"start_date","width":150,"controlType": "DatePicker","showTime":true,"row": 3,"col": 1,"colSpan": 1,"rowSpan": 1,"disabled":true},
+                {"field":"end_date","width":150,"controlType": "DatePicker","showTime":true,"row": 3,"col": 2,"colSpan": 1,"rowSpan": 1,"disabled":true},
                 {
                     "field":"approver",
                     "width":150,
@@ -697,6 +708,47 @@
                         {"field":"name"}
                     ],
                     "row": 6,"col": 3,"colSpan": 2,"rowSpan": 1,"disabled":true
+                }
+            ]
+        },
+        {
+            "formID":"selectKeyControllerForm",
+            "colCount": 4,
+            "rowCount": 2,
+            "rowHeight": 30,
+            "header":{
+                "label":"选择钥匙管理机"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"authToKeyConfirm",
+                        "name":"确定"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field":"key_controller_id",
+                    "label":"钥匙管理机",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.id+'('+record.ip+')'",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"ip"}
+                    ],
+                    "row": 1,"col": 1,"colSpan": 4,"rowSpan": 1,
+                    "required":true
                 }
             ]
         }
