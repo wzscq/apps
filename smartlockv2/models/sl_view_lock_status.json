@@ -1,5 +1,5 @@
 {
-    "modelID":"sl_lock_status_record",
+    "modelID":"sl_view_lock_status",
     "fields":[
         {"field":"id","name":"编号","dataType":"bigint"},
         {"field":"lock_id","name":"智能锁ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_lock","quickSearch":true},
@@ -18,116 +18,29 @@
             "mutationRoles":"*"
         }
     ],
-    "operations": [
-        {
-            "id": "create", 
-            "name": "创建",
-            "type":"open",
-            "params":{
-                    "url":"/formview/#/sl_lock_status_record/formCreate/create",
-                    "location":"modal",
-                    "title":"创建",
-                    "key":"/model/sl_lock_status_record/formCreate/create",
-                    "width":800,
-                    "height":440
-            },
-            "input":{},
-            "description":"打开创建对话框" ,
-            "roles":"admin"
-        }, 
-        {
-            "id": "edit", 
-            "name": "编辑",
-            "type":"open",
-            "params":{
-                    "url":"/formview/#/sl_lock_status_record/formCreate/edit",
-                    "location":"modal",
-                    "title":"编辑",
-                    "key":"/model/sl_lock_status_record/formCreate/edit",
-                    "width":800,
-                    "height":450
-            },
-            "input":{},
-            "description":"打开编辑对话框",
-            "roles":"admin"
-        }, 
+    "operations": [ 
         {
             "id": "detail", 
             "name": "详情",
             "type":"open",
             "params":{
-                    "url":"/formview/#/sl_lock_status_record/formCreate/detail",
+                    "url":"/formview/#/sl_view_lock_status/formCreate/detail",
                     "location":"modal",
                     "title":"详情",
-                    "key":"/model/sl_lock_status_record/formCreate/detail",
+                    "key":"/model/sl_view_lock_status/formCreate/detail",
                     "width":800,
                     "height":450
             },
             "input":{},
             "description":"打开信息编辑对话框",
             "roles":"admin"
-        }, 
-        {
-            "id": "delete", 
-            "name": "删除",
-            "type":"request",
-            "params":{
-                "url":"/data/delete",
-                "method":"post"
-            },
-            "description":"删除选中数据",
-            "successOperation":{
-                "type":"message",
-                "params":{
-                    "type":"success",
-                    "content":"删除信息成功!",
-                    "duration":"2"
-                },
-                "description":"提示删除数据成功",
-                "successOperation":{
-                    "type":"reloadFrameData",
-                    "params":{
-                        "location":"tab",
-                        "key":"/model/sl_lock_status_record"
-                    },
-                    "description":"刷新页面数据"
-                }
-            },
-            "roles":"admin"
-        },
-        {
-            "id":"save",
-            "name":"保存",
-            "type":"request",
-            "params":{
-                "url":"/data/save",
-                "method":"post"
-            },
-            "description":"保存数据",
-            "successOperation":{
-                "type":"close",
-                "params":{
-                    "location":"modal"
-                },
-                "input":{},
-                "description":"关闭对话框",
-                "successOperation":{
-                    "type":"reloadFrameData",
-                    "params":{
-                        "location":"tab",
-                        "key":"/model/sl_lock_status_record"
-                    },
-                    "description":"刷新页面数据"
-                }
-            },
-            "roles":"admin"
-        }   
+        } 
     ],
     "views":[
         {
             "viewID": "viewNormal", 
-            "name": "智能锁状态记录", 
-            "description": "智能锁状态记录", 
+            "name": "智能锁当前状态", 
+            "description": "查看智能锁当前状态", 
             "fields": [
                 {"field":"id","width":150},
                 {
@@ -173,9 +86,7 @@
                     "showCount": 3,
                     "width":50, 
                     "buttons": [
-                        {
-                            "operationID": "delete"
-                        }
+                       
                     ]
                 }
             },

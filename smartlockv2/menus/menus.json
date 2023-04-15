@@ -83,6 +83,24 @@
         "children":[
             {
                 "id":"1",
+                "name":"智能锁当前状态",
+                "description":"智能锁当前状态",
+                "icon":"ReconciliationOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/sl_view_lock_status",
+                        "location":"tab",
+                        "title":"智能锁当前状态",
+                        "key":"/model/sl_view_lock_status"
+                    },
+                    "input":{},
+                    "description":"打开智能锁智能锁当前状态页面"
+                },
+                "roles":"admin"
+            },
+            {
+                "id":"2",
                 "name":"智能锁状态记录",
                 "description":"智能锁状态记录",
                 "icon":"ReconciliationOutlined",
@@ -100,7 +118,7 @@
                 "roles":"admin"
             },
             {
-                "id":"2",
+                "id":"3",
                 "name":"智能钥匙授权记录",
                 "description":"智能钥匙授权记录",
                 "icon":"ReconciliationOutlined",
