@@ -2,9 +2,12 @@
     "modelID":"sl_key_authorization",
     "fields":[
         {"field":"id","name":"编号","dataType":"bigint"},
-        {"field":"key_controller_id","name":"智能钥匙管理机","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_key_controller"},
-        {"field":"key_id","name":"智能钥匙","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_key"},
+        {"field":"key_controller_id","name":"智能钥匙管理机","dataType":"varchar"},
+        {"field":"key_id","name":"智能钥匙","dataType":"varchar"},
         {"field":"remark","name":"备注","dataType":"varchar"},
+        {"field":"application_id","name":"授权申请ID","dataType":"bigint"},
+        {"field":"status","name":"状态","dataType":"varchar"},
+        {"field":"message","name":"状态信息","dataType":"varchar"},
         {"field":"applications","name":"授权开锁申请","fieldType":"many2many","relatedModelID":"sl_application"},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
@@ -132,6 +135,7 @@
             "description": "智能钥匙授权记录", 
             "fields": [
                 {"field":"id","width":150},
+                {"field":"application_id","width":150},
                 {
                     "field":"key_controller_id",
                     "width":150,
@@ -143,7 +147,16 @@
                     ]
                 },
                 {"field":"key_id","width":150},
-                {"field":"remark","width":150},
+                {
+                    "field":"status",
+                    "width":100,
+                    "filterControlType":"SingleSelect",
+                    "options":[
+                        {"value":"0","label":"授权成功"},
+                        {"value":"1","label":"授权失败"}
+                    ]
+                },
+                {"field":"message","width":250},
                 {"field":"create_time","width":150},
                 {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
