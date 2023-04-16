@@ -134,7 +134,7 @@
             "name": "编辑",
             "type":"open",
             "params":{
-                    "url":"/formview/#/diag_view_result/form1/edit",
+                    "url":"/formview/#/diag_result/form1/edit",
                     "location":"modal",
                     "title":"编辑诊断结果",
                     "key":"/model/diag_view_result/form1/edit",

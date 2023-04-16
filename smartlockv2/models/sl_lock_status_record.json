@@ -155,7 +155,12 @@
                         }
                     ]
                 },
-                {"field":"create_time","width":150},
+                {
+                    "field":"create_time",
+                    "width":150,
+                    "filterControlType":"DatePicker",
+                    "showTime":true
+                },
                 {"field":"create_user","width":150},
                 {"field":"update_time","width":150},
                 {"field":"update_user","width":150},

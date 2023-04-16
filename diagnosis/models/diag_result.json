@@ -211,7 +211,15 @@
                         "location":"tab",
                         "key":"/model/diag_result"
                     },
-                    "description":"刷新页面数据"
+                    "description":"刷新页面数据",
+                    "successOperation":{
+                        "type":"reloadFrameData",
+                        "params":{
+                            "location":"tab",
+                            "key":"/model/diag_view_result"
+                        },
+                        "description":"刷新页面数据"
+                    }
                 }
             },
             "roles":"*"
