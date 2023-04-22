@@ -15,6 +15,8 @@
         {"field":"score","name":"成绩","dataType":"decimal"},
         {"field":"level","name":"等第","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_exam_level"},
         {"field":"remark","name":"备注","dataType":"varchar","quickSearch":true},
+        {"field":"import_file_name","name":"导入文件名称","dataType":"varchar"},
+        {"field":"import_batch_number","name":"导入批次","dataType":"varchar"},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
@@ -44,6 +46,54 @@
             },
             "input":{},
             "description":"打开新增对话框",
+            "roles":"*"
+        },
+        {
+            "id": "importByTeacher", 
+            "name": "导入学生成绩",
+            "type":"open",
+            "params":{
+                    "url":"/formview/#/lms_exam_participant/formImportByTeacher/create",
+                    "location":"modal",
+                    "title":"导入学生成绩",
+                    "key":"/model/lms_exam_participant/formImportByTeacher/create",
+                    "width":800,
+                    "height":440
+            },
+            "input":{},
+            "description":"打开导入学生成绩对话框",
+            "roles":"*"
+        },
+        {
+            "id":"saveImportByTeacher",
+            "name":"导入",
+            "type":"request",
+            "params":{
+                "url":"/redirect",
+                "method":"post"
+            },
+            "input":{
+                "to":"processingFlow",
+                "FlowID":"import_exam_student"
+            },
+            "description":"导入学生考试成绩",
+            "successOperation":{
+                "type":"close",
+                "params":{
+                    "location":"modal"
+                },
+                "input":{
+                },
+                "description":"关闭对话框",
+                "successOperation":{
+                    "type":"reloadFrameData",
+                    "params":{
+                        "location":"tab",
+                        "key":"/model/lms_exam_participant"
+                    },
+                    "description":"刷新页面数据"
+                }
+            },
             "roles":"*"
         },
         {
@@ -277,7 +327,7 @@
             "filterData":[
                 {
                     "modelID":"lms_person",
-                    "filter":{"sn":"%{userID}"},
+                    "filter":{"login_account":"%{userID}"},
                     "fields":[
                         {
                             "field":"id"
@@ -416,7 +466,7 @@
             "filterData":[
                 {
                     "modelID":"lms_person",
-                    "filter":{"sn":"%{userID}"},
+                    "filter":{"login_account":"%{userID}"},
                     "fields":[
                         {
                             "field":"id"
@@ -442,6 +492,9 @@
                         {
                             "operationID": "createByTeacher",
                             "name":"新增"
+                        },
+                        {
+                            "operationID": "importByTeacher"
                         }
                     ]
                 }, 
@@ -894,7 +947,7 @@
                     "filterData":[
                         {
                             "modelID":"lms_person",
-                            "filter":{"sn":"%{userID}"},
+                            "filter":{"login_account":"%{userID}"},
                             "fields":[
                                 {
                                     "field":"id"
@@ -994,9 +1047,188 @@
                     "required":false
                 },
                 {
+                    "field":"semester",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 5,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
                     "field":"remark",
                     "controlType": "TextArea",
-                    "row": 5,
+                    "row": 6,
+                    "col": 1,
+                    "colSpan": 4,
+                    "rowSpan": 1
+                }
+            ]
+        },
+        {
+            "formID": "formImportByTeacher",
+            "colCount": 4,
+            "rowCount": 26,
+            "rowHeight": 30,
+            "header":{
+                "label":"创建"
+            },
+            "footer":{
+                "operations":[
+                    {
+                        "operationID":"saveImportByTeacher",
+                        "name":"确定导入"
+                    },
+                    {
+                        "name":"关闭",
+                        "type":"close",
+                        "validateFormData":false,
+                        "params":{
+                            "location":"modal"
+                        },
+                        "input":{},
+                        "description":"关闭对话框"                            
+                    }
+                ]
+            },
+            "controls": [
+                {
+                    "field":"exam",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 1,
+                    "col": 1,
+                    "colSpan": 2,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"start_time",
+                    "controlType": "DatePicker",
+                    "showTime":true,
+                    "row": 1,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"end_time",
+                    "controlType": "DatePicker",
+                    "showTime":true,
+                    "row": 1,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1
+                },
+                {
+                    "field":"year",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"id",
+                    "fields":[
+                        {"field":"id"}
+                    ],
+                    "row": 2,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"grade",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 2,
+                    "col": 2,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"semester",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 2,
+                    "col": 3,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field":"class",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班'",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"class_number"},
+                        {"field":"current_grade"}
+                    ],
+                    "filterData":[
+                        {
+                            "modelID":"lms_person",
+                            "filter":{"login_account":"%{userID}"},
+                            "fields":[
+                                {
+                                    "field":"id"
+                                },
+                                {
+                                    "field":"my_class",
+                                    "fieldType":"one2many",
+                                    "relatedModelID":"lms_class_participant",
+                                    "relatedField":"person",
+                                    "fields":[
+                                        {"field":"class"},
+                                        {"field":"person"}
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "filter": {"id":{"Op.in":["%{lms_person.my_class.class}"]}},
+                    "row": 2,
+                    "col": 4,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":false
+                },
+                {
+                    "field":"subject",
+                    "controlType": "SingleSelect",
+                    "optionLabel":"name",
+                    "fields":[
+                        {"field":"id"},
+                        {"field":"name"}
+                    ],
+                    "row": 3,
+                    "col": 1,
+                    "colSpan": 1,
+                    "rowSpan": 1,
+                    "required":true
+                },
+                {
+                    "field": "esiFile", 
+                    "fieldType":"file",
+                    "controlType": "File",
+                    "label":"导入文件",
+                    "maxCount":1,
+                    "accept":".xlsx,.xlsx",
+                    "row": 4,
                     "col": 1,
                     "colSpan": 4,
                     "rowSpan": 1

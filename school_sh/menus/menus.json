@@ -675,7 +675,7 @@
                     "input":{},
                     "description":"打开操作日志窗口"
                 },
-                "roles":"admin"
+                "roles":"maintainer"
             },
             {
                 "id":"4",
@@ -693,7 +693,7 @@
                     "input":{},
                     "description":"打开文件管理窗口"
                 },
-                "roles":"admin"
+                "roles":"maintainer"
             },
             {
                 "id":"5",
@@ -703,8 +703,8 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url1":"http://localhost:9901/#/school_sh",
-                        "url":"http://121.36.192.249:8080/flowconfig/#/school_sh",
+                        "url":"http://localhost:9901/#/school_sh",
+                        "url1":"http://121.36.192.249:8080/flowconfig/#/school_sh",
                         "location":"tab",
                         "title":"处理逻辑配置",
                         "key":"/flowconfig/school_sh"
@@ -712,7 +712,7 @@
                     "input":{},
                     "description":"打开处理逻辑配置窗口"
                 },
-                "roles":"admin"
+                "roles":"maintainer"
             }
         ]
     }
