@@ -1,0 +1,15 @@
+{
+  "modelID": "lq_preassigned_invno",
+  "fields": [
+    {"field":"id","name":"ID","dataType":"bigint"},
+    {"field":"nsrsbh","name":"机构ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_legal_entity","quickSearch":true},
+    {"field":"fpqshm","name":"发票起始号码","dataType":"varchar","quickSearch":true},
+    {"field":"fpzzhm","name":"发票终止号码","dataType":"varchar","quickSearch":true},
+    {"field":"lysl","name":"领用数量","dataType":"int"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

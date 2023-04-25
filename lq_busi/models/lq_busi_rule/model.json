@@ -1,0 +1,15 @@
+{
+  "modelID": "lq_busi_rule",
+  "fields": [
+    {"field":"id","name":"ID","dataType":"bigint"},
+    {"field":"lq_legal_entity_id","name":"机构ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_legal_entity"},
+    {"field":"lq_busi_type_id","name":"业务类型","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_busi_type"},
+    {"field":"lq_busi_parameter_id","name":"参数","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_busi_parameter","quickSearch":true},
+    {"field":"parameter_value","name":"参数值","dataType":"varchar"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

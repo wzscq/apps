@@ -1,0 +1,14 @@
+{
+  "modelID": "lq_busi_parameter",
+  "fields": [
+    {"field":"id","name":"ID","dataType":"varchar"},
+    {"field":"name","name":"名称","dataType":"varchar","quickSearch":true},
+    {"field":"lq_busi_type_id","name":"业务类型","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_busi_type"},
+    {"field":"remark","name":"说明","dataType":"varchar","quickSearch":true},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

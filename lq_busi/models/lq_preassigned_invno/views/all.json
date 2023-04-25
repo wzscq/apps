@@ -1,0 +1,53 @@
+{
+  "viewID": "all", 
+  "name": "预赋码信息", 
+  "description": "预赋码信息", 
+  "fields": [
+    {"field":"lq_legal_entity_id","width":150},
+    {"field":"fpqshm","width":150},
+    {"field":"fpzzhm","width":150},
+    {"field":"lysl","width":150},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150},
+    {"field":"id","width":150}
+  ],
+  "filter": { }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+              {
+                  "operationID": "create",
+                  "name":"新建"
+              }, 
+              {
+                  "operationID": "delete",
+                  "name":"删除",
+                  "prompt":"确定要删除当前选择记录吗？"
+             }
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":120, 
+          "buttons": [
+              {
+                  "operationID": "edit",
+                  "name":"编辑"
+              },
+              {
+                  "operationID": "detail",
+                  "name":"详情"
+              }, 
+              {
+                  "operationID": "delete",
+                  "name":"删除",
+                  "prompt":"确定要删除这个记录吗？"
+              }
+          ]
+      }
+  }
+}

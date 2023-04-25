@@ -1,0 +1,51 @@
+{
+  "viewID": "all", 
+  "name": "全部机构信息", 
+  "description": "全部机构信息", 
+  "fields": [
+    {"field":"id","width":150},
+    {"field":"name","width":150},
+    {"field":"ptbh","width":150},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}    
+  ], 
+  "filter": { }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+              {
+                  "operationID": "create",
+                  "name":"新建"
+              }, 
+              {
+                  "operationID": "delete",
+                  "name":"删除",
+                  "prompt":"确定要删除当前选择记录吗？"
+             }
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":120, 
+          "buttons": [
+              {
+                  "operationID": "edit",
+                  "name":"编辑"
+              },
+              {
+                  "operationID": "detail",
+                  "name":"详情"
+              }, 
+              {
+                  "operationID": "delete",
+                  "name":"删除",
+                  "prompt":"确定要删除这个记录吗？"
+              }
+          ]
+      }
+  }
+}

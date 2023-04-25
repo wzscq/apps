@@ -1,0 +1,15 @@
+{
+  "id": "edit", 
+  "name": "编辑",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lq_busi_parameter/common/edit",
+          "location":"modal",
+          "title":"编辑业务参数",
+          "key":"/model/lq_busi_parameter/common/edit",
+          "width":500,
+          "height":300
+  },
+  "input":{},
+  "description":"打开信息编辑对话框"
+}

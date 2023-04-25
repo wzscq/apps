@@ -1,0 +1,15 @@
+{
+  "id": "detail", 
+  "name": "详情",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lq_busi_parameter/common/detail",
+          "location":"modal",
+          "title":"业务参数详情",
+          "key":"/model/lq_busi_parameter/common/detail",
+          "width":500,
+          "height":300
+  },
+  "input":{},
+  "description":"打开信息详情对话框"
+}

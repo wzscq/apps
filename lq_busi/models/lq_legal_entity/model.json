@@ -1,0 +1,13 @@
+{
+  "modelID": "lq_legal_entity",
+  "fields": [
+    {"field":"id","name":"纳税人识别号","dataType":"varchar","quickSearch":true},
+    {"field":"name","name":"机构名称","dataType":"varchar","quickSearch":true},
+    {"field":"ptbh","name":"乐企平台编号","dataType":"varchar","quickSearch":true},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

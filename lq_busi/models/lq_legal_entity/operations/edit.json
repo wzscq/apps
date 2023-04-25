@@ -1,0 +1,15 @@
+{
+  "id": "edit", 
+  "name": "编辑",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lq_legal_entity/common/edit",
+          "location":"modal",
+          "title":"编辑机构",
+          "key":"/model/lq_legal_entity/common/edit",
+          "width":500,
+          "height":300
+  },
+  "input":{},
+  "description":"打开信息编辑对话框"
+}

@@ -1,0 +1,69 @@
+{
+  "formID": "common",
+  "colCount": 3,
+  "rowCount": 26,
+  "rowHeight": 30,
+  "header":{
+      "label":"创建"
+  },
+  "footer":{
+      "operations":[
+          {
+              "operationID":"save",
+              "name":"保存"
+          },
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                  "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"                            
+          }
+      ]
+  },
+  "controls": [
+        {
+            "controlType": "Text",
+            "row": 1,
+            "col": 1,
+            "field": "id", 
+            "label": "ID",
+            "colSpan": 4,
+            "rowSpan": 1,
+            "required":true
+        }, 
+        {
+            "controlType": "Text",
+            "row": 2,
+            "col": 1,
+            "field": "name", 
+            "colSpan": 4,
+            "rowSpan": 1
+        },
+        {
+            "controlType": "SingleSelect",
+            "optionLabel":"return record.id+'_'+record.name",
+            "fields":[
+                {"field":"id"},
+                {"field":"name"}
+            ],
+            "row": 3,
+            "col": 1,
+            "field": "lq_busi_type_id", 
+            "colSpan": 4,
+            "rowSpan": 1
+        },
+        {
+            "controlType": "TextArea",
+            "field": "remark", 
+            "textRowCount": 3,
+            "row": 4,
+            "col": 1,
+            "colSpan": 4,
+            "rowSpan": 1
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "create", 
+  "name": "创建",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lq_busi_type/common/create",
+          "location":"modal",
+          "title":"创建业务类型",
+          "key":"/model/lq_busi_type/common/create",
+          "width":500,
+          "height":300
+  },
+  "input":{},
+  "description":"打开创建对话框"
+}
