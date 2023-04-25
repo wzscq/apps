@@ -681,13 +681,27 @@
                 {"field":"name","width":150},
                 {"field":"sn","width":150},
                 {"field":"rn","width":200},
-                {"field":"gender","width":150},
+                {
+                    "field":"gender",
+                    "width":150,
+                    "filterControlType": "MultiSelect",
+                    "options":[
+                        {
+                            "value":"男",
+                            "label":"男"
+                        },
+                        {
+                            "value":"女",
+                            "label":"女"
+                        }
+                    ]
+                },
                 {"field":"birthday","width":150,"format":"YYYY-MM-DD"},
                 {"field":"enrollment_year","width":150},
                 {
                     "field":"type",
                     "width":150,
-                    "filterControlType": "SingleSelect",
+                    "filterControlType": "MultiSelect",
                     "optionLabel":"name",
                     "fields":[
                         {

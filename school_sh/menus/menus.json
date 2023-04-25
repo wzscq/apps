@@ -145,24 +145,6 @@
             },
             {
                 "id":"3",
-                "name":"班级考勤信息",
-                "description":"班级考勤信息",
-                "icon":"ReconciliationOutlined",
-                "operation":{
-                    "type":"open",
-                    "params":{
-                        "url":"/listview/#/lms_class_attendance",
-                        "location":"tab",
-                        "title":"班级考勤信息",
-                        "key":"/model/lms_class_attendance"
-                    },
-                    "input":{},
-                    "description":"打开班级考勤信息管理功能"
-                },
-                "roles":"*"
-            },
-            {
-                "id":"4",
                 "name":"班级课程表",
                 "description":"班级课程表",
                 "icon":"InsertRowBelowOutlined",
@@ -180,7 +162,7 @@
                 "roles":"*"
             },
             {
-                "id":"5",
+                "id":"4",
                 "name":"班级序号字典",
                 "description":"班级序号字典",
                 "icon":"GroupOutlined",
@@ -198,7 +180,7 @@
                 "roles":"admin"
             },
             {
-                "id":"6",
+                "id":"5",
                 "name":"班级角色字典",
                 "description":"班级角色字典",
                 "icon":"GroupOutlined",
@@ -216,7 +198,7 @@
                 "roles":"admin"
             },
             {
-                "id":"7",
+                "id":"6",
                 "name":"班级人员状态字典",
                 "description":"班级人员状态字典",
                 "icon":"GroupOutlined",
@@ -230,24 +212,6 @@
                     },
                     "input":{},
                     "description":"打开班级人员状态字典维护功能"
-                },
-                "roles":"admin"
-            },
-            {
-                "id":"8",
-                "name":"班级考勤状态字典",
-                "description":"班级考勤状态字典",
-                "icon":"GroupOutlined",
-                "operation":{
-                    "type":"open",
-                    "params":{
-                        "url":"/listview/#/lms_class_attendance_status",
-                        "location":"tab",
-                        "title":"班级考勤状态字典",
-                        "key":"/model/lms_class_attendance_status"
-                    },
-                    "input":{},
-                    "description":"打开班级考勤状态字典维护功能"
                 },
                 "roles":"admin"
             }
@@ -397,6 +361,50 @@
     },
     {
         "id":"5",
+        "name":"教务管理",
+        "description":"教务管理",
+        "icon":"PartitionOutlined",
+        "children":[
+            {
+                "id":"1",
+                "name":"班级考勤管理",
+                "description":"班级考勤信息",
+                "icon":"ReconciliationOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_class_attendance",
+                        "location":"tab",
+                        "title":"班级考勤管理",
+                        "key":"/model/lms_class_attendance"
+                    },
+                    "input":{},
+                    "description":"打开班级考勤管理功能"
+                },
+                "roles":"*"
+            },
+            {
+                "id":"2",
+                "name":"班级考勤状态字典",
+                "description":"班级考勤状态字典",
+                "icon":"GroupOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_class_attendance_status",
+                        "location":"tab",
+                        "title":"班级考勤状态字典",
+                        "key":"/model/lms_class_attendance_status"
+                    },
+                    "input":{},
+                    "description":"打开班级考勤状态字典维护功能"
+                },
+                "roles":"admin"
+            }
+        ]
+    },
+    {
+        "id":"6",
         "name":"组织架构",
         "description":"组织架构",
         "icon":"PartitionOutlined",
@@ -494,7 +502,7 @@
         ]
     },
     {
-        "id":"6",
+        "id":"7",
         "name":"通用数据维护",
         "description":"通用数据维护",
         "icon":"CodeOutlined",
@@ -610,7 +618,7 @@
         ]
     },
     {
-        "id":"7",
+        "id":"8",
         "name":"系统管理",
         "description":"系统管理相关功能",
         "icon":"SettingOutlined",
@@ -667,7 +675,7 @@
                     "input":{},
                     "description":"打开操作日志窗口"
                 },
-                "roles":"admin"
+                "roles":"maintainer"
             },
             {
                 "id":"4",
@@ -685,7 +693,7 @@
                     "input":{},
                     "description":"打开文件管理窗口"
                 },
-                "roles":"admin"
+                "roles":"maintainer"
             },
             {
                 "id":"5",
@@ -695,8 +703,8 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url1":"http://localhost:9901/#/school_sh",
-                        "url":"http://121.36.192.249:8080/flowconfig/#/school_sh",
+                        "url":"http://localhost:9901/#/school_sh",
+                        "url1":"http://121.36.192.249:8080/flowconfig/#/school_sh",
                         "location":"tab",
                         "title":"处理逻辑配置",
                         "key":"/flowconfig/school_sh"
@@ -704,7 +712,7 @@
                     "input":{},
                     "description":"打开处理逻辑配置窗口"
                 },
-                "roles":"admin"
+                "roles":"maintainer"
             }
         ]
     }

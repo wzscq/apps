@@ -325,7 +325,6 @@
                         {
                             "parentField":"class",
                             "type":"many2many",
-                            "relatedField":"class",
                             "middleModelID":"lms_class_participant"
                         }
                     ],
