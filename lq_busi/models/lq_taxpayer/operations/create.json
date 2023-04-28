@@ -1,0 +1,15 @@
+{
+  "id": "create", 
+  "name": "选择机构",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lq_taxpayer/common/create",
+          "location":"modal",
+          "title":"选择机构",
+          "key":"/model/lq_taxpayer/common/create",
+          "width":400,
+          "height":200
+  },
+  "input":{},
+  "description":"打开选择机构对话框" 
+}

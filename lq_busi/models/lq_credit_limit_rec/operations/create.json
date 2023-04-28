@@ -1,0 +1,15 @@
+{
+  "id": "create", 
+  "name": "下载/退回额度",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lq_credit_limit_rec/common/create",
+          "location":"modal",
+          "title":"下载/退回额度",
+          "key":"/model/lq_credit_limit_rec/common/create",
+          "width":500,
+          "height":300
+  },
+  "input":{},
+  "description":"打开下载/退回额度对话框"
+}

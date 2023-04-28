@@ -1,0 +1,21 @@
+{
+  "modelID": "lq_credit_limit_queryrec",
+  "fields": [
+    {"field":"id","name":"ID","dataType":"bigint"},
+    {"field":"nsrsbh","name":"机构ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_legal_entity","quickSearch":true},
+    {"field":"code","name":"返回码","dataType":"varchar","quickSearch":true},
+    {"field":"message","name":"错误消息","dataType":"varchar","quickSearch":true},
+    {"field":"ztsxbz","name":"暂停授信标志","dataType":"varchar","quickSearch":true},
+    {"field":"bysxed","name":"本月授信额度","dataType":"decimal"},
+    {"field":"kysyed","name":"可用剩余额度","dataType":"decimal"},
+    {"field":"yxzed","name":"已下载额度","dataType":"decimal"},
+    {"field":"yxzwsyed","name":"已下载未使用额度","dataType":"decimal"},
+    {"field":"sq","name":"属期","dataType":"varchar","quickSearch":true},
+    {"field":"current","name":"是否当前记录","dataType":"varchar"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "modelID": "lq_preassigned_invno_detail",
+  "fields": [
+    {"field":"id","name":"发票号码","dataType":"varchar","quickSearch":true},
+    {"field":"nsrsbh","name":"机构ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_legal_entity","quickSearch":true},
+    {"field":"lq_preassigned_invno_id","name":"预赋码ID","dataType":"bigint"},
+    {"field":"invoice_sn","name":"占用发票流水号","dataType":"varchar","quickSearch":true},
+    {"field":"used","name":"占用状态","dataType":"varchar"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

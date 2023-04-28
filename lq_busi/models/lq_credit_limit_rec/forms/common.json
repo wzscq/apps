@@ -1,0 +1,65 @@
+{
+  "formID": "common",
+  "colCount": 4,
+  "rowCount": 26,
+  "rowHeight": 30,
+  "header":{
+      "label":"创建"
+  },
+  "footer":{
+      "operations":[
+          {
+              "operationID":"save",
+              "name":"保存"
+          },
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                  "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"                            
+          }
+      ]
+  },
+  "controls": [
+      {
+          "controlType": "SingleSelect",
+          "row": 1,
+          "col": 1,
+          "field": "nsrsbh", 
+          "optionLabel":"return record.id+'_'+record.name;",
+          "fields":[
+            {"field":"id"},
+            {"field":"name"}
+          ],
+          "colSpan": 2,
+          "rowSpan": 1,
+          "required":true
+      }, 
+      {
+            "controlType": "SingleSelect",
+            "field": "sqlx", 
+            "options":[
+                {"value":"0","label":"下载"},
+                {"value":"1","label":"回退"}
+            ],
+            "row": 2,
+            "col": 1,
+            "colSpan": 2,
+            "rowSpan": 1,
+            "required":true
+        },
+        {
+            "controlType": "Text",
+            "field": "sqed", 
+            "row": 2,
+            "col": 3,
+            "colSpan": 2,
+            "rowSpan": 1,
+            "required":true
+        }
+    ]
+}

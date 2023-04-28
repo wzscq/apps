@@ -1,0 +1,15 @@
+{
+  "id": "create", 
+  "name": "手工录入蓝字发票",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lq_invoice/create/create",
+          "location":"modal",
+          "title":"手工录入蓝字发票",
+          "key":"/model/lq_invoice/create/create",
+          "width":1200,
+          "height":600
+  },
+  "input":{},
+  "description":"打开手工录入蓝字发票对话框" 
+}

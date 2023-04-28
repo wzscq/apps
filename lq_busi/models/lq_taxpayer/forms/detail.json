@@ -1,0 +1,185 @@
+{
+  "formID": "detail",
+  "colCount": 6,
+  "rowCount": 2,
+  "rowHeight": 30,
+  "header":{
+      "label":"机构选择"
+  },
+  "footer":{
+      "operations":[
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                  "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"                            
+          }
+      ]
+  },
+  "controls": [
+    {
+        "controlType": "SingleSelect",
+        "row": 1,
+        "col": 1,
+        "field": "nsrsbh", 
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+          {"field":"id"},
+          {"field":"name"}
+        ],
+        "colSpan": 1,
+        "rowSpan": 1,
+        "required":true
+    },
+    {"field":"djxh","controlType": "Text", "row": 1,"col": 2,"colSpan": 1,"rowSpan": 1},
+    {"field":"ssdabh","controlType": "Text", "row": 1,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"nsrmc","controlType": "Text", "row": 1,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {
+        "field":"nsrlx","controlType": "Text", "row": 1,"col": 5,"colSpan": 1,"rowSpan": 1,
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+          {"field":"id"},
+          {"field":"name"}
+        ]
+    },
+    {"field":"scjydz","controlType": "Text", "row": 1,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"zcdyzbm","controlType": "Text", "row": 2,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {"field":"zcdlxdh","controlType": "Text", "row": 2,"col": 2,"colSpan": 1,"rowSpan": 1},
+    {"field":"fddbrxm","controlType": "Text", "row": 2,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"djzclxdm","controlType": "Text", "row": 2,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {"field":"hydm","controlType": "Text", "row": 2,"col": 5,"colSpan": 1,"rowSpan": 1},
+    {"field":"qxjswjgdm","controlType": "Text", "row": 2,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"zgswskfjdm","controlType": "Text", "row": 3,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {"field":"zgswskfjmc","controlType": "Text", "row": 3,"col": 2,"colSpan": 1,"rowSpan": 1},
+    {"field":"cwfzrxm","controlType": "Text", "row": 3,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"khhmc","controlType": "Text", "row": 3,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {"field":"yhzh","controlType": "Text", "row": 3,"col": 5,"colSpan": 1,"rowSpan": 1},
+    {"field":"bsrxm","controlType": "Text", "row": 3,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"xdpsdqybz","controlType": "Text", "row": 4,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {
+        "field":"ckqyfldm","controlType": "Text", "row": 4,"col": 2,"colSpan": 1,"rowSpan": 1,
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+          {"field":"id"},
+          {"field":"name"}
+        ]
+    },
+    {
+        "field":"zfjglxdm","controlType": "Text", "row": 4,"col": 3,"colSpan": 1,"rowSpan": 1,
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+          {"field":"id"},
+          {"field":"name"}
+        ]
+    },
+    {"field":"yhyywddm","controlType": "Text", "row": 4,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {
+        "field":"nsrztdm","controlType": "Text", "row": 4,"col": 5,"colSpan": 1,"rowSpan": 1,
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+          {"field":"id"},
+          {"field":"name"}
+        ]
+    },
+    {"field":"yxqq","controlType": "Text", "row": 4,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"yxqz","controlType": "Text", "row": 5,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {"field":"current","controlType": "Text", "row": 5,"col": 2,"colSpan": 1,"rowSpan": 1},
+    {"field":"create_time","controlType": "Text", "row": 5,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"create_user","controlType": "Text", "row": 5,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {"field":"update_time","controlType": "Text", "row": 5,"col": 5,"colSpan": 1,"rowSpan": 1},
+    {"field":"update_user","controlType": "Text", "row": 5,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"version","controlType": "Text", "row": 6,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {
+        "field":"lq_taxpayer_industry",
+        "controlType":"EditTable","row": 7,"col": 1,"colSpan": 6,"rowSpan": 1,
+        "fieldType":"one2many",
+        "relatedModelID":"lq_taxpayer_industry",
+        "relatedField":"lq_taxpayer_id",
+        "controls":[
+            {
+                "field":"id",
+                "label":"ID"
+            },
+            {
+                "field":"lq_taxpayer_id"
+            },
+            {
+                "field":"qyhyxzdm",
+                "visible":true,
+                "label":"企业行业性质",
+                "controlType":"SingleSelect",
+                "fieldType":"many2one",
+                "relatedModelID":"lq_industry_type",
+                "optionLabel":"return record.id+'_'+record.name;",
+                "fields":[
+                    {"field":"id"},
+                    {"field":"name"}
+                ],
+                "width":200
+            },
+            {
+                "field":"yxqq",
+                "visible":true,
+                "label":"有效期起",
+                "controlType":"Text",
+                "width":200
+            },
+            {
+                "field":"yxqz",
+                "visible":true,
+                "label":"有效期止",
+                "controlType":"Text",
+                "width":200
+            }
+        ]
+    },
+    {
+        "field":"lq_taxpayer_consumer_type",
+        "controlType":"EditTable","row": 8,"col": 1,"colSpan": 6,"rowSpan": 1,
+        "fieldType":"one2many",
+        "relatedModelID":"lq_taxpayer_consumer_type",
+        "relatedField":"lq_taxpayer_id",
+        "controls":[
+            {
+                "field":"id",
+                "label":"ID"
+            },
+            {
+                "field":"lq_taxpayer_id"
+            },
+            {
+                "field":"xfsnsrlxdm",
+                "visible":true,
+                "label":"消费税纳税人类型",
+                "controlType":"SingleSelect",
+                "fieldType":"many2one",
+                "relatedModelID":"lq_consumer_taxpayer_type",
+                "optionLabel":"return record.id+'_'+record.name;",
+                "fields":[
+                    {"field":"id"},
+                    {"field":"name"}
+                ],
+                "width":200
+            },
+            {
+                "field":"yxqq",
+                "visible":true,
+                "label":"有效期起",
+                "controlType":"Text",
+                "width":200
+            },
+            {
+                "field":"yxqz",
+                "visible":true,
+                "label":"有效期止",
+                "controlType":"Text",
+                "width":200
+            }
+        ]
+    }
+  ]
+}

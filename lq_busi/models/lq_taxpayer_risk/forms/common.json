@@ -1,0 +1,43 @@
+{
+  "formID": "common",
+  "colCount": 4,
+  "rowCount": 2,
+  "rowHeight": 30,
+  "header":{
+      "label":"选择机构"
+  },
+  "footer":{
+      "operations":[
+          {
+              "operationID":"save",
+              "name":"保存"
+          },
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                  "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"                            
+          }
+      ]
+  },
+  "controls": [
+    {
+        "controlType": "SingleSelect",
+        "row": 1,
+        "col": 1,
+        "field": "nsrsbh", 
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+          {"field":"id"},
+          {"field":"name"}
+        ],
+        "colSpan": 4,
+        "rowSpan": 1,
+        "required":true
+    }
+  ]
+}

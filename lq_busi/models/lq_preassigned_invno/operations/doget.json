@@ -1,0 +1,11 @@
+{
+  "id": "doget", 
+  "name": "获取预赋码",
+  "type":"close",
+  "validateFormData":false,
+  "params":{
+      "location":"modal"
+  },
+  "input":{},
+  "description":"打开选择机构对话框"
+}

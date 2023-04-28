@@ -1,0 +1,27 @@
+{
+  "id": "upload", 
+  "name": "上传",
+  "type":"request",
+  "params":{
+      "url":"/data/invoice/upload",
+      "method":"post"
+  },
+  "description":"删除选中数据",
+  "successOperation":{
+      "type":"message",
+      "params":{
+          "type":"success",
+          "content":"上传成功!",
+          "duration":"2"
+      },
+      "description":"提示上传成功数据成功",
+      "successOperation":{
+          "type":"reloadFrameData",
+          "params":{
+              "location":"tab",
+              "key":"/model/lq_invoice"
+          },
+          "description":"刷新页面数据"
+      }
+  }
+}

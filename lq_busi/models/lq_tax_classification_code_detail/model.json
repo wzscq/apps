@@ -1,0 +1,18 @@
+{
+  "modelID": "lq_tax_classification_code_detail", 
+  "fields": [
+    {"field":"id","name":"ID","dataType":"bigint"},
+    {"field":"lq_tax_classification_code_id","name":"机构ID","dataType":"bigint"},
+    {"field":"hydm","name":"行业代码","dataType":"varchar"},
+    {"field":"dydhy","name":"对应的行业","dataType":"varchar"},
+    {"field":"hydydzspm1","name":"行业对应的征收品目一","dataType":"varchar"},
+    {"field":"hydydzsmc1","name":"行业对应的征收名称一","dataType":"varchar"},
+    {"field":"hydydzspm2","name":"行业对应的征收品目二","dataType":"varchar"},
+    {"field":"hydydzsmc2","name":"行业对应的征收名称二","dataType":"varchar"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}    
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "modelID": "lq_tax_classificationcode_queryrec", 
+  "fields": [
+    {"field":"id","name":"ID","dataType":"bigint"},
+    {"field":"nsrsbh","name":"机构ID","dataType":"varchar"},
+    {"field":"sjc","name":"时间戳","dataType":"varchar"},
+    {"field":"type","name":"获取类型","dataType":"varchar"},
+    {"field":"count","name":"获取数量","dataType":"int"},
+    {"field":"code","name":"返回码","dataType":"varchar"},
+    {"field":"message","name":"错误消息","dataType":"varchar"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

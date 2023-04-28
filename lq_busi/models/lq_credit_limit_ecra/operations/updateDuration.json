@@ -1,0 +1,15 @@
+{
+  "id": "updateDuration", 
+  "name": "额度有效期调整",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lq_credit_limit_ecra/updateDuration/create",
+          "location":"modal",
+          "title":"额度有效期调整",
+          "key":"/model/lq_credit_limit_ecra/updateDuration/create",
+          "width":500,
+          "height":300
+  },
+  "input":{},
+  "description":"打开额度有效期调整对话框"
+}

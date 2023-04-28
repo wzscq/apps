@@ -1,0 +1,70 @@
+{
+  "viewID": "all", 
+  "name": "授信额度操作记录", 
+  "description": "授信额度操作记录", 
+  "fields": [
+    {"field":"id","width":150},
+    {
+        "field":"nsrsbh",
+        "width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {
+        "field":"ztsxbz",
+        "width":150,
+        "filterControlType":"MultiSelect",
+        "options":[
+            {"value":"Y","text":"暂停"},
+            {"value":"N","text":"未暂停"}
+        ]
+    },
+    {"field":"bysxed","width":150},
+    {"field":"kysyed","width":150},
+    {"field":"yxzed","width":150},
+    {"field":"yxzwsyed","width":150},
+    {
+        "field":"sq",
+        "width":150
+    },
+    {
+        "field":"current",
+        "width":150,
+        "filterControlType":"MultiSelect",
+        "options":[
+            {"value":"1","text":"是"},
+            {"value":"0","text":"否"}
+        ]
+    },
+    {"field":"code","width":150},
+    {"field":"message","width":250},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}
+  ], 
+  "filter": { }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+              {
+                  "operationID": "create",
+                  "name":"查询授信额度"
+              }
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":120, 
+          "buttons": [
+             
+          ]
+      }
+  }
+}

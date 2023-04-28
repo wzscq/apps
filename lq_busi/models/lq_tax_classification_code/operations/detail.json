@@ -1,0 +1,15 @@
+{
+  "id": "detail",
+  "name": "详情",
+  "type":"open",
+  "params":{
+      "url":"/formview/#/lq_tax_classification_code/detail/detail",
+      "location":"modal",
+      "title":"获取",
+      "key":"/model/lq_tax_classification_code/detail/detail",
+      "width":1200,
+      "height":600
+  },
+  "input":{},
+  "description":"打开获取对话框"
+}

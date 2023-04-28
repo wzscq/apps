@@ -1,0 +1,162 @@
+{
+  "viewID": "invoice", 
+  "name": "代开发票", 
+  "description": "代开发票", 
+  "fields": [
+    {"field":"id","width":150},
+    {
+        "field":"nsrsbh","width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"busi_sn","width":150},
+    {"field":"fphm","width":150},
+    {
+        "field":"lzfpbz","width":150,
+        "filterControlType":"MultiSelect",
+        "options":[
+            {"value":"0","label":"蓝字发票"},
+            {"value":"1","label":"红字发票"}
+        ]
+    },
+    {"field":"ptbh","width":150},
+    {
+        "field":"fppz","width":150,
+        "filterControlType":"MultiSelect",
+        "options":[
+            {"value":"01","label":"数字化电子专票"},
+            {"value":"02","label":"数字化电子普票"}
+        ]
+    },
+    {"field":"gmfzrrbz","width":150},
+    {
+        "field":"tdys","width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"qydm","width":150},
+    {
+        "field":"cezslxdm","width":150,
+        "filterControlType":"MultiSelect",
+        "options":[
+            {"value":"01","label":"全额开票"},
+            {"value":"02","label":"差额开票"}
+        ]
+    },
+    {
+        "field":"sgfplxdm","width":150,
+        "filterControlType":"MultiSelect",
+        "options":[
+            {"value":"01","label":"农产品收购发票"},
+            {"value":"02","label":"光伏收购发票"},
+            {"value":"03","label":"二手车收购发票"}
+        ]
+    },
+    {
+        "field":"ckywsyzcdm","width":150,
+        "filterControlType":"MultiSelect",
+        "options":[
+            {"value":"01","label":"退税政策"},
+            {"value":"02","label":"免税政策"},
+            {"value":"03","label":"征税政策"}
+        ]
+    },
+    {
+        "field":"zzsjzjtdm","width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"xsfmc","width":150},
+    {"field":"xsfdz","width":150},
+    {"field":"xsfdh","width":150},
+    {"field":"xsfkhh","width":150},
+    {"field":"xsfzh","width":150},
+    {"field":"xsfnsrsbh","width":150},
+    {"field":"gmfnsrsbh","width":150},
+    {"field":"gmfmc","width":150},
+    {"field":"gmfdz","width":150},
+    {"field":"gmfdh","width":150},
+    {"field":"gmfkhh","width":150},
+    {"field":"gmfzh","width":150},
+    {"field":"gmfjbr","width":150},
+    {"field":"jbrsfzjhm","width":150},
+    {"field":"gmfjbrlxdh","width":150},
+    {"field":"hjje","width":150},
+    {"field":"hjse","width":150},
+    {"field":"jshj","width":150},
+    {"field":"skyhmc","width":150},
+    {"field":"skyhzh","width":150},
+    {
+        "field":"jsfs","width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"ysxwfsd","width":150},
+    {"field":"kpr","width":150},
+    {"field":"kprzjhm","width":150},
+    {"field":"kprzjlx","width":150},
+    {"field":"dylzfphm","width":150},
+    {"field":"hzqrxxdbh","width":150},
+    {"field":"hzqrduuid","width":150},
+    {"field":"bz","width":150},
+    {"field":"ip","width":150},
+    {"field":"macdz","width":150},
+    {"field":"cpuid","width":150},
+    {"field":"zbxlh","width":150},
+    {"field":"kprq","width":150},
+    {
+        "field":"upload_status","width":150,
+        "filterControlType":"MultiSelect",
+        "options":[
+            {"value":"00","label":"未上传"},
+            {"value":"01","label":"已上传"},
+            {"value":"02","label":"上传成功"},
+            {"value":"03","label":"上传失败"}
+        ]
+    },
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}   
+  ], 
+  "filter": { }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+              {
+                "operationID":"create",
+                "name":"手工录入"
+              },
+              {
+                "operationID":"upload",
+                "name":"上传"
+              }
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+              
+          ]
+      }
+  }
+}

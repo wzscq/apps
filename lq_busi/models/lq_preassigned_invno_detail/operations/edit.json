@@ -1,0 +1,15 @@
+{
+  "id": "edit", 
+  "name": "编辑",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lq_preassigned_invno_detail/common/edit",
+          "location":"modal",
+          "title":"修改预赋码占用状态",
+          "key":"/model/lq_preassigned_invno_detail/common/edit",
+          "width":500,
+          "height":300
+  },
+  "input":{},
+  "description":"打开信息编辑对话框"
+}

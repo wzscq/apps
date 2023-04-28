@@ -1,0 +1,29 @@
+{
+  "modelID": "lq_invoice_detail", 
+  "fields": [
+    {"field":"id","name":"ID","dataType":"bigint"},
+    {"field":"lq_invoice_id","name":"发票ID","dataType":"bigint"},
+    {"field":"mxxh","name":"明细序号","dataType":"int"},
+    {"field":"dylzfpmxxh","name":"对应蓝字发票明细序号","dataType":"int"},
+    {"field":"xmmc","name":"项目名称","dataType":"varchar"},
+    {"field":"hwhyslwfwmc","name":"货物或应税劳务、服务名称","dataType":"varchar"},
+    {"field":"spfwjc","name":"商品服务简称","dataType":"varchar"},
+    {"field":"ggxh","name":"规格型号","dataType":"varchar"},
+    {"field":"dw","name":"单位","dataType":"varchar"},
+    {"field":"sl","name":"数量","dataType":"varchar"},
+    {"field":"dj","name":"单价","dataType":"varchar"},
+    {"field":"je","name":"金额","dataType":"decimal"},
+    {"field":"slv","name":"增值税税率","dataType":"decimal"},
+    {"field":"se","name":"税额","dataType":"decimal"},
+    {"field":"hsje","name":"含税金额","dataType":"decimal"},
+    {"field":"kce","name":"扣除额","dataType":"decimal"},
+    {"field":"sphfwssflhbbm","name":"商品和服务税收分类合并编码","dataType":"varchar"},
+    {"field":"fphxz","name":"发票行性质","dataType":"varchar"},
+    {"field":"yhzcbs","name":"优惠政策标识","dataType":"varchar"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"} 
+  ]
+}

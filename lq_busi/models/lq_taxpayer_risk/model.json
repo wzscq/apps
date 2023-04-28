@@ -1,0 +1,17 @@
+{
+  "modelID": "lq_taxpayer_risk", 
+  "fields": [
+    {"field":"id","name":"ID","dataType":"bigint"},
+    {"field":"nsrsbh","name":"机构ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_legal_entity","quickSearch":true},
+    {"field":"fxnsrlx","name":"风险纳税人类型","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_taxpayer_risk_type","quickSearch":true},
+    {"field":"nsrxydj","name":"纳税人信用等级","dataType":"varchar"},
+    {"field":"nsryjjb","name":"纳税人预警级别","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_taxpayer_alert_level","quickSearch":true},
+    {"field":"fxnsrbz","name":"风险纳税人标志","dataType":"varchar"},
+    {"field":"current","name":"是否当前记录","dataType":"varchar"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}   
+  ]
+}

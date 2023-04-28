@@ -1,0 +1,15 @@
+{
+  "id": "edit", 
+  "name": "编辑",
+  "type":"open",
+  "params":{
+    "url":"/formview/#/lq_taxpayer_alert_level/common/edit",
+    "location":"modal",
+    "title":"编辑",
+    "key":"/model/lq_taxpayer_alert_level/common/edit",
+    "width":500,
+    "height":300
+  },
+  "input":{},
+  "description":"打开编辑对话框"
+}

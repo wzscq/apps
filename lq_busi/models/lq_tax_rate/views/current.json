@@ -1,0 +1,40 @@
+{
+  "viewID": "current", 
+  "name": "可用税率", 
+  "description": "可用税率", 
+  "fields": [
+    {"field":"csxz","width":150},
+    {"field":"slzsl","width":150},
+    {"field":"yslbz","width":150},
+    {"field":"dyysl","width":150},
+    {"field":"cszt","width":150},
+    {"field":"yxqq","width":150},
+    {"field":"yxqz","width":150},
+    {"field":"tyrq","width":150},
+    {"field":"id","width":150},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}   
+  ], 
+  "filter": {"current":"0"}, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+              {
+                  "operationID": "create",
+                  "name":"获取"
+              }
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+              
+          ]
+      }
+  }
+}

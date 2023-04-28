@@ -1,0 +1,20 @@
+{
+  "modelID": "lq_tax_rate", 
+  "fields": [
+    {"field":"id","name":"ID","dataType":"bigint"},
+    {"field":"csxz","name":"参数性质","dataType":"varchar"},
+    {"field":"slzsl","name":"税率征收率","dataType":"decimal"},
+    {"field":"yslbz","name":"原税率标志","dataType":"varchar"},
+    {"field":"dyysl","name":"对应原税率","dataType":"varchar"},
+    {"field":"cszt","name":"参数状态","dataType":"varchar"},
+    {"field":"yxqq","name":"有效期起","dataType":"varchar"},
+    {"field":"yxqz","name":"有效期止","dataType":"varchar"},
+    {"field":"tyrq","name":"有效期止","dataType":"varchar"},
+    {"field":"current","name":"是否当前记录","dataType":"varchar"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

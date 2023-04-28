@@ -1,0 +1,37 @@
+{
+  "viewID": "all", 
+  "name": "纳税人状态类型字典", 
+  "description": "纳税人状态类型字典", 
+  "fields": [
+    {"field":"id","width":100},
+    {"field":"name","width":350},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}    
+  ], 
+  "filter": { }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+              {
+                  "operationID": "create",
+                  "name":"新建"
+              }
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+              {
+                  "operationID": "delete",
+                  "name":"删除",
+                  "prompt":"是否删除选中的记录？"
+              }
+          ]
+      }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "modelID": "lq_credit_limit_ecra",
+  "fields": [
+    {"field":"id","name":"ID","dataType":"bigint"},
+    {"field":"nsrsbh","name":"机构ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_legal_entity","quickSearch":true},
+    {"field":"ptbh","name":"平台编号","dataType":"varchar"},
+    {"field":"sqlx","name":"申请类型","dataType":"varchar"},
+    {"field":"sqed ","name":"申请额度","dataType":"decimal"},
+    {"field":"sxedsq","name":"授信额度属期","dataType":"varchar"},
+    {"field":"syqjq","name":"授信额度使用区间起 ","dataType":"varchar"},
+    {"field":"syqjz","name":"授信额度使用区间止","dataType":"varchar"},
+    {"field":"code","name":"返回码","dataType":"varchar"},
+    {"field":"message","name":"错误消息","dataType":"varchar"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

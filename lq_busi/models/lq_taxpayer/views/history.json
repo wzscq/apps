@@ -1,0 +1,107 @@
+{
+  "viewID": "history", 
+  "name": "纳税人基本信息历史", 
+  "description": "纳税人基本信息历史", 
+  "fields": [
+    {
+        "field":"nsrsbh",
+        "width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"djxh","width":150},
+    {"field":"ssdabh","width":150},
+    {"field":"nsrmc","width":150},
+    {
+        "field":"nsrlx",
+        "width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"scjydz","width":150},
+    {"field":"zcdyzbm","width":150},
+    {"field":"zcdlxdh","width":150},
+    {"field":"fddbrxm","width":150},
+    {"field":"djzclxdm","width":150},
+    {"field":"hydm","width":150},
+    {"field":"qxjswjgdm","width":150},
+    {"field":"zgswskfjdm","width":150},
+    {"field":"zgswskfjmc","width":150},
+    {"field":"cwfzrxm","width":150},
+    {"field":"khhmc","width":150},
+    {"field":"yhzh","width":150},
+    {"field":"bsrxm","width":150},
+    {"field":"xdpsdqybz","width":150},
+    {
+        "field":"ckqyfldm",
+        "width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {
+        "field":"zfjglxdm",
+        "width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"yhyywddm","width":150},
+    {
+        "field":"nsrztdm",
+        "width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"yxqq","width":150},
+    {"field":"yxqz","width":150},
+    {"field":"id","width":150},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}
+  ], 
+  "filter": {"current":"1"}, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+             
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":90, 
+          "buttons": [
+                {
+                    "operationID":"detail",
+                    "name":"详情"
+                },
+                {
+                  "operationID": "delete",
+                  "name":"删除",
+                  "prompt":"是否删除选中的记录？"
+                }
+          ]
+      }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "formID": "create",
+  "colCount": 6,
+  "rowCount": 2,
+  "rowHeight": 30,
+  "header":{
+      "label":"新建"
+  },
+  "footer":{
+      "operations":[
+          {
+              "operationID":"save",
+              "name":"保存"
+          },
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                  "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"                            
+          }
+      ]
+  },
+  "controls": [
+    {"field":"id","controlType": "Text", "row": 1,"col": 1,"colSpan": 1,"rowSpan": 1,"required":false},
+    {
+        "field":"nsrsbh","controlType": "SingleSelect", "row": 1,"col": 2,"colSpan": 1,"rowSpan": 1,
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+          {"field":"id"},
+          {"field":"name"}
+        ]
+    },
+    {"field":"busi_sn","controlType": "Text", "row": 1,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {
+        "field":"fppz","controlType": "SingleSelect", "row": 2,"col": 1,"colSpan": 1,"rowSpan": 1,
+        "options":[
+            {"value":"01","label":"数字化电子专票"},
+            {"value":"02","label":"数字化电子普票"}
+        ]
+    },
+    {"field":"gmfzrrbz","controlType": "Text", "row": 2,"col": 2,"colSpan": 1,"rowSpan": 1},
+    {
+        "field":"tdys","controlType": "SingleSelect", "row": 2,"col": 3,"colSpan": 1,"rowSpan": 1,
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"qydm","controlType": "Text", "row": 2,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {
+        "field":"cezslxdm","controlType": "SingleSelect", "row": 2,"col": 5,"colSpan": 1,"rowSpan": 1,
+        "options":[
+            {"value":"01","label":"全额开票"},
+            {"value":"02","label":"差额开票"}
+        ]
+    },
+    {
+        "field":"sgfplxdm","controlType": "SingleSelect", "row": 2,"col": 6,"colSpan": 1,"rowSpan": 1,
+        "options":[
+            {"value":"01","label":"农产品收购发票"},
+            {"value":"02","label":"光伏收购发票"},
+            {"value":"03","label":"二手车收购发票"}
+        ]
+    },
+    {
+        "field":"ckywsyzcdm","controlType": "SingleSelect", "row": 3,"col": 1,"colSpan": 1,"rowSpan": 1,
+        "options":[
+            {"value":"01","label":"退税政策"},
+            {"value":"02","label":"免税政策"},
+            {"value":"03","label":"征税政策"}
+        ]
+    },
+    {
+        "field":"zzsjzjtdm","controlType": "SingleSelect", "row": 3,"col": 2,"colSpan": 1,"rowSpan": 1,
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"xsfmc","controlType": "Text", "row": 3,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"xsfdz","controlType": "Text", "row": 3,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {"field":"xsfdh","controlType": "Text", "row": 3,"col": 5,"colSpan": 1,"rowSpan": 1},
+    {"field":"xsfkhh","controlType": "Text", "row": 3,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"xsfzh","controlType": "Text", "row": 4,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {"field":"xsfnsrsbh","controlType": "Text", "row": 4,"col": 2,"colSpan": 1,"rowSpan": 1},
+    {"field":"gmfnsrsbh","controlType": "Text", "row": 4,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"gmfmc","controlType": "Text", "row": 4,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {"field":"gmfdz","controlType": "Text", "row": 4,"col": 5,"colSpan": 1,"rowSpan": 1},
+    {"field":"gmfdh","controlType": "Text", "row": 4,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"gmfkhh","controlType": "Text", "row": 5,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {"field":"gmfzh","controlType": "Text", "row": 5,"col": 2,"colSpan": 1,"rowSpan": 1},
+    {"field":"gmfjbr","controlType": "Text", "row": 5,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"jbrsfzjhm","controlType": "Text", "row": 5,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {"field":"gmfjbrlxdh","controlType": "Text", "row": 5,"col": 5,"colSpan": 1,"rowSpan": 1},
+    {"field":"hjje","controlType": "Text", "row": 5,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"hjse","controlType": "Text", "row": 6,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {"field":"jshj","controlType": "Text", "row": 6,"col": 2,"colSpan": 1,"rowSpan": 1},
+    {"field":"skyhmc","controlType": "Text", "row": 6,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"skyhzh","controlType": "Text", "row": 6,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {
+        "field":"jsfs","controlType": "SingleSelect", "row": 6,"col": 5,"colSpan": 1,"rowSpan": 1,
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"ysxwfsd","controlType": "Text", "row": 6,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"kpr","controlType": "Text", "row": 1,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {"field":"kprzjhm","controlType": "Text", "row": 1,"col": 5,"colSpan": 1,"rowSpan": 1},
+    {"field":"kprzjlx","controlType": "Text", "row": 1,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {
+        "field":"lq_invoice_detail","controlType": "EditTable", "row": 7,"col": 1,"colSpan": 6,"rowSpan": 1,
+        "fieldType":"one2many",
+        "relatedModelID":"lq_invoice_detail",
+        "relatedField":"lq_invoice_id",
+        "controls":[
+            {
+                "field":"id",
+                "label":"ID"
+            },
+            {
+                "field":"lq_invoice_id"
+            },
+            {"field":"xmmc","width":150,"visible":true,"label":"项目名称","controlType": "Text"},
+            {"field":"hwhyslwfwmc","width":150,"visible":true,"label":"货物或应税劳务、服务名称","controlType": "Text"},
+            {"field":"spfwjc","width":150,"visible":true,"label":"商品服务简称","controlType": "Text"},
+            {"field":"ggxh","width":150,"visible":true,"label":"规格型号","controlType": "Text"},
+            {"field":"dw","width":150,"visible":true,"label":"单位","controlType": "Text"},
+            {"field":"sl","width":150,"visible":true,"label":"数量","controlType": "Text"},
+            {"field":"dj","width":150,"visible":true,"label":"单价","controlType": "Text"},
+            {"field":"je","width":150,"visible":true,"label":"金额","controlType": "Text"},
+            {"field":"slv","width":150,"visible":true,"label":"增值税税率","controlType": "Text"},
+            {"field":"se","width":150,"visible":true,"label":"税额","controlType": "Text"},
+            {"field":"hsje","width":150,"visible":true,"label":"含税金额","controlType": "Text"},
+            {"field":"kce","width":150,"visible":true,"label":"扣除额","controlType": "Text"},
+            {"field":"sphfwssflhbbm","width":150,"visible":true,"label":"商品和服务税收分类合并编码","controlType": "Text"},
+            {"field":"fphxz","width":150,"visible":true,"label":"发票行性质","controlType": "Text"},
+            {"field":"yhzcbs","width":150,"visible":true,"label":"优惠政策标识","controlType": "Text"}           
+        ]
+    },
+    {"field":"bz","controlType": "TextArea", "row": 8,"col": 1,"colSpan": 6,"rowSpan": 1}    
+  ]
+}

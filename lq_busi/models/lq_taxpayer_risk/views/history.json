@@ -1,0 +1,73 @@
+{
+  "viewID": "history", 
+  "name": "纳税人风险信息历史", 
+  "description": "纳税人风险信息历史", 
+  "fields": [
+    {
+        "field":"nsrsbh",
+        "width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {
+        "field":"fxnsrlx",
+        "width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"nsrxydj","width":150},
+    {
+        "field":"nsryjjb",
+        "width":150,
+        "filterControlType":"MultiSelect",
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {
+        "field":"fxnsrbz",
+        "width":150,
+        "filterControlType":"MultiSelect",
+        "optons":[
+            {"value":"Y","label":"风险纳税人"},
+            {"value":"N","label":"正常纳税人"}
+        ]
+    },
+    {"field":"id","width":150},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}
+  ], 
+  "filter": {"current":"1"}, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+              
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+              {
+                  "operationID": "delete",
+                  "name":"删除",
+                  "prompt":"是否删除选中的记录？"
+              }
+          ]
+      }
+  }
+}

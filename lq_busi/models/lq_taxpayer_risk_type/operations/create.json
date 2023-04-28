@@ -1,0 +1,15 @@
+{
+  "id": "create", 
+  "name": "新建",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lq_taxpayer_risk_type/common/create",
+          "location":"modal",
+          "title":"新建",
+          "key":"/model/lq_taxpayer_risk_type/common/create",
+          "width":500,
+          "height":300
+  },
+  "input":{},
+  "description":"打开新建对话框" 
+}

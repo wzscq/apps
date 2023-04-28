@@ -1,0 +1,15 @@
+{
+  "id": "create", 
+  "name": "获取",
+  "type":"open",
+  "params":{
+    "url":"/formview/#/lq_tax_classification_code/common/create",
+    "location":"modal",
+    "title":"选择机构",
+    "key":"/model/lq_tax_classification_code/common/create",
+    "width":400,
+    "height":200
+  },
+  "input":{},
+  "description":"打开获取对话框" 
+}

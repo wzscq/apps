@@ -1,0 +1,36 @@
+{
+  "viewID": "all", 
+  "name": "可用税率获取记录", 
+  "description": "可用税率获取记录", 
+  "fields": [
+    {"field":"id","width":150},
+    {"field":"count","width":150},
+    {"field":"code","width":150},
+    {"field":"message","width":150},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}
+  ],
+  "filter": { }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+              
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+              {
+                  "operationID": "delete",
+                  "name":"删除",
+                  "prompt":"是否删除选中的记录？"
+              }
+          ]
+      }
+  }
+}

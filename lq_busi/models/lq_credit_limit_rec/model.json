@@ -1,0 +1,17 @@
+{
+  "modelID": "lq_credit_limit_rec",
+  "fields": [
+    {"field":"id","name":"ID","dataType":"bigint"},
+    {"field":"nsrsbh","name":"机构ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_legal_entity","quickSearch":true},
+    {"field":"sqlx","name":"申请类型","dataType":"varchar","quickSearch":true},
+    {"field":"sqed","name":"申请额度","dataType":"decimal"},
+    {"field":"syqjq","name":"授信额度使用区间起 ","dataType":"varchar","quickSearch":true},
+    {"field":"syqjz","name":"授信额度使用区间止","dataType":"varchar","quickSearch":true},
+    {"field":"lq_credit_limit_ecra_id","name":"调整有效期记录ID","dataType":"bigint"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

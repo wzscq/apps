@@ -1,0 +1,98 @@
+{
+  "formID": "detail",
+  "colCount": 6,
+  "rowCount": 2,
+  "rowHeight": 30,
+  "header":{
+      "label":"详情"
+  },
+  "footer":{
+      "operations":[
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                  "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"                            
+          }
+      ]
+  },
+  "controls": [
+    {
+        "controlType": "SingleSelect",
+        "row": 1,
+        "col": 1,
+        "field": "nsrsbh", 
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ],
+        "colSpan": 1,
+        "rowSpan": 1,
+        "required":true
+    },
+    {"field":"sjc","controlType": "Text", "row": 1,"col": 2,"colSpan": 1,"rowSpan": 1},
+    {"field":"fjbm","controlType": "Text", "row": 1,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"sphfwssflhbbm","controlType": "Text", "row": 1,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {
+        "field":"tdyslxdm","controlType": "SingleSelect", "row": 1,"col": 5,"colSpan": 1,"rowSpan": 1,
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"cezs","controlType": "Text", "row": 1,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"bzs","controlType": "Text", "row": 2,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {
+        "field":"jzjtdm","controlType": "Text", "row": 2,"col": 2,"colSpan": 1,"rowSpan": 1,
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+            {"field":"id"},
+            {"field":"name"}
+        ]
+    },
+    {"field":"sphfwmc","controlType": "Text", "row": 2,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"sphfwfljc","controlType": "Text", "row": 2,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {"field":"sm","controlType": "Text", "row": 2,"col": 5,"colSpan": 1,"rowSpan": 1},
+    {"field":"zzssl","controlType": "Text", "row": 2,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"zsl","controlType": "Text", "row": 3,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {"field":"zzstsgl","controlType": "Text", "row": 3,"col": 2,"colSpan": 1,"rowSpan": 1},
+    {"field":"zzszcyj","controlType": "Text", "row": 3,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"zzstsnrdm","controlType": "Text", "row": 3,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {"field":"xfsgl","controlType": "Text", "row": 3,"col": 5,"colSpan": 1,"rowSpan": 1},
+    {"field":"xfszcyj","controlType": "Text", "row": 3,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"xfstsnrdm","controlType": "Text", "row": 4,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {"field":"gjz","controlType": "Text", "row": 4,"col": 2,"colSpan": 1,"rowSpan": 1},
+    {"field":"sfhzx","controlType": "Text", "row": 4,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"dytjjbm","controlType": "Text", "row": 4,"col": 4,"colSpan": 1,"rowSpan": 1},
+    {"field":"hgjcksppm","controlType": "Text", "row": 4,"col": 5,"colSpan": 1,"rowSpan": 1},
+    {"field":"qyrq","controlType": "Text", "row": 4,"col": 6,"colSpan": 1,"rowSpan": 1},
+    {"field":"tyrq","controlType": "Text", "row": 5,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {
+        "field":"lq_tax_classification_code_detail","controlType": "EditTable","row": 6,"col": 1,"colSpan": 6,"rowSpan": 1,
+        "fieldType":"one2many",
+        "relatedModelID":"lq_tax_classification_code_detail",
+        "relatedField":"lq_tax_classification_code_id",
+        "controls":[
+            {
+                "field":"id",
+                "label":"ID"
+            },
+            {
+                "field":"lq_tax_classification_code_id"
+            },
+            {"field":"hydm","width":150,"visible":true,"label":"行业代码","controlType":"Text"},
+            {"field":"dydhy","width":150,"visible":true,"label":"对应的行业","controlType":"Text"},
+            {"field":"hydydzspm1","width":200,"visible":true,"label":"行业对应的征收品目一","controlType":"Text"},
+            {"field":"hydydzsmc1","width":200,"visible":true,"label":"行业对应的征收名称一","controlType":"Text"},
+            {"field":"hydydzspm2","width":200,"visible":true,"label":"行业对应的征收品目二","controlType":"Text"},
+            {"field":"hydydzsmc2","width":200,"visible":true,"label":"行业对应的征收名称二","controlType":"Text"}
+        ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "create", 
+  "name": "新建",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lq_invoice_jsfs/common/create",
+          "location":"modal",
+          "title":"新建",
+          "key":"/model/lq_invoice_jsfs/common/create",
+          "width":500,
+          "height":300
+  },
+  "input":{},
+  "description":"打开新建对话框" 
+}

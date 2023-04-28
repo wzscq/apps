@@ -1,0 +1,15 @@
+{
+  "id": "edit", 
+  "name": "编辑",
+  "type":"open",
+  "params":{
+    "url":"/formview/#/lq_consumer_taxpayer_type/common/edit",
+    "location":"modal",
+    "title":"编辑",
+    "key":"/model/lq_consumer_taxpayer_type/common/edit",
+    "width":500,
+    "height":300
+  },
+  "input":{},
+  "description":"打开编辑对话框"
+}

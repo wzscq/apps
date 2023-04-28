@@ -1,0 +1,11 @@
+{
+  "id": "create", 
+  "name": "获取",
+  "type":"message",
+  "params":{
+      "type":"success",
+      "content":"功能开发中!",
+      "duration":"2"
+  },
+  "description":"提示功能开发中"
+}

@@ -1,0 +1,26 @@
+{
+  "operations": [
+    {
+        "id": "saveUpdateDuration", 
+        "roles":"*"
+    },
+    {
+        "id": "updateDuration", 
+        "roles":"*"
+    },
+    {
+        "id": "create", 
+        "roles":"*"
+    },
+    {
+        "id": "save", 
+        "roles":"*"
+    }
+  ],
+  "views":[
+    {
+        "id": "all", 
+        "roles":"*"
+    }
+  ]
+}

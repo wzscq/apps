@@ -1,0 +1,15 @@
+{
+  "id": "opengetform", 
+  "name": "获取预赋码",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lq_preassigned_invno/getform/create",
+          "location":"modal",
+          "title":"选择机构",
+          "key":"/model/lq_preassigned_invno/getform/create",
+          "width":500,
+          "height":200
+  },
+  "input":{},
+  "description":"打开选择机构对话框"
+}
