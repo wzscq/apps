@@ -1,0 +1,31 @@
+{
+  "id":"saveApproval",
+  "name":"保存",
+  "type":"request",
+  "params":{
+    "url":"/data/save",
+    "method":"post"
+  },
+  "input":{
+    "list":[
+      {"status":"2"}
+    ]
+  },
+  "description":"保存数据",
+  "successOperation":{
+    "type":"close",
+    "params":{
+        "location":"modal"
+    },
+    "input":{},
+    "description":"关闭对话框",
+    "successOperation":{
+        "type":"reloadFrameData",
+        "params":{
+            "location":"tab",
+            "key":"/model/lms_announcement"
+        },
+        "description":"刷新页面数据"
+    }
+  }
+}

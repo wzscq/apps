@@ -1,0 +1,43 @@
+{
+  "viewID": "draft", 
+  "name": "工作证办理申请", 
+  "description": "工作证办理申请", 
+  "fields": [
+    {"field":"id","width":150},
+    {"field":"name","width":150},
+    {"field":"contact","width":150},
+    {"field":"remark","width":250},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}      
+  ], 
+  "filter": {"status":"0"}, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+            {
+              "operationID":"submit",
+              "name":"提交"
+            }, 
+            {
+              "operationID":"create",
+              "name":"新建"
+             }
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+            {
+              "operationID":"delete",
+              "name":"删除",
+              "prompt":"确定要删除吗？"
+            }
+          ]
+      }
+  }
+}

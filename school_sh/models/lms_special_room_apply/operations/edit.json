@@ -1,0 +1,17 @@
+{
+  "id": "edit", 
+  "name": "编辑",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lms_special_room_apply/edit/edit",
+          "location":"modal",
+          "title":"编辑",
+          "key":"/model/lms_special_room_apply/eidt/edit",
+          "width":800,
+          "height":500
+  },
+  "input":{
+    
+  },
+  "description":"打开编辑对话框" 
+}

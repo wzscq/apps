@@ -1,0 +1,50 @@
+{
+  "formID": "edit",
+  "colCount": 4,
+  "rowCount": 2,
+  "rowHeight": 30,
+  "header":{
+      "label":"新建"
+  },
+  "footer":{
+      "operations":[
+          {
+              "operationID":"saveApproval",
+              "name":"保存"
+          },
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                  "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"                            
+          }
+      ]
+  },
+  "controls": [
+        {
+            "controlType": "Text",
+            "row": 1,
+            "col": 1,
+            "field": "id", 
+            "label": "ID",
+            "colSpan": 1,
+            "rowSpan": 1,
+            "disabled":true
+        },
+        {"field":"name","controlType":"Text","row":2,"col":1,"rowSpan":1,"colSpan":1},
+        {"field":"contact","controlType":"Text","row":2,"col":2,"rowSpan":1,"colSpan":1},
+        {
+            "field":"result","controlType":"SingleSelect","row":2,"col":3,"rowSpan":1,"colSpan":1,
+            "options":[
+                {"label":"通过","value":"0"},
+                {"label":"拒绝","value":"1"}
+            ],
+            "required":true
+        },
+        {"field":"remark","controlType":"TextArea","row":3,"col":1,"rowSpan":1,"colSpan":4}
+    ]
+}

@@ -1,0 +1,41 @@
+{
+  "formID": "edit",
+  "colCount": 4,
+  "rowCount": 2,
+  "rowHeight": 30,
+  "header":{
+      "label":"新建"
+  },
+  "footer":{
+      "operations":[
+          {
+              "operationID":"save",
+              "name":"保存"
+          },
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                  "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"                            
+          }
+      ]
+  },
+  "controls": [
+        {
+            "controlType": "Text",
+            "row": 1,
+            "col": 4,
+            "field": "id", 
+            "label": "ID",
+            "colSpan": 1,
+            "rowSpan": 1,
+            "disabled":true
+        },
+        {"field":"title","controlType":"Text","row":1,"col":1,"rowSpan":1,"colSpan":3},
+        {"field":"content","controlType":"RichText","row":2,"col":1,"rowSpan":1,"colSpan":4,"height":600}
+    ]
+}

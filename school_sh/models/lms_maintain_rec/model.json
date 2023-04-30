@@ -1,0 +1,13 @@
+{
+  "modelID": "lms_maintain_rec", 
+  "fields": [
+    {"field":"id","name":"编号","dataType":"bigint"},
+    {"field":"type","name":"维修类型","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_maintain_type","quickSearch":true},
+    {"field":"content","name":"维修内容描述","dataType":"varchar","quickSearch":true},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

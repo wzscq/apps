@@ -1,0 +1,15 @@
+{
+  "id": "create", 
+  "name": "新建",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lms_announcement/create/create",
+          "location":"modal",
+          "title":"新建",
+          "key":"/model/lms_announcement/create/create",
+          "width":1300,
+          "height":800
+  },
+  "input":{},
+  "description":"打开新建对话框" 
+}

@@ -1,0 +1,35 @@
+{
+  "viewID": "all", 
+  "name": "全部上传文件", 
+  "description": "所有上传文件", 
+  "fields": [
+    {"field":"id","width":150},
+    {"field":"type","width":150},
+    {"field":"name","width":150},
+    {"field":"remark","width":150},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}      
+  ], 
+  "filter": { }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+             
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+            {
+                "operationID":"detail",
+                "label":"详情"
+            }
+          ]
+      }
+  }
+}

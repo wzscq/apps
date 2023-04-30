@@ -1,0 +1,52 @@
+{
+  "formID": "create",
+  "colCount": 4,
+  "rowCount": 2,
+  "rowHeight": 30,
+  "header":{
+      "label":"新建"
+  },
+  "footer":{
+      "operations":[
+          {
+              "operationID":"save",
+              "name":"保存"
+          },
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                  "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"                            
+          }
+      ]
+  },
+  "controls": [
+        {
+            "controlType": "Text",
+            "row": 1,
+            "col": 1,
+            "field": "id", 
+            "label": "ID",
+            "colSpan": 1,
+            "rowSpan": 1,
+            "disabled":true
+        },
+        {"field":"carno","controlType":"Text","row":2,"col":1,"rowSpan":1,"colSpan":1},
+        {
+            "field":"type","controlType":"SingleSelect","row":2,"col":2,"rowSpan":1,"colSpan":1,
+            "options":[
+                {"label":"临时车位","value":"0"},
+                {"label":"固定车位","value":"1"}
+            ]
+        },
+        {"field":"user_name","controlType":"Text","row":2,"col":3,"rowSpan":1,"colSpan":1},
+        {"field":"contact","controlType":"Text","row":2,"col":4,"rowSpan":1,"colSpan":1},
+        {"field":"start_time","controlType":"DatePicker","showTime":true,"row":3,"col":1,"rowSpan":1,"colSpan":2},
+        {"field":"end_time","controlType":"DatePicker","row":3,"col":3,"rowSpan":1,"colSpan":2,"showTime":true},
+        {"field":"remark","controlType":"TextArea","row":4,"col":1,"rowSpan":1,"colSpan":4}
+    ]
+}

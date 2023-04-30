@@ -1,0 +1,79 @@
+{
+  "viewID": "audit", 
+  "name": "专用教室使用审批", 
+  "description": "专用教室使用审批", 
+  "fields": [
+    {"field":"id","width":150},
+    {
+      "field":"room","width":150,
+      "filterControlType":"MultiSelect",
+      "optionLable":"id",
+      "fields":[
+        {"field":"id"}
+      ]
+    },
+    {
+      "field":"class","width":150,
+      "filterControlType":"MultiSelect",
+      "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班)';",
+      "fields":[
+          {"field":"id"},
+          {"field":"current_grade"},
+          {"field":"class_number"}
+      ]
+    },
+    {
+      "field":"subject","width":150,
+      "filterControlType":"MultiSelect",
+      "optionLable":"name",
+      "fields":[
+        {"field":"id"},
+        {"field":"name"}
+      ]
+    },
+    {"field":"date","width":150},
+    {
+      "field":"section","width":150,
+      "filterControlType":"MultiSelect",
+      "optionLable":"name",
+      "fields":[
+        {"field":"id"},
+        {"field":"name"}
+      ]
+    },
+    {
+      "field":"status","width":150,
+      "filterControlType":"MultiSelect",
+      "options":[
+        {"label":"未提交","value":"0"},
+        {"label":"审核中","value":"1"},
+        {"label":"审核完成","value":"2"}
+      ]
+    },
+    {"field":"reason","width":250},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}      
+  ], 
+  "filter": {"status":"1" }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+            
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+            {
+              "operationID":"edit",
+              "name":"审批"
+            }
+          ]
+      }
+  }
+}

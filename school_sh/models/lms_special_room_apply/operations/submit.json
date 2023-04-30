@@ -1,0 +1,28 @@
+{
+  "id":"submit",
+  "name":"提交",
+  "type":"request",
+  "params":{
+    "url":"/data/update",
+    "method":"post"
+  },
+  "input":{
+    "list":[{"status":"1"}]
+  },
+  "description":"保存数据",
+  "successOperation":{
+    "type":"close",
+    "params":{
+        "location":"modal"
+    },
+    "description":"关闭对话框",
+    "successOperation":{
+        "type":"reloadFrameData",
+        "params":{
+            "location":"tab",
+            "key":"/model/lms_special_room_apply"
+        },
+        "description":"刷新页面数据"
+    }
+  }
+}

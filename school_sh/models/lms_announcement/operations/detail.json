@@ -1,0 +1,17 @@
+{
+  "id": "detail", 
+  "name": "详情",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lms_announcement/detail/detail",
+          "location":"modal",
+          "title":"公告详情",
+          "key":"/model/lms_announcement/detail/detail",
+          "width":1300,
+          "height":800
+  },
+  "input":{
+    
+  },
+  "description":"打开详情对话框" 
+}

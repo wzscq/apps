@@ -1,0 +1,45 @@
+{
+    "viewID": "my", 
+    "name": "我上传的文件", 
+    "description": "我上传的文件", 
+    "fields": [
+      {"field":"id","width":150},
+      {"field":"type","width":150},
+      {"field":"name","width":150},
+      {"field":"remark","width":150},
+      {"field":"create_time","width":150},
+      {"field":"create_user","width":150},
+      {"field":"update_time","width":150},
+      {"field":"update_user","width":150},
+      {"field":"version","width":150}      
+    ], 
+    "filter": {
+        "create_user":"%{userID}"
+    },
+    "toolbar": {
+        "listToolbar": {
+            "showCount": 3, 
+            "buttons": [
+                {
+                  "operationID":"create",
+                  "label":"新建"
+                }
+            ]
+        }, 
+        "rowToolbar": {
+            "showCount": 2,
+            "width":90, 
+            "buttons": [
+              {
+                  "operationID":"detail",
+                  "label":"详情"
+              },
+              {
+                "operationID":"delete",
+                "label":"详情",
+                "prompt":"确定要删除吗？"
+              }
+            ]
+        }
+    }
+  }

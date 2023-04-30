@@ -1,0 +1,82 @@
+{
+  "formID": "create",
+  "colCount": 4,
+  "rowCount": 2,
+  "rowHeight": 30,
+  "header":{
+      "label":"新建"
+  },
+  "footer":{
+      "operations":[
+          {
+              "operationID":"saveApproval",
+              "name":"保存"
+          },
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                  "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"                            
+          }
+      ]
+  },
+  "controls": [
+        {
+            "controlType": "Text",
+            "row": 1,
+            "col": 1,
+            "field": "id", 
+            "label": "ID",
+            "colSpan": 1,
+            "rowSpan": 1,
+            "disabled":true
+        },
+        {
+            "field":"room","controlType":"SingleSelect","row":2,"col":1,"rowSpan":1,"colSpan":1,
+            "fields":[
+                {"field":"id"}
+            ]
+        },
+        {
+            "field":"class","controlType":"SingleSelect","row":2,"col":2,"rowSpan":1,"colSpan":1,
+            "optionLabel":"return record.id+'('+record.current_grade+'年级'+record.class_number+'班)';",
+            "fields":[
+                {"field":"id"},
+                {"field":"current_grade"},
+                {"field":"class_number"}
+            ],
+            "disabled":true
+        },
+        {
+            "field":"subject","controlType":"SingleSelect","row":2,"col":3,"rowSpan":1,"colSpan":1,
+            "optionLabel":"name",
+            "fields":[
+                {"field":"id"},
+                {"field":"name"}
+            ],
+            "disabled":true
+        },
+        {"field":"date","controlType":"DatePicker","row":3,"col":1,"rowSpan":1,"colSpan":1},
+        {
+            "field":"section","controlType":"SingleSelect","row":3,"col":2,"rowSpan":1,"colSpan":1,
+            "optionLabel":"name",
+            "fields":[
+                {"field":"id"},
+                {"field":"name"}
+            ],
+            "disabled":true
+        },
+        {
+            "field":"result","controlType":"SingleSelect","row":4,"col":1,"rowSpan":1,"colSpan":1,
+            "options":[
+                {"label":"通过","value":"0"},
+                {"label":"拒绝","value":"1"}
+            ]
+        },
+        {"field":"reason","controlType":"TextArea","row":5,"col":1,"rowSpan":1,"colSpan":4}
+    ]
+}

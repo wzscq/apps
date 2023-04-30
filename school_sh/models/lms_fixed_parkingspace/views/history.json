@@ -1,0 +1,44 @@
+{
+  "viewID": "approvaled", 
+  "name": "车位使用历史", 
+  "description": "车位使用历史", 
+  "fields": [
+    {"field":"id","width":150},
+    {"field":"space_no","width":150},
+    {
+      "field":"result","width":150,
+      "filterControlType":"MultiSelect",
+      "options":[
+        {"label":"空闲","value":"0"},
+        {"label":"占用","value":"1"}
+      ]
+    },
+    {"field":"carno","width":150},
+    {"field":"user_name","width":150},
+    {"field":"contact","width":150},
+    {"field":"start_time","width":150},
+    {"field":"end_time","width":150},
+    {"field":"remark","width":150},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}      
+  ], 
+  "filter": {"status":"1" }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+            
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+            
+          ]
+      }
+  }
+}

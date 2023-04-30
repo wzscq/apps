@@ -1,0 +1,15 @@
+{
+  "modelID": "lms_file", 
+  "fields": [
+    {"field":"id","name":"编号","dataType":"varchar"},
+    {"field":"type","name":"类型","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_file_type","quickSearch":true},
+    {"field":"name","name":"名称","dataType":"varchar","quickSearch":true},
+    {"field":"attach","name":"文档","fieldType":"file"},
+    {"field":"remark","name":"备注","dataType":"varchar","quickSearch":true},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}      
+  ]
+}

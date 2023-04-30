@@ -1,0 +1,45 @@
+{
+  "viewID": "all", 
+  "name": "维修记录", 
+  "description": "维修记录", 
+  "fields": [
+    {"field":"id","width":150},
+    {
+      "field":"type","width":150,
+      "filterControlType":"MultiSelect",
+      "optionLabel":"id",
+      "fields":[
+        {"field":"id"}
+      ]
+    },
+    {"field":"content","width":250},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150} 
+  ],
+  "filter": { }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+             {
+              "operationID":"create",
+              "label":"新建"
+             }
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+            {
+                "operationID":"delete",
+                "label":"删除",
+                "prompt":"确定要删除吗？"
+            }
+          ]
+      }
+  }
+}

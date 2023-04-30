@@ -1,0 +1,22 @@
+{
+  "operations": [
+    {
+        "id": "delete", 
+        "roles":"*"
+    },
+    {
+        "id": "create", 
+        "roles":"*"
+    },
+    {
+        "id": "save", 
+        "roles":"*"
+    }
+  ],
+  "views":[
+    {
+        "id": "all", 
+        "roles":"*"
+    }
+  ]
+}

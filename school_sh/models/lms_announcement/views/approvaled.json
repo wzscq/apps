@@ -1,0 +1,40 @@
+{
+  "viewID": "approvaled", 
+  "name": "当前发布的公告", 
+  "description": "当前发布的公告", 
+  "fields": [
+    {"field":"id","width":150},
+    {"field":"title","width":350},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}      
+  ], 
+  "filter": {"status":"1" }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+            {
+              "operationID":"callback",
+              "name":"撤回",
+              "selectedRows":{
+                "min":1,
+                "max":10,
+                "prompt":"请选择1-10条数据"
+              }
+            }
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+              {
+                "operationID":"detail"
+              }           
+          ]
+      }
+  }
+}

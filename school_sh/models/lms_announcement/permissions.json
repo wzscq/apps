@@ -1,0 +1,42 @@
+{
+  "operations": [
+    {
+        "id": "delete", 
+        "roles":"*"
+    },
+    {
+        "id": "create", 
+        "roles":"*"
+    },
+    {
+        "id": "save", 
+        "roles":"*"
+    },
+    {
+      "id":"submit",
+      "roles":"*"
+    },
+    {
+      "id":"edit",
+      "roles":"*"
+    },
+    {
+      "id":"detail",
+      "roles":"*"
+    },
+    {
+      "id":"callback",
+      "roles":"*"
+    }
+  ],
+  "views":[
+    {
+        "id": "draft", 
+        "roles":"*"
+    },
+    {
+      "id": "approvaled", 
+      "roles":"*"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "viewID": "approvaled", 
+  "name": "审批完成的申请", 
+  "description": "审批完成的申请", 
+  "fields": [
+    {"field":"id","width":150},
+    {"field":"name","width":150},
+    {"field":"contact","width":150},
+    {
+      "field":"result","width":150,
+      "filterControlType":"MultiSelect",
+      "options":[
+        {"label":"通过","value":"0"},
+        {"label":"拒绝","value":"1"}
+      ]
+    },
+    {"field":"remark","width":250},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}      
+  ], 
+  "filter": {"status":"2" }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+            
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+            
+          ]
+      }
+  }
+}

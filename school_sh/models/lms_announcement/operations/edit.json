@@ -1,0 +1,17 @@
+{
+  "id": "edit", 
+  "name": "编辑",
+  "type":"open",
+  "params":{
+          "url":"/formview/#/lms_announcement/edit/edit",
+          "location":"modal",
+          "title":"编辑",
+          "key":"/model/lms_announcement/eidt/edit",
+          "width":1300,
+          "height":800
+  },
+  "input":{
+    
+  },
+  "description":"打开编辑对话框" 
+}

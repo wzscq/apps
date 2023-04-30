@@ -1,0 +1,31 @@
+{
+  "id": "release", 
+  "name": "释放",
+  "type":"request",
+  "params":{
+      "url":"/redirect",
+      "method":"post"
+  },
+  "input":{
+    "to":"processingFlow",
+    "flowID":"release_parkingspace"
+  },
+  "description":"释放当前车位",
+  "successOperation":{
+      "type":"message",
+      "params":{
+          "type":"success",
+          "content":"释放成功!",
+          "duration":"2"
+      },
+      "description":"提示释放成功",
+      "successOperation":{
+          "type":"reloadFrameData",
+          "params":{
+              "location":"tab",
+              "key":"/model/lms_fixed_parkingspace"
+          },
+          "description":"刷新页面数据"
+      }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "modelID": "lms_badge_apply", 
+  "fields": [
+    {"field":"id","name":"编号","dataType":"bigint"},
+    {"field":"name","name":"申请人名称","dataType":"varchar","quickSearch":true},
+    {"field":"contact","name":"联系方式","dataType":"varchar","quickSearch":true},
+    {"field":"status","name":"审批状态","dataType":"varchar"},
+    {"field":"result","name":"审批结果","dataType":"varchar"},
+    {"field":"remark","name":"备注说明","dataType":"varchar","quickSearch":true},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

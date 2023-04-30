@@ -1,0 +1,19 @@
+{
+  "modelID": "lms_special_room_apply", 
+  "fields": [
+    {"field":"id","name":"编号","dataType":"bigint"},
+    {"field":"room","name":"教室","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_special_room","quickSearch":true},
+    {"field":"class","name":"班级","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_class","quickSearch":true},
+    {"field":"subject","name":"学科","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_subject","quickSearch":true},
+    {"field":"date","name":"日期","dataType":"datetime"},
+    {"field":"section","name":"第几节课","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_section"},
+    {"field":"status","name":"状态","dataType":"varchar"},
+    {"field":"result","name":"审批结果","dataType":"varchar"},
+    {"field":"reason","name":"审批意见","dataType":"varchar","quickSearch":true},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}
