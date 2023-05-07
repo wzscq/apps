@@ -311,7 +311,7 @@
                     "input":{},
                     "description":"打开操作日志窗口"
                 },
-                "roles":"admin"
+                "roles":"log"
             },
             {
                 "id":"4",
@@ -329,7 +329,7 @@
                     "input":{},
                     "description":"打开文件管理窗口"
                 },
-                "roles":"admin"
+                "roles":"file"
             }
         ]
     }

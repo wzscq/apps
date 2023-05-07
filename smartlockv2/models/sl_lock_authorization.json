@@ -133,7 +133,7 @@
                 "method":"post"
             },
             "input":{
-                "to":"samrtlockservice/open"
+                "to":"samrtlockservice/openBatch"
             },
             "description":"智能锁开启操作",
             "successOperation":{

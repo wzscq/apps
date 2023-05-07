@@ -213,10 +213,6 @@
                         {
                             "operationID": "create",
                             "name":"新增"
-                        },
-                        {
-                            "operationID": "syncLockList",
-                            "name":"同步锁信息"
                         }
                     ]
                 }, 

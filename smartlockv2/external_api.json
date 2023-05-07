@@ -2,6 +2,9 @@
     "samrtlockservice/open":{
         "url":"http://localhost:8301/open"
     },
+    "samrtlockservice/openBatch":{
+        "url":"http://localhost:8301/openBatch"
+    },
     "samrtlockservice/writekey":{
         "url":"http://localhost:8301/writekey"
     },

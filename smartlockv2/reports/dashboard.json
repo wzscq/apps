@@ -99,7 +99,7 @@
             "end_date":"return `'${filterData.end_date?filterData.end_date:moment().format('YYYY-MM-DD')}'`",
             "lock_area_filter":"return filterData.area_type?.value?`where area_type='${filterData.area_type.value}'`:'where 1=1'"
           },
-          "query":"select * from (select lock_id,count(1) as open_times from smartlockv2.sl_lock_status_record where status='1' and create_time>=%{start_date} and create_time<=%{end_date} and lock_id in (select id from smartlockv2.sl_lock %{lock_area_filter}) group by lock_id) t order by open_times desc limit 0,10",
+          "query":"select * from (select lock_id,count(1) as open_times from smartlockv2.sl_lock_status_record where status='011' and create_time>=%{start_date} and create_time<=%{end_date} and lock_id in (select id from smartlockv2.sl_lock %{lock_area_filter}) group by lock_id) t order by open_times desc limit 0,10",
           "row": 1,
           "col": 1,
           "colSpan": 2,
@@ -238,7 +238,10 @@
                   "barMaxWidth":40
                   }]
             },
-            "query":"select * from (select DATE(create_time) as open_date,count(1) as open_count from smartlockv2.sl_lock_status_record where status='1') t order by open_date desc limit 0,30 ",
+            "sqlParameters":{
+              "lock_area_filter":"return filterData.area_type?.value?`where area_type='${filterData.area_type.value}'`:'where 1=1'"
+            },
+            "query":"select * from (select DATE(create_time) as open_date,count(1) as open_count from smartlockv2.sl_lock_status_record where status='011' and lock_id in (select id from smartlockv2.sl_lock %{lock_area_filter})) t order by open_date desc limit 0,30",
             "row": 2,
             "col": 1,
             "colSpan": 4,

@@ -929,6 +929,7 @@
                     "field":"detail",
                     "controlType":"EditTable",
                     "fieldType":"one2many",
+                    "maxHeight":300,
                     "relatedModelID":"lms_curriculum_detail",
                     "relatedField":"curriculum_id",
                     "controls":[
