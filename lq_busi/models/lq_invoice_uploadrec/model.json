@@ -1,0 +1,19 @@
+{
+  "modelID": "lq_invoice_uploadrec",
+  "fields": [
+    {"field":"id","name":"ID","dataType":"bigint"},
+    {"field":"nsrsbh","name":"纳税人识别号","dataType":"varchar","fieldType":"many2one","relatedModelID":"lq_legal_entity","quickSearch":true},
+    {"field":"code","name":"返回码","dataType":"varchar","quickSearch":true},
+    {"field":"message","name":"错误消息","dataType":"varchar","quickSearch":true},
+    {"field":"sllsh","name":"受理流水号","dataType":"varchar","quickSearch":true},
+    {"field":"uplaod_count","name":"上传数量","dataType":"int"},
+    {"field":"success_count","name":"上传成功数量","dataType":"int"},
+    {"field":"query_result","name":"获取完成状态","dataType":"varchar"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"},
+    {"field":"lq_invoice_uploadrec_detail","name":"发票明细","fieldType":"one2many","relatedModelID":"lq_invoice_uploadrec_detail","relatedField":"lq_invoice_uploadrec_id"}
+  ]
+}

@@ -1,7 +1,7 @@
 {
-  "viewID": "all", 
-  "name": "全部发票信息", 
-  "description": "全部发票信息", 
+  "viewID": "uploaded", 
+  "name": "已上传发票", 
+  "description": "已上传发票", 
   "fields": [
     {"field":"id","width":150},
     {
@@ -19,8 +19,8 @@
         "field":"lzfpbz","width":150,
         "filterControlType":"MultiSelect",
         "options":[
-            {"value":"0","text":"蓝字发票"},
-            {"value":"1","text":"红字发票"}
+            {"value":"0","label":"蓝字发票"},
+            {"value":"1","label":"红字发票"}
         ]
     },
     {"field":"ptbh","width":150},
@@ -28,8 +28,8 @@
         "field":"fppz","width":150,
         "filterControlType":"MultiSelect",
         "options":[
-            {"value":"01","text":"数字化电子专票"},
-            {"value":"02","text":"数字化电子普票"}
+            {"value":"01","label":"数字化电子专票"},
+            {"value":"02","label":"数字化电子普票"}
         ]
     },
     {"field":"gmfzrrbz","width":150},
@@ -130,25 +130,36 @@
             {"value":"03","label":"上传失败"}
         ]
     },
+    {"field":"sllsh","width":150},
     {"field":"create_time","width":150},
     {"field":"create_user","width":150},
     {"field":"update_time","width":150},
     {"field":"update_user","width":150},
     {"field":"version","width":150}   
   ], 
-  "filter": { }, 
+  "filter": {"upload_status":{"Op.in":["01"]},"is_del":"0"}, 
   "toolbar": {
       "listToolbar": {
           "showCount": 3, 
           "buttons": [
-              
+              {
+                "operationID":"getUploadResult",
+                "name":"获取上传结果",
+                "selectedRows":{
+                    "min":1,
+                    "max":100,
+                    "prompt":"查询发票上传结果操作需要先选择发票，数量需要在1到100张之间"
+                }
+              }
           ]
       }, 
       "rowToolbar": {
           "showCount": 2,
           "width":60, 
           "buttons": [
-              
+            {
+                "operationID":"detail"
+            }
           ]
       }
   }

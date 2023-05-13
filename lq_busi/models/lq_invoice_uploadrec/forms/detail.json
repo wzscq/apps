@@ -1,0 +1,73 @@
+{
+  "formID": "detail",
+  "colCount": 4,
+  "rowCount": 2,
+  "rowHeight": 30,
+  "header":{
+    "label":"详情"
+  },
+  "footer":{
+      "operations":[
+          {
+              "name":"关闭",
+              "type":"close",
+              "validateFormData":false,
+              "params":{
+                "location":"modal"
+              },
+              "input":{},
+              "description":"关闭对话框"
+          }
+      ]
+  },
+  "controls": [
+    {"field":"id","controlType": "Text", "row": 1,"col": 1,"colSpan": 1,"rowSpan": 1,"required":false},
+    {
+        "field":"nsrsbh","controlType": "SingleSelect", "row": 1,"col": 2,"colSpan": 1,"rowSpan": 1,
+        "optionLabel":"return record.id+'_'+record.name;",
+        "fields":[
+          {"field":"id"},
+          {"field":"name"}
+        ]
+    },
+    {"field":"code","controlType": "Text", "row": 1,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {"field":"message","controlType": "TextArea", "row": 2,"col": 1,"colSpan": 4,"rowSpan": 1},
+    {"field":"sllsh","controlType": "Text", "row": 3,"col": 1,"colSpan": 1,"rowSpan": 1},
+    {"field":"uplaod_count","controlType": "Text", "row": 3,"col": 2,"colSpan": 1,"rowSpan": 1},
+    {"field":"success_count","controlType": "Text", "row": 3,"col": 3,"colSpan": 1,"rowSpan": 1},
+    {
+      "field":"query_result","controlType": "SingleSelect", "row": 3,"col": 4,"colSpan": 1,"rowSpan": 1,
+      "options":[
+        {"value":"0","label":"未获取完成"},
+        {"value":"1","label":"已获取完成"}
+      ]
+    },
+    {
+        "field":"lq_invoice_uploadrec_detail","controlType": "EditTable", "row": 4,"col": 1,"colSpan": 4,"rowSpan": 1,
+        "fieldType":"one2many",
+        "relatedModelID":"lq_invoice_uploadrec_detail",
+        "relatedField":"lq_invoice_uploadrec_id",
+        "maxHeight":400,
+        "controls":[
+            {
+                "field":"id",
+                "label":"ID"
+            },
+            {
+                "field":"lq_invoice_uploadrec_id"
+            },
+            {"field":"fphm","width":150,"visible":true,"label":"发票号码","controlType": "Text"},
+            {
+              "field":"status","width":150,"visible":true,"label":"上传状态","controlType": "SingleSelect",
+              "options":[
+                {"value":"00","label":"上传成功"},
+                {"value":"01","label":"发票上传处理中"},
+                {"value":"02","label":"上传失败"},
+                {"value":"03","label":"重复上传"}
+              ]
+            },
+            {"field":"message","width":350,"visible":true,"label":"详细信息","controlType": "Text"}
+        ]
+    }  
+  ]
+}

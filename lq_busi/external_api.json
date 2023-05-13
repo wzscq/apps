@@ -1,5 +1,5 @@
 {
-    "exterapiname":{
-        "url":"http://hostname:port/api"
+    "lqbusiservice/getPreassignedInvno":{
+        "url":"http://hostname:port/lqbusiservice/getPreassignedInvno"
     }
 }

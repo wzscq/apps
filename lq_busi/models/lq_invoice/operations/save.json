@@ -18,7 +18,7 @@
         "type":"reloadFrameData",
         "params":{
             "location":"tab",
-            "key":"/model/create"
+            "key":"/model/lq_invoice"
         },
         "description":"刷新页面数据"
     }

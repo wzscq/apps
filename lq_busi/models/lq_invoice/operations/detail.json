@@ -1,0 +1,15 @@
+{
+  "id": "detail", 
+  "name": "详情",
+  "type":"open",
+  "params":{
+    "url":"/formview/#/lq_invoice/detail/detail",
+    "location":"modal",
+    "title":"详情",
+    "key":"/model/lq_invoice/detail/detail",
+    "width":1200,
+    "height":600
+  },
+  "input":{},
+  "description":"打开详情对话框"
+}

@@ -1,0 +1,54 @@
+{
+  "viewID": "all", 
+  "name": "预赋码获取记录信息", 
+  "description": "预赋码获取记录信息", 
+  "fields": [
+    {"field":"id","width":150},
+    {
+      "field":"nsrsbh",
+      "width":150,
+      "filterControlType":"MultiSelect",
+      "optionLabel":"return record.id+'_'+record.name;",
+      "fields":[
+          {"field":"id"},
+          {"field":"name"}
+      ]
+    },
+    {"field":"code","width":150},
+    {"field":"message","width":150},
+    {"field":"sllsh","width":150},
+    {"field":"uplaod_count","width":150},
+    {"field":"success_count","width":150},
+    {
+      "field":"query_result","width":150,
+      "filterControlType":"MultiSelect",
+      "options":[
+        {"value":"0","label":"未获取完成"},
+        {"value":"1","label":"已获取完成"}
+      ]
+    },
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}
+  ],
+  "filter": { }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+              
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 2,
+          "width":60, 
+          "buttons": [
+            {
+              "operationID":"detail"
+            }
+          ]
+      }
+  }
+}

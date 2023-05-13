@@ -1,0 +1,15 @@
+{
+  "modelID": "lq_invoice_uploadrec_detail", 
+  "fields": [
+    {"field":"id","name":"ID","dataType":"bigint"},
+    {"field":"lq_invoice_uploadrec_id","name":"发票上传记录ID","dataType":"bigint"},
+    {"field":"fphm","name":"发票号码","dataType":"varchar"},
+    {"field":"status","name":"上传状态","dataType":"varchar"},
+    {"field":"message","name":"详细信息","dataType":"varchar"},
+    {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
+    {"field":"create_user","name":"记录创建人","dataType":"varchar"},
+    {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
+    {"field":"update_user","name":"记录更新人","dataType":"varchar"},
+    {"field":"version","name":"数据版本号","dataType":"int"}
+  ]
+}

@@ -178,9 +178,7 @@
                     "showCount": 3,
                     "width":50, 
                     "buttons": [
-                        {
-                            "operationID": "delete"
-                        }
+                        
                     ]
                 }
             },

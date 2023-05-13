@@ -19,6 +19,26 @@
     {
         "id": "upload", 
         "roles":"*"
+    },
+    {
+      "id": "openImport", 
+      "roles":"*"
+    },
+    {
+      "id": "import", 
+      "roles":"*"
+    },
+    {
+      "id": "detail", 
+      "roles":"*"
+    },
+    {
+      "id":"getUploadResult",
+      "roles":"*"
+    },
+    {
+      "id":"recover",
+      "roles":"admin"
     }
   ],
   "views":[
@@ -27,8 +47,16 @@
       "roles":"*"
     },
     {
-        "id": "all", 
+      "id":"uploaded",
+      "roles":"*"
+    },
+    {
+        "id": "uploadSuccessed", 
         "roles":"*"
+    },
+    {
+      "id": "deleted", 
+      "roles":"admin"
     }
   ]
 }

@@ -133,7 +133,7 @@
                 "method":"post"
             },
             "input":{
-                "to":"samrtlockservice/openBatch"
+                "to":"samrtlockservice/open"
             },
             "description":"智能锁开启操作",
             "successOperation":{
@@ -243,6 +243,7 @@
                     "width":150,
                     "controlType": "Transfer",
                     "optionLabel":"name",
+                    "maxHeight":200,
                     "fields":[
                         {"field":"id"},
                         {"field":"name"}
@@ -254,6 +255,7 @@
                     "width":150,
                     "controlType": "Transfer",
                     "optionLabel":"name",
+                    "maxHeight":200,
                     "fields":[
                         {"field":"id"},
                         {"field":"name"}
@@ -303,6 +305,7 @@
                     "width":150,
                     "controlType": "Transfer",
                     "optionLabel":"name",
+                    "maxHeight":200,
                     "fields":[
                         {"field":"id"},
                         {"field":"name"},
@@ -316,6 +319,7 @@
                     "width":150,
                     "controlType": "Transfer",
                     "optionLabel":"name",
+                    "maxHeight":200,
                     "fields":[
                         {"field":"id"},
                         {"field":"name"}

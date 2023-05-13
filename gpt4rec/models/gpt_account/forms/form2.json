@@ -1,10 +1,10 @@
 {
-  "formID": "form1",
+  "formID": "form2",
   "colCount": 4,
-  "rowCount": 2,
+  "rowCount": 26,
   "rowHeight": 30,
   "header":{
-      "label":"新建"
+      "label":"创建用户"
   },
   "footer":{
       "operations":[
@@ -31,17 +31,33 @@
           "col": 1,
           "field": "id", 
           "label": "ID",
-          "colSpan": 4,
+          "colSpan": 2,
           "rowSpan": 1,
           "required":true
-      },
+      }, 
       {
           "controlType": "Text",
           "row": 2,
           "col": 1,
           "field": "name", 
-          "colSpan": 4,
+          "colSpan": 2,
           "rowSpan": 1
+      }, 
+      {
+        "controlType": "Text",
+        "row": 3,
+        "col": 1,
+        "field": "count", 
+        "colSpan": 2,
+        "rowSpan": 1
+      }, 
+      {
+          "controlType": "Text",
+          "row": 4,
+          "col": 1,
+          "field": "remark", 
+          "colSpan": 4,
+          "rowSpan": 2
       }
   ]
 }

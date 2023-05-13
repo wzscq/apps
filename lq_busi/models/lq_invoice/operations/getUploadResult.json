@@ -1,0 +1,30 @@
+{
+  "id":"getUploadResult",
+  "name":"获取发票上传结果",
+  "type":"request",
+  "params":{
+    "url":"/redirect",
+    "method":"post"
+  },
+  "input":{
+    "to":"dataflow",
+    "flowID":"get_upload_result"
+  },
+  "description":"获取发票上传结果",
+  "successOperation":{
+    "type":"close",
+    "params":{
+        "location":"modal"
+    },
+    "input":{},
+    "description":"关闭对话框",
+    "successOperation":{
+        "type":"reloadFrameData",
+        "params":{
+            "location":"tab",
+            "key":"/model/lq_invoice"
+        },
+        "description":"刷新页面数据"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "openImport", 
+  "name": "导入开票信息",
+  "type":"open",
+  "params":{
+    "url":"/formview/#/lq_invoice/import/create",
+    "location":"modal",
+    "title":"导入开票信息",
+    "key":"/model/lq_invoice/import/create",
+    "width":500,
+    "height":250
+  },
+  "input":{
+    "list":[{
+      "upload_status":"00"
+    }]
+  },
+  "description":"打开导入开票信息对话框"
+}
