@@ -428,6 +428,102 @@
             },
             "description":"导出职工信息",
             "roles":"*"
+        },
+        {
+            "id":"downloadStudentImportTemplate",
+            "name":"下载模板",
+            "type":"request",
+            "params":{
+                "url":"/data/query",
+                "method":"post"
+            },
+            "input":{
+                "modelID":"lms_template",
+                "filter":{"id":"student_info_import"},
+                "filterData":null,
+                "sorter":[],
+                "viewID":"all",
+                "fields":[
+                    {"field":"id"},
+                    {"field":"template","fieldType":"file"}
+                ]
+            },
+            "description":"查询模板",
+            "successOperation":{
+                "type":"request",
+                "inputValidation":"return (input.list?.length>0&&input.list[0].template?.list?.length>0)?({result:input.list[0].template}):({error:true,message:'未找到对应模板，请与管理员联系处理！'});",
+                "params":{
+                    "url":"/data/download",
+                    "method":"post",
+                    "responseType":"blob"
+                },
+                "description":"下载模板"  
+            },
+            "roles":"*"
+        },
+        {
+            "id":"downloadTeacherImportTemplate",
+            "name":"下载模板",
+            "type":"request",
+            "params":{
+                "url":"/data/query",
+                "method":"post"
+            },
+            "input":{
+                "modelID":"lms_template",
+                "filter":{"id":"teacher_info_import"},
+                "filterData":null,
+                "sorter":[],
+                "viewID":"all",
+                "fields":[
+                    {"field":"id"},
+                    {"field":"template","fieldType":"file"}
+                ]
+            },
+            "description":"查询模板",
+            "successOperation":{
+                "type":"request",
+                "inputValidation":"return (input.list?.length>0&&input.list[0].template?.list?.length>0)?({result:input.list[0].template}):({error:true,message:'未找到对应模板，请与管理员联系处理！'});",
+                "params":{
+                    "url":"/data/download",
+                    "method":"post",
+                    "responseType":"blob"
+                },
+                "description":"下载模板"  
+            },
+            "roles":"*"
+        },
+        {
+            "id":"downloadStaffImportTemplate",
+            "name":"下载模板",
+            "type":"request",
+            "params":{
+                "url":"/data/query",
+                "method":"post"
+            },
+            "input":{
+                "modelID":"lms_template",
+                "filter":{"id":"staff_info_import"},
+                "filterData":null,
+                "sorter":[],
+                "viewID":"all",
+                "fields":[
+                    {"field":"id"},
+                    {"field":"template","fieldType":"file"}
+                ]
+            },
+            "description":"查询模板",
+            "successOperation":{
+                "type":"request",
+                "inputValidation":"return (input.list?.length>0&&input.list[0].template?.list?.length>0)?({result:input.list[0].template}):({error:true,message:'未找到对应模板，请与管理员联系处理！'});",
+                "params":{
+                    "url":"/data/download",
+                    "method":"post",
+                    "responseType":"blob"
+                },
+                "description":"下载模板"  
+            },
+            "roles":"*"
         }
     ], 
     "views": [
@@ -516,7 +612,7 @@
             "filter": {"type":"01"},
             "toolbar": {
                 "listToolbar": {
-                    "showCount": 4, 
+                    "showCount": 5, 
                     "buttons": [
                         {
                             "operationID": "createStudent",
@@ -528,6 +624,9 @@
                         }, 
                         {
                             "operationID":"exportStudent"
+                        },
+                        {
+                            "operationID":"downloadStudentImportTemplate"
                         },
                         {
                             "operationID": "delete",
@@ -575,7 +674,7 @@
             "filter": {"type":"02"},
             "toolbar": {
                 "listToolbar": {
-                    "showCount": 4, 
+                    "showCount": 5, 
                     "buttons": [
                         {
                             "operationID": "createTeacher",
@@ -587,6 +686,9 @@
                         }, 
                         {
                             "operationID":"exportTeacher"
+                        },
+                        {
+                            "operationID":"downloadTeacherImportTemplate"
                         },
                         {
                             "operationID": "delete",
@@ -634,7 +736,7 @@
             "filter": {"type":"03"},
             "toolbar": {
                 "listToolbar": {
-                    "showCount": 4, 
+                    "showCount": 5, 
                     "buttons": [
                         {
                             "operationID": "createStaff",
@@ -646,6 +748,9 @@
                         }, 
                         {
                             "operationID":"exportStaff"
+                        },
+                        {
+                            "operationID":"downloadStaffImportTemplate"
                         },
                         {
                             "operationID": "delete",

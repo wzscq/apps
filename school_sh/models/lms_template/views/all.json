@@ -1,0 +1,44 @@
+{
+  "viewID": "all", 
+  "name": "导入模板文件维护", 
+  "description": "导入模板文件维护", 
+  "fields": [
+    {"field":"id","width":150},
+    {"field":"name","width":150},
+    {"field":"create_time","width":150},
+    {"field":"create_user","width":150},
+    {"field":"update_time","width":150},
+    {"field":"update_user","width":150},
+    {"field":"version","width":150}      
+  ], 
+  "filter": { }, 
+  "toolbar": {
+      "listToolbar": {
+          "showCount": 3, 
+          "buttons": [
+            {
+                "operationID":"create",
+                "label":"新增"
+            }            
+          ]
+      }, 
+      "rowToolbar": {
+          "showCount": 3,
+          "width":120, 
+          "buttons": [
+            {
+                "operationID":"detail",
+                "label":"详情"
+            },
+            {
+                "operationID":"edit",
+                "label":"修改"
+            },
+            {
+                "operationID":"delete",
+                "label":"删除"
+            }
+          ]
+      }
+  }
+}

@@ -820,6 +820,24 @@
                     "description":"打开等第字典维护功能"
                 },
                 "roles":"admin"
+            },
+            {
+                "id":"7",
+                "name":"模板文件维护",
+                "description":"导入模板文件维护",
+                "icon":"GroupOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lms_template",
+                        "location":"tab",
+                        "title":"导入模板文件维护",
+                        "key":"/model/lms_template"
+                    },
+                    "input":{},
+                    "description":"打开导入模板文件维护功能"
+                },
+                "roles":"admin"
             }
         ]
     },
@@ -909,8 +927,8 @@
                 "operation":{
                     "type":"open",
                     "params":{
-                        "url":"http://localhost:9901/#/school_sh",
-                        "url1":"http://121.36.192.249:8080/flowconfig/#/school_sh",
+                        "url1":"http://localhost:9901/#/school_sh",
+                        "url":"http://121.37.185.248:8080/flowconfig/#/school_sh",
                         "location":"tab",
                         "title":"处理逻辑配置",
                         "key":"/flowconfig/school_sh"
