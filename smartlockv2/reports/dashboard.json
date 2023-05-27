@@ -261,7 +261,7 @@
                   "type":"line",
                   "name":"",
                   "barMaxWidth":40
-                  }]
+                }]
             },
             "sqlParameters":{
               "start_date":"return `'${filterData.start_date?filterData.start_date:moment().format('YYYY-MM-DD')} 00:00:00'`",
