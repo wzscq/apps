@@ -1,11 +1,7 @@
 [
     {
         "id":"0",
-        "name":{
-            "default":"Dashboard",
-            "zh_CN":"仪表盘",
-            "en_US":"Dashboard"
-        },
+        "name":"仪表盘",
         "description":"Dashboard",
         "icon":"BarChartOutlined",
         "operation":{
@@ -13,7 +9,7 @@
             "params":{
                 "url":"/report/#/dashboard",
                 "location":"tab",
-                "title":"Dashboard",
+                "title":"仪表盘",
                 "key":"/report/dashboard"
             },
             "input":{},

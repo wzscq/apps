@@ -213,6 +213,9 @@
                         {
                             "operationID": "create",
                             "name":"新增"
+                        },
+                        {
+                            "operationID":"syncLockList"
                         }
                     ]
                 }, 
@@ -282,7 +285,11 @@
                         {"field":"ip"}
                     ],
                     "row": 3,"col": 3,"colSpan": 2,"rowSpan": 1,
-                    "required":true
+                    "required":true,
+                    "validation":{
+                        "func":"return record.slaver_hub?.value!==record.master_hub?.value;",
+                        "message":"备用网关不能和主用网关相同"
+                    }
                 },
                 {
                     "field":"room",

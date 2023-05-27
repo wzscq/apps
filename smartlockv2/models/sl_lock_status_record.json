@@ -3,7 +3,7 @@
     "fields":[
         {"field":"id","name":"编号","dataType":"bigint"},
         {"field":"lock_id","name":"智能锁ID","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_lock","quickSearch":true},
-        {"field":"status","name":"状态/事件","dataType":"varchar"},
+        {"field":"status","name":"状态/事件","dataType":"varchar","quickSearch":true},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
@@ -178,9 +178,7 @@
                     "showCount": 3,
                     "width":50, 
                     "buttons": [
-                        {
-                            "operationID": "delete"
-                        }
+                        
                     ]
                 }
             },

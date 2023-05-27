@@ -4,14 +4,14 @@
         {"field":"id","name":"编号","dataType":"bigint"},
         {"field":"locks","name":"智能锁ID","dataType":"varchar","fieldType":"many2many","relatedModelID":"sl_lock"},
         {"field":"operators","name":"操作人","dataType":"varchar","fieldType":"many2many","relatedModelID":"sl_person"},
-        {"field":"approver","name":"审批人","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_person"},
+        {"field":"approver","name":"审批人","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_person","quickSearch":true},
         {"field":"start_date","name":"开始日期","dataType":"datetime"},
         {"field":"end_date","name":"截止日期","dataType":"datetime"},
         {"field":"start_time","name":"开始时间","dataType":"time"},
         {"field":"end_time","name":"截止时间","dataType":"time"},
-        {"field":"description","name":"事由说明","dataType":"varchar"},
+        {"field":"description","name":"事由说明","dataType":"varchar","quickSearch":true},
         {"field":"status","name":"状态","dataType":"varchar"},
-        {"field":"approval_comments","name":"审批意见","dataType":"varchar"},
+        {"field":"approval_comments","name":"审批意见","dataType":"varchar","quickSearch":true},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_person"},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
@@ -593,7 +593,13 @@
                     "disabled":true
                 },
                 {"field":"start_date","width":150,"controlType": "DatePicker","showTime":true,"row": 2,"col": 1,"colSpan": 1,"rowSpan": 1,"required":true},
-                {"field":"end_date","width":150,"controlType": "DatePicker","showTime":true,"row": 2,"col": 2,"colSpan": 1,"rowSpan": 1,"required":true},
+                {
+                    "field":"end_date","width":150,"controlType": "DatePicker","showTime":true,"row": 2,"col": 2,"colSpan": 1,"rowSpan": 1,"required":true,
+                    "validation":{
+                        "func":"return record.end_date>record.start_date;",
+                        "message":"结束时间应该大于开始时间"
+                    }
+                },
                 {
                     "field":"approver",
                     "width":150,
@@ -615,7 +621,8 @@
                         {"field":"id"},
                         {"field":"name"}
                     ],
-                    "row": 5,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true
+                    "row": 5,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true,
+                    "maxHeight":200
                 },
                 {
                     "field":"operators",
@@ -626,7 +633,8 @@
                         {"field":"id"},
                         {"field":"name"}
                     ],
-                    "row": 5,"col": 3,"colSpan": 2,"rowSpan": 1,"required":false
+                    "row": 5,"col": 3,"colSpan": 2,"rowSpan": 1,"required":false,
+                    "maxHeight":200
                 }
             ]
         },
@@ -707,7 +715,8 @@
                         {"field":"id"},
                         {"field":"name"}
                     ],
-                    "row": 6,"col": 1,"colSpan": 2,"rowSpan": 1,"disabled":true
+                    "row": 6,"col": 1,"colSpan": 2,"rowSpan": 1,"disabled":true,
+                    "maxHeight":200
                 },
                 {
                     "field":"operators",
@@ -718,7 +727,8 @@
                         {"field":"id"},
                         {"field":"name"}
                     ],
-                    "row": 6,"col": 3,"colSpan": 2,"rowSpan": 1,"disabled":true
+                    "row": 6,"col": 3,"colSpan": 2,"rowSpan": 1,"disabled":true,
+                    "maxHeight":200
                 }
             ]
         },

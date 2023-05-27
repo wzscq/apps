@@ -3,11 +3,11 @@
     "fields":[
         {"field":"id","name":"编号","dataType":"bigint"},
         {"field":"locks","name":"智能锁ID","dataType":"varchar","fieldType":"many2many","relatedModelID":"sl_lock"},
-        {"field":"operators","name":"操作人","dataType":"varchar","fieldType":"many2many","relatedModelID":"sl_person"},
-        {"field":"close_delay","name":"闭锁延迟","dataType":"varchar"},
-        {"field":"remark","name":"事由说明","dataType":"varchar"},
+        {"field":"operators","name":"操作人","dataType":"varchar","fieldType":"many2many","relatedModelID":"sl_person","quickSearch":true},
+        {"field":"close_delay","name":"闭锁延迟","dataType":"varchar","quickSearch":true},
+        {"field":"remark","name":"事由说明","dataType":"varchar","quickSearch":true},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
-        {"field":"create_user","name":"记录创建人","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_person"},
+        {"field":"create_user","name":"记录创建人","dataType":"varchar","fieldType":"many2one","relatedModelID":"sl_person","quickSearch":true},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
         {"field":"update_user","name":"记录更新人","dataType":"varchar"},
         {"field":"version","name":"数据版本号","dataType":"int"}
@@ -247,7 +247,8 @@
                         {"field":"id"},
                         {"field":"name"}
                     ],
-                    "row": 3,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true
+                    "row": 3,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true,
+                    "maxHeight":200
                 },
                 {
                     "field":"operators",
@@ -258,7 +259,8 @@
                         {"field":"id"},
                         {"field":"name"}
                     ],
-                    "row": 3,"col": 3,"colSpan": 2,"rowSpan": 1,"required":false
+                    "row": 3,"col": 3,"colSpan": 2,"rowSpan": 1,"required":false,
+                    "maxHeight":200
                 }
             ]
         },
@@ -309,7 +311,8 @@
                         {"field":"master_hub"},
                         {"field":"slaver_hub"}
                     ],
-                    "row": 3,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true
+                    "row": 3,"col": 1,"colSpan": 2,"rowSpan": 1,"required":true,
+                    "maxHeight":200
                 },
                 {
                     "field":"operators",
@@ -320,7 +323,8 @@
                         {"field":"id"},
                         {"field":"name"}
                     ],
-                    "row": 3,"col": 3,"colSpan": 2,"rowSpan": 1,"required":false
+                    "row": 3,"col": 3,"colSpan": 2,"rowSpan": 1,"required":false,
+                    "maxHeight":200
                 }
             ]
         }

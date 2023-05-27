@@ -54,7 +54,7 @@
           "minHeight":250,
           "option":{
               "title":{
-                "text":"开锁次数占比",
+                "text":"开锁次数排名",
                 "show":true,
                 "textStyle":{
                   "fontWeight":"normal",
@@ -63,43 +63,62 @@
               },
               "color":["#91cc75","#fac858"],
               "legend":{
-                "bottom":10
+                "show":false
               },
               "dataset":{
                 "source":[
-                  {"lock_id": 0, "open_times": 0}
+                  {"name": "", "open_times": 0}
                 ],
-                "dimensions":["open_times","lock_id"]
+                "dimensions":["name","open_times"]
               },
               "tooltip": {
-                "trigger": "item"
+                "trigger": "axis",
+                "axisPointer": {
+                    "type": "shadow"
+                }
+            },
+            "toolbox": {
+                "show": true,
+                "orient": "vertical",
+                "left": "right",
+                "top": "center",
+                "feature": {
+                  "mark": { "show": true },
+                  "dataView": { "show": true, "readOnly": false },
+                  "magicType": { "show": true, "type": ["line", "bar", "stack"] },
+                  "restore": { "show": true },
+                  "saveAsImage": { "show": true }
+                }
               },
-              "toolbox": {
-                  "show": true,
-                  "orient": "vertical",
-                  "left": "right",
-                  "top": "center",
-                  "feature": {
-                    "mark": { "show": true },
-                    "dataView": { "show": true, "readOnly": false },
-                    "saveAsImage": { "show": true }
-                  }
-                },
-                "series": [{
-                  "type":"pie",
-                  "radius":80,
-                  "label":{
-                    "position":"inside",
-                    "show":false
-                  }
-                }]
+              "grid":{
+                "left":100,
+                "bottom":30
+              },
+              "xAxis": [
+                {
+                  "type": "category",
+                  "axisTick": { "show": false }
+                }
+              ],
+              "yAxis": [
+                {
+                  "type": "value",
+                  "offset":0
+                }
+              ],
+              "series": [{
+                "type":"bar",
+                "name":"",
+                "barMaxWidth":40
+                }
+              ]
           },
           "sqlParameters":{
-            "start_date":"return `'${filterData.start_date?filterData.start_date:moment().format('YYYY-MM-DD')}'`",
-            "end_date":"return `'${filterData.end_date?filterData.end_date:moment().format('YYYY-MM-DD')}'`",
+            "start_date":"return `'${filterData.start_date?filterData.start_date:moment().format('YYYY-MM-DD')} 00:00:00'`",
+            "end_date":"return `'${filterData.end_date?filterData.end_date:moment().format('YYYY-MM-DD')}  23:59:59'`",
             "lock_area_filter":"return filterData.area_type?.value?`where area_type='${filterData.area_type.value}'`:'where 1=1'"
           },
-          "query":"select * from (select lock_id,count(1) as open_times from smartlockv2.sl_lock_status_record where status='011' and create_time>=%{start_date} and create_time<=%{end_date} and lock_id in (select id from smartlockv2.sl_lock %{lock_area_filter}) group by lock_id) t order by open_times desc limit 0,10",
+          "query":"select t.*,sl_lock.name as name from (select lock_id,count(1) as open_times from smartlockv2.sl_lock_status_record where status='010' and create_time>=%{start_date} and create_time<=%{end_date} and lock_id in (select id from smartlockv2.sl_lock %{lock_area_filter}) group by lock_id) t join smartlockv2.sl_lock where smartlockv2.sl_lock.id=t.lock_id order by open_times desc limit 0,10",
           "row": 1,
           "col": 1,
           "colSpan": 2,
@@ -120,7 +139,7 @@
             },
             "color":["orange","green"],
             "legend":{
-              "bottom":10
+              "show":false
             },
             "dataset":{
               "source":[
@@ -148,7 +167,8 @@
                 }
               },
               "grid":{
-                "left":100
+                "left":100,
+                "bottom":30
               },
               "xAxis": [
                 {
@@ -169,7 +189,11 @@
                 }
               ]
           },
-          "query":"select * from (select create_user,count(1) as app_count from smartlockv2.sl_application group by create_user) t order by app_count desc limit 0,10",
+          "sqlParameters":{
+            "start_date":"return `'${filterData.start_date?filterData.start_date:moment().format('YYYY-MM-DD')} 00:00:00'`",
+            "end_date":"return `'${filterData.end_date?filterData.end_date:moment().format('YYYY-MM-DD')} 23:59:59'`"
+          },
+          "query":"select * from (select create_user,count(1) as app_count from smartlockv2.sl_application where create_time>=%{start_date} and create_time<=%{end_date} group by create_user) t order by app_count desc limit 0,10",
           "row": 1,
           "col": 3,
           "colSpan": 2,
@@ -190,7 +214,7 @@
               },
               "color":["orange","green"],
               "legend":{
-                "bottom":10
+                "show":false
               },
               "dataset":{
                 "source":[
@@ -218,7 +242,8 @@
                   }
                 },
                 "grid":{
-                  "left":100
+                  "left":100,
+                  "bottom":30
                 },
                 "xAxis": [
                   {
@@ -239,9 +264,11 @@
                   }]
             },
             "sqlParameters":{
+              "start_date":"return `'${filterData.start_date?filterData.start_date:moment().format('YYYY-MM-DD')} 00:00:00'`",
+              "end_date":"return `'${filterData.end_date?filterData.end_date:moment().format('YYYY-MM-DD')} 23:59:59'`",
               "lock_area_filter":"return filterData.area_type?.value?`where area_type='${filterData.area_type.value}'`:'where 1=1'"
             },
-            "query":"select * from (select DATE(create_time) as open_date,count(1) as open_count from smartlockv2.sl_lock_status_record where status='011' and lock_id in (select id from smartlockv2.sl_lock %{lock_area_filter})) t order by open_date desc limit 0,30",
+            "query":"select * from (select DATE(create_time) as open_date,count(1) as open_count from smartlockv2.sl_lock_status_record where status='010' and create_time>=%{start_date} and create_time<=%{end_date} and lock_id in (select id from smartlockv2.sl_lock %{lock_area_filter}) group by open_date ) t order by open_date desc limit 0,30",
             "row": 2,
             "col": 1,
             "colSpan": 4,

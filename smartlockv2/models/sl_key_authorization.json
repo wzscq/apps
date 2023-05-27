@@ -2,13 +2,12 @@
     "modelID":"sl_key_authorization",
     "fields":[
         {"field":"id","name":"编号","dataType":"bigint"},
-        {"field":"key_controller_id","name":"智能钥匙管理机","dataType":"varchar"},
-        {"field":"key_id","name":"智能钥匙","dataType":"varchar"},
-        {"field":"remark","name":"备注","dataType":"varchar"},
-        {"field":"application_id","name":"授权申请ID","dataType":"bigint"},
-        {"field":"status","name":"状态","dataType":"varchar"},
-        {"field":"message","name":"状态信息","dataType":"varchar"},
-        {"field":"applications","name":"授权开锁申请","fieldType":"many2many","relatedModelID":"sl_application"},
+        {"field":"key_controller_id","name":"智能钥匙管理机","dataType":"varchar","quickSearch":true},
+        {"field":"key_id","name":"智能钥匙","dataType":"varchar","quickSearch":true},
+        {"field":"remark","name":"备注","dataType":"varchar","quickSearch":true},
+        {"field":"application_id","name":"授权申请ID","dataType":"bigint","fieldType":"many2one","relatedModelID":"sl_application"},
+        {"field":"status","name":"状态","dataType":"varchar","quickSearch":true},
+        {"field":"message","name":"状态信息","dataType":"varchar","quickSearch":true},
         {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
         {"field":"create_user","name":"记录创建人","dataType":"varchar"},
         {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
@@ -203,7 +202,7 @@
                             "location":"modal"
                         },
                         "input":{},
-                        "description":"关闭对话框"                            
+                        "description":"关闭对话框"               
                     }
                 ]
             },
@@ -211,23 +210,53 @@
                 {"field":"id","controlType": "Text","row": 1,"col": 1,"colSpan": 2,"rowSpan": 1},
                 {"field":"key_controller_id","controlType": "Text","row": 2,"col": 1,"colSpan": 2,"rowSpan": 1},
                 {"field":"key_id","controlType": "Text","row": 2,"col": 3,"colSpan": 1,"rowSpan": 1},
-                {"field":"remark","controlType": "TextArea","row": 3,"col": 1,"colSpan": 4,"rowSpan": 1},
                 {
-                    "field":"applications",
-                    "controlType": "EditTable",
-                    "controls":[
-                        {"field":"id","controlType":"Text","width":150},
-                        {"field":"id","controlType":"Text","width":150},
-                        {"field":"approver","controlType":"Text","width":150},
-                        {"field":"start_date","controlType":"Text","width":150},
-                        {"field":"end_date","controlType":"Text","width":150},
-                        {"field":"start_time","controlType":"Text","width":150},
-                        {"field":"end_time","controlType":"Text","width":150},
-                        {"field":"description","controlType":"Text","width":150},
-                        {"field":"status","controlType":"Text","width":150}
+                    "row": 3,"col": 1,"colSpan": 4,"rowSpan": 1,
+                    "label":"授权申请",
+                    "fields":["application_id"],
+                    "controlType": "FunctionTextArea",
+                    "textRowCount":4,
+                    "function":"if(data.application_id.list?.length>0){const app=data.application_id.list[0]; const appUser=app.create_user?.list?.length>0?app.create_user.list[0].user_name_zh:app.create_user.value; const approver=app.approver?.list?.length>0?app.approver.list[0].name:app.approver.value; return '申请人：'+appUser+' 审批人：'+approver + '\\n时间从：'+app.start_date+'到'+app.end_date+'\\n锁：'+app.locks?.list.map(item=>item.name).join('、') ;} return '';"
+                },
+                {
+                    "field":"application_id",
+                    "controlType": "TextArea",
+                    "fields":[
+                        {"field":"id"},
+                        {
+                            "field":"approver",
+                            "fieldType":"many2one",
+                            "relatedModelID":"sl_person",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ]
+                        },
+                        {"field":"start_date"},
+                        {"field":"end_date"},
+                        {"field":"description"},
+                        {
+                            "field":"create_user",
+                            "fieldType":"many2one",
+                            "relatedModelID":"core_user",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"user_name_zh"}
+                            ]
+                        },
+                        {
+                            "field":"locks",
+                            "fieldType":"many2many",
+                            "relatedModelID":"sl_lock",
+                            "fields":[
+                                {"field":"id"},
+                                {"field":"name"}
+                            ]
+                        }
                     ],
                     "row": 4,"col": 1,"colSpan": 4,"rowSpan": 1
-                }
+                },
+                {"field":"remark","controlType": "TextArea","row": 4,"col": 1,"colSpan": 4,"rowSpan": 1}
             ]
         }
     ]

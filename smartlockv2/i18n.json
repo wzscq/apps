@@ -1,7 +1,6 @@
 {
     "locales":[
-        {"key":"zh_CN","label":"中文"},
-        {"key":"en_US","label":"English"}
+        {"key":"zh_CN","label":"中文"}
     ],
     "defaultLocale":"zh_CN",
     "resources":{
