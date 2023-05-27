@@ -13,8 +13,8 @@
               "content":"return data.week_day_name+','+data.section_name+'('+data.start_time+'到'+data.end_time+'),'+data.class_current_grade+'年级'+data.class_number+'班'+data.subject_name+'课';"
           },
           "query":{
-            "url":"http://localhost:9900/flow/start",
-            "url1":"http://172.17.0.1:8080/dataflowservice/flow/start",
+            "url1":"http://localhost:9900/flow/start",
+            "url":"http://172.17.0.1:8080/dataflowservice/flow/start",
             "params":{
                 "flowID":"get_user_task"
             }
@@ -75,8 +75,8 @@
               ]
           },
           "query":{
-            "url":"http://localhost:9900/flow/start",
-            "url1":"http://172.17.0.1:8080/dataflowservice/flow/start",
+            "url1":"http://localhost:9900/flow/start",
+            "url":"http://172.17.0.1:8080/dataflowservice/flow/start",
             "params":{
                 "flowID":"get_teacher_curriculumn"
             }

@@ -110,8 +110,8 @@
     "views": [
         {
             "viewID": "view1", 
-            "name": "班级维护", 
-            "description": "班级维护", 
+            "name": "人员类别字典", 
+            "description": "人员类别字典", 
             "fields": [
                 {"field":"id","width":150},
                 {"field":"name","width":150},

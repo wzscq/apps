@@ -746,7 +746,7 @@
             "footer":{
                 "operations":[
                     {
-                        "operationID":"saveStudent",
+                        "operationID":"save",
                         "name":"保存"
                     },
                     {

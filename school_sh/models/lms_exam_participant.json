@@ -2,10 +2,10 @@
     "modelID": "lms_exam_participant", 
     "fields": [
         {"field":"id","name":"编号","dataType":"bigint"},
-        {"field":"exam","name":"考试名称","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_exam"},
-        {"field":"start_time","name":"开始时间","dataType":"datetime"},
-        {"field":"end_time","name":"结束时间","dataType":"datetime"},
-        {"field":"person","name":"参与人","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_person"},
+        {"field":"exam","name":"考试名称","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_exam","quickSearch":true},
+        {"field":"start_time","name":"开始时间","dataType":"datetime","quickSearch":true},
+        {"field":"end_time","name":"结束时间","dataType":"datetime","quickSearch":true},
+        {"field":"person","name":"参与人","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_person","quickSearch":true},
         {"field":"role","name":"角色","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_exam_role"},
         {"field":"subject","name":"课程","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_subject"},
         {"field":"year","name":"学年","dataType":"varchar","fieldType":"many2one","relatedModelID":"lms_year"},
@@ -358,8 +358,8 @@
         },
         {
             "viewID": "viewByTeacher", 
-            "name": "我的班级考试信息", 
-            "description": "我的班级考试信息", 
+            "name": "成绩登记", 
+            "description": "成绩登记", 
             "fields": [
                 {
                     "field":"exam",
@@ -495,6 +495,16 @@
                         },
                         {
                             "operationID": "importByTeacher"
+                        },
+                        {
+                            "operationID": "delete",
+                            "name":"删除",
+                            "selectedRows":{
+                                "min":1,
+                                "max":50,
+                                "prompt":"删除学生成绩操作需要至少选择1个，最多选择50个记录"
+                            },
+                            "prompt":"确定要删除当前选中的记录吗？"
                         }
                     ]
                 }, 
