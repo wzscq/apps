@@ -1,0 +1,30 @@
+{
+  "id":"import",
+  "name":"导入开票信息",
+  "type":"request",
+  "params":{
+    "url":"/redirect",
+    "method":"post"
+  },
+  "input":{
+    "to":"dataflow",
+    "flowID":"import_invoice"
+  },
+  "description":"导入开票信息",
+  "successOperation":{
+    "type":"close",
+    "params":{
+        "location":"modal"
+    },
+    "input":{},
+    "description":"关闭对话框",
+    "successOperation":{
+        "type":"reloadFrameData",
+        "params":{
+            "location":"tab",
+            "key":"/model/lq_invoice"
+        },
+        "description":"刷新页面数据"
+    }
+  }
+}

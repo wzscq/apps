@@ -21,7 +21,25 @@
                     "input":{},
                     "description":"打开发票开具"
                 },
-                "roles":"admin"
+                "roles":"*"
+            },
+            {
+                "id":"2",
+                "name":"发票上传记录",
+                "description":"发票上传记录",
+                "icon":"UnorderedListOutlined",
+                "operation":{
+                    "type":"open",
+                    "params":{
+                        "url":"/listview/#/lq_invoice_uploadrec",
+                        "location":"tab",
+                        "title":"发票上传记录",
+                        "key":"/model/lq_invoice_uploadrec"
+                    },
+                    "input":{},
+                    "description":"打开发票上传记录"
+                },
+                "roles":"*"
             },
             {
                 "id":"11",

@@ -8,7 +8,7 @@
           "title":"选择机构",
           "key":"/model/lq_preassigned_invno/getform/create",
           "width":500,
-          "height":200
+          "height":250
   },
   "input":{},
   "description":"打开选择机构对话框"

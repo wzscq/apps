@@ -21,7 +21,7 @@
     {"field":"xsfkhh","name":"销售方开户行","dataType":"varchar","quickSearch":true},
     {"field":"xsfzh","name":"销售方账号","dataType":"varchar","quickSearch":true},
     {"field":"xsfnsrsbh","name":"（销售方）统一社会信用代码","dataType":"varchar","quickSearch":true},
-    {"field":"gmfnsrsbh","name":"购买方）统一社会信用代码","dataType":"varchar","quickSearch":true},
+    {"field":"gmfnsrsbh","name":"（购买方）统一社会信用代码","dataType":"varchar","quickSearch":true},
     {"field":"gmfmc","name":"(购买方)名称","dataType":"varchar"},
     {"field":"gmfdz","name":"购买方地址","dataType":"varchar"},
     {"field":"gmfdh","name":"购买方电话","dataType":"varchar"},
@@ -50,11 +50,14 @@
     {"field":"zbxlh","name":"主板序列号","dataType":"varchar"},
     {"field":"kprq","name":"开票日期","dataType":"varchar"},
     {"field":"upload_status","name":"上传状态","dataType":"varchar"},
+    {"field":"sllsh","name":"上传受理流水号","dataType":"varchar"},
+    {"field":"is_del","name":"删除状态","dataType":"varchar"},
     {"field":"create_time","name":"记录创建时间","dataType":"datetime"},
     {"field":"create_user","name":"记录创建人","dataType":"varchar"},
     {"field":"update_time","name":"记录更新时间","dataType":"datetime"},
     {"field":"update_user","name":"记录更新人","dataType":"varchar"},
     {"field":"version","name":"数据版本号","dataType":"int"},
-    {"field":"lq_invoice_detail","name":"发票明细","fieldType":"one2many","relatedModelID":"lq_invoice_detail","relatedField":"lq_invoice_id"}
+    {"field":"lq_invoice_detail","name":"发票明细","fieldType":"one2many","relatedModelID":"lq_invoice_detail","relatedField":"lq_invoice_id"},
+    {"field":"lq_invoice_additional_element","name":"附加要素明细","fieldType":"one2many","relatedModelID":"lq_invoice_additional_element","relatedField":"lq_invoice_id"}
   ]
 }

@@ -3,10 +3,15 @@
   "name": "上传",
   "type":"request",
   "params":{
-      "url":"/data/invoice/upload",
+      "url":"/data/update",
       "method":"post"
   },
-  "description":"删除选中数据",
+  "input":{
+    "list":[
+        {"upload_status":"01"}
+    ]
+  },
+  "description":"将数据修改为已上传",
   "successOperation":{
       "type":"message",
       "params":{

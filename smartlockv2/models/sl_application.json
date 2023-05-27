@@ -617,6 +617,7 @@
                     "width":150,
                     "controlType": "Transfer",
                     "optionLabel":"name",
+                    "maxHeight":200,
                     "fields":[
                         {"field":"id"},
                         {"field":"name"}
@@ -629,6 +630,7 @@
                     "width":150,
                     "controlType": "Transfer",
                     "optionLabel":"name",
+                    "maxHeight":200,
                     "fields":[
                         {"field":"id"},
                         {"field":"name"}
@@ -711,6 +713,7 @@
                     "width":150,
                     "controlType": "Transfer",
                     "optionLabel":"name",
+                    "maxHeight":200,
                     "fields":[
                         {"field":"id"},
                         {"field":"name"}
@@ -723,6 +726,7 @@
                     "width":150,
                     "controlType": "Transfer",
                     "optionLabel":"name",
+                    "maxHeight":200,
                     "fields":[
                         {"field":"id"},
                         {"field":"name"}

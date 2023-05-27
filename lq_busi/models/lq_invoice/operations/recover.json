@@ -1,0 +1,32 @@
+{
+  "id": "recover", 
+  "name": "恢复为代开发票",
+  "type":"request",
+  "params":{
+      "url":"/data/update",
+      "method":"post"
+  },
+  "input":{
+    "list":[
+        {"is_del":"0"}
+    ]
+  },
+  "description":"恢复选中数据",
+  "successOperation":{
+      "type":"message",
+      "params":{
+          "type":"success",
+          "content":"操作成功!",
+          "duration":"2"
+      },
+      "description":"提示恢复数据成功",
+      "successOperation":{
+          "type":"reloadFrameData",
+          "params":{
+              "location":"tab",
+              "key":"/model/lq_invoice"
+          },
+          "description":"刷新页面数据"
+      }
+  }
+}

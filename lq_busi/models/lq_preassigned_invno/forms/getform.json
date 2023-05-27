@@ -38,6 +38,15 @@
           "colSpan": 1,
           "rowSpan": 1,
           "required":true
+      },
+      {
+        "controlType":"Number",
+        "row": 2,
+        "col": 1,
+        "field": "lysl",
+        "colSpan": 1,
+        "rowSpan": 1,
+        "required":true
       }
   ]
 }

@@ -3,8 +3,13 @@
   "name": "删除",
   "type":"request",
   "params":{
-      "url":"/data/delete",
+      "url":"/data/update",
       "method":"post"
+  },
+  "input":{
+    "list":[
+        {"is_del":"1"}
+    ]
   },
   "description":"删除选中数据",
   "successOperation":{

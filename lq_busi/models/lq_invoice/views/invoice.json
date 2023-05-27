@@ -130,13 +130,14 @@
             {"value":"03","label":"上传失败"}
         ]
     },
+    {"field":"sllsh","width":150},
     {"field":"create_time","width":150},
     {"field":"create_user","width":150},
     {"field":"update_time","width":150},
     {"field":"update_user","width":150},
     {"field":"version","width":150}   
   ], 
-  "filter": { }, 
+  "filter": {"upload_status":{"Op.in":["00","03"]},"is_del":"0"}, 
   "toolbar": {
       "listToolbar": {
           "showCount": 3, 
@@ -146,16 +147,31 @@
                 "name":"手工录入"
               },
               {
+                "operationID":"openImport",
+                "name":"导入开票信息"
+              },
+              {
                 "operationID":"upload",
-                "name":"上传"
+                "name":"上传",
+                "selectedRows":{
+                    "min":1,
+                    "max":100,
+                    "prompt":"上传发票操作需要先选择发票，数量需要在1到100张之间"
+                }
               }
           ]
       }, 
       "rowToolbar": {
           "showCount": 2,
-          "width":60, 
+          "width":90, 
           "buttons": [
-              
+            {
+                "operationID":"edit"
+            },
+            {
+                "operationID":"delete",
+                "prompt":"确定要删除这个发票吗？"
+            }
           ]
       }
   }

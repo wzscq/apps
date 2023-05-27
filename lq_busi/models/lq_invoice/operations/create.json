@@ -10,6 +10,10 @@
           "width":1200,
           "height":600
   },
-  "input":{},
+  "input":{
+    "list":[{
+      "upload_status":"00"
+    }]
+  },
   "description":"打开手工录入蓝字发票对话框" 
 }

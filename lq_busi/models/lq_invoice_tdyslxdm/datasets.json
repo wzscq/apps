@@ -2,7 +2,7 @@
   "datasets":[
     {
       "id":"DEFAULT",
-      "fields":"*",
+      "fields":"id,version,name,create_time,update_time,create_user,update_user",
       "queryRoles":"*",
       "mutationRoles":"*"
     }

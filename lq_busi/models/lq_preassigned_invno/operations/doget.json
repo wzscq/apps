@@ -1,11 +1,29 @@
 {
   "id": "doget", 
   "name": "获取预赋码",
-  "type":"close",
-  "validateFormData":false,
+  "type":"request",
   "params":{
-      "location":"modal"
+    "url":"/redirect",
+    "method":"post"
   },
-  "input":{},
-  "description":"打开选择机构对话框"
+  "input":{
+    "to":"lqbusiservice/getPreassignedInvno"
+  },
+  "description":"获取预赋码",
+  "successOperation":{
+    "type":"close",
+    "params":{
+        "location":"modal"
+    },
+    "input":{},
+    "description":"关闭对话框",
+    "successOperation":{
+        "type":"reloadFrameData",
+        "params":{
+            "location":"tab",
+            "key":"/model/lq_preassigned_invno"
+        },
+        "description":"刷新页面数据"
+    }
+  }
 }

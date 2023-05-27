@@ -7,8 +7,8 @@
     "location":"modal",
     "title":"编辑",
     "key":"/model/lq_invoice/create/edit",
-    "width":500,
-    "height":300
+    "width":1200,
+    "height":600
   },
   "input":{},
   "description":"打开编辑对话框"
